@@ -88,28 +88,47 @@ export function getWhatsAppLink(message: keyof typeof WHATSAPP_MESSAGES | string
 }
 
 export const UNSPLASH_IMAGES = {
-  hero: "https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?w=1920&q=80&auto=format&fit=crop",
+  // Hero: interior moderno de lavanderia com máquinas industriais iluminadas
+  hero: "https://images.unsplash.com/photo-1585421514284-efb74c2b69ba?w=1920&q=80&auto=format&fit=crop",
   services: {
-    roupas: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80&auto=format&fit=crop",
-    camisas: "https://images.unsplash.com/photo-1598033129183-c4f50c736c10?w=600&q=80&auto=format&fit=crop",
-    edredons: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=80&auto=format&fit=crop",
-    tapetes: "https://images.unsplash.com/photo-1600166898405-da9535204843?w=600&q=80&auto=format&fit=crop",
-    tenis: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80&auto=format&fit=crop",
-    uniformes: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80&auto=format&fit=crop",
+    // Roupas: cabides com roupas coloridas organizadas
+    roupas: "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=600&q=80&auto=format&fit=crop",
+    // Camisas: camisas sociais penduradas em cabides
+    camisas: "https://images.unsplash.com/photo-1620012253295-c15cc3e65df4?w=600&q=80&auto=format&fit=crop",
+    // Edredons: cama arrumada com edredom branco aconchegante
+    edredons: "https://images.unsplash.com/photo-1522771739448-4c5b7e7a3d68?w=600&q=80&auto=format&fit=crop",
+    // Tapetes: tapete decorativo em ambiente clean
+    tapetes: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80&auto=format&fit=crop",
+    // Tênis: par de sneakers brancos limpos
+    tenis: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&q=80&auto=format&fit=crop",
+    // Uniformes: ambiente corporativo profissional
+    uniformes: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&q=80&auto=format&fit=crop",
   },
-  about: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&q=80&auto=format&fit=crop",
-  painPoints: "https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?w=1920&q=80&auto=format&fit=crop",
+  // About: equipe trabalhando junta, aperto de mãos
+  about: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80&auto=format&fit=crop",
+  // PainPoints: pilha de roupas bagunçadas
+  painPoints: "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=1920&q=80&auto=format&fit=crop",
   blog: {
-    cuidados: "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=600&q=80&auto=format&fit=crop",
-    manchas: "https://images.unsplash.com/photo-1489274495757-95c7c837b101?w=600&q=80&auto=format&fit=crop",
-    edredom: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=80&auto=format&fit=crop",
-    tenis: "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=600&q=80&auto=format&fit=crop",
-    sustentabilidade: "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=600&q=80&auto=format&fit=crop",
-    organizacao: "https://images.unsplash.com/photo-1558997519-83ea9252edf8?w=600&q=80&auto=format&fit=crop",
-    tapetes: "https://images.unsplash.com/photo-1600166898405-da9535204843?w=600&q=80&auto=format&fit=crop",
-    cashmere: "https://images.unsplash.com/photo-1434389677669-e08b4cda3a75?w=600&q=80&auto=format&fit=crop",
-    uniforme: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80&auto=format&fit=crop",
-    alergia: "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=600&q=80&auto=format&fit=crop",
+    // Cuidados com roupas
+    cuidados: "https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?w=600&q=80&auto=format&fit=crop",
+    // Manchas: close de tecido
+    manchas: "https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?w=600&q=80&auto=format&fit=crop",
+    // Edredom: quarto aconchegante
+    edredom: "https://images.unsplash.com/photo-1540518614846-7eded433c457?w=600&q=80&auto=format&fit=crop",
+    // Tênis: sneakers lifestyle
+    tenis: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&q=80&auto=format&fit=crop",
+    // Sustentabilidade: natureza e ecologia
+    sustentabilidade: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&q=80&auto=format&fit=crop",
+    // Organização: closet organizado
+    organizacao: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80&auto=format&fit=crop",
+    // Tapetes: sala com tapete
+    tapetes: "https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=600&q=80&auto=format&fit=crop",
+    // Cashmere: textura de lã/tricô
+    cashmere: "https://images.unsplash.com/photo-1544022613-e87ca75a784a?w=600&q=80&auto=format&fit=crop",
+    // Uniforme: equipe profissional
+    uniforme: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80&auto=format&fit=crop",
+    // Alergia: pessoa espirrando / saúde
+    alergia: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80&auto=format&fit=crop",
   },
 };
 
