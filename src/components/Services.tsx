@@ -78,17 +78,14 @@ export default function Services() {
                   <p className="text-gray-500 text-sm leading-relaxed mb-4 flex-1">
                     {service.description}
                   </p>
-                  <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                    <span className="text-sm font-semibold text-accent">
-                      A partir de {service.price}
-                    </span>
+                  <div className="pt-4 border-t border-gray-100">
                     <Button
                       variant="ghost"
                       size="sm"
-                      href={getWhatsAppLink("orcamento")}
-                      className="text-accent hover:text-accent-600"
+                      href={service.landingUrl || getWhatsAppLink("orcamento")}
+                      className="text-accent hover:text-accent-600 w-full justify-center"
                     >
-                      Solicitar
+                      {service.landingUrl ? "Ver oferta especial" : "Solicitar orçamento"}
                       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                       </svg>

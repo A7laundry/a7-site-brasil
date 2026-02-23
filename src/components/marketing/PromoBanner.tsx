@@ -5,7 +5,10 @@ import Marquee from "../ui/Marquee";
 
 export default function PromoBanner() {
   return (
-    <div className="relative z-[51] bg-gradient-to-r from-primary via-accent to-primary text-white py-2">
+    <a
+      href="#ofertas"
+      className="block relative z-[51] bg-gradient-to-r from-primary via-accent to-primary text-white py-2 hover:brightness-110 transition-all"
+    >
       <Marquee speed="fast">
         {PROMO_TICKER_MESSAGES.map((msg, i) => (
           <span key={i} className="flex items-center gap-3 text-sm font-medium px-4">
@@ -14,6 +17,6 @@ export default function PromoBanner() {
           </span>
         ))}
       </Marquee>
-    </div>
+    </a>
   );
 }

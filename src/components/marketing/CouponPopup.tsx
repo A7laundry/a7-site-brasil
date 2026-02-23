@@ -1,13 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { COMPANY, COUPON_DATA } from "@/lib/constants";
+import { LANDING_PAGES, COUPON_DATA } from "@/lib/constants";
 import Popup from "../ui/Popup";
 
 export default function CouponPopup() {
   const [isOpen, setIsOpen] = useState(false);
-  const [name, setName] = useState("");
-  const [whatsapp, setWhatsapp] = useState("");
 
   useEffect(() => {
     if (sessionStorage.getItem("coupon-popup-shown")) return;
@@ -20,67 +18,77 @@ export default function CouponPopup() {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const message = `${COUPON_DATA.whatsappGroupMessage}\n\nNome: ${name}\nWhatsApp: ${whatsapp}`;
-    const url = `https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent(message)}`;
-    window.open(url, "_blank");
-    setIsOpen(false);
-  };
-
   return (
     <Popup isOpen={isOpen} onClose={() => setIsOpen(false)} className="overflow-hidden">
       <div className="gradient-warm p-6 pb-4 text-white text-center">
-        <div className="text-4xl mb-2">🎟️</div>
-        <h3 className="text-2xl font-bold mb-1">Cupons Exclusivos!</h3>
+        <div className="text-4xl mb-2">🔥</div>
+        <h3 className="text-2xl font-bold mb-1">Ofertas Imperdíveis!</h3>
         <p className="text-white/90 text-sm">
-          Entre no grupo VIP e receba ofertas toda semana
+          Promoções exclusivas com coleta e entrega grátis
         </p>
       </div>
 
       <div className="bg-white p-6">
-        {/* Last coupons */}
-        <div className="mb-5 bg-amber-50 rounded-xl p-3 border border-amber-100">
-          <p className="text-xs font-semibold text-amber-700 mb-2 uppercase tracking-wide">
-            Últimos cupons do grupo:
-          </p>
-          <div className="space-y-1.5">
-            {COUPON_DATA.coupons.map((coupon) => (
-              <div key={coupon.item} className="flex items-center justify-between">
-                <span className="text-sm text-gray-700">{coupon.item}</span>
-                <span className="text-sm font-bold text-red-600">{coupon.price}</span>
-              </div>
-            ))}
-          </div>
+        {/* Featured offers */}
+        <div className="space-y-3 mb-5">
+          <a
+            href={LANDING_PAGES.edredons}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-between p-3 rounded-xl border border-amber-100 bg-amber-50 hover:bg-amber-100 transition-colors group"
+          >
+            <div>
+              <span className="text-sm font-semibold text-gray-800 block">3 Edredons Higienizados</span>
+              <span className="text-xs text-gray-500">Leve 3, pague 2 — Coleta grátis</span>
+            </div>
+            <div className="text-right shrink-0 ml-3">
+              <span className="text-xs text-gray-400 line-through block">R$149,85</span>
+              <span className="text-lg font-bold text-red-600">R$99,90</span>
+            </div>
+          </a>
+
+          <a
+            href={LANDING_PAGES.tenis}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-between p-3 rounded-xl border border-blue-100 bg-blue-50 hover:bg-blue-100 transition-colors group"
+          >
+            <div>
+              <span className="text-sm font-semibold text-gray-800 block">3 Pares de Tênis</span>
+              <span className="text-xs text-gray-500">Limpeza 100% manual profissional</span>
+            </div>
+            <div className="text-right shrink-0 ml-3">
+              <span className="text-xs text-gray-400 line-through block">R$150,00</span>
+              <span className="text-lg font-bold text-red-600">R$109,90</span>
+            </div>
+          </a>
+
+          <a
+            href={LANDING_PAGES.estofados}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-between p-3 rounded-xl border border-green-100 bg-green-50 hover:bg-green-100 transition-colors group"
+          >
+            <div>
+              <span className="text-sm font-semibold text-gray-800 block">Sofá + Impermeabilização</span>
+              <span className="text-xs text-gray-500">20% OFF esta semana</span>
+            </div>
+            <div className="text-right shrink-0 ml-3">
+              <span className="text-lg font-bold text-green-700">A partir de R$149</span>
+            </div>
+          </a>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-3">
-          <input
-            type="text"
-            placeholder="Seu nome"
-            required
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 transition-all"
-          />
-          <input
-            type="tel"
-            placeholder="Seu WhatsApp"
-            required
-            value={whatsapp}
-            onChange={(e) => setWhatsapp(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 transition-all"
-          />
-          <button
-            type="submit"
-            className="w-full py-3.5 rounded-xl font-bold text-white gradient-warm hover:opacity-90 transition-opacity text-base shadow-lg"
-          >
-            Quero Meus Cupons!
-          </button>
-        </form>
+        <a
+          href="#ofertas"
+          onClick={() => setIsOpen(false)}
+          className="block w-full py-3.5 rounded-xl font-bold text-white gradient-warm hover:opacity-90 transition-opacity text-base shadow-lg text-center"
+        >
+          Ver Todas as Ofertas
+        </a>
 
         <p className="text-center text-xs text-gray-400 mt-3">
-          Já são mais de <strong className="text-gray-600">{COUPON_DATA.groupSize}</strong> pessoas no grupo
+          Já são mais de <strong className="text-gray-600">{COUPON_DATA.groupSize}</strong> clientes atendidos
         </p>
       </div>
     </Popup>

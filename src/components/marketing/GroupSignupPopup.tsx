@@ -1,12 +1,11 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { COMPANY, COUPON_DATA } from "@/lib/constants";
+import { LANDING_PAGES } from "@/lib/constants";
 import Popup from "../ui/Popup";
 
 export default function GroupSignupPopup() {
   const [isOpen, setIsOpen] = useState(false);
-  const [whatsapp, setWhatsapp] = useState("");
 
   const showPopup = useCallback(() => {
     if (sessionStorage.getItem("group-popup-shown")) return;
@@ -16,12 +15,10 @@ export default function GroupSignupPopup() {
   }, []);
 
   useEffect(() => {
-    // Timer: 60s
     const timer = setTimeout(() => {
       showPopup();
     }, 60000);
 
-    // Exit intent
     const handleMouseLeave = (e: MouseEvent) => {
       if (e.clientY <= 0) {
         showPopup();
@@ -36,44 +33,45 @@ export default function GroupSignupPopup() {
     };
   }, [showPopup]);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const message = `${COUPON_DATA.whatsappGroupMessage}\n\nWhatsApp: ${whatsapp}`;
-    const url = `https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent(message)}`;
-    window.open(url, "_blank");
-    setIsOpen(false);
-  };
-
   return (
     <Popup isOpen={isOpen} onClose={() => setIsOpen(false)} className="overflow-hidden">
       <div className="bg-gradient-to-br from-primary to-accent p-6 pb-4 text-white text-center">
         <div className="text-4xl mb-2">🚀</div>
-        <h3 className="text-2xl font-bold mb-1">Não vá embora sem seus cupons!</h3>
+        <h3 className="text-2xl font-bold mb-1">Não vá embora sem aproveitar!</h3>
         <p className="text-white/90 text-sm">
-          Desconto de até 50% no grupo VIP do WhatsApp
+          Ofertas exclusivas com até 50% de desconto
         </p>
       </div>
 
-      <div className="bg-white p-6">
-        <form onSubmit={handleSubmit} className="space-y-3">
-          <input
-            type="tel"
-            placeholder="Seu WhatsApp"
-            required
-            value={whatsapp}
-            onChange={(e) => setWhatsapp(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all"
-          />
-          <button
-            type="submit"
-            className="w-full py-3.5 rounded-xl font-bold text-white bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity text-base shadow-lg"
-          >
-            Entrar no Grupo VIP
-          </button>
-        </form>
+      <div className="bg-white p-6 space-y-3">
+        <a
+          href={LANDING_PAGES.edredons}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => setIsOpen(false)}
+          className="block w-full py-3.5 rounded-xl font-bold text-white bg-gradient-to-r from-amber-500 to-red-500 hover:opacity-90 transition-opacity text-base shadow-lg text-center"
+        >
+          3 Edredons por R$99,90
+        </a>
+        <a
+          href={LANDING_PAGES.tenis}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => setIsOpen(false)}
+          className="block w-full py-3.5 rounded-xl font-bold text-white bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity text-base shadow-lg text-center"
+        >
+          3 Pares de Tênis por R$109,90
+        </a>
+        <a
+          href="#ofertas"
+          onClick={() => setIsOpen(false)}
+          className="block w-full py-3 rounded-xl font-semibold text-accent border-2 border-accent/20 hover:bg-accent/5 transition-colors text-center text-sm"
+        >
+          Ver todas as promoções
+        </a>
 
-        <p className="text-center text-xs text-gray-400 mt-3">
-          100% gratuito. Saia quando quiser.
+        <p className="text-center text-xs text-gray-400 mt-1">
+          Promoções por tempo limitado. Coleta e entrega grátis.
         </p>
       </div>
     </Popup>

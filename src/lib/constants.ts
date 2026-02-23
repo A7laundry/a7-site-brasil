@@ -132,117 +132,220 @@ export const UNSPLASH_IMAGES = {
   },
 };
 
+// Landing pages por serviço — URLs completas das páginas de conversão
+const LANDING_BASE = "https://a7-landing-pages.vercel.app";
+
+export const LANDING_PAGES = {
+  edredons: `${LANDING_BASE}/`,
+  tenis: `${LANDING_BASE}/tenis/`,
+  tapetes: `${LANDING_BASE}/tapete/`,
+  cortinas: `${LANDING_BASE}/cortinas/variacao-elegance.html`,
+  couro: `${LANDING_BASE}/couro/variacao-urban.html`,
+  empresas: `${LANDING_BASE}/empresas/variacao-corporate.html`,
+  noivas: `${LANDING_BASE}/noivas/variacao-bridal.html`,
+  estofados: `${LANDING_BASE}/estofados/variacao-premium.html`,
+  pet: `${LANDING_BASE}/pet/variacao-petcare.html`,
+  ternos: `${LANDING_BASE}/ternos/variacao-dark-gold.html`,
+};
+
 export const SERVICES = [
   {
     id: "roupas-dia-a-dia",
     title: "Roupas do Dia a Dia",
     description:
       "Lavagem e passadoria completa para suas roupas do cotidiano. Cuidamos como se fossem nossas.",
-    price: "[PLACEHOLDER: preço]",
     icon: "shirt",
     image: UNSPLASH_IMAGES.services.roupas,
+    landingUrl: null,
   },
   {
     id: "roupas-sociais",
     title: "Roupas Sociais e Delicadas",
     description:
       "Tratamento especial para camisas sociais, ternos, vestidos de festa e tecidos delicados.",
-    price: "[PLACEHOLDER: preço]",
     icon: "sparkles",
     image: UNSPLASH_IMAGES.services.camisas,
+    landingUrl: LANDING_PAGES.ternos,
   },
   {
     id: "edredons",
     title: "Edredons e Cobertores",
     description:
       "Higienização profunda que elimina 100% dos ácaros. Seu edredom volta cheiroso e fofo.",
-    price: "[PLACEHOLDER: preço]",
     icon: "cloud",
     image: UNSPLASH_IMAGES.services.edredons,
+    landingUrl: LANDING_PAGES.edredons,
   },
   {
     id: "tapetes-cortinas",
     title: "Tapetes e Cortinas",
     description:
       "Lavagem especializada que preserva fibras e cores. Retirada e instalação opcionais.",
-    price: "[PLACEHOLDER: preço]",
     icon: "home",
     image: UNSPLASH_IMAGES.services.tapetes,
+    landingUrl: LANDING_PAGES.tapetes,
   },
   {
     id: "tenis",
     title: "Tênis e Calçados",
     description:
       "Higienização completa que elimina odores e bactérias. Seu tênis volta como novo.",
-    price: "[PLACEHOLDER: preço]",
     icon: "footprints",
     image: UNSPLASH_IMAGES.services.tenis,
+    landingUrl: LANDING_PAGES.tenis,
   },
   {
     id: "uniformes",
     title: "Uniformes Corporativos",
     description:
       "Soluções para empresas com planos sob medida. Volume, prazo e qualidade garantidos.",
-    price: "Sob consulta",
     icon: "building",
     image: UNSPLASH_IMAGES.services.uniformes,
+    landingUrl: LANDING_PAGES.empresas,
   },
 ];
 
-export const PLANS = [
+// Promoções em destaque — cada uma aponta para sua landing page
+// O site exibe 3 por vez, rotacionando com base no dia da semana
+export const FEATURED_PROMOS = [
   {
-    id: "essencial",
-    name: "Essencial",
-    description: "Ideal para solteiros e casais",
-    price: "[PLACEHOLDER]",
-    period: "/mês",
-    popular: false,
-    features: [
-      "Até 15 peças por semana",
-      "Coleta e entrega grátis",
-      "Lavagem e passadoria",
-      "Prazo de 48h",
-      "Atendimento via WhatsApp",
-    ],
-    cta: "Começar agora",
+    id: "edredons",
+    title: "3 Edredons por R$99,90",
+    subtitle: "Leve 3, pague 2",
+    description: "Higienização anti-ácaros com coleta e entrega grátis. Seu edredom volta fofo e cheiroso.",
+    badge: "Mais vendido",
+    priceFrom: "R$149,85",
+    priceTo: "R$99,90",
+    highlight: true,
+    url: LANDING_PAGES.edredons,
+    cta: "Garantir oferta",
   },
   {
-    id: "familia",
-    name: "Família",
-    description: "Perfeito para famílias",
-    price: "[PLACEHOLDER]",
-    period: "/mês",
-    popular: true,
-    features: [
-      "Até 40 peças por semana",
-      "Coleta e entrega grátis",
-      "Lavagem, passadoria e secagem",
-      "Prazo de 48h",
-      "Edredom mensal incluso",
-      "Atendimento prioritário",
-      "App de acompanhamento",
-    ],
-    cta: "Começar agora",
+    id: "tenis",
+    title: "3 Pares de Tênis por R$109,90",
+    subtitle: "Limpeza 100% manual",
+    description: "Escova macia, produtos profissionais. Seu tênis volta como se tivesse saído da caixa.",
+    badge: "Popular",
+    priceFrom: "R$150,00",
+    priceTo: "R$109,90",
+    highlight: false,
+    url: LANDING_PAGES.tenis,
+    cta: "Ver oferta",
   },
   {
-    id: "empresarial",
-    name: "Empresarial",
-    description: "Para empresas de todos os portes",
-    price: "Sob consulta",
-    period: "",
-    popular: false,
-    features: [
-      "Volume personalizado",
-      "Coleta e entrega diária",
-      "Uniformes e EPIs",
-      "Prazo sob medida",
-      "Gestor de conta dedicado",
-      "Relatórios mensais",
-      "Faturamento por CNPJ",
-    ],
+    id: "tapetes",
+    title: "Tapetes a partir de R$42,90/m²",
+    subtitle: "SPA profissional para seu tapete",
+    description: "Lavagem profunda com higienização anti-ácaros. Coleta e entrega grátis.",
+    badge: "Novidade",
+    priceFrom: "R$49,90/m²",
+    priceTo: "R$42,90/m²",
+    highlight: false,
+    url: LANDING_PAGES.tapetes,
+    cta: "Agendar lavagem",
+  },
+  {
+    id: "cortinas",
+    title: "Cortinas: elimine 99,9% dos alérgenos",
+    subtitle: "Lavagem + reinstalação inclusa",
+    description: "Suas cortinas filtram mais que luz. Higienização profissional com retirada e instalação.",
+    badge: "Saúde",
+    priceFrom: "",
+    priceTo: "A partir de R$30/peça",
+    highlight: false,
+    url: LANDING_PAGES.cortinas,
+    cta: "Solicitar orçamento",
+  },
+  {
+    id: "ternos",
+    title: "Terno impecável por R$79,90",
+    subtitle: "5 peças com entrega em 24h",
+    description: "Lavagem a seco premium com tecnologia europeia. Ideal para executivos.",
+    badge: "Executivo",
+    priceFrom: "",
+    priceTo: "R$79,90",
+    highlight: false,
+    url: LANDING_PAGES.ternos,
+    cta: "Agendar coleta",
+  },
+  {
+    id: "noivas",
+    title: "Vestido de Noiva: cuidado artesanal",
+    subtitle: "15+ anos de experiência",
+    description: "Limpeza especializada peça a peça para seda, organza, tule e renda. Preservação inclusa.",
+    badge: "Premium",
+    priceFrom: "",
+    priceTo: "A partir de R$80",
+    highlight: false,
+    url: LANDING_PAGES.noivas,
+    cta: "Agendar cuidado",
+  },
+  {
+    id: "estofados",
+    title: "Sofá higienizado + impermeabilização",
+    subtitle: "20% OFF esta semana",
+    description: "Elimine 99,9% dos microrganismos. Proteção de 12 meses inclusa.",
+    badge: "Promo",
+    priceFrom: "",
+    priceTo: "A partir de R$149",
+    highlight: false,
+    url: LANDING_PAGES.estofados,
+    cta: "Aproveitar desconto",
+  },
+  {
+    id: "pet",
+    title: "Caminhas pet: 200x mais bactérias",
+    subtitle: "Higienização veterinária aprovada",
+    description: "Eliminação total de pulgas, carrapatos e ácaros. Produtos hipoalergênicos.",
+    badge: "Pet lovers",
+    priceFrom: "",
+    priceTo: "A partir de R$39",
+    highlight: false,
+    url: LANDING_PAGES.pet,
+    cta: "Proteger meu pet",
+  },
+  {
+    id: "couro",
+    title: "Couro: hidratação + restauração",
+    subtitle: "Evite perder peças de R$2.000+",
+    description: "Jaquetas, bolsas e acessórios de couro tratados com produtos especializados.",
+    badge: "Cuidado",
+    priceFrom: "",
+    priceTo: "Sob consulta",
+    highlight: false,
+    url: LANDING_PAGES.couro,
+    cta: "Salvar minha peça",
+  },
+  {
+    id: "empresas",
+    title: "Uniformes corporativos: -30% custo",
+    subtitle: "150+ empresas atendidas",
+    description: "Terceirize a lavagem de uniformes e EPIs. Coleta diária e faturamento CNPJ.",
+    badge: "B2B",
+    priceFrom: "",
+    priceTo: "Sob consulta",
+    highlight: false,
+    url: LANDING_PAGES.empresas,
     cta: "Solicitar proposta",
   },
 ];
+
+// Seleciona 3 promos com rotação diária — nunca repete o mesmo conjunto
+export function getFeaturedPromos(count = 3): typeof FEATURED_PROMOS {
+  const today = new Date();
+  const dayOfYear = Math.floor(
+    (today.getTime() - new Date(today.getFullYear(), 0, 0).getTime()) / 86400000
+  );
+  // Sempre inclui edredons (carro-chefe), rotaciona os outros 2
+  const main = FEATURED_PROMOS[0]; // edredons
+  const others = FEATURED_PROMOS.slice(1);
+  const startIndex = dayOfYear % others.length;
+  const picked = [];
+  for (let i = 0; i < count - 1; i++) {
+    picked.push(others[(startIndex + i) % others.length]);
+  }
+  return [main, ...picked];
+}
 
 export const TESTIMONIALS = [
   {
@@ -343,7 +446,7 @@ export const FAQ_ITEMS = [
 export const NAV_ITEMS = [
   { label: "Serviços", href: "#servicos" },
   { label: "Como Funciona", href: "#como-funciona" },
-  { label: "Planos", href: "#planos" },
+  { label: "Ofertas", href: "#ofertas" },
   { label: "Depoimentos", href: "#depoimentos" },
   { label: "Blog", href: "#blog" },
   { label: "Cotação", href: "#cotacao" },
@@ -553,12 +656,12 @@ export const SOCIAL_PROOF_NOTIFICATIONS = [
 ];
 
 export const PROMO_TICKER_MESSAGES = [
-  "Primeiro mês com 20% OFF em todos os planos",
-  "Edredom Casal por R$29,90 no grupo de cupons",
-  "Frete grátis para planos mensais",
-  "Tênis higienizado por R$23,90 no grupo VIP",
-  "Coleta express disponível em 24h",
-  "+50.000 atendimentos realizados",
+  "3 Edredons por R$99,90 — Leve 3, pague 2!",
+  "3 Pares de Tênis por R$109,90 — Limpeza manual profissional",
+  "Tapetes a partir de R$42,90/m² com coleta grátis",
+  "Terno impecável por R$79,90 — entrega em 24h",
+  "Sofá higienizado + impermeabilização com 20% OFF",
+  "+50.000 atendimentos realizados — 14 unidades",
 ];
 
 export const QUOTE_SERVICES = [
