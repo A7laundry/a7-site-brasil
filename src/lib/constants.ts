@@ -88,8 +88,8 @@ export function getWhatsAppLink(message: keyof typeof WHATSAPP_MESSAGES | string
 }
 
 export const UNSPLASH_IMAGES = {
-  // Hero: interior moderno de lavanderia com máquinas industriais iluminadas
-  hero: "https://images.unsplash.com/photo-1585421514284-efb74c2b69ba?w=1920&q=80&auto=format&fit=crop",
+  // Hero: família feliz curtindo tempo livre junta ao ar livre
+  hero: "https://images.unsplash.com/photo-1511895426328-dc8714191300?w=1920&q=80&auto=format&fit=crop",
   services: {
     // Roupas: cabides com roupas coloridas organizadas
     roupas: "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=600&q=80&auto=format&fit=crop",
