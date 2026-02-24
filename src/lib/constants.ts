@@ -103,14 +103,6 @@ export const UNSPLASH_IMAGES = {
     tenis: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&q=80&auto=format&fit=crop",
     // Uniformes: ambiente corporativo profissional
     uniformes: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&q=80&auto=format&fit=crop",
-    // Carpet: sala com carpete limpo em casa luxuosa
-    carpet: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80&auto=format&fit=crop",
-    // Upholstery: sofá elegante em sala de estar
-    upholstery: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80&auto=format&fit=crop",
-    // Shoe Cleaning US: sneakers limpos premium
-    shoeUS: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&q=80&auto=format&fit=crop",
-    // Vacation Rental: casa de temporada luxuosa
-    vacationRental: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80&auto=format&fit=crop",
   },
   // About: equipe trabalhando junta, aperto de mãos
   about: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80&auto=format&fit=crop",
@@ -142,7 +134,6 @@ export const UNSPLASH_IMAGES = {
 
 // Landing pages por serviço — URLs completas das páginas de conversão
 const LANDING_BASE = "https://a7-landing-edredons.vercel.app";
-const LANDING_US = "https://a7laundry.github.io/a7-landing-pages";
 
 export const LANDING_PAGES = {
   edredons: `${LANDING_BASE}/`,
@@ -157,11 +148,6 @@ export const LANDING_PAGES = {
   ternos: `${LANDING_BASE}/ternos/variacao-dark-gold.html`,
   roupas: `${LANDING_BASE}/roupas/`,
   planos: `${LANDING_BASE}/planos/`,
-  // US Market — Orlando, FL
-  carpet: `${LANDING_US}/carpet-cleaning.html`,
-  upholstery: `${LANDING_US}/upholstery-cleaning.html`,
-  shoeUS: `${LANDING_US}/shoe-cleaning.html`,
-  vacationRental: `${LANDING_US}/vacation-rental.html`,
 };
 
 export const SERVICES = [
@@ -218,42 +204,6 @@ export const SERVICES = [
     icon: "building",
     image: UNSPLASH_IMAGES.services.uniformes,
     landingUrl: LANDING_PAGES.empresas,
-  },
-  {
-    id: "carpet-cleaning",
-    title: "Carpet Cleaning — Orlando",
-    description:
-      "Professional carpet cleaning starting at $45/room. Hot-water extraction kills 99.9% of bacteria.",
-    icon: "home",
-    image: UNSPLASH_IMAGES.services.carpet,
-    landingUrl: LANDING_PAGES.carpet,
-  },
-  {
-    id: "upholstery-cleaning",
-    title: "Upholstery Cleaning — Orlando",
-    description:
-      "Professional upholstery and sofa cleaning in Orlando. Eco-friendly products, safe for pets & kids.",
-    icon: "sparkles",
-    image: UNSPLASH_IMAGES.services.upholstery,
-    landingUrl: LANDING_PAGES.upholstery,
-  },
-  {
-    id: "shoe-cleaning-us",
-    title: "Shoe Cleaning — Orlando",
-    description:
-      "Premium sneaker and shoe cleaning service in Orlando. Buy 2 Get 1 FREE.",
-    icon: "footprints",
-    image: UNSPLASH_IMAGES.services.shoeUS,
-    landingUrl: LANDING_PAGES.shoeUS,
-  },
-  {
-    id: "vacation-rental",
-    title: "Vacation Rental — Orlando",
-    description:
-      "Turnover cleaning for Airbnb & vacation rentals near Disney, Universal. Save up to 30%.",
-    icon: "building",
-    image: UNSPLASH_IMAGES.services.vacationRental,
-    landingUrl: LANDING_PAGES.vacationRental,
   },
 ];
 
