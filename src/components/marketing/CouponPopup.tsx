@@ -24,7 +24,7 @@ export default function CouponPopup() {
         <div className="text-4xl mb-2">🔥</div>
         <h3 className="text-2xl font-bold mb-1">Ofertas Imperdíveis!</h3>
         <p className="text-white/90 text-sm">
-          Promoções exclusivas com coleta e entrega grátis
+          Ofertas exclusivas com coleta e entrega grátis
         </p>
       </div>
 

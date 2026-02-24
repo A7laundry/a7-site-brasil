@@ -24,7 +24,7 @@ export default function Pricing() {
               Ofertas Especiais
             </Badge>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-4 tracking-tight">
-              Promoções exclusivas para você
+              Ofertas exclusivas para você
             </h2>
             <p className="text-lg text-gray-500 max-w-2xl mx-auto">
               Aproveite nossas ofertas com coleta e entrega grátis. Clique para ver os detalhes completos.

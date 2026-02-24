@@ -67,11 +67,11 @@ export default function GroupSignupPopup() {
           onClick={() => setIsOpen(false)}
           className="block w-full py-3 rounded-xl font-semibold text-accent border-2 border-accent/20 hover:bg-accent/5 transition-colors text-center text-sm"
         >
-          Ver todas as promoções
+          Ver todas as ofertas
         </a>
 
         <p className="text-center text-xs text-gray-400 mt-1">
-          Promoções por tempo limitado. Coleta e entrega grátis.
+          Ofertas por tempo limitado. Coleta e entrega grátis.
         </p>
       </div>
     </Popup>
