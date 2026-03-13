@@ -29,9 +29,7 @@ export default function BlogSection() {
           {displayedArticles.map((article, index) => (
             <ScrollReveal key={article.id} delay={index * 0.1}>
               <a
-                href={`https://a7lavanderia.com.br/${article.slug}`}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={`/blog/${article.slug}`}
                 className="group block h-full"
               >
                 <article className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden h-full flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
@@ -72,9 +70,7 @@ export default function BlogSection() {
         <ScrollReveal>
           <div className="text-center mt-10">
             <a
-              href="https://a7lavanderia.com.br/blog"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/blog"
               className="inline-flex items-center gap-2 px-6 py-3 text-base font-semibold text-accent border-2 border-accent/20 rounded-xl hover:bg-accent/5 transition-all duration-300"
             >
               Ver todos os artigos
