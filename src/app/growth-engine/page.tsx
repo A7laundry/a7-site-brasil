@@ -378,9 +378,9 @@ const DEPARTMENTS = [
 const ROADMAP = [
   { fase: 1, nome: "Mapa de Conteúdo", status: "Concluído", descricao: "30 artigos classificados por cluster, persona, intenção e funil", entregavel: "BLOCO 1 · mapa-estrategico-conteudo.md", cor: "green" },
   { fase: 2, nome: "Matriz de LPs", status: "Concluído", descricao: "30 landing pages mapeadas por tipo, persona, URL e estratégia", entregavel: "BLOCO 2 · matriz-landing-pages.md", cor: "green" },
-  { fase: 3, nome: "Painel Operacional", status: "Em andamento", descricao: "Dashboard central para gerenciar SEO, conteúdo e LPs", entregavel: "BLOCO 3 · /growth-engine", cor: "blue" },
-  { fase: 4, nome: "Produção de LPs P0", status: "Próximo", descricao: "Implementar as 15 LPs de prioridade máxima no Next.js", entregavel: "15 páginas publicadas em a7lavanderia.com", cor: "gray" },
-  { fase: 5, nome: "SEO e Clusters", status: "Futuro", descricao: "Interlinking, structured data, GEO otimization", entregavel: "Rankings + aparição em AI Search", cor: "gray" },
+  { fase: 3, nome: "Painel Operacional", status: "Concluído", descricao: "Dashboard central para gerenciar SEO, conteúdo e LPs", entregavel: "BLOCO 3 · /growth-engine", cor: "green" },
+  { fase: 4, nome: "Produção de LPs P0", status: "Concluído", descricao: "Todas as 30 LPs estratégicas implementadas + 6 variações do site + painel de departamentos", entregavel: "30 páginas publicadas em a7lavanderia.com.br", cor: "green" },
+  { fase: 5, nome: "SEO e Clusters", status: "Próximo", descricao: "Interlinking, structured data, GEO otimization", entregavel: "Rankings + aparição em AI Search", cor: "blue" },
   { fase: 6, nome: "Programmatic SEO", status: "Futuro", descricao: "1000+ páginas geradas: /lavanderia-[cidade], /lavar-[tipo]", entregavel: "BLOCO 4 · SEO Engine automatizado", cor: "gray" },
   { fase: 7, nome: "Campanhas Pagas", status: "Futuro", descricao: "Google Ads + Meta Ads apontando para LPs específicas", entregavel: "Campanhas segmentadas por LP", cor: "gray" },
   { fase: 8, nome: "Otimização Contínua", status: "Futuro", descricao: "A/B test, CRO, análise de funil, escala", entregavel: "Dashboard de performance + IA de qualificação", cor: "gray" },

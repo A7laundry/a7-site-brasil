@@ -6,11 +6,43 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { getPostBySlug, getAllSlugs, getRelatedPosts } from "@/lib/blog";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { getWhatsAppLink } from "@/lib/constants";
 
 interface Props {
   params: { slug: string };
 }
+
+const LP_MAPPING: Record<string, string> = {
+  "alergia-acaros-roupa-cama": "/para-alergicos",
+  "higienizacao-edredom-importancia": "/higienizacao-edredom",
+  "fungos-roupa-como-eliminar": "/lavagem-roupas",
+  "higiene-roupas-bebe": "/para-maes",
+  "bacterias-tapetes-higienizacao": "/tapetes",
+  "higienizacao-cortinas-saude": "/cortinas",
+  "tirar-mancha-vinho-tinto": "/remocao-manchas",
+  "tirar-manchas-dificeis": "/remocao-manchas",
+  "tirar-mancha-oleo-roupa": "/remocao-manchas",
+  "lavar-tenis-corretamente": "/tenis",
+  "como-cuidar-roupas-delicadas": "/roupas-delicadas",
+  "cuidados-cashmere-la": "/couro-pecas-especiais",
+  "como-lavar-couro": "/couro-pecas-especiais",
+  "como-lavar-jeans": "/roupas-delicadas",
+  "limpeza-tapetes-profissional": "/tapetes",
+  "higienizar-sofa-casa": "/sofas",
+  "uniformes-corporativos-higienizacao": "/uniformes",
+  "enxoval-restaurante-gestao": "/restaurantes",
+  "lavanderia-hoteis-terceirizacao": "/hotelaria",
+  "lavanderia-sao-jose-dos-campos": "/sao-jose-dos-campos",
+  "lavanderias-vale-do-paraiba": "/vale-do-paraiba",
+  "lavanderia-sustentavel": "/sustentavel",
+  "temperatura-lavagem-tecidos": "/lavagem-roupas",
+  "lavar-mao-vs-maquina": "/lavagem-roupas",
+  "organizar-guarda-roupa": "/lavagem-roupas",
+  "guardar-roupas-inverno": "/lavagem-roupas",
+  "conservar-vestido-noiva": "/roupas-delicadas",
+  "capsule-wardrobe-guia": "/plano-mensal",
+  "consumo-consciente-roupas": "/sustentavel",
+  "produtos-ecologicos-lavar-roupa": "/sustentavel",
+};
 
 export async function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
@@ -41,6 +73,12 @@ export default function BlogArticlePage({ params }: Props) {
   if (!post) notFound();
 
   const related = getRelatedPosts(params.slug, 3);
+  const lpUrl = LP_MAPPING[post.slug] ?? "/";
+
+  const whatsappMessage = encodeURIComponent(
+    `Olá! Li o artigo '${post.title}' e gostaria de agendar uma coleta.`
+  );
+  const whatsappUrl = `https://wa.me/5512974128390?text=${whatsappMessage}`;
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -53,7 +91,10 @@ export default function BlogArticlePage({ params }: Props) {
     publisher: {
       "@type": "Organization",
       name: "A7 Lavanderia",
-      logo: { "@type": "ImageObject", url: "https://a7lavanderia.com.br/logo.png" },
+      logo: {
+        "@type": "ImageObject",
+        url: "https://a7lavanderia.com.br/logo.png",
+      },
     },
   };
 
@@ -61,185 +102,249 @@ export default function BlogArticlePage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://a7lavanderia.com.br" },
-      { "@type": "ListItem", position: 2, name: "Blog", item: "https://a7lavanderia.com.br/blog" },
-      { "@type": "ListItem", position: 3, name: post.title, item: `https://a7lavanderia.com.br/blog/${post.slug}` },
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://a7lavanderia.com.br",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blog",
+        item: "https://a7lavanderia.com.br/blog",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: post.title,
+        item: `https://a7lavanderia.com.br/blog/${post.slug}`,
+      },
     ],
   };
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
 
       <Header />
       <main className="min-h-screen bg-white">
-        {/* Hero Image */}
-        <div className="relative h-64 sm:h-80 md:h-96 w-full mt-16">
-          <Image
-            src={post.image}
-            alt={post.title}
-            fill
-            className="object-cover"
-            priority
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60" />
-          <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
-            <div className="container-main mx-auto">
-              <span className="inline-flex items-center px-2.5 py-1 text-xs font-semibold rounded-full bg-white/20 text-white backdrop-blur-sm mb-3">
-                {post.category}
+        {/* Hero Section */}
+        <section className="pt-20 pb-8 bg-gray-50 border-b border-gray-100">
+          <div className="container-main mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+            {/* Breadcrumb */}
+            <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6">
+              <Link href="/" className="hover:text-accent transition-colors">
+                Home
+              </Link>
+              <span>/</span>
+              <Link href="/blog" className="hover:text-accent transition-colors">
+                Blog
+              </Link>
+              <span>/</span>
+              <span className="text-gray-600 line-clamp-1">{post.title}</span>
+            </nav>
+
+            {/* Category badge */}
+            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-accent/10 text-accent mb-4">
+              {post.category}
+            </span>
+
+            {/* Title */}
+            <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-4">
+              {post.title}
+            </h1>
+
+            {/* Excerpt */}
+            <p className="text-lg text-gray-500 mb-6 leading-relaxed">{post.excerpt}</p>
+
+            {/* Meta: author, date, reading time */}
+            <div className="flex flex-wrap items-center gap-3 text-sm text-gray-400 mb-6">
+              <span>Por {post.author}</span>
+              <span>·</span>
+              <span>
+                {new Date(post.publishedAt).toLocaleDateString("pt-BR", {
+                  day: "2-digit",
+                  month: "long",
+                  year: "numeric",
+                })}
               </span>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight max-w-3xl">
-                {post.title}
-              </h1>
+              <span>·</span>
+              <span>{post.readingTime} de leitura</span>
+            </div>
+
+            {/* Tags */}
+            {post.tags.length > 0 && (
+              <div className="flex flex-wrap gap-2 mb-8">
+                {post.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-3 py-1 text-xs font-medium rounded-full bg-white border border-gray-200 text-gray-500"
+                  >
+                    #{tag}
+                  </span>
+                ))}
+              </div>
+            )}
+
+            {/* Hero Image */}
+            <div className="relative h-64 sm:h-80 md:h-96 w-full rounded-2xl overflow-hidden">
+              <Image
+                src={post.image}
+                alt={post.title}
+                fill
+                className="object-cover"
+                priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 800px"
+              />
             </div>
           </div>
-        </div>
+        </section>
 
-        <div className="container-main mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex flex-col lg:flex-row gap-10">
-            {/* Article Content */}
-            <article className="flex-1 min-w-0">
-              {/* Meta */}
-              <div className="flex flex-wrap items-center gap-4 text-sm text-gray-400 mb-8 pb-8 border-b border-gray-100">
-                <span>
-                  {new Date(post.publishedAt).toLocaleDateString("pt-BR", {
-                    day: "2-digit",
-                    month: "long",
-                    year: "numeric",
-                  })}
-                </span>
-                <span>·</span>
-                <span>{post.readingTime} de leitura</span>
-                <span>·</span>
-                <span>Por {post.author}</span>
-              </div>
-
-              {/* Breadcrumb */}
-              <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6">
-                <Link href="/" className="hover:text-accent transition-colors">Home</Link>
-                <span>/</span>
-                <Link href="/blog" className="hover:text-accent transition-colors">Blog</Link>
-                <span>/</span>
-                <span className="text-gray-600 line-clamp-1">{post.title}</span>
-              </nav>
-
-              {/* MDX Content */}
-              <div className="prose prose-lg prose-gray max-w-none
-                prose-headings:font-bold prose-headings:text-primary
-                prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
-                prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
-                prose-p:text-gray-600 prose-p:leading-relaxed
-                prose-a:text-accent prose-a:no-underline hover:prose-a:underline
-                prose-strong:text-gray-800
-                prose-ul:text-gray-600 prose-ol:text-gray-600
-                prose-li:my-1
-                prose-table:text-sm
-                prose-th:bg-gray-50 prose-th:text-gray-700 prose-th:font-semibold
-                prose-td:text-gray-600
-                prose-blockquote:border-accent prose-blockquote:text-gray-600
-                prose-code:text-accent prose-code:bg-accent/5 prose-code:px-1 prose-code:rounded
-              ">
+        {/* Article Body */}
+        <section className="py-12">
+          <div className="container-main mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+            <article>
+              <div
+                className="prose prose-lg max-w-none
+                  prose-headings:text-gray-900
+                  prose-h2:text-2xl prose-h2:font-bold prose-h2:mt-10 prose-h2:mb-4
+                  prose-h3:text-xl prose-h3:font-semibold prose-h3:mt-8 prose-h3:mb-3
+                  prose-p:text-gray-600 prose-p:leading-relaxed
+                  prose-strong:text-gray-900
+                  prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline
+                  prose-li:text-gray-600 prose-li:my-1
+                  prose-ul:text-gray-600 prose-ol:text-gray-600
+                  prose-blockquote:border-accent prose-blockquote:text-gray-600
+                  prose-table:text-sm
+                  prose-th:bg-gray-50 prose-th:text-gray-700 prose-th:font-semibold
+                  prose-td:text-gray-600
+                  prose-code:text-accent prose-code:bg-accent/5 prose-code:px-1 prose-code:rounded"
+              >
                 <MDXRemote source={post.content} />
-              </div>
-
-              {/* Tags */}
-              {post.tags.length > 0 && (
-                <div className="mt-10 pt-8 border-t border-gray-100">
-                  <div className="flex flex-wrap gap-2">
-                    {post.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-600"
-                      >
-                        #{tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* CTA Bottom */}
-              <div className="mt-10 p-6 bg-accent/5 rounded-2xl border border-accent/10">
-                <p className="font-bold text-primary text-lg mb-2">
-                  Gostou do conteúdo? A A7 cuida das suas roupas com o mesmo cuidado.
-                </p>
-                <p className="text-gray-500 text-sm mb-4">
-                  Coleta e entrega grátis em todo o Vale do Paraíba. Agende em menos de 2 minutos.
-                </p>
-                <a
-                  href={getWhatsAppLink("agendar")}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-accent text-white font-semibold rounded-xl hover:bg-accent/90 transition-colors text-sm"
-                >
-                  Agendar coleta pelo WhatsApp
-                </a>
               </div>
             </article>
 
-            {/* Sidebar */}
-            <aside className="w-full lg:w-72 shrink-0">
-              <div className="sticky top-24 space-y-6">
-                {/* WhatsApp CTA */}
-                <div className="bg-primary rounded-2xl p-6 text-white">
-                  <p className="font-bold text-lg mb-2">Roupas impecáveis na sua porta</p>
-                  <p className="text-white/70 text-sm mb-4">
-                    Coleta gratuita, 48h de prazo, 4.9 no Google
-                  </p>
-                  <a
-                    href={getWhatsAppLink("agendar")}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block w-full py-3 bg-accent text-white text-center font-semibold rounded-xl hover:bg-accent/90 transition-colors text-sm"
-                  >
-                    Agendar pelo WhatsApp
-                  </a>
-                </div>
-
-                {/* Related Posts */}
-                {related.length > 0 && (
-                  <div>
-                    <h3 className="font-bold text-primary text-base mb-4">Artigos relacionados</h3>
-                    <div className="space-y-4">
-                      {related.map((rel) => (
-                        <Link key={rel.slug} href={`/blog/${rel.slug}`} className="group flex gap-3">
-                          <div className="relative w-20 h-16 rounded-lg overflow-hidden shrink-0">
-                            <Image
-                              src={rel.image}
-                              alt={rel.title}
-                              fill
-                              className="object-cover group-hover:scale-105 transition-transform duration-300"
-                              sizes="80px"
-                            />
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <p className="text-sm font-medium text-primary group-hover:text-accent transition-colors line-clamp-2 leading-snug">
-                              {rel.title}
-                            </p>
-                            <p className="text-xs text-gray-400 mt-1">{rel.readingTime}</p>
-                          </div>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Back to Blog */}
-                <Link
-                  href="/blog"
-                  className="flex items-center gap-2 text-sm text-gray-400 hover:text-accent transition-colors"
+            {/* CTA Banner */}
+            <div className="mt-12 rounded-2xl bg-[#0047FF] p-8 text-white">
+              <h2 className="text-2xl font-bold mb-2">Pronto para experimentar?</h2>
+              <p className="text-white/80 mb-6">
+                Agende sua coleta agora — sem compromisso, sem fidelidade.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-white text-[#0047FF] font-semibold rounded-xl hover:bg-white/90 transition-colors text-sm"
                 >
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
-                  </svg>
-                  Ver todos os artigos
+                  Agendar pelo WhatsApp →
+                </a>
+                <Link
+                  href={lpUrl}
+                  className="inline-flex items-center justify-center px-6 py-3 bg-white/10 text-white font-semibold rounded-xl hover:bg-white/20 transition-colors text-sm border border-white/20"
+                >
+                  Ver serviço →
                 </Link>
               </div>
-            </aside>
+            </div>
+
+            {/* Related Posts */}
+            {related.length > 0 && (
+              <div className="mt-16">
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Artigos relacionados</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                  {related.map((rel) => (
+                    <Link
+                      key={rel.slug}
+                      href={`/blog/${rel.slug}`}
+                      className="group block"
+                    >
+                      <article className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden h-full flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                        <div className="relative h-40 overflow-hidden">
+                          <Image
+                            src={rel.image}
+                            alt={rel.title}
+                            fill
+                            className="object-cover transition-transform duration-500 group-hover:scale-110"
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 260px"
+                          />
+                          <div className="absolute top-3 left-3">
+                            <span className="inline-flex items-center px-2.5 py-1 text-xs font-semibold rounded-full bg-white/90 text-primary backdrop-blur-sm">
+                              {rel.category}
+                            </span>
+                          </div>
+                        </div>
+                        <div className="p-4 flex flex-col flex-1">
+                          <div className="flex items-center gap-2 text-xs text-gray-400 mb-2">
+                            <span>
+                              {new Date(rel.publishedAt).toLocaleDateString("pt-BR", {
+                                day: "2-digit",
+                                month: "short",
+                                year: "numeric",
+                              })}
+                            </span>
+                            <span>·</span>
+                            <span>{rel.readingTime}</span>
+                          </div>
+                          <h3 className="text-sm font-bold text-gray-900 group-hover:text-accent transition-colors line-clamp-2 leading-snug flex-1">
+                            {rel.title}
+                          </h3>
+                          <div className="mt-3 flex items-center text-accent text-xs font-semibold">
+                            Ler artigo
+                            <svg
+                              className="w-3 h-3 ml-1 transition-transform group-hover:translate-x-1"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                              strokeWidth={2}
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                      </article>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Back to Blog */}
+            <div className="mt-12 pt-8 border-t border-gray-100">
+              <Link
+                href="/blog"
+                className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-accent transition-colors"
+              >
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+                  />
+                </svg>
+                Ver todos os artigos
+              </Link>
+            </div>
           </div>
-        </div>
+        </section>
       </main>
       <Footer />
     </>

@@ -62,5 +62,72 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.9,
       }))
     ),
+
+    // LPs estratégicas
+    // P0 — prioridade máxima
+    ...[
+      "/sao-jose-dos-campos",
+      "/higienizacao-edredom",
+      "/tenis",
+      "/remocao-manchas",
+      "/para-alergicos",
+      "/precos",
+      "/tapetes",
+      "/empresarial",
+      "/sofas",
+      "/restaurantes",
+      "/para-casais",
+      "/vale-do-paraiba",
+      "/como-funciona",
+      "/plano-mensal",
+    ].map((slug) => ({
+      url: `${baseUrl}${slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    })),
+
+    // P1 — prioridade alta
+    ...[
+      "/para-maes",
+      "/lavanderia-ou-lavar-em-casa",
+      "/roupas-delicadas",
+      "/para-executivos",
+      "/airbnb",
+      "/hotelaria",
+      "/uniformes",
+      "/condominios",
+    ].map((slug) => ({
+      url: `${baseUrl}${slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
+
+    // P2 — prioridade média
+    ...[
+      "/cortinas",
+      "/couro-pecas-especiais",
+      "/premium",
+      "/sustentavel",
+      "/taubate",
+      "/jacarei",
+      "/lorena-guaratingueta",
+    ].map((slug) => ({
+      url: `${baseUrl}${slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+
+    // Variações do site
+    ...["/version-c", "/version-d", "/version-e", "/version-f"].map(
+      (slug) => ({
+        url: `${baseUrl}${slug}`,
+        lastModified: new Date(),
+        changeFrequency: "monthly" as const,
+        priority: 0.3,
+      })
+    ),
   ];
 }

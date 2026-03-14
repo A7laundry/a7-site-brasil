@@ -3,6 +3,59 @@ import { Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "A7 Lavanderia",
+  description:
+    "Lavanderia premium com coleta e entrega no Vale do Paraíba. Roupas, tênis, edredons e tapetes higienizados com padrão internacional.",
+  url: "https://a7lavanderia.com.br",
+  telephone: "+55-12-97412-8390",
+  priceRange: "$$",
+  image: "https://a7lavanderia.com.br/og-image.jpg",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "São José dos Campos",
+    addressRegion: "SP",
+    addressCountry: "BR",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: -23.1896,
+    longitude: -45.8841,
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "08:00",
+      closes: "18:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: "Saturday",
+      opens: "08:00",
+      closes: "13:00",
+    },
+  ],
+  sameAs: [],
+  serviceArea: {
+    "@type": "GeoCircle",
+    geoMidpoint: {
+      "@type": "GeoCoordinates",
+      latitude: -23.1896,
+      longitude: -45.8841,
+    },
+    geoRadius: "100000",
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.9",
+    reviewCount: "1200",
+    bestRating: "5",
+  },
+};
+
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -93,7 +146,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={inter.variable}>
-      <head />
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
+      </head>
       <body className="font-sans antialiased">
         {children}
         {/* Google Analytics 4 */}
