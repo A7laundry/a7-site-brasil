@@ -147,15 +147,232 @@ const KANBAN = {
 };
 
 const DEPARTMENTS = [
-  { nome: "Estratégia", cor: "blue", icone: "🎯", responsabilidade: "Define prioridades e roadmap", lps: 30 },
-  { nome: "Conteúdo", cor: "green", icone: "✍️", responsabilidade: "Cria artigos e copy das LPs", lps: 10 },
-  { nome: "Desenvolvimento", cor: "indigo", icone: "💻", responsabilidade: "Implementa LPs no Next.js", lps: 20 },
-  { nome: "Design", cor: "pink", icone: "🎨", responsabilidade: "Cria identidade visual e criativos", lps: 7 },
-  { nome: "Tráfego Pago", cor: "orange", icone: "📢", responsabilidade: "Distribui campanhas para LPs P0", lps: 8 },
-  { nome: "Comercial", cor: "amber", icone: "🤝", responsabilidade: "Fecha vendas via WhatsApp", lps: 5 },
-  { nome: "Operação", cor: "teal", icone: "⚙️", responsabilidade: "Executa os serviços com qualidade", lps: 0 },
-  { nome: "BI / Dados", cor: "purple", icone: "📊", responsabilidade: "Analisa performance e métricas", lps: 0 },
-  { nome: "IA", cor: "violet", icone: "🤖", responsabilidade: "Qualifica leads e automatiza respostas", lps: 0 },
+  {
+    nome: "Estratégia",
+    cor: "blue",
+    icone: "🎯",
+    responsabilidade: "Define prioridades e roadmap",
+    lps: 30,
+    status: "Ativo",
+    descricao: "Cérebro do Growth Engine. Define o que será feito, em que ordem e por quê. Toma decisões baseadas em dados, personas e oportunidades de mercado.",
+    tarefas: [
+      "Definir e priorizar as 30 LPs por P0/P1/P2",
+      "Mapear clusters de conteúdo e personas-alvo",
+      "Gerenciar o roadmap de 8 fases do Growth Engine",
+      "Validar hipóteses de conversão por LP",
+      "Decidir qual variação do site principal promover",
+      "Alinhar estratégia de conteúdo com oportunidades SEO",
+    ],
+    entregaveis: [
+      "blueprint-30-artigos.md — mapa completo de conteúdo",
+      "matriz-landing-pages.md — 30 LPs priorizadas",
+      "Painel Growth Engine (/growth-engine)",
+      "Roadmap de fases atualizado",
+    ],
+    kpis: ["LPs publicadas vs. planejadas", "Posições no Google por cluster", "Receita atribuída ao funil orgânico", "Fases do roadmap concluídas"],
+    ferramentas: ["Growth Engine (este painel)", "Google Search Console", "ClickUp", "Claude AI"],
+  },
+  {
+    nome: "Conteúdo",
+    cor: "green",
+    icone: "✍️",
+    responsabilidade: "Cria artigos e copy das LPs",
+    lps: 10,
+    status: "Em andamento",
+    descricao: "Alimenta o topo e meio do funil. Produz conteúdo que atrai, educa e converte — dos artigos SEO ao copy de cada LP.",
+    tarefas: [
+      "Escrever os 30 artigos do blog por cluster e intenção",
+      "Criar copy das 30 LPs (hero, benefícios, FAQ, CTA)",
+      "Produzir 6 iscas digitais por persona (guias, checklists)",
+      "Escrever meta-descriptions e títulos SEO otimizados",
+      "Criar conteúdo para sequências de nurture no WhatsApp",
+      "Manter consistência de voz da marca em todos os canais",
+    ],
+    entregaveis: [
+      "30 artigos publicados no blog",
+      "Copy completo das 30 LPs",
+      "6 iscas digitais por persona",
+      "Meta-descriptions e títulos SEO",
+    ],
+    kpis: ["Artigos publicados por mês", "Tempo médio na página (> 3min)", "Palavras-chave rankeando no Top 10", "Taxa de clique nos CTAs"],
+    ferramentas: ["Notion", "Claude AI", "Google Search Console", "Semrush / Ubersuggest"],
+  },
+  {
+    nome: "Desenvolvimento",
+    cor: "indigo",
+    icone: "💻",
+    responsabilidade: "Implementa LPs no Next.js",
+    lps: 20,
+    status: "Ativo",
+    descricao: "Constrói e mantém toda a infraestrutura digital. Das 30 LPs ao programmatic SEO — transforma estratégia em páginas funcionais e performáticas.",
+    tarefas: [
+      "Implementar as 30 LPs estratégicas em Next.js 14",
+      "Manter e evoluir o painel Growth Engine",
+      "Escalar o programmatic SEO (/lavanderia/[cidade] — 133+ páginas)",
+      "Otimizar Core Web Vitals (LCP < 2.5s, CLS < 0.1)",
+      "Implementar UTMs e tracking em todos os CTAs",
+      "Integrar WhatsApp deep links com mensagens pré-preenchidas",
+      "Criar e testar variações A-F do site principal",
+    ],
+    entregaveis: [
+      "30 LPs deployadas na Vercel",
+      "133 páginas programáticas /lavanderia/[cidade]",
+      "Painel Growth Engine funcional",
+      "6 variações do site principal (A–F)",
+    ],
+    kpis: ["LPs ao ar sem erros de build", "LCP < 2.5s em todas as LPs", "Uptime 99.9% na Vercel", "Score Lighthouse > 90"],
+    ferramentas: ["Next.js 14", "Vercel", "GitHub", "Claude Code", "Tailwind CSS"],
+  },
+  {
+    nome: "Design",
+    cor: "pink",
+    icone: "🎨",
+    responsabilidade: "Cria identidade visual e criativos",
+    lps: 7,
+    status: "Planejado",
+    descricao: "Garante que cada LP comunique visualmente o que o copy promete. Do sistema de cores às imagens hero — design que converte.",
+    tarefas: [
+      "Definir e manter o sistema de tokens visuais (cores, tipografia)",
+      "Selecionar e editar imagens hero alinhadas à mensagem de cada LP",
+      "Criar criativos para campanhas de tráfego pago (Google + Meta)",
+      "Design das 6 iscas digitais por persona",
+      "Criar thumbnails para os cards de LP no Growth Engine",
+      "Testar variações visuais de CTA (cor, tamanho, texto)",
+    ],
+    entregaveis: [
+      "Guidelines visuais A7 Lavanderia",
+      "Biblioteca de imagens hero por LP",
+      "Pack de criativos para ads por cluster",
+      "Design das iscas digitais",
+    ],
+    kpis: ["Consistência visual entre LPs (audit mensal)", "CTR dos criativos de ads (> 2%)", "Taxa de conversão por variação visual"],
+    ferramentas: ["Figma", "Canva Pro", "Adobe Lightroom", "Unsplash Pro"],
+  },
+  {
+    nome: "Tráfego Pago",
+    cor: "orange",
+    icone: "📢",
+    responsabilidade: "Distribui campanhas para LPs P0",
+    lps: 8,
+    status: "Planejado",
+    descricao: "Acelera o que já converte organicamente. Direciona budget para as LPs P0 com maior potencial de retorno e segmenta por persona e intenção.",
+    tarefas: [
+      "Criar campanhas Google Ads (Search) para LPs P0 de alta intenção",
+      "Criar campanhas Meta Ads para LPs de persona (mães, casais, executivos)",
+      "Configurar remarketing segmentado por LP visitada",
+      "Testar audiências lookalike com base em clientes atuais",
+      "Gerenciar orçamento por CPA-alvo (< R$25)",
+      "Integrar UTMs com o BI para atribuição precisa",
+    ],
+    entregaveis: [
+      "Campanhas Google Ads ativas para LPs P0",
+      "Campanhas Meta Ads por persona",
+      "Remarketing configurado por LP",
+      "Relatório quinzenal de CPA e ROAS",
+    ],
+    kpis: ["CPA < R$25 por lead", "ROAS > 4x", "CTR Search > 5%", "CTR Display > 1%"],
+    ferramentas: ["Google Ads", "Meta Ads Manager", "Google Tag Manager", "Looker Studio"],
+  },
+  {
+    nome: "Comercial",
+    cor: "amber",
+    icone: "🤝",
+    responsabilidade: "Fecha vendas via WhatsApp",
+    lps: 5,
+    status: "Ativo",
+    descricao: "Transforma leads em clientes. Atua no fundo do funil — recebe os contatos qualificados pelas LPs e fecha pedidos e planos mensais.",
+    tarefas: [
+      "Responder leads no WhatsApp em menos de 5 minutos",
+      "Qualificar intenção: pedido avulso vs. plano mensal",
+      "Enviar orçamentos personalizados por tipo de serviço",
+      "Fazer follow-up com leads que não responderam",
+      "Converter avulsos em assinantes do plano mensal",
+      "Coletar feedback pós-serviço para depoimentos",
+    ],
+    entregaveis: [
+      "Taxa de conversão WhatsApp → pedido",
+      "Carteira de assinantes do plano mensal",
+      "Base de depoimentos reais por persona",
+      "Relatório de objeções mais comuns",
+    ],
+    kpis: ["Tempo de 1ª resposta < 5min", "Taxa de conversão > 30%", "Assinantes plano mensal (meta: 20)", "NPS pós-atendimento > 85"],
+    ferramentas: ["WhatsApp Business", "Planilha de leads", "CRM (a definir)", "Notion"],
+  },
+  {
+    nome: "Operação",
+    cor: "teal",
+    icone: "⚙️",
+    responsabilidade: "Executa os serviços com qualidade",
+    lps: 0,
+    status: "Ativo",
+    descricao: "Entrega o que as LPs prometem. A experiência do cliente começa aqui — coleta no prazo, qualidade no processo e entrega sem surpresas.",
+    tarefas: [
+      "Executar coletas dentro do SLA prometido por LP",
+      "Garantir padrão de qualidade por tipo de serviço",
+      "Devolver peças no prazo acordado com o cliente",
+      "Gerenciar capacidade operacional conforme volume de leads",
+      "Registrar e tratar reclamações de clientes",
+      "Alimentar o comercial com feedbacks para depoimentos",
+    ],
+    entregaveis: [
+      "SLA de entrega cumprido por tipo de serviço",
+      "Zero peças danificadas por mês",
+      "Relatório de capacidade vs. demanda",
+      "Base de feedbacks por serviço",
+    ],
+    kpis: ["On-time delivery > 95%", "Reclamações < 1% do volume", "NPS operacional > 80", "Capacidade utilizada vs. disponível"],
+    ferramentas: ["Agenda de coletas", "Sistema interno", "WhatsApp", "Planilha de controle"],
+  },
+  {
+    nome: "BI / Dados",
+    cor: "purple",
+    icone: "📊",
+    responsabilidade: "Analisa performance e métricas",
+    lps: 0,
+    status: "Planejado",
+    descricao: "Transforma dados em decisões. Monitora cada LP do funil, identifica onde há vazamento e direciona o time para o que realmente converte.",
+    tarefas: [
+      "Configurar GA4 com eventos customizados em todas as LPs",
+      "Implementar UTMs padronizados por canal e LP",
+      "Criar dashboards de conversão por LP e cluster",
+      "Analisar scroll depth e heatmaps por LP",
+      "Coordenar A/B test das variações do site (A–F)",
+      "Produzir relatório mensal de performance do funil",
+    ],
+    entregaveis: [
+      "Dashboard de conversão por LP (Looker Studio)",
+      "Relatório mensal de performance",
+      "Análise de A/B test com variação vencedora",
+      "Mapa de calor das LPs principais",
+    ],
+    kpis: ["Cobertura de tracking (100% das LPs)", "Dados de conversão por LP atualizados", "Insights acionáveis por mês", "Decisão de variação vencedora a cada 30 dias"],
+    ferramentas: ["Google Analytics 4", "Hotjar", "Looker Studio", "Google Search Console", "Google Tag Manager"],
+  },
+  {
+    nome: "IA",
+    cor: "violet",
+    icone: "🤖",
+    responsabilidade: "Qualifica leads e automatiza respostas",
+    lps: 0,
+    status: "Planejado",
+    descricao: "Escala o comercial sem escalar a equipe. Qualifica leads 24/7, responde dúvidas frequentes e nutre quem não converteu na primeira visita.",
+    tarefas: [
+      "Implementar bot de qualificação no WhatsApp Business API",
+      "Automatizar respostas para as 20 perguntas mais frequentes",
+      "Criar sequência de nurture pós-cadastro (5 mensagens por persona)",
+      "Sugerir LP relevante com base no comportamento do usuário",
+      "Integrar dados do bot com o CRM comercial",
+      "Treinar modelo com histórico de conversas convertidas",
+    ],
+    entregaveis: [
+      "Bot de qualificação WhatsApp ativo",
+      "Sequências de nurture por persona (9 clusters)",
+      "Relatório de leads qualificados automaticamente",
+      "Integração bot → CRM funcionando",
+    ],
+    kpis: ["% leads qualificados sem intervenção humana (meta: 40%)", "Tempo de resposta bot < 30s", "Taxa de abertura nurture > 60%", "Leads que retornam após nurture"],
+    ferramentas: ["WhatsApp Business API", "n8n / Make", "Claude API", "Supabase (base de leads)"],
+  },
 ];
 
 const ROADMAP = [
@@ -739,6 +956,7 @@ function ArtigosSection() {
 export default function GrowthEngineDashboard() {
   const [activeSection, setActiveSection] = useState("overview");
   const [lpFilter, setLpFilter] = useState("Todos");
+  const [selectedDept, setSelectedDept] = useState<typeof DEPARTMENTS[0] | null>(null);
 
   const publishedLPs = LANDING_PAGES.filter((lp) => lp.status === "Publicado").length;
   const p0LPs = LANDING_PAGES.filter((lp) => lp.prioridade === "P0").length;
@@ -1618,25 +1836,30 @@ export default function GrowthEngineDashboard() {
               <p className="text-sm text-gray-400">9 departamentos envolvidos no Growth Engine</p>
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
                 {DEPARTMENTS.map((dept) => (
-                  <div
+                  <button
                     key={dept.nome}
-                    className="bg-white/[0.03] border border-white/[0.07] rounded-xl p-5 hover:bg-white/[0.06] transition-colors"
+                    onClick={() => setSelectedDept(dept)}
+                    className="text-left bg-white/[0.03] border border-white/[0.07] rounded-xl p-5 hover:bg-white/[0.06] hover:border-white/20 transition-all duration-150 group w-full"
                   >
                     <div className="flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-xl bg-white/[0.06] flex items-center justify-center text-xl shrink-0">
+                      <div className="w-10 h-10 rounded-xl bg-white/[0.06] flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition-transform">
                         {dept.icone}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="text-sm font-semibold text-gray-100">{dept.nome}</p>
+                        <div className="flex items-center justify-between gap-2">
+                          <p className="text-sm font-semibold text-gray-100">{dept.nome}</p>
+                          <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full shrink-0 ${dept.status === "Ativo" ? "bg-emerald-500/15 text-emerald-400" : dept.status === "Em andamento" ? "bg-blue-500/15 text-blue-400" : "bg-gray-500/15 text-gray-500"}`}>
+                            {dept.status}
+                          </span>
+                        </div>
                         <p className="text-xs text-gray-500 mt-0.5">{dept.responsabilidade}</p>
-                        {dept.lps > 0 && (
-                          <div className="mt-2">
-                            <p className="text-[10px] text-gray-600">{dept.lps} LPs sob responsabilidade</p>
-                          </div>
-                        )}
+                        <div className="flex items-center gap-3 mt-2">
+                          {dept.lps > 0 && <p className="text-[10px] text-gray-600">{dept.lps} LPs</p>}
+                          <p className="text-[10px] text-gray-700 group-hover:text-gray-500 transition-colors">Ver detalhes →</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </button>
                 ))}
               </div>
 
@@ -1761,6 +1984,101 @@ export default function GrowthEngineDashboard() {
 
         </div>
       </main>
+
+      {/* ─── DEPT MODAL ──────────────────────────────────────────────────────── */}
+      {selectedDept && (
+        <div
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4"
+          onClick={() => setSelectedDept(null)}
+        >
+          <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
+          <div
+            className="relative bg-[#0e0e12] border border-white/[0.1] rounded-t-2xl sm:rounded-2xl w-full sm:max-w-2xl max-h-[85vh] overflow-y-auto shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header */}
+            <div className="sticky top-0 bg-[#0e0e12] border-b border-white/[0.07] px-6 py-4 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-white/[0.06] flex items-center justify-center text-xl">
+                  {selectedDept.icone}
+                </div>
+                <div>
+                  <p className="font-bold text-white">{selectedDept.nome}</p>
+                  <p className="text-xs text-gray-500">{selectedDept.responsabilidade}</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full ${selectedDept.status === "Ativo" ? "bg-emerald-500/15 text-emerald-400" : selectedDept.status === "Em andamento" ? "bg-blue-500/15 text-blue-400" : "bg-gray-500/15 text-gray-500"}`}>
+                  {selectedDept.status}
+                </span>
+                <button onClick={() => setSelectedDept(null)} className="text-gray-600 hover:text-gray-300 transition-colors text-xl leading-none">✕</button>
+              </div>
+            </div>
+
+            {/* Body */}
+            <div className="p-6 space-y-6">
+              {/* Descrição */}
+              <p className="text-sm text-gray-400 leading-relaxed">{selectedDept.descricao}</p>
+
+              {/* Tarefas */}
+              <div>
+                <h3 className="text-xs font-bold text-gray-300 uppercase tracking-wider mb-3">Tarefas no projeto</h3>
+                <ul className="space-y-2">
+                  {selectedDept.tarefas.map((t, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm text-gray-400">
+                      <span className="text-[10px] font-mono text-gray-700 mt-0.5 shrink-0 w-5">{String(i + 1).padStart(2, "0")}</span>
+                      {t}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Entregáveis */}
+              <div>
+                <h3 className="text-xs font-bold text-gray-300 uppercase tracking-wider mb-3">Entregáveis</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {selectedDept.entregaveis.map((e, i) => (
+                    <div key={i} className="bg-white/[0.03] border border-white/[0.06] rounded-lg px-3 py-2 text-xs text-gray-400">
+                      {e}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* KPIs */}
+              <div>
+                <h3 className="text-xs font-bold text-gray-300 uppercase tracking-wider mb-3">KPIs de sucesso</h3>
+                <div className="flex flex-wrap gap-2">
+                  {selectedDept.kpis.map((k, i) => (
+                    <span key={i} className="bg-violet-500/10 text-violet-400 text-[11px] px-3 py-1 rounded-full border border-violet-500/20">
+                      {k}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Ferramentas */}
+              <div>
+                <h3 className="text-xs font-bold text-gray-300 uppercase tracking-wider mb-3">Ferramentas</h3>
+                <div className="flex flex-wrap gap-2">
+                  {selectedDept.ferramentas.map((f, i) => (
+                    <span key={i} className="bg-white/[0.04] text-gray-400 text-[11px] px-3 py-1 rounded-full border border-white/[0.07]">
+                      {f}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {selectedDept.lps > 0 && (
+                <div className="bg-white/[0.03] border border-white/[0.06] rounded-xl p-4 flex items-center justify-between">
+                  <p className="text-xs text-gray-500">LPs sob responsabilidade deste departamento</p>
+                  <span className="text-2xl font-black text-white">{selectedDept.lps}</span>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
