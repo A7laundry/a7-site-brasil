@@ -309,6 +309,22 @@ const ARTIGOS = [
   { slug: "lavanderias-vale-do-paraiba", titulo: "Melhores Lavanderias do Vale do Paraíba", cluster: "Local", funil: "Fundo", lpId: "LP-27", lpUrl: "/vale-do-paraiba", cta: "Ver unidades próximas" },
 ];
 
+// ─── LPs JÁ CONSTRUÍDAS E ATIVAS ─────────────────────────────────────────────
+// Atualizar sempre que uma nova LP for ao ar
+const ACTIVE_LP_URLS = new Set([
+  "/sao-jose-dos-campos",     // LP-23 — original
+  "/higienizacao-edredom",    // LP-01 — Batch 1
+  "/tenis",                   // LP-02 — Batch 1
+  "/remocao-manchas",         // LP-06 — Batch 1
+  "/para-alergicos",          // LP-14 — Batch 1
+  "/precos",                  // LP-28 — Batch 1
+  "/para-maes",               // LP-12 — Batch 2
+  "/tapetes",                 // LP-03 — Batch 2
+  "/empresarial",             // LP-18 — Batch 2
+  "/como-funciona",           // LP-29 — Batch 2
+  "/lavanderia-ou-lavar-em-casa", // LP-30 — Batch 2
+]);
+
 // ─── ARTIGOS SECTION COMPONENT ────────────────────────────────────────────────
 
 const FUNIL_COLORS: Record<string, string> = {
@@ -476,19 +492,30 @@ function ArticleDrawer({ artigo, onClose }: { artigo: typeof ARTIGOS[0]; onClose
           <div className="bg-white/[0.04] rounded-lg p-4">
             <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wider mb-3">🔗 LP de destino</p>
             <div className="space-y-2">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 flex-wrap">
                 <span className="text-[10px] font-mono bg-white/[0.06] text-gray-400 px-2 py-0.5 rounded">{artigo.lpId}</span>
                 <span className="text-blue-400 text-xs font-mono">{artigo.lpUrl}</span>
+                {ACTIVE_LP_URLS.has(artigo.lpUrl) ? (
+                  <span className="inline-flex items-center gap-1 text-[9px] font-bold bg-emerald-500/15 text-emerald-400 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                    <span className="relative flex h-1.5 w-1.5">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                      <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400" />
+                    </span>
+                    LP ATIVA
+                  </span>
+                ) : (
+                  <span className="text-[9px] text-gray-700 border border-white/[0.06] px-2 py-0.5 rounded-full">em construção</span>
+                )}
               </div>
               <p className="text-xs text-gray-500 italic">CTA: &ldquo;{artigo.cta}&rdquo;</p>
-              <div className="flex gap-2 mt-3">
+              <div className="flex gap-2 mt-3 flex-wrap">
                 <Link href={`/blog/${artigo.slug}`} target="_blank"
                   className="text-[10px] font-bold text-blue-400 bg-blue-500/10 px-3 py-1.5 rounded hover:bg-blue-500/20 transition-colors">
                   Ver artigo ↗
                 </Link>
                 <Link href={artigo.lpUrl} target="_blank"
-                  className="text-[10px] font-bold text-violet-400 bg-violet-500/10 px-3 py-1.5 rounded hover:bg-violet-500/20 transition-colors">
-                  Ver LP ↗
+                  className={`text-[10px] font-bold px-3 py-1.5 rounded transition-colors ${ACTIVE_LP_URLS.has(artigo.lpUrl) ? "text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20" : "text-violet-400 bg-violet-500/10 hover:bg-violet-500/20"}`}>
+                  {ACTIVE_LP_URLS.has(artigo.lpUrl) ? "Abrir LP ↗" : "Ver rascunho ↗"}
                 </Link>
               </div>
             </div>
@@ -633,8 +660,18 @@ function ArtigosSection() {
                   {artigo.funil}
                 </span>
 
-                {/* LP */}
-                <span className="text-[10px] font-mono text-gray-600 hidden lg:block flex-shrink-0">{artigo.lpId}</span>
+                {/* LP ativa indicator */}
+                {ACTIVE_LP_URLS.has(artigo.lpUrl) ? (
+                  <span className="hidden sm:inline-flex items-center gap-1 text-[9px] font-bold bg-emerald-500/10 text-emerald-400 px-1.5 py-0.5 rounded-full flex-shrink-0">
+                    <span className="relative flex h-1.5 w-1.5 flex-shrink-0">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                      <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400" />
+                    </span>
+                    LP
+                  </span>
+                ) : (
+                  <span className="text-[10px] font-mono text-gray-700 hidden lg:block flex-shrink-0">{artigo.lpId}</span>
+                )}
               </div>
             </button>
 
