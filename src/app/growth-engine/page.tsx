@@ -248,6 +248,7 @@ const ROADMAP_RING: Record<string, string> = {
 
 const NAV = [
   { id: "overview", label: "Visão Geral", icone: "◉" },
+  { id: "artigos", label: "Artigos & Funil", icone: "📝" },
   { id: "lps", label: "Landing Pages", icone: "⬡" },
   { id: "clusters", label: "Clusters SEO", icone: "◈" },
   { id: "pipeline", label: "Pipeline", icone: "▤" },
@@ -257,11 +258,217 @@ const NAV = [
   { id: "roadmap", label: "Roadmap", icone: "→" },
 ];
 
+// Ferramentas — aparecem no nav E no overview
 const EXTERNAL_LINKS = [
-  { href: "/growth-engine/revenue", label: "Revenue Intelligence", icone: "💰" },
-  { href: "/growth-engine/content-engine", label: "AI Content Engine", icone: "🧠" },
-  { href: "/sales-assistant", label: "Sales Assistant", icone: "💬" },
+  { href: "/growth-engine/revenue", label: "Revenue Intelligence", icone: "💰", desc: "SEO · Leads · Receita · MRR · Funil" },
+  { href: "/growth-engine/content-engine", label: "AI Content Engine", icone: "🧠", desc: "Perguntas → Gaps → Briefs → SEO" },
+  { href: "/sales-assistant", label: "Sales Assistant", icone: "💬", desc: "WhatsApp · Lead classifier · Upsell" },
 ];
+
+// ─── ARTIGOS — 30 publicados com conexão ao funil e LPs ──────────────────────
+const ARTIGOS = [
+  // Cluster: Saúde & Higiene
+  { slug: "alergia-acaros-roupa-cama", titulo: "Alergia a Ácaros? O Que Sua Roupa de Cama Tem a Ver", cluster: "Saúde & Higiene", funil: "Topo", lpId: "LP-14", lpUrl: "/para-alergicos", cta: "Agendar higienização edredom" },
+  { slug: "higienizacao-edredom-importancia", titulo: "Por Que Higienizar o Edredom Vai Além de Lavar", cluster: "Saúde & Higiene", funil: "Meio", lpId: "LP-01", lpUrl: "/higienizacao-edredom", cta: "Agendar coleta" },
+  { slug: "fungos-roupa-como-eliminar", titulo: "Fungos nas Roupas: Como Identificar e Eliminar", cluster: "Saúde & Higiene", funil: "Fundo", lpId: "LP-08", lpUrl: "/lavagem-roupas", cta: "Enviar peça para análise" },
+  { slug: "higiene-roupas-bebe", titulo: "Roupas de Bebê: Por Que a Higienização Precisa Ser Diferente", cluster: "Saúde & Higiene", funil: "Meio", lpId: "LP-12", lpUrl: "/para-maes", cta: "Agendar coleta" },
+  { slug: "bacterias-tapetes-higienizacao", titulo: "Tapetes São os Maiores Reservatórios de Bactérias da Casa", cluster: "Saúde & Higiene", funil: "Topo", lpId: "LP-03", lpUrl: "/tapetes", cta: "Agendar limpeza de tapete" },
+  { slug: "higienizacao-cortinas-saude", titulo: "Cortinas e Saúde: O Que Você Não Vê Pode Te Fazer Mal", cluster: "Saúde & Higiene", funil: "Topo", lpId: "LP-05", lpUrl: "/cortinas", cta: "Agendar limpeza cortinas" },
+  // Cluster: Manchas & Emergências
+  { slug: "tirar-mancha-vinho-tinto", titulo: "Como Tirar Mancha de Vinho Tinto: Guia Definitivo", cluster: "Manchas", funil: "Fundo", lpId: "LP-06", lpUrl: "/remocao-manchas", cta: "Mandar foto no WhatsApp" },
+  { slug: "tirar-manchas-dificeis", titulo: "Manchas Difíceis: O Que Fazer Quando Nada Funciona", cluster: "Manchas", funil: "Fundo", lpId: "LP-06", lpUrl: "/remocao-manchas", cta: "Enviar peça para análise" },
+  { slug: "tirar-mancha-oleo-roupa", titulo: "Como Tirar Mancha de Óleo da Roupa: Técnicas que Funcionam", cluster: "Manchas", funil: "Fundo", lpId: "LP-06", lpUrl: "/remocao-manchas", cta: "Enviar para análise" },
+  // Cluster: Tênis
+  { slug: "lavar-tenis-corretamente", titulo: "Como Lavar Tênis Corretamente sem Estragar", cluster: "Tênis", funil: "Meio", lpId: "LP-02", lpUrl: "/tenis", cta: "Agendar limpeza de tênis" },
+  // Cluster: Roupas Especiais
+  { slug: "como-cuidar-roupas-delicadas", titulo: "Como Cuidar de Roupas Delicadas sem Estragar", cluster: "Roupas Especiais", funil: "Topo", lpId: "LP-07", lpUrl: "/roupas-delicadas", cta: "Agendar coleta" },
+  { slug: "cuidados-cashmere-la", titulo: "Cashmere e Lã: Guia Completo de Cuidados", cluster: "Roupas Especiais", funil: "Topo", lpId: "LP-10", lpUrl: "/couro-pecas-especiais", cta: "Agendar coleta peças especiais" },
+  { slug: "como-lavar-couro", titulo: "Como Lavar Couro: Do Tênis à Jaqueta", cluster: "Roupas Especiais", funil: "Meio", lpId: "LP-10", lpUrl: "/couro-pecas-especiais", cta: "Enviar peça para avaliação" },
+  { slug: "como-lavar-jeans", titulo: "Como Lavar Jeans sem Desbotar ou Encolher", cluster: "Roupas Especiais", funil: "Topo", lpId: "LP-07", lpUrl: "/roupas-delicadas", cta: "Agendar coleta" },
+  { slug: "conservar-vestido-noiva", titulo: "Como Conservar o Vestido de Noiva Após o Casamento", cluster: "Roupas Especiais", funil: "Meio", lpId: "LP-10", lpUrl: "/couro-pecas-especiais", cta: "Solicitar orçamento" },
+  { slug: "temperatura-lavagem-tecidos", titulo: "Temperatura de Lavagem: O Que Cada Tecido Precisa", cluster: "Roupas Especiais", funil: "Topo", lpId: "LP-07", lpUrl: "/roupas-delicadas", cta: "Agendar coleta" },
+  { slug: "lavar-mao-vs-maquina", titulo: "Lavar à Mão vs Máquina: Quando Cada Um Vale", cluster: "Roupas Especiais", funil: "Meio", lpId: "LP-08", lpUrl: "/lavagem-roupas", cta: "Agendar coleta" },
+  // Cluster: Tapetes, Sofás, Casa
+  { slug: "limpeza-tapetes-profissional", titulo: "Limpeza de Tapetes Profissional: Quando e Por Quê", cluster: "Tapetes & Casa", funil: "Meio", lpId: "LP-03", lpUrl: "/tapetes", cta: "Agendar limpeza tapete" },
+  { slug: "higienizar-sofa-casa", titulo: "Como Higienizar Sofá em Casa (e Quando Chamar Profissional)", cluster: "Tapetes & Casa", funil: "Fundo", lpId: "LP-04", lpUrl: "/sofas", cta: "Agendar higienização sofá" },
+  // Cluster: Sustentabilidade
+  { slug: "lavanderia-sustentavel", titulo: "Lavanderia Sustentável: Como Escolher com Consciência", cluster: "Sustentabilidade", funil: "Topo", lpId: "LP-17", lpUrl: "/sustentavel", cta: "Conheça a A7 Sustentável" },
+  { slug: "consumo-consciente-roupas", titulo: "Consumo Consciente de Roupas: Guia Prático", cluster: "Sustentabilidade", funil: "Topo", lpId: "LP-17", lpUrl: "/sustentavel", cta: "Conheça nosso processo eco" },
+  { slug: "produtos-ecologicos-lavar-roupa", titulo: "Produtos Ecológicos para Lavar Roupa: Vale a Pena?", cluster: "Sustentabilidade", funil: "Meio", lpId: "LP-17", lpUrl: "/sustentavel", cta: "Falar sobre opções eco" },
+  // Cluster: Organização & Lifestyle
+  { slug: "organizar-guarda-roupa", titulo: "Como Organizar o Guarda-Roupa de Vez", cluster: "Organização", funil: "Topo", lpId: "LP-08", lpUrl: "/lavagem-roupas", cta: "Agendar coleta" },
+  { slug: "guardar-roupas-inverno", titulo: "Como Guardar Roupas de Inverno sem Estragar", cluster: "Organização", funil: "Topo", lpId: "LP-08", lpUrl: "/lavagem-roupas", cta: "Agendar lavagem antes de guardar" },
+  { slug: "capsule-wardrobe-guia", titulo: "Guia de Capsule Wardrobe: Menos é Mais", cluster: "Organização", funil: "Topo", lpId: "LP-13", lpUrl: "/para-executivos", cta: "Agendar coleta" },
+  // Cluster: B2B
+  { slug: "uniformes-corporativos-higienizacao", titulo: "Higienização de Uniformes Corporativos: Guia para Empresas", cluster: "B2B", funil: "Fundo", lpId: "LP-21", lpUrl: "/uniformes", cta: "Solicitar orçamento B2B" },
+  { slug: "enxoval-restaurante-gestao", titulo: "Gestão de Enxoval de Restaurante: Como Terceirizar", cluster: "B2B", funil: "Fundo", lpId: "LP-19", lpUrl: "/restaurantes", cta: "Falar com comercial" },
+  { slug: "lavanderia-hoteis-terceirizacao", titulo: "Lavanderia para Hotéis: Como Terceirizar com Qualidade", cluster: "B2B", funil: "Fundo", lpId: "LP-20", lpUrl: "/hotelaria", cta: "Solicitar orçamento hotel" },
+  // Cluster: Local / Geo
+  { slug: "lavanderia-sao-jose-dos-campos", titulo: "Lavanderia em São José dos Campos: Guia Completo", cluster: "Local", funil: "Fundo", lpId: "LP-23", lpUrl: "/sao-jose-dos-campos", cta: "Agendar coleta em SJC" },
+  { slug: "lavanderias-vale-do-paraiba", titulo: "Melhores Lavanderias do Vale do Paraíba", cluster: "Local", funil: "Fundo", lpId: "LP-27", lpUrl: "/vale-do-paraiba", cta: "Ver unidades próximas" },
+];
+
+// ─── ARTIGOS SECTION COMPONENT ────────────────────────────────────────────────
+
+const FUNIL_COLORS: Record<string, string> = {
+  Topo: "bg-blue-500/20 text-blue-300",
+  Meio: "bg-amber-500/20 text-amber-300",
+  Fundo: "bg-emerald-500/20 text-emerald-300",
+};
+
+const CLUSTER_TAG_COLORS: Record<string, string> = {
+  "Saúde & Higiene": "bg-cyan-500/15 text-cyan-300",
+  "Manchas": "bg-orange-500/15 text-orange-300",
+  "Tênis": "bg-purple-500/15 text-purple-300",
+  "Roupas Especiais": "bg-indigo-500/15 text-indigo-300",
+  "Tapetes & Casa": "bg-teal-500/15 text-teal-300",
+  "Sustentabilidade": "bg-green-500/15 text-green-300",
+  "Organização": "bg-pink-500/15 text-pink-300",
+  "B2B": "bg-amber-500/15 text-amber-300",
+  "Local": "bg-rose-500/15 text-rose-300",
+};
+
+function ArtigosSection() {
+  const [clusterFilter, setClusterFilter] = useState("Todos");
+  const [funilFilter, setFunilFilter] = useState("Todos");
+
+  const clusters = ["Todos", ...Array.from(new Set(ARTIGOS.map((a) => a.cluster)))];
+
+  const filtered = ARTIGOS.filter((a) => {
+    const clOk = clusterFilter === "Todos" || a.cluster === clusterFilter;
+    const fOk = funilFilter === "Todos" || a.funil === funilFilter;
+    return clOk && fOk;
+  });
+
+  const funiCounts = {
+    Topo: ARTIGOS.filter((a) => a.funil === "Topo").length,
+    Meio: ARTIGOS.filter((a) => a.funil === "Meio").length,
+    Fundo: ARTIGOS.filter((a) => a.funil === "Fundo").length,
+  };
+
+  return (
+    <div className="space-y-6">
+      {/* KPIs */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div className="bg-white/[0.04] border border-white/[0.08] rounded-xl p-4 text-center">
+          <p className="text-2xl font-bold text-white">30</p>
+          <p className="text-xs text-gray-500 mt-0.5">Artigos publicados</p>
+        </div>
+        {Object.entries(funiCounts).map(([funil, count]) => (
+          <div key={funil} className="bg-white/[0.04] border border-white/[0.08] rounded-xl p-4 text-center">
+            <p className={`text-2xl font-bold ${funil === "Topo" ? "text-blue-400" : funil === "Meio" ? "text-amber-400" : "text-emerald-400"}`}>{count}</p>
+            <p className="text-xs text-gray-500 mt-0.5">Funil — {funil}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Filters */}
+      <div className="flex gap-3 flex-wrap items-center">
+        <div className="flex gap-1 flex-wrap">
+          {clusters.map((c) => (
+            <button key={c} onClick={() => setClusterFilter(c)}
+              className={`px-2.5 py-1 rounded-lg text-xs transition-colors ${clusterFilter === c ? "bg-blue-600 text-white" : "bg-white/[0.05] text-gray-400 hover:bg-white/[0.08]"}`}>
+              {c}
+            </button>
+          ))}
+        </div>
+        <div className="flex gap-1 ml-auto">
+          {["Todos", "Topo", "Meio", "Fundo"].map((f) => (
+            <button key={f} onClick={() => setFunilFilter(f)}
+              className={`px-2.5 py-1 rounded-lg text-xs transition-colors ${funilFilter === f ? "bg-violet-600 text-white" : "bg-white/[0.05] text-gray-400 hover:bg-white/[0.08]"}`}>
+              {f}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Table */}
+      <div className="bg-white/[0.02] border border-white/[0.07] rounded-xl overflow-hidden">
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="border-b border-white/[0.06] text-[11px] text-gray-500 uppercase tracking-wider">
+              <th className="text-left px-4 py-3">Artigo</th>
+              <th className="text-left px-4 py-3 hidden md:table-cell">Cluster</th>
+              <th className="text-center px-4 py-3">Funil</th>
+              <th className="text-left px-4 py-3 hidden lg:table-cell">LP Destino</th>
+              <th className="text-left px-4 py-3 hidden xl:table-cell">CTA</th>
+              <th className="text-center px-4 py-3">Links</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filtered.map((artigo) => (
+              <tr key={artigo.slug} className="border-b border-white/[0.04] hover:bg-white/[0.03] transition-colors">
+                <td className="px-4 py-3">
+                  <p className="text-sm text-gray-200 leading-tight">{artigo.titulo}</p>
+                </td>
+                <td className="px-4 py-3 hidden md:table-cell">
+                  <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${CLUSTER_TAG_COLORS[artigo.cluster] ?? "bg-gray-700 text-gray-400"}`}>
+                    {artigo.cluster}
+                  </span>
+                </td>
+                <td className="px-4 py-3 text-center">
+                  <span className={`text-xs px-2 py-0.5 rounded-full font-semibold ${FUNIL_COLORS[artigo.funil]}`}>
+                    {artigo.funil}
+                  </span>
+                </td>
+                <td className="px-4 py-3 hidden lg:table-cell">
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-xs font-mono text-gray-600">{artigo.lpId}</span>
+                    <span className="text-xs text-blue-400 font-medium">{artigo.lpUrl}</span>
+                  </div>
+                </td>
+                <td className="px-4 py-3 hidden xl:table-cell">
+                  <p className="text-xs text-gray-500 italic">{artigo.cta}</p>
+                </td>
+                <td className="px-4 py-3 text-center">
+                  <div className="flex items-center justify-center gap-2">
+                    <Link href={`/blog/${artigo.slug}`} target="_blank"
+                      className="text-xs text-blue-400 hover:text-blue-300 bg-blue-500/10 px-2 py-0.5 rounded transition-colors">
+                      Artigo →
+                    </Link>
+                    <Link href={artigo.lpUrl} target="_blank"
+                      className="text-xs text-violet-400 hover:text-violet-300 bg-violet-500/10 px-2 py-0.5 rounded transition-colors">
+                      LP →
+                    </Link>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <div className="px-4 py-3 border-t border-white/[0.04]">
+          <p className="text-xs text-gray-600">{filtered.length} artigos · {filtered.filter((a) => a.funil === "Fundo").length} fundo de funil (conversão direta)</p>
+        </div>
+      </div>
+
+      {/* Funil visual */}
+      <div className="bg-white/[0.02] border border-white/[0.07] rounded-xl p-5">
+        <h3 className="text-sm font-semibold text-gray-300 mb-4">Distribuição dos Artigos no Funil</h3>
+        <div className="space-y-3">
+          {[
+            { label: "Topo — Conscientização", count: funiCounts.Topo, desc: "Educa, cria necessidade, atrai tráfego", color: "bg-blue-500" },
+            { label: "Meio — Consideração", count: funiCounts.Meio, desc: "Compara, informa, qualifica o lead", color: "bg-amber-500" },
+            { label: "Fundo — Decisão", count: funiCounts.Fundo, desc: "Urgência + CTA direto para WhatsApp/LP", color: "bg-emerald-500" },
+          ].map((item) => (
+            <div key={item.label}>
+              <div className="flex items-center justify-between text-xs mb-1.5">
+                <div>
+                  <span className="text-gray-300 font-medium">{item.label}</span>
+                  <span className="text-gray-600 ml-2">{item.desc}</span>
+                </div>
+                <span className="text-gray-300 font-bold">{item.count} artigos</span>
+              </div>
+              <div className="h-2 bg-white/[0.06] rounded-full overflow-hidden">
+                <div className={`h-full ${item.color} rounded-full transition-all`}
+                  style={{ width: `${(item.count / 30) * 100}%` }} />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 // ─── MAIN COMPONENT ───────────────────────────────────────────────────────────
 
@@ -317,17 +524,21 @@ export default function GrowthEngineDashboard() {
           ))}
         </nav>
 
-        {/* External links */}
-        <div className="px-3 pb-3 space-y-0.5">
-          <p className="text-[10px] text-gray-600 uppercase px-3 py-1 tracking-wider">Ferramentas</p>
+        {/* Ferramentas — fixed shortcut cards */}
+        <div className="px-3 pb-4 space-y-1.5 border-t border-white/[0.05] pt-4">
+          <p className="text-[10px] text-gray-600 uppercase px-1 pb-1 tracking-widest">Ferramentas</p>
           {EXTERNAL_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-gray-200 hover:bg-white/[0.04] transition-all"
+              className="flex flex-col gap-0.5 px-3 py-2.5 rounded-lg bg-white/[0.03] hover:bg-white/[0.07] border border-white/[0.04] hover:border-white/[0.12] transition-all group"
             >
-              <span className="text-xs opacity-60">{link.icone}</span>
-              {link.label}
+              <div className="flex items-center gap-2">
+                <span className="text-sm">{link.icone}</span>
+                <span className="text-xs font-semibold text-gray-300 group-hover:text-white transition-colors">{link.label}</span>
+                <span className="ml-auto text-gray-700 group-hover:text-gray-400 text-xs">↗</span>
+              </div>
+              <p className="text-[10px] text-gray-600 pl-6">{link.desc}</p>
             </a>
           ))}
         </div>
@@ -345,7 +556,7 @@ export default function GrowthEngineDashboard() {
         <div className="sticky top-0 z-10 bg-[#0f0f13]/80 backdrop-blur border-b border-white/[0.06] px-8 py-4 flex items-center justify-between">
           <div>
             <h1 className="text-base font-semibold text-white">
-              {NAV.find((n) => n.id === activeSection)?.label}
+              {NAV.find((n) => n.id === activeSection)?.label ?? activeSection}
             </h1>
             <p className="text-xs text-gray-500 mt-0.5">A7 Lavanderia · Growth Engine Dashboard</p>
           </div>
@@ -499,6 +710,11 @@ export default function GrowthEngineDashboard() {
                 </Link>
               </div>
             </div>
+          )}
+
+          {/* ─── SECTION ARTIGOS: 30 ARTIGOS + FUNIL ──────────────────────── */}
+          {activeSection === "artigos" && (
+            <ArtigosSection />
           )}
 
           {/* ─── SECTION 2: LANDING PAGES ─────────────────────────────────── */}
