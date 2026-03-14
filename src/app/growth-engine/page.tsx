@@ -750,6 +750,20 @@ export default function GrowthEngineDashboard() {
                   DOR: "Bloco E — Por Dor / Decisão",
                   OFT: "Bloco F — Por Oferta",
                 };
+                const THUMB: Record<string, string> = {
+                  "Saúde & Higiene": "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=600&q=70",
+                  "Tênis": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=70",
+                  "Tapetes": "https://images.unsplash.com/photo-1585412727339-54e4bae3bbf9?w=600&q=70",
+                  "Casa": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=70",
+                  "Manchas": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=70",
+                  "Roupas Especiais": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=600&q=70",
+                  "Dia a Dia": "https://images.unsplash.com/photo-1545173168-9f1947eebb7f?w=600&q=70",
+                  "B2B": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=70",
+                  "Local": "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=600&q=70",
+                  "Decisão": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=70",
+                  "Sustentabilidade": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&q=70",
+                };
+                const DEFAULT_THUMB = "https://images.unsplash.com/photo-1545173168-9f1947eebb7f?w=600&q=70";
                 return (
                   <div key={tipo}>
                     <div className="flex items-center gap-3 mb-3">
@@ -757,31 +771,54 @@ export default function GrowthEngineDashboard() {
                       <div className="h-px flex-1 bg-white/[0.06]" />
                       <span className={`text-[10px] px-2 py-0.5 rounded-full font-medium ${TIPO_COLORS[tipo]}`}>{TIPO_LABELS[tipo]}</span>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
-                      {lps.map((lp) => (
-                        <div
-                          key={lp.id}
-                          className="bg-white/[0.03] border border-white/[0.07] rounded-xl p-4 hover:bg-white/[0.06] hover:border-white/[0.12] transition-all group"
-                        >
-                          <div className="flex items-start justify-between gap-2 mb-3">
-                            <div className="flex items-center gap-2">
-                              <span className="text-[10px] font-mono text-gray-500">{lp.id}</span>
-                              <span className={`text-[10px] px-1.5 py-0.5 rounded border font-medium ${PRIORIDADE_COLORS[lp.prioridade]}`}>
-                                {lp.prioridade}
-                              </span>
+                    <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3">
+                      {lps.map((lp) => {
+                        const href = lp.status === "Publicado" ? `https://a7lavanderia.com.br${lp.url}` : lp.url;
+                        const isLive = lp.status === "Publicado";
+                        return (
+                          <a
+                            key={lp.id}
+                            href={href}
+                            target={isLive ? "_blank" : "_self"}
+                            rel="noopener noreferrer"
+                            className="group block bg-white/[0.03] border border-white/[0.07] rounded-xl overflow-hidden hover:border-white/20 hover:shadow-lg hover:shadow-black/30 transition-all duration-200"
+                          >
+                            {/* Thumbnail */}
+                            <div className="relative h-28 overflow-hidden bg-white/[0.04]">
+                              <img
+                                src={THUMB[lp.cluster] ?? DEFAULT_THUMB}
+                                alt={lp.nome}
+                                className="w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-300"
+                              />
+                              {/* Overlay */}
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                              {/* Badges on image */}
+                              <div className="absolute top-2 left-2 flex gap-1">
+                                <span className="text-[9px] font-mono bg-black/60 text-gray-300 px-1.5 py-0.5 rounded">{lp.id}</span>
+                                <span className={`text-[9px] px-1.5 py-0.5 rounded font-medium ${PRIORIDADE_COLORS[lp.prioridade]}`}>{lp.prioridade}</span>
+                              </div>
+                              <div className="absolute top-2 right-2">
+                                <span className={`text-[9px] px-1.5 py-0.5 rounded-full font-medium ${STATUS_COLORS[lp.status]}`}>{lp.status}</span>
+                              </div>
+                              {/* Live indicator */}
+                              {isLive && (
+                                <div className="absolute bottom-2 right-2 flex items-center gap-1">
+                                  <span className="relative flex h-1.5 w-1.5">
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-400" />
+                                  </span>
+                                  <span className="text-[9px] text-green-400 font-semibold">LIVE</span>
+                                </div>
+                              )}
                             </div>
-                            <span className={`text-[10px] px-2 py-0.5 rounded-full font-medium ${STATUS_COLORS[lp.status]}`}>
-                              {lp.status}
-                            </span>
-                          </div>
-                          <p className="text-sm font-medium text-gray-100 group-hover:text-white mb-1">{lp.nome}</p>
-                          <p className="text-[11px] text-gray-500 font-mono">{lp.url}</p>
-                          <div className="mt-3 pt-3 border-t border-white/[0.05] flex items-center justify-between">
-                            <span className="text-[10px] text-gray-600">{lp.cluster}</span>
-                            <span className="text-[10px] text-gray-600">{lp.responsavel}</span>
-                          </div>
-                        </div>
-                      ))}
+                            {/* Info */}
+                            <div className="p-3">
+                              <p className="text-xs font-semibold text-gray-100 group-hover:text-white leading-tight mb-1 line-clamp-2">{lp.nome}</p>
+                              <p className="text-[10px] text-gray-600 font-mono truncate">{lp.url}</p>
+                            </div>
+                          </a>
+                        );
+                      })}
                     </div>
                   </div>
                 );
