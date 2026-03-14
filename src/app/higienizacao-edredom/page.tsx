@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { getWhatsAppLink, COMPANY } from "@/lib/constants";
+import RelatedServices from "@/components/RelatedServices";
+import ServiceSchema from "@/components/ServiceSchema";
 
 // LP-01 · Higienização de Edredons · Cluster: Saúde & Higiene
 // Artigos conectados: "Por Que Higienizar o Edredom Vai Além de Lavar" · "Alergia a Ácaros"
@@ -77,6 +79,7 @@ export default function HigienizacaoEdredom() {
 
   return (
     <div className="min-h-screen bg-white">
+      <ServiceSchema name="Higienização de Edredons" description="Higienização profunda de edredons e cobertores que elimina 100% dos ácaros. Lavagem em alta temperatura com produtos hipoalergênicos." slug="higienizacao-edredom" />
 
       {/* ── HEADER ── */}
       <header className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur border-b border-gray-100">
@@ -377,6 +380,7 @@ export default function HigienizacaoEdredom() {
         </div>
       </section>
 
+      <RelatedServices currentSlug="higienizacao-edredom" />
       {/* ── FOOTER STRIP ── */}
       <footer className="bg-gray-950 py-8">
         <div className="max-w-5xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-4">

@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { getWhatsAppLink, COMPANY } from "@/lib/constants";
+import RelatedServices from "@/components/RelatedServices";
+import ServiceSchema from "@/components/ServiceSchema";
 
 // LP-28 · Preços e Planos · Cluster: Decisão
 // Toda jornada de funil converge aqui. Copy racional + emocional.
@@ -109,6 +111,7 @@ export default function Precos() {
 
   return (
     <div className="min-h-screen bg-white">
+      <ServiceSchema name="Preços da A7 Lavanderia" description="Tabela completa de preços e planos da A7 Lavanderia. Roupas, edredons, tapetes, tênis e serviços especiais com coleta e entrega." slug="precos" />
       <header className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-5 h-14 flex items-center justify-between">
           <a href="/" className="font-black text-lg tracking-tight">A7 <span style={{ color: "#0047FF" }}>Lavanderia</span></a>
@@ -282,6 +285,7 @@ export default function Precos() {
         </div>
       </section>
 
+      <RelatedServices currentSlug="precos" />
       <footer className="bg-gray-950 py-8">
         <div className="max-w-5xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <span className="font-black text-white tracking-tight">A7 Lavanderia</span>

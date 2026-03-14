@@ -2,12 +2,15 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { getWhatsAppLink } from "@/lib/constants";
+import RelatedServices from "@/components/RelatedServices";
+import ServiceSchema from "@/components/ServiceSchema";
 
 export default function ParaExecutivosPage() {
   const whatsappLink = getWhatsAppLink("para-executivos");
 
   return (
     <div className="min-h-screen bg-slate-950 text-white">
+      <ServiceSchema name="Lavanderia para Executivos" description="Higienização e passagem premium de ternos, camisas sociais e trajes de negócios. Serviço express 24h com entrega no escritório." slug="para-executivos" />
       <header className="fixed top-0 w-full z-50 bg-[#1D4ED8]/90 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="text-xl font-bold tracking-tight">
@@ -310,6 +313,7 @@ export default function ParaExecutivosPage() {
         </div>
       </section>
 
+      <RelatedServices currentSlug="para-executivos" />
       <footer className="bg-slate-950 border-t border-slate-800 py-10">
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-slate-500 text-sm">© 2025 A7 Lavanderia. Todos os direitos reservados.</p>

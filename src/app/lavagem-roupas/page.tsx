@@ -2,12 +2,15 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { getWhatsAppLink } from "@/lib/constants";
+import RelatedServices from "@/components/RelatedServices";
+import ServiceSchema from "@/components/ServiceSchema";
 
 export default function LavagemRoupasPage() {
   const whatsappLink = getWhatsAppLink("lavagem-roupas");
 
   return (
     <div className="min-h-screen bg-slate-950 text-white">
+      <ServiceSchema name="Lavagem de Roupas do Dia a Dia" description="Lavagem completa do cotidiano com entrega em 48h. Roupas lavadas, passadas e dobradas. Coleta e entrega em São José dos Campos e região." slug="lavagem-roupas" />
       <header className="fixed top-0 w-full z-50 bg-[#0891B2]/90 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="text-xl font-bold tracking-tight">
@@ -272,6 +275,7 @@ export default function LavagemRoupasPage() {
         </div>
       </section>
 
+      <RelatedServices currentSlug="lavagem-roupas" />
       <footer className="bg-slate-950 border-t border-slate-800 py-10">
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-slate-500 text-sm">© 2025 A7 Lavanderia. Todos os direitos reservados.</p>

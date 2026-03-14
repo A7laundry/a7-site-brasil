@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { getWhatsAppLink, COMPANY } from "@/lib/constants";
+import RelatedServices from "@/components/RelatedServices";
+import ServiceSchema from "@/components/ServiceSchema";
 
 // LP-03 · Limpeza de Tapetes · Cluster: Tapetes & Casa
 
@@ -62,6 +64,7 @@ export default function Tapetes() {
 
   return (
     <div className="min-h-screen bg-white">
+      <ServiceSchema name="Lavagem de Tapetes" description="Lavagem profissional de tapetes que preserva cores e fibras. Extração de ácaros, manchas e odores. Coleta e entrega no Vale do Paraíba." slug="tapetes" />
       {/* ── HEADER ── */}
       <header className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-5 h-14 flex items-center justify-between">
@@ -374,6 +377,7 @@ export default function Tapetes() {
         </div>
       </section>
 
+      <RelatedServices currentSlug="tapetes" />
       {/* ── FOOTER STRIP ── */}
       <footer className="bg-gray-950 py-8">
         <div className="max-w-5xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-4">

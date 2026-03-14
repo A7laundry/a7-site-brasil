@@ -2,12 +2,15 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { getWhatsAppLink } from "@/lib/constants";
+import RelatedServices from "@/components/RelatedServices";
+import ServiceSchema from "@/components/ServiceSchema";
 
 export default function CortinasPage() {
   const whatsappLink = getWhatsAppLink("cortinas");
 
   return (
     <div className="min-h-screen bg-violet-950 text-white">
+      <ServiceSchema name="Higienização de Cortinas" description="Higienização de cortinas sem tirar da janela. Aspiração ultrassônica elimina ácaros e alérgenos. Coleta opcional em São José dos Campos." slug="cortinas" />
       <header className="fixed top-0 w-full z-50 bg-[#7C3AED]/90 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="text-xl font-bold tracking-tight">
@@ -251,6 +254,7 @@ export default function CortinasPage() {
         </div>
       </section>
 
+      <RelatedServices currentSlug="cortinas" />
       <footer className="bg-violet-950 border-t border-violet-800 py-10">
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-violet-400 text-sm">© 2025 A7 Lavanderia. Todos os direitos reservados.</p>

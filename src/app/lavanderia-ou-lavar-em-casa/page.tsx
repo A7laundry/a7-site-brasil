@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { getWhatsAppLink, COMPANY } from "@/lib/constants";
+import RelatedServices from "@/components/RelatedServices";
+import ServiceSchema from "@/components/ServiceSchema";
 
 const waLink = getWhatsAppLink("comparacao");
 
@@ -93,6 +95,7 @@ const faqs = [
 export default function LavanderiaOuLavarEmCasaPage() {
   return (
     <main className="min-h-screen font-sans">
+      <ServiceSchema name="Lavanderia ou Lavar em Casa?" description="Compare os custos reais de lavar em casa vs. usar a A7 Lavanderia. Água, energia, produtos, tempo — a conta que a maioria não faz." slug="lavanderia-ou-lavar-em-casa" />
       {/* HERO */}
       <section className="bg-gray-950 min-h-[80vh] flex items-center overflow-hidden relative pt-14">
         {/* Foto máquina de lavar — reforça o cenário "em casa" que estamos questionando */}
@@ -374,6 +377,7 @@ export default function LavanderiaOuLavarEmCasaPage() {
         </div>
       </section>
 
+      <RelatedServices currentSlug="lavanderia-ou-lavar-em-casa" />
       {/* FOOTER LINKS */}
       <footer className="bg-gray-950 py-10">
         <div className="max-w-7xl mx-auto px-6 flex flex-wrap justify-center gap-8 text-sm text-gray-500">

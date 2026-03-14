@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { getWhatsAppLink, COMPANY } from "@/lib/constants";
+import RelatedServices from "@/components/RelatedServices";
+import ServiceSchema from "@/components/ServiceSchema";
 
 const waLink = getWhatsAppLink("empresarial");
 
@@ -50,6 +52,7 @@ const faqs = [
 export default function EmpresarialPage() {
   return (
     <main className="min-h-screen font-sans">
+      <ServiceSchema name="Lavanderia Empresarial" description="Plano empresarial para lavagem de uniformes, enxoval e peças corporativas. Contratos B2B com coleta programada e faturamento por CNPJ." slug="empresarial" />
       {/* HERO */}
       <section className="relative bg-[#0a0f1e] overflow-hidden min-h-[85vh] flex items-center">
         {/* Foto de restaurante/ambiente profissional — contexto B2B real */}
@@ -301,6 +304,7 @@ export default function EmpresarialPage() {
         </div>
       </section>
 
+      <RelatedServices currentSlug="empresarial" />
       {/* FOOTER LINKS */}
       <footer className="bg-gray-950 py-10">
         <div className="max-w-7xl mx-auto px-6 flex flex-wrap justify-center gap-8 text-sm text-gray-500">

@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { getWhatsAppLink, COMPANY } from "@/lib/constants";
+import RelatedServices from "@/components/RelatedServices";
+import ServiceSchema from "@/components/ServiceSchema";
 
 const waLink = getWhatsAppLink("como-funciona");
 
@@ -120,6 +122,7 @@ const statsStrip = [
 export default function ComoFuncionaPage() {
   return (
     <main className="min-h-screen font-sans">
+      <ServiceSchema name="Como Funciona a A7 Lavanderia" description="Entenda o processo completo da A7 Lavanderia: agendamento, coleta, higienização profissional e entrega em 48h. Simples, rápido e sem surpresas." slug="como-funciona" />
       {/* HERO */}
       <section className="relative bg-[#070810] overflow-hidden">
         <div
@@ -315,6 +318,7 @@ export default function ComoFuncionaPage() {
         </div>
       </section>
 
+      <RelatedServices currentSlug="como-funciona" />
       {/* FOOTER LINKS */}
       <footer className="bg-gray-950 py-10">
         <div className="max-w-7xl mx-auto px-6 flex flex-wrap justify-center gap-8 text-sm text-gray-500">

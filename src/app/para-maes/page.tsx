@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { getWhatsAppLink, COMPANY } from "@/lib/constants";
+import RelatedServices from "@/components/RelatedServices";
+import ServiceSchema from "@/components/ServiceSchema";
 
 // LP-12 · Para Mães com Filhos · Cluster: Saúde & Higiene
 
@@ -48,6 +50,7 @@ export default function ParaMaes() {
 
   return (
     <div className="min-h-screen bg-white">
+      <ServiceSchema name="Lavanderia para Mães" description="Lavagem especializada de roupas de bebê e enxoval familiar. Produtos hipoalergênicos, sem contaminação cruzada. Coleta e entrega no Vale do Paraíba." slug="para-maes" />
       {/* ── HEADER ── */}
       <header className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-5 h-14 flex items-center justify-between">
@@ -328,6 +331,7 @@ export default function ParaMaes() {
         </div>
       </section>
 
+      <RelatedServices currentSlug="para-maes" />
       {/* ── FOOTER STRIP ── */}
       <footer className="bg-gray-950 py-8">
         <div className="max-w-5xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-4">

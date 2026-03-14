@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { getWhatsAppLink, COMPANY } from "@/lib/constants";
+import RelatedServices from "@/components/RelatedServices";
+import ServiceSchema from "@/components/ServiceSchema";
 
 // LP-14 · Para Alérgicos · Cluster: Saúde & Higiene · Persona
 // Artigo: "Alergia a Ácaros? O Que Sua Roupa de Cama Tem a Ver"
@@ -48,6 +50,7 @@ export default function ParaAlergicos() {
 
   return (
     <div className="min-h-screen bg-white">
+      <ServiceSchema name="Lavanderia para Alérgicos" description="Protocolo anti-ácaros completo para alérgicos. Higienização de edredons, travesseiros e roupas de cama com eliminação de 99,9% dos alérgenos." slug="para-alergicos" />
       <header className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-5 h-14 flex items-center justify-between">
           <a href="/" className="font-black text-lg tracking-tight">A7 <span className="text-blue-600">Lavanderia</span></a>
@@ -237,6 +240,7 @@ export default function ParaAlergicos() {
         </div>
       </section>
 
+      <RelatedServices currentSlug="para-alergicos" />
       <footer className="bg-gray-950 py-8">
         <div className="max-w-5xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <span className="font-black text-white tracking-tight">A7 Lavanderia</span>

@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { getWhatsAppLink, COMPANY } from "@/lib/constants";
+import RelatedServices from "@/components/RelatedServices";
+import ServiceSchema from "@/components/ServiceSchema";
 
 const HERO_IMG = "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=80";
 
@@ -162,6 +164,7 @@ export default function RoupasDelicadas() {
 
   return (
     <div className="min-h-screen bg-white">
+      <ServiceSchema name="Lavagem de Roupas Delicadas" description="Lavagem especializada para seda, cashmere, lã, linho e peças de grife. Zero danos garantidos, produtos específicos por tecido." slug="roupas-delicadas" />
       <header className="fixed top-0 w-full z-50 bg-indigo-950/90 backdrop-blur-md border-b border-indigo-900/40">
         <div className="max-w-6xl mx-auto px-5 h-14 flex items-center justify-between">
           <a href="/" className="font-black text-lg tracking-tight text-white">
@@ -495,6 +498,7 @@ export default function RoupasDelicadas() {
         </div>
       </section>
 
+      <RelatedServices currentSlug="roupas-delicadas" />
       <footer className="bg-gray-950 py-8">
         <div className="max-w-5xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <span className="font-black text-white tracking-tight">A7 Lavanderia</span>

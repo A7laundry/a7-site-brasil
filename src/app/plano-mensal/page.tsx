@@ -2,12 +2,15 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { getWhatsAppLink } from "@/lib/constants";
+import RelatedServices from "@/components/RelatedServices";
+import ServiceSchema from "@/components/ServiceSchema";
 
 export default function PlanoMensalPage() {
   const whatsappLink = getWhatsAppLink("plano-mensal");
 
   return (
     <div className="min-h-screen bg-[#070810] text-white">
+      <ServiceSchema name="Plano Mensal de Lavanderia" description="Assinatura mensal com coleta semanal e preço fixo. Planos a partir de R$189/mês. Cancele quando quiser, sem fidelidade." slug="plano-mensal" />
       <header className="fixed top-0 w-full z-50 bg-[#0047FF]/90 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="text-xl font-bold tracking-tight">
@@ -331,6 +334,7 @@ export default function PlanoMensalPage() {
         </div>
       </section>
 
+      <RelatedServices currentSlug="plano-mensal" />
       <footer className="bg-[#070810] border-t border-blue-900/40 py-10">
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-slate-600 text-sm">© 2025 A7 Lavanderia. Todos os direitos reservados.</p>

@@ -2,12 +2,15 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { getWhatsAppLink } from "@/lib/constants";
+import RelatedServices from "@/components/RelatedServices";
+import ServiceSchema from "@/components/ServiceSchema";
 
 export default function CouroPecasEspeciaisPage() {
   const whatsappLink = getWhatsAppLink("couro-pecas-especiais");
 
   return (
     <div className="min-h-screen bg-stone-950 text-white">
+      <ServiceSchema name="Higienização de Couro e Peças Especiais" description="Higienização e hidratação profissional de jaquetas, bolsas e acessórios de couro genuíno. Tratamento especializado sem danificar o material." slug="couro-pecas-especiais" />
       <header className="fixed top-0 w-full z-50 bg-[#92400E]/90 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="text-xl font-bold tracking-tight">
@@ -282,6 +285,7 @@ export default function CouroPecasEspeciaisPage() {
         </div>
       </section>
 
+      <RelatedServices currentSlug="couro-pecas-especiais" />
       <footer className="bg-stone-950 border-t border-stone-800 py-10">
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-stone-600 text-sm">© 2025 A7 Lavanderia. Todos os direitos reservados.</p>

@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { getWhatsAppLink, COMPANY } from "@/lib/constants";
+import RelatedServices from "@/components/RelatedServices";
+import ServiceSchema from "@/components/ServiceSchema";
 
 const HERO_IMG = "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1400&q=80";
 
@@ -109,6 +111,7 @@ export default function Sofas() {
 
   return (
     <div className="min-h-screen bg-white">
+      <ServiceSchema name="Higienização de Sofás" description="Higienização profunda de sofás com extração úmida, tratamento anti-ácaros e neutralização de odores. Coleta e entrega em São José dos Campos e Vale do Paraíba." slug="sofas" />
       <header className="fixed top-0 w-full z-50 bg-amber-950/90 backdrop-blur-md border-b border-amber-900/40">
         <div className="max-w-6xl mx-auto px-5 h-14 flex items-center justify-between">
           <a href="/" className="font-black text-lg tracking-tight text-white">
@@ -412,6 +415,7 @@ export default function Sofas() {
         </div>
       </section>
 
+      <RelatedServices currentSlug="sofas" />
       <footer className="bg-gray-950 py-8">
         <div className="max-w-5xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <span className="font-black text-white tracking-tight">A7 Lavanderia</span>

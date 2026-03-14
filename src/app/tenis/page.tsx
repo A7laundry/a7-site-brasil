@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { getWhatsAppLink, COMPANY } from "@/lib/constants";
+import RelatedServices from "@/components/RelatedServices";
+import ServiceSchema from "@/components/ServiceSchema";
 
 // LP-02 · Limpeza de Tênis · Cluster: Tênis
 // Artigo conectado: "Como Lavar Tênis Corretamente sem Estragar"
@@ -45,6 +47,7 @@ export default function Tenis() {
 
   return (
     <div className="min-h-screen bg-white">
+      <ServiceSchema name="Higienização de Tênis e Calçados" description="Limpeza completa de tênis e calçados que elimina odores, bactérias e manchas. Técnica manual profissional para todos os tipos de material." slug="tenis" />
 
       {/* ── HEADER ── */}
       <header className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur border-b border-gray-100">
@@ -249,6 +252,7 @@ export default function Tenis() {
         </div>
       </section>
 
+      <RelatedServices currentSlug="tenis" />
       <footer className="bg-gray-950 py-8">
         <div className="max-w-5xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <span className="font-black text-white tracking-tight">A7 Lavanderia</span>
