@@ -248,6 +248,7 @@ const ROADMAP_RING: Record<string, string> = {
 
 const NAV = [
   { id: "overview", label: "Visão Geral", icone: "◉" },
+  { id: "site", label: "Site Principal", icone: "🌐" },
   { id: "artigos", label: "Artigos & Funil", icone: "📝" },
   { id: "lps", label: "Landing Pages", icone: "⬡" },
   { id: "clusters", label: "Clusters SEO", icone: "◈" },
@@ -708,6 +709,153 @@ export default function GrowthEngineDashboard() {
                   </div>
                   <span className="text-gray-600 group-hover:text-green-400 transition-colors text-lg">→</span>
                 </Link>
+              </div>
+            </div>
+          )}
+
+          {/* ─── SECTION SITE PRINCIPAL ───────────────────────────────────── */}
+          {activeSection === "site" && (
+            <div className="space-y-8">
+              <div>
+                <p className="text-sm text-gray-400 mb-1">3 variações de design · Teste A/B/C · Sempre evoluindo</p>
+                <p className="text-xs text-gray-600">
+                  O site principal é tratado como produto — novas variações são criadas, testadas e comparadas continuamente.
+                  A variação vencedora se torna a homepage. As outras ficam disponíveis para análise e iteração.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                {/* Version B — atual (live) */}
+                <a
+                  href="https://a7-lavanderia.vercel.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block bg-white/[0.03] border border-white/[0.07] rounded-xl overflow-hidden hover:border-white/20 hover:shadow-lg hover:shadow-black/30 transition-all duration-200"
+                >
+                  <div className="relative h-40 overflow-hidden bg-[#070810]">
+                    <img
+                      src="https://images.unsplash.com/photo-1545173168-9f1947eebb7f?w=800&q=80"
+                      alt="Version B"
+                      className="w-full h-full object-cover opacity-30 group-hover:opacity-50 group-hover:scale-105 transition-all duration-300"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-center">
+                        <p className="text-white font-black text-3xl tracking-[-0.04em]">Clean</p>
+                        <p className="text-blue-400 font-black text-3xl tracking-[-0.04em]">Luxury</p>
+                      </div>
+                    </div>
+                    <div className="absolute top-3 left-3 flex items-center gap-1.5">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" />
+                      </span>
+                      <span className="text-[10px] text-green-400 font-bold">LIVE · ATIVO</span>
+                    </div>
+                    <div className="absolute top-3 right-3 bg-blue-500 text-white text-[9px] font-bold px-2 py-1 rounded">
+                      Variação B
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-bold text-white mb-1">Version B — Clean Luxury</h3>
+                    <p className="text-xs text-gray-500 mb-3">Near-black + off-white + electric blue. Nike editorial. Espaço em branco como luxo. Font-black tracking -0.04em.</p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] text-green-400 font-semibold">Homepage atual</span>
+                      <span className="text-[10px] text-gray-600">a7-lavanderia.vercel.app</span>
+                    </div>
+                  </div>
+                </a>
+
+                {/* Version A — Dopamine */}
+                <a
+                  href="/version-a"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block bg-white/[0.03] border border-white/[0.07] rounded-xl overflow-hidden hover:border-white/20 hover:shadow-lg hover:shadow-black/30 transition-all duration-200"
+                >
+                  <div className="relative h-40 overflow-hidden" style={{ background: "linear-gradient(135deg, #7c3aed, #ec4899, #f97316)" }}>
+                    <div className="absolute inset-0 opacity-20"
+                      style={{
+                        backgroundImage: "radial-gradient(circle at 30% 50%, white 1px, transparent 1px)",
+                        backgroundSize: "40px 40px",
+                      }}
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-center">
+                        <p className="text-white font-black text-3xl tracking-tight">Dopamine</p>
+                        <p className="text-yellow-300 font-black text-xl">★★★★★</p>
+                      </div>
+                    </div>
+                    <div className="absolute top-3 left-3 bg-black/40 text-white/70 text-[10px] px-2 py-1 rounded">
+                      Em teste
+                    </div>
+                    <div className="absolute top-3 right-3 bg-purple-500 text-white text-[9px] font-bold px-2 py-1 rounded">
+                      Variação A
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-bold text-white mb-1">Version A — Dopamine</h3>
+                    <p className="text-xs text-gray-500 mb-3">Gradiente roxo/rosa/laranja. Alta energia. Stats em destaque. Urgência e social proof. Botões arredondados.</p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] text-yellow-500 font-semibold">Teste ativo</span>
+                      <span className="text-[10px] text-gray-600">/version-a</span>
+                    </div>
+                  </div>
+                </a>
+
+                {/* Version C — Authority */}
+                <a
+                  href="/version-c"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block bg-white/[0.03] border border-white/[0.07] rounded-xl overflow-hidden hover:border-white/20 hover:shadow-lg hover:shadow-black/30 transition-all duration-200"
+                >
+                  <div className="relative h-40 overflow-hidden bg-[#0a1628]">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-center">
+                        <p className="text-white font-black text-3xl tracking-tight">Authority</p>
+                        <p className="text-blue-400 font-bold text-sm mt-1">14 anos · Padrão profissional</p>
+                      </div>
+                    </div>
+                    <div className="absolute inset-0 grid grid-cols-4 gap-px opacity-10">
+                      {Array.from({ length: 8 }).map((_, i) => (
+                        <div key={i} className="border border-white/20" />
+                      ))}
+                    </div>
+                    <div className="absolute top-3 left-3 bg-black/40 text-white/70 text-[10px] px-2 py-1 rounded">
+                      Em teste
+                    </div>
+                    <div className="absolute top-3 right-3 bg-blue-600 text-white text-[9px] font-bold px-2 py-1 rounded">
+                      Variação C
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-bold text-white mb-1">Version C — Authority</h3>
+                    <p className="text-xs text-gray-500 mb-3">Navy + branco + azul. Copy racional. Credenciais e processo detalhado. B2B + B2C. Conversão por confiança.</p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] text-yellow-500 font-semibold">Teste ativo</span>
+                      <span className="text-[10px] text-gray-600">/version-c</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              {/* Principles */}
+              <div className="border border-white/[0.07] rounded-xl p-5">
+                <h3 className="text-sm font-bold text-gray-300 mb-4">Como gerenciar as variações</h3>
+                <div className="grid md:grid-cols-3 gap-4 text-xs text-gray-500">
+                  <div>
+                    <p className="text-gray-300 font-semibold mb-1">1. Sempre há 3 versões</p>
+                    <p>Uma ativa (homepage), duas em teste. Novas variações substituem as mais antigas após análise.</p>
+                  </div>
+                  <div>
+                    <p className="text-gray-300 font-semibold mb-1">2. Métricas de decisão</p>
+                    <p>Taxa de conversão WhatsApp, tempo na página, scroll depth, bounce rate. Mín. 2 semanas por teste.</p>
+                  </div>
+                  <div>
+                    <p className="text-gray-300 font-semibold mb-1">3. Vencedor vira homepage</p>
+                    <p>A variação com melhor conversão substitui <code className="bg-white/[0.06] px-1">/</code>. A perdedora vira referência histórica.</p>
+                  </div>
+                </div>
               </div>
             </div>
           )}
