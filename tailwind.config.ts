@@ -9,8 +9,42 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // ─── VERSION B — CLEAN LUXURY TOKENS ────────────────────────────────
+        ink: {
+          DEFAULT: "#070810",
+          50: "#f2f2f5",
+          100: "#e5e5ea",
+          200: "#c9c9d5",
+          300: "#9999b0",
+          400: "#666685",
+          500: "#3d3d5c",
+          600: "#1f1f38",
+          700: "#141425",
+          800: "#0d0d1a",
+          900: "#070810",
+        },
+        paper: {
+          DEFAULT: "#FAFAF8",
+          50: "#FDFDFB",
+          100: "#FAFAF8",
+          200: "#F4F4F0",
+          300: "#E8E8E2",
+          400: "#D0D0C8",
+        },
+        electric: {
+          DEFAULT: "#0047FF",
+          50: "#E8EEFF",
+          100: "#C4D2FF",
+          200: "#8FABFF",
+          300: "#5A84FF",
+          400: "#2E63FF",
+          500: "#0047FF",
+          600: "#003ACC",
+          700: "#002E99",
+        },
+        // ─── LEGACY (preserved for existing components) ─────────────────────
         primary: {
-          DEFAULT: "#1e3a5f",
+          DEFAULT: "#070810",
           50: "#f0f5ff",
           100: "#e0ebff",
           200: "#b8d4ff",

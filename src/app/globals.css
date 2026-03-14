@@ -3,8 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
+  --background: #FAFAF8;
+  --foreground: #070810;
+  /* Version B — Clean Luxury tokens */
+  --ink: #070810;
+  --paper: #FAFAF8;
+  --electric: #0047FF;
 }
 
 @layer base {
@@ -20,8 +24,14 @@
   }
 
   ::selection {
-    background-color: #3b82f6;
+    background-color: #0047FF;
     color: white;
+  }
+
+  /* Version B typography base */
+  h1, h2, h3, h4 {
+    font-feature-settings: "ss01", "kern";
+    letter-spacing: -0.02em;
   }
 }
 
