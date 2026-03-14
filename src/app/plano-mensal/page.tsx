@@ -269,7 +269,7 @@ export default function PlanoMensalPage() {
                     <span key={i} className="text-yellow-400 text-lg">★</span>
                   ))}
                 </div>
-                <p className="text-slate-300 text-sm leading-relaxed mb-4">"{t.text}"</p>
+                <p className="text-slate-300 text-sm leading-relaxed mb-4">&ldquo;{t.text}&rdquo;</p>
                 <p className="font-semibold text-sm">{t.name}</p>
                 <p className="text-slate-500 text-xs">{t.city}</p>
               </div>
