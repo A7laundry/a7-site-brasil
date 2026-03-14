@@ -13,8 +13,8 @@ export default function CortinasPage() {
       <ServiceSchema name="Higienização de Cortinas" description="Higienização de cortinas sem tirar da janela. Aspiração ultrassônica elimina ácaros e alérgenos. Coleta opcional em São José dos Campos." slug="cortinas" />
       <header className="fixed top-0 w-full z-50 bg-[#7C3AED]/90 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="text-xl font-bold tracking-tight">
-            A7 Lavanderia
+          <Link href="/">
+            <img src="/logo-light.png" alt="A7 Lavanderia" className="h-8 w-auto" />
           </Link>
           <a
             href={whatsappLink}

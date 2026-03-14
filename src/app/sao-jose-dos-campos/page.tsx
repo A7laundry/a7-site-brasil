@@ -13,8 +13,8 @@ export default function SaoJoseDosCamposPage() {
       <ServiceSchema name="Lavanderia em São José dos Campos" description="A7 Lavanderia — sede em São José dos Campos. Coleta e entrega em domicílio. Tapetes, sofás, roupas, cortinas e muito mais." slug="sao-jose-dos-campos" />
       <header className="fixed top-0 w-full z-50 bg-[#1D4ED8]/90 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="text-xl font-bold tracking-tight">
-            A7 Lavanderia
+          <Link href="/">
+            <img src="/logo-light.png" alt="A7 Lavanderia" className="h-8 w-auto" />
           </Link>
           <a
             href={whatsappLink}

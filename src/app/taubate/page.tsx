@@ -174,8 +174,9 @@ export default function TaubatePage() {
       <ServiceSchema name="Lavanderia em Taubaté" description="Coleta e entrega de lavanderia em Taubaté. A7 Lavanderia atende todos os bairros de Taubaté com qualidade premium e entrega em 48h." slug="taubate" />
       <header className="fixed top-0 w-full z-50 bg-blue-600/90 backdrop-blur-md border-b border-blue-500/40">
         <div className="max-w-6xl mx-auto px-5 h-14 flex items-center justify-between">
-          <a href="/" className="font-black text-lg tracking-tight text-white">
-            A7 <span className="text-blue-200">Lavanderia</span>
+          <a href="/">
+            
+            <img src="/logo-light.png" alt="A7 Lavanderia" className="h-8 w-auto" />
           </a>
           <a
             href={waLink}

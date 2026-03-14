@@ -481,6 +481,7 @@ const EXTERNAL_LINKS = [
   { href: "/growth-engine/revenue", label: "Revenue Intelligence", icone: "💰", desc: "SEO · Leads · Receita · MRR · Funil" },
   { href: "/growth-engine/content-engine", label: "AI Content Engine", icone: "🧠", desc: "Perguntas → Gaps → Briefs → SEO" },
   { href: "/sales-assistant", label: "Sales Assistant", icone: "💬", desc: "WhatsApp · Lead classifier · Upsell" },
+  { href: "/manual-da-marca", label: "Manual da Marca", icone: "🎨", desc: "Logo · Cores · Tipografia · Tom de Voz · Digital" },
 ];
 
 // ─── ARTIGOS — 30 publicados com conexão ao funil e LPs ──────────────────────

@@ -68,8 +68,9 @@ export default function Tapetes() {
       {/* ── HEADER ── */}
       <header className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-5 h-14 flex items-center justify-between">
-          <a href="/" className="font-black text-lg tracking-tight">
-            A7 <span className="text-teal-600">Lavanderia</span>
+          <a href="/">
+            
+            <img src="/logo-dark.png" alt="A7 Lavanderia" className="h-8 w-auto" />
           </a>
           <a
             href={waLink}

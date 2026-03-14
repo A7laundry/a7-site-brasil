@@ -20,7 +20,7 @@ export default function VersionA() {
       {/* ── HEADER ── */}
       <header className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
-          <span className="font-black text-xl tracking-tight">A7 <span className="text-purple-600">Lavanderia</span></span>
+          <img src="/logo-dark.png" alt="A7 Lavanderia" className="h-8 w-auto" />
           <a
             href={waLink}
             className="bg-gradient-to-r from-purple-600 to-pink-500 text-white text-xs font-bold px-4 py-2 rounded-full hover:shadow-lg hover:shadow-purple-200 transition-all"

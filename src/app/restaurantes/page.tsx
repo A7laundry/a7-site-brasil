@@ -156,8 +156,9 @@ export default function RestaurantesPage() {
       <ServiceSchema name="Lavanderia para Restaurantes" description="Serviço B2B de lavanderia para restaurantes: toalhas, guardanapos, uniformes e aventais com coleta programada e entrega garantida." slug="restaurantes" />
       <header className="fixed top-0 w-full z-50 bg-gray-950/90 backdrop-blur-md border-b border-emerald-900/40">
         <div className="max-w-6xl mx-auto px-5 h-14 flex items-center justify-between">
-          <a href="/" className="font-black text-lg tracking-tight text-white">
-            A7 <span className="text-emerald-400">Lavanderia</span>
+          <a href="/">
+            
+            <img src="/logo-light.png" alt="A7 Lavanderia" className="h-8 w-auto" />
           </a>
           <a
             href={waLink}

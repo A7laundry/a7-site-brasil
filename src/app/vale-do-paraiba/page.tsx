@@ -164,8 +164,9 @@ export default function ValeDoParaibaPage() {
       <ServiceSchema name="Lavanderia no Vale do Paraíba" description="A7 Lavanderia atende todo o Vale do Paraíba: São José dos Campos, Taubaté, Jacareí, Lorena e região com coleta e entrega." slug="vale-do-paraiba" />
       <header className="fixed top-0 w-full z-50 bg-slate-950/90 backdrop-blur-md border-b border-slate-800/60">
         <div className="max-w-6xl mx-auto px-5 h-14 flex items-center justify-between">
-          <a href="/" className="font-black text-lg tracking-tight text-white">
-            A7 <span className="text-blue-400">Lavanderia</span>
+          <a href="/">
+            
+            <img src="/logo-light.png" alt="A7 Lavanderia" className="h-8 w-auto" />
           </a>
           <a
             href={waLink}

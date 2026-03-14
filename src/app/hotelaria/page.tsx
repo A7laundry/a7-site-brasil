@@ -144,8 +144,9 @@ export default function HotelariaPage() {
       <ServiceSchema name="Lavanderia para Hotelaria" description="Outsourcing de lavanderia para hotéis, pousadas e resorts. Volume sem limite, SLA 24h, relatório de higiene e controle de qualidade." slug="hotelaria" />
       <header className="fixed top-0 w-full z-50 bg-stone-950/90 backdrop-blur-md border-b border-amber-900/30">
         <div className="max-w-6xl mx-auto px-5 h-14 flex items-center justify-between">
-          <a href="/" className="font-black text-lg tracking-tight text-white">
-            A7 <span className="text-amber-500">Lavanderia</span>
+          <a href="/">
+            
+            <img src="/logo-light.png" alt="A7 Lavanderia" className="h-8 w-auto" />
           </a>
           <a
             href={waLink}

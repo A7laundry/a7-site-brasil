@@ -141,8 +141,9 @@ export default function AirbnbPage() {
       <ServiceSchema name="Lavanderia para Anfitriões Airbnb" description="Serviço B2B para anfitriões Airbnb: troca de roupa de cama e banho entre hóspedes com turnaround 24h. Avaliação 5 estrelas garantida." slug="airbnb" />
       <header className="fixed top-0 w-full z-50 bg-rose-600/90 backdrop-blur-md border-b border-rose-700/40">
         <div className="max-w-6xl mx-auto px-5 h-14 flex items-center justify-between">
-          <a href="/" className="font-black text-lg tracking-tight text-white">
-            A7 <span className="text-rose-200">Lavanderia</span>
+          <a href="/">
+            
+            <img src="/logo-light.png" alt="A7 Lavanderia" className="h-8 w-auto" />
           </a>
           <a
             href={waLink}

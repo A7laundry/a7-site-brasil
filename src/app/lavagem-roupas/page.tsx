@@ -13,8 +13,8 @@ export default function LavagemRoupasPage() {
       <ServiceSchema name="Lavagem de Roupas do Dia a Dia" description="Lavagem completa do cotidiano com entrega em 48h. Roupas lavadas, passadas e dobradas. Coleta e entrega em São José dos Campos e região." slug="lavagem-roupas" />
       <header className="fixed top-0 w-full z-50 bg-[#0891B2]/90 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="text-xl font-bold tracking-tight">
-            A7 Lavanderia
+          <Link href="/">
+            <img src="/logo-light.png" alt="A7 Lavanderia" className="h-8 w-auto" />
           </Link>
           <a
             href={whatsappLink}

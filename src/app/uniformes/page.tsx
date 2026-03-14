@@ -154,8 +154,9 @@ export default function UniformesPage() {
       <ServiceSchema name="Lavagem de Uniformes Corporativos" description="Lavanderia corporativa para uniformes com coleta na empresa, separação por colaborador e conformidade com ANVISA e normas NR." slug="uniformes" />
       <header className="fixed top-0 w-full z-50 bg-indigo-950/90 backdrop-blur-md border-b border-indigo-800/40">
         <div className="max-w-6xl mx-auto px-5 h-14 flex items-center justify-between">
-          <a href="/" className="font-black text-lg tracking-tight text-white">
-            A7 <span className="text-indigo-400">Lavanderia</span>
+          <a href="/">
+            
+            <img src="/logo-light.png" alt="A7 Lavanderia" className="h-8 w-auto" />
           </a>
           <a
             href={waLink}

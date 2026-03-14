@@ -150,8 +150,9 @@ export default function PremiumPage() {
       <ServiceSchema name="Serviço Premium A7 Lavanderia" description="O padrão mais alto em lavanderia: concierge 24/7, rastreamento por QR code, garantia total e express 12h. Para quem não aceita menos que perfeito." slug="premium" />
       <header className="fixed top-0 w-full z-50 bg-[#0A0A0A]/90 backdrop-blur-md border-b border-yellow-900/30">
         <div className="max-w-6xl mx-auto px-5 h-14 flex items-center justify-between">
-          <a href="/" className="font-black text-lg tracking-tight text-white">
-            A7 <span className="text-yellow-400">Lavanderia</span>
+          <a href="/">
+            
+            <img src="/logo-light.png" alt="A7 Lavanderia" className="h-8 w-auto" />
           </a>
           <a
             href={waLink}

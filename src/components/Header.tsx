@@ -40,15 +40,12 @@ export default function Header() {
       <div className="container-main mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-xl bg-accent flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 transition-transform">
-              A7
-            </div>
-            <div className="hidden sm:block">
-              <span className={`font-bold text-lg ${isScrolled ? "text-primary" : "text-white"}`}>
-                A7 Lavanderia
-              </span>
-            </div>
+          <a href="#" className="flex items-center group">
+            <img
+              src={isScrolled ? "/logo-dark.png" : "/logo-light.png"}
+              alt="A7 Lavanderia"
+              className="h-8 w-auto transition-opacity group-hover:opacity-80"
+            />
           </a>
 
           {/* Desktop Nav */}

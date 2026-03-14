@@ -143,8 +143,9 @@ export default function CondominiosPage() {
       <ServiceSchema name="Lavanderia para Condomínios" description="Parceria com condomínios: desconto exclusivo para moradores, coleta na portaria e relatório mensal para a administração." slug="condominios" />
       <header className="fixed top-0 w-full z-50 bg-sky-700/90 backdrop-blur-md border-b border-sky-600/40">
         <div className="max-w-6xl mx-auto px-5 h-14 flex items-center justify-between">
-          <a href="/" className="font-black text-lg tracking-tight text-white">
-            A7 <span className="text-sky-200">Lavanderia</span>
+          <a href="/">
+            
+            <img src="/logo-light.png" alt="A7 Lavanderia" className="h-8 w-auto" />
           </a>
           <a
             href={waLink}
