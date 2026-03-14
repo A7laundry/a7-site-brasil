@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { AI_ENGINE_STATS, TOP_SERVICES_BY_TICKET, LEAD_CATALOG } from "@/lib/whatsapp-context";
 
@@ -527,8 +527,8 @@ const ARTIGOS = [
 ];
 
 // ─── LPs JÁ CONSTRUÍDAS E ATIVAS ─────────────────────────────────────────────
-// Atualizar sempre que uma nova LP for ao ar
-const ACTIVE_LP_URLS = new Set([
+// Fallback: atualizado manualmente. Em runtime, o status vem de /api/active-lps
+const FALLBACK_LP_URLS = new Set([
   "/sao-jose-dos-campos",     // LP-23 — original
   "/higienizacao-edredom",    // LP-01 — Batch 1
   "/tenis",                   // LP-02 — Batch 1
@@ -666,7 +666,7 @@ const DEFAULT_STRATEGY = {
   proxPassos: ["Criar conteúdo visual derivado do artigo", "Adicionar CTA contextual no meio do artigo", "Monitorar posição Google e otimizar H1/meta"],
 };
 
-function ArticleDrawer({ artigo, onClose }: { artigo: typeof ARTIGOS[0]; onClose: () => void }) {
+function ArticleDrawer({ artigo, onClose, activeLPUrls }: { artigo: typeof ARTIGOS[0]; onClose: () => void; activeLPUrls: Set<string> }) {
   const strategy = ARTICLE_STRATEGY[artigo.slug] ?? DEFAULT_STRATEGY;
   const funilSteps = [
     { stage: "Topo", label: "Conscientização", active: artigo.funil === "Topo" },
@@ -731,7 +731,7 @@ function ArticleDrawer({ artigo, onClose }: { artigo: typeof ARTIGOS[0]; onClose
               <div className="flex items-center gap-2 flex-wrap">
                 <span className="text-[10px] font-mono bg-white/[0.06] text-gray-400 px-2 py-0.5 rounded">{artigo.lpId}</span>
                 <span className="text-blue-400 text-xs font-mono">{artigo.lpUrl}</span>
-                {ACTIVE_LP_URLS.has(artigo.lpUrl) ? (
+                {activeLPUrls.has(artigo.lpUrl) ? (
                   <span className="inline-flex items-center gap-1 text-[9px] font-bold bg-emerald-500/15 text-emerald-400 px-2 py-0.5 rounded-full border border-emerald-500/20">
                     <span className="relative flex h-1.5 w-1.5">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
@@ -750,8 +750,8 @@ function ArticleDrawer({ artigo, onClose }: { artigo: typeof ARTIGOS[0]; onClose
                   Ver artigo ↗
                 </Link>
                 <Link href={artigo.lpUrl} target="_blank"
-                  className={`text-[10px] font-bold px-3 py-1.5 rounded transition-colors ${ACTIVE_LP_URLS.has(artigo.lpUrl) ? "text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20" : "text-violet-400 bg-violet-500/10 hover:bg-violet-500/20"}`}>
-                  {ACTIVE_LP_URLS.has(artigo.lpUrl) ? "Abrir LP ↗" : "Ver rascunho ↗"}
+                  className={`text-[10px] font-bold px-3 py-1.5 rounded transition-colors ${activeLPUrls.has(artigo.lpUrl) ? "text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20" : "text-violet-400 bg-violet-500/10 hover:bg-violet-500/20"}`}>
+                  {activeLPUrls.has(artigo.lpUrl) ? "Abrir LP ↗" : "Ver rascunho ↗"}
                 </Link>
               </div>
             </div>
@@ -809,6 +809,18 @@ function ArtigosSection() {
   const [clusterFilter, setClusterFilter] = useState("Todos");
   const [funilFilter, setFunilFilter] = useState("Todos");
   const [expandedSlug, setExpandedSlug] = useState<string | null>(null);
+  const [activeLPUrls, setActiveLPUrls] = useState<Set<string>>(FALLBACK_LP_URLS);
+
+  useEffect(() => {
+    fetch("/api/active-lps")
+      .then((r) => r.json())
+      .then((data) => {
+        if (data.activeLPs && data.activeLPs.length > 0) {
+          setActiveLPUrls(new Set(data.activeLPs));
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   const clusters = ["Todos", ...Array.from(new Set(ARTIGOS.map((a) => a.cluster)))];
 
@@ -897,7 +909,7 @@ function ArtigosSection() {
                 </span>
 
                 {/* LP ativa indicator */}
-                {ACTIVE_LP_URLS.has(artigo.lpUrl) ? (
+                {activeLPUrls.has(artigo.lpUrl) ? (
                   <span className="hidden sm:inline-flex items-center gap-1 text-[9px] font-bold bg-emerald-500/10 text-emerald-400 px-1.5 py-0.5 rounded-full flex-shrink-0">
                     <span className="relative flex h-1.5 w-1.5 flex-shrink-0">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
@@ -913,7 +925,7 @@ function ArtigosSection() {
 
             {/* Drawer */}
             {expandedSlug === artigo.slug && (
-              <ArticleDrawer artigo={artigo} onClose={() => setExpandedSlug(null)} />
+              <ArticleDrawer artigo={artigo} onClose={() => setExpandedSlug(null)} activeLPUrls={activeLPUrls} />
             )}
           </div>
         ))}
@@ -957,6 +969,38 @@ export default function GrowthEngineDashboard() {
   const [activeSection, setActiveSection] = useState("overview");
   const [lpFilter, setLpFilter] = useState("Todos");
   const [selectedDept, setSelectedDept] = useState<typeof DEPARTMENTS[0] | null>(null);
+  const [funilMetrics, setFunilMetrics] = useState<Record<string, string>>({});
+  const [editingMetric, setEditingMetric] = useState<string | null>(null);
+  const [editValue, setEditValue] = useState("");
+
+  useEffect(() => {
+    fetch("/api/metrics")
+      .then((r) => r.json())
+      .then((data) => {
+        if (data.funil) {
+          const map: Record<string, string> = {};
+          data.funil.forEach((f: { etapa: string; valor: string }) => {
+            map[f.etapa] = f.valor;
+          });
+          setFunilMetrics(map);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  const saveMetric = async (etapa: string, valor: string) => {
+    const current = await fetch("/api/metrics").then((r) => r.json());
+    const updated = current.funil.map((f: { etapa: string; valor: string; meta: string }) =>
+      f.etapa === etapa ? { ...f, valor } : f
+    );
+    await fetch("/api/metrics", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ funil: updated }),
+    });
+    setFunilMetrics((prev) => ({ ...prev, [etapa]: valor }));
+    setEditingMetric(null);
+  };
 
   const publishedLPs = LANDING_PAGES.filter((lp) => lp.status === "Publicado").length;
   const p0LPs = LANDING_PAGES.filter((lp) => lp.prioridade === "P0").length;
@@ -1661,7 +1705,31 @@ export default function GrowthEngineDashboard() {
                             </div>
                           </div>
                           <div className="text-right">
-                            <p className="text-lg font-bold text-gray-300">{etapa.valor}</p>
+                            <p className="text-lg font-bold text-gray-300">
+                              {editingMetric === etapa.etapa ? (
+                                <span className="flex items-center gap-1 justify-end">
+                                  <input
+                                    autoFocus
+                                    className="w-24 bg-white/10 border border-white/20 rounded px-2 py-0.5 text-white text-sm font-bold outline-none"
+                                    value={editValue}
+                                    onChange={(e) => setEditValue(e.target.value)}
+                                    onKeyDown={(e) => {
+                                      if (e.key === "Enter") saveMetric(etapa.etapa, editValue);
+                                      if (e.key === "Escape") setEditingMetric(null);
+                                    }}
+                                  />
+                                  <button onClick={() => saveMetric(etapa.etapa, editValue)} className="text-emerald-400 text-xs hover:text-emerald-300">✓</button>
+                                </span>
+                              ) : (
+                                <span
+                                  className="cursor-pointer hover:underline decoration-dotted"
+                                  title="Clique para editar"
+                                  onClick={() => { setEditingMetric(etapa.etapa); setEditValue(funilMetrics[etapa.etapa] ?? etapa.valor); }}
+                                >
+                                  {funilMetrics[etapa.etapa] ?? etapa.valor}
+                                </span>
+                              )}
+                            </p>
                             <p className="text-[10px] text-gray-600">meta {etapa.meta}</p>
                           </div>
                         </div>

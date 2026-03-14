@@ -70,6 +70,7 @@ export const COMPANY = {
 };
 
 export const WHATSAPP_MESSAGES = {
+  // Generic / shared keys
   default:
     "Olá! Gostaria de saber mais sobre os serviços da A7 Lavanderia. 🧺",
   agendar:
@@ -80,6 +81,66 @@ export const WHATSAPP_MESSAGES = {
     "Olá! Gostaria de solicitar um orçamento. 📋",
   empresarial:
     "Olá! Gostaria de saber mais sobre o plano empresarial. 🏢",
+
+  // LP-specific keys (key = LP slug without slashes)
+  "sao-jose-dos-campos":
+    "Olá! Estou em São José dos Campos e gostaria de agendar uma coleta. 📍",
+  "higienizacao-edredom":
+    "Olá! Vi a página sobre higienização de edredons e gostaria de agendar. 🛏️",
+  "tenis":
+    "Olá! Quero higienizar meus tênis. Podem me passar as opções e valores? 👟",
+  "remocao-manchas":
+    "Olá! Tenho uma roupa com mancha difícil. Podem me ajudar? 👕",
+  "para-alergicos":
+    "Olá! Sofro de alergia e quero higienizar meus edredons e roupas de cama. 🌿",
+  "precos":
+    "Olá! Vi a tabela de preços e gostaria de fazer um pedido. 💰",
+  "para-maes":
+    "Olá! Quero lavar roupas de bebê e roupas de cama da minha família. 👶",
+  "tapetes":
+    "Olá! Quero higienizar meus tapetes. Podem passar os valores? 🏠",
+  "como-funciona":
+    "Olá! Vi como funciona o serviço e gostaria de fazer meu primeiro pedido. 🚀",
+  "lavanderia-ou-lavar-em-casa":
+    "Olá! Vi a comparação e decidi experimentar a A7. Como agendar? 🧺",
+  "sofas":
+    "Olá! Quero higienizar meu sofá. Podem passar as opções? 🛋️",
+  "roupas-delicadas":
+    "Olá! Tenho peças delicadas (seda/cashmere) para lavar. Como funciona? ✨",
+  "restaurantes":
+    "Olá! Tenho um restaurante e preciso de proposta para lavagem de enxoval. 🍽️",
+  "para-casais":
+    "Olá! Meu parceiro(a) e eu queremos assinar um plano para o casal. 💑",
+  "vale-do-paraiba":
+    "Olá! Sou do Vale do Paraíba e gostaria de agendar uma coleta. 📍",
+  "cortinas":
+    "Olá! Quero higienizar minhas cortinas. Fazem sem tirar da janela? 🪟",
+  "lavagem-roupas":
+    "Olá! Quero lavar minhas roupas do dia a dia. Como funciona e quanto custa? 👗",
+  "plano-mensal":
+    "Olá! Me interessei pelo plano mensal. Podem me passar os detalhes? 📅",
+  "couro-pecas-especiais":
+    "Olá! Tenho uma peça de couro que precisa de cuidado especial. 🧥",
+  "para-executivos":
+    "Olá! Preciso higienizar ternos e camisas sociais. Têm serviço express? 💼",
+  "airbnb":
+    "Olá! Sou anfitrião(ã) Airbnb e preciso de parceria para lavagem entre hóspedes. 🏠",
+  "premium":
+    "Olá! Vi o serviço premium e gostaria de saber mais sobre o concierge. ⭐",
+  "sustentavel":
+    "Olá! Me importo com sustentabilidade e quero saber sobre suas práticas eco. 🌱",
+  "hotelaria":
+    "Olá! Trabalho em hotel/pousada e preciso de proposta B2B para enxoval. 🏨",
+  "uniformes":
+    "Olá! Preciso de lavagem de uniformes corporativos para minha equipe. 👔",
+  "condominios":
+    "Olá! Sou síndico(a) e gostaria de fechar parceria para moradores do condomínio. 🏢",
+  "taubate":
+    "Olá! Sou de Taubaté e gostaria de agendar uma coleta. 📍",
+  "jacarei":
+    "Olá! Sou de Jacareí e quero agendar uma coleta. 📍",
+  "lorena-guaratingueta":
+    "Olá! Sou de Lorena/Guaratinguetá e quero agendar uma coleta. 📍",
 };
 
 export function getWhatsAppLink(message: keyof typeof WHATSAPP_MESSAGES | string = "default") {
