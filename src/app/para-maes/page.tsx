@@ -75,7 +75,7 @@ export default function ParaMaes() {
             className="w-full h-full object-cover object-center"
           />
           {/* Overlay mais leve à direita — imagem respira, reforça o resultado */}
-          <div className="absolute inset-0 bg-gradient-to-r from-rose-950/95 via-gray-950/75 to-gray-950/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-rose-950/95 via-rose-950/55 to-rose-950/10" />
           <div className="absolute inset-0 bg-gradient-to-t from-gray-950/60 via-transparent" />
         </div>
 

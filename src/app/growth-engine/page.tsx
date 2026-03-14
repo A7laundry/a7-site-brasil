@@ -323,6 +323,25 @@ const ACTIVE_LP_URLS = new Set([
   "/empresarial",             // LP-18 — Batch 2
   "/como-funciona",           // LP-29 — Batch 2
   "/lavanderia-ou-lavar-em-casa", // LP-30 — Batch 2
+  "/sofas",                   // LP-04 — Batch 3
+  "/roupas-delicadas",        // LP-07 — Batch 3
+  "/restaurantes",            // LP-19 — Batch 3
+  "/para-casais",             // LP-11 — Batch 3
+  "/vale-do-paraiba",         // LP-27 — Batch 3
+  "/cortinas",                // LP-05 — Batch 4
+  "/lavagem-roupas",          // LP-08 — Batch 4
+  "/plano-mensal",            // LP-09 — Batch 4
+  "/couro-pecas-especiais",   // LP-10 — Batch 4
+  "/para-executivos",         // LP-13 — Batch 4
+  "/airbnb",                  // LP-15 — Batch 5
+  "/premium",                 // LP-16 — Batch 5
+  "/sustentavel",             // LP-17 — Batch 5
+  "/hotelaria",               // LP-20 — Batch 5
+  "/uniformes",               // LP-21 — Batch 5
+  "/condominios",             // LP-22 — Batch 6
+  "/taubate",                 // LP-24 — Batch 6
+  "/jacarei",                 // LP-25 — Batch 6
+  "/lorena-guaratingueta",    // LP-26 — Batch 6
 ]);
 
 // ─── ARTIGOS SECTION COMPONENT ────────────────────────────────────────────────
@@ -1078,6 +1097,100 @@ export default function GrowthEngineDashboard() {
                     <div className="flex items-center justify-between">
                       <span className="text-[10px] text-yellow-500 font-semibold">Teste ativo</span>
                       <span className="text-[10px] text-gray-600">/version-c</span>
+                    </div>
+                  </div>
+                </a>
+
+                {/* Version D — Conversational/Human */}
+                <a
+                  href="/version-d"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block bg-white/[0.03] border border-white/[0.07] rounded-xl overflow-hidden hover:border-white/20 hover:shadow-lg hover:shadow-black/30 transition-all duration-200"
+                >
+                  <div className="relative h-32 bg-[#FAFAF8] overflow-hidden">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-center">
+                        <div className="text-2xl font-black text-[#1C1C1A] leading-tight">Humana</div>
+                        <div className="text-xs text-[#C4622D] font-semibold mt-1">Terracotta · Casual</div>
+                      </div>
+                    </div>
+                    <div className="absolute top-3 left-3 bg-orange-100 text-orange-700 text-[9px] font-bold px-2 py-1 rounded">
+                      Em teste
+                    </div>
+                    <div className="absolute top-3 right-3 bg-[#C4622D] text-white text-[9px] font-bold px-2 py-1 rounded">
+                      Variação D
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-bold text-white mb-1">Version D — Human</h3>
+                    <p className="text-xs text-gray-500 mb-3">Branco quente + terracotta. Hero split. Copy casual e direto. Sem overlay escuro. Conversão por proximidade.</p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] text-yellow-500 font-semibold">Novo</span>
+                      <span className="text-[10px] text-gray-600">/version-d</span>
+                    </div>
+                  </div>
+                </a>
+
+                {/* Version E — Brutalist */}
+                <a
+                  href="/version-e"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block bg-white/[0.03] border border-white/[0.07] rounded-xl overflow-hidden hover:border-white/20 hover:shadow-lg hover:shadow-black/30 transition-all duration-200"
+                >
+                  <div className="relative h-32 bg-black overflow-hidden border border-[#00FF88]/20">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-center">
+                        <div className="text-xl font-black text-white uppercase tracking-tighter leading-tight">LAVANDERIA</div>
+                        <div className="text-xl font-black text-[#00FF88] uppercase tracking-tighter">PREMIUM</div>
+                      </div>
+                    </div>
+                    <div className="absolute top-3 left-3 bg-[#00FF88] text-black text-[9px] font-bold px-2 py-1">
+                      Em teste
+                    </div>
+                    <div className="absolute top-3 right-3 bg-[#00FF88] text-black text-[9px] font-bold px-2 py-1">
+                      Variação E
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-bold text-white mb-1">Version E — Brutalist</h3>
+                    <p className="text-xs text-gray-500 mb-3">Preto + neon verde. Hero tipográfico sem imagem. Ticker animado. Sharp corners. Alto impacto visual.</p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] text-yellow-500 font-semibold">Novo</span>
+                      <span className="text-[10px] text-gray-600">/version-e</span>
+                    </div>
+                  </div>
+                </a>
+
+                {/* Version F — Cinematic */}
+                <a
+                  href="/version-f"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block bg-white/[0.03] border border-white/[0.07] rounded-xl overflow-hidden hover:border-white/20 hover:shadow-lg hover:shadow-black/30 transition-all duration-200"
+                >
+                  <div className="relative h-32 bg-[#0A0A0A] overflow-hidden">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-center">
+                        <div className="text-sm font-light text-gray-400 uppercase tracking-widest mb-1">Cinematic</div>
+                        <div className="text-lg font-light text-white italic">O cuidado que suas</div>
+                        <div className="text-lg font-light text-[#F59E0B] italic">roupas merecem</div>
+                      </div>
+                    </div>
+                    <div className="absolute top-3 left-3 bg-amber-500/20 text-amber-400 text-[9px] font-bold px-2 py-1 rounded">
+                      Em teste
+                    </div>
+                    <div className="absolute top-3 right-3 bg-amber-500 text-black text-[9px] font-bold px-2 py-1 rounded">
+                      Variação F
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-bold text-white mb-1">Version F — Cinematic</h3>
+                    <p className="text-xs text-gray-500 mb-3">Preto + dourado. Hero full-bleed moody. Scroll animado. Horizontal scroll services. Luxury brand feel.</p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] text-yellow-500 font-semibold">Novo</span>
+                      <span className="text-[10px] text-gray-600">/version-f</span>
                     </div>
                   </div>
                 </a>

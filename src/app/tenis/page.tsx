@@ -68,8 +68,8 @@ export default function Tenis() {
       <section className="relative min-h-[92vh] flex items-end pb-20 pt-14">
         <div className="absolute inset-0">
           <img src={HERO_IMG} alt="Tênis limpo" className="w-full h-full object-cover object-center" />
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-950/95 via-purple-950/55 to-purple-950/10" />
           <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/50 to-gray-950/10" />
-          <div className="absolute inset-0 bg-gradient-to-r from-purple-950/80 to-transparent" />
         </div>
 
         <div className="relative max-w-6xl mx-auto px-5 w-full">
@@ -89,7 +89,7 @@ export default function Tenis() {
               style={{ fontSize: "clamp(3rem, 7vw, 5.5rem)" }}
             >
               Seu tênis merece<br />
-              <span className="text-purple-400">treatment.</span>
+              <span className="text-purple-400">tratamento.</span>
             </motion.h1>
 
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}

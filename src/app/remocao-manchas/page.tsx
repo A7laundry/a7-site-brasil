@@ -64,7 +64,7 @@ export default function RemocaoManchas() {
       <section className="relative min-h-screen flex items-end pb-20 pt-14">
         <div className="absolute inset-0">
           <img src={HERO_IMG} alt="Remoção de manchas" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-gray-950/95 via-gray-950/70 to-gray-950/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-950/95 via-gray-950/55 to-gray-950/10" />
           <div className="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-transparent" />
         </div>
 

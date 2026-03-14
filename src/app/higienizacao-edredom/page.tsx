@@ -101,7 +101,7 @@ export default function HigienizacaoEdredom() {
         {/* Photo */}
         <div className="absolute inset-0">
           <img src={HERO_IMG} alt="Edredom limpo" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-gray-950/90 via-gray-950/60 to-gray-950/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-950/95 via-gray-950/55 to-gray-950/10" />
           <div className="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-transparent to-gray-950/20" />
         </div>
 

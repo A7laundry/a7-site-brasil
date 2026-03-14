@@ -62,7 +62,7 @@ export default function ParaAlergicos() {
       <section className="relative min-h-screen flex items-end pb-20 pt-14">
         <div className="absolute inset-0">
           <img src={HERO_IMG} alt="Dormindo bem sem alergia" className="w-full h-full object-cover object-top" />
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-950/95 via-blue-950/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-950/95 via-blue-950/55 to-blue-950/10" />
           <div className="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-transparent" />
         </div>
 

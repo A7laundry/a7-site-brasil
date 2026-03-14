@@ -67,7 +67,7 @@ export default function EmpresarialPage() {
             backgroundSize: "40px 40px",
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0f1e]/95 via-[#0a0f1e]/80 to-[#0a0f1e]/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0f1e]/95 via-[#0a0f1e]/55 to-[#0a0f1e]/10" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 pt-28 pb-20 lg:pt-32 lg:pb-24 w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left */}
           <div>
