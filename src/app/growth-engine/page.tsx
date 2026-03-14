@@ -329,9 +329,223 @@ const CLUSTER_TAG_COLORS: Record<string, string> = {
   "Local": "bg-rose-500/15 text-rose-300",
 };
 
+// ─── ESTRATÉGIA POR ARTIGO ─────────────────────────────────────────────────
+const ARTICLE_STRATEGY: Record<string, {
+  objetivo: string;
+  jornada: string[];
+  iscas: string[];
+  canais: { canal: string; formato: string; icon: string }[];
+  proxPassos: string[];
+}> = {
+  "alergia-acaros-roupa-cama": {
+    objetivo: "Conscientizar sobre ácaros como causa de alergia e capturar leads qualificados de alérgicos",
+    jornada: ["Pessoa pesquisa sintomas de rinite matinal", "Encontra o artigo no Google", "Aprende que a cama é a causa", "CTA → /para-alergicos para conversão"],
+    iscas: ["PDF gratuito: 'Checklist Anti-Ácaro do Quarto'", "Quiz: 'Sua cama está te deixando doente?'", "Mini-vídeo: 'Como identificar ácaros em casa'"],
+    canais: [
+      { canal: "SEO Google", formato: "Artigo de blog (já publicado)", icon: "🔍" },
+      { canal: "Pinterest", formato: "Infográfico 'Ciclo de vida do ácaro'", icon: "📌" },
+      { canal: "Instagram Reels", formato: "Vídeo '10M de ácaros no seu edredom'", icon: "📱" },
+      { canal: "YouTube Shorts", formato: "Time-lapse limpeza de edredom", icon: "▶️" },
+      { canal: "WhatsApp Status", formato: "Curiosidade + link para artigo", icon: "💬" },
+    ],
+    proxPassos: ["Criar infográfico do ciclo do ácaro", "Gravar Reel de prova social (antes/depois edredom)", "Adicionar pop-up no artigo com oferta anti-ácaro"],
+  },
+  "tirar-mancha-vinho-tinto": {
+    objetivo: "Capturar demanda de fundo de funil — pessoa com emergência de mancha precisa agir agora",
+    jornada: ["Mancha acontece → pesquisa imediata no Google", "Encontra o guia", "Tenta solução caseira / percebe que precisa de ajuda", "CTA urgente → WhatsApp com foto da mancha"],
+    iscas: ["'Mande foto agora — avaliamos grátis'", "Guia rápido para imprimir: 'O que fazer nos primeiros 60 segundos'", "Sticker WhatsApp: 'Socorremos manchas'"],
+    canais: [
+      { canal: "SEO Google", formato: "Artigo urgência (já publicado)", icon: "🔍" },
+      { canal: "TikTok", formato: "Vídeo 'Tiramos mancha de vinho impossível'", icon: "🎵" },
+      { canal: "Instagram Stories", formato: "Enquete: conseguiu tirar?", icon: "📱" },
+      { canal: "Google Ads", formato: "Anúncio 'Remoção de manchas urgente'", icon: "💰" },
+    ],
+    proxPassos: ["Criar campanha Google Ads para 'como tirar mancha vinho'", "Vídeo antes/depois para TikTok", "Adicionar urgência no artigo: banner 'Mande foto agora'"],
+  },
+  "lavar-tenis-corretamente": {
+    objetivo: "Educar sobre cuidados com tênis e converter para serviço de limpeza profissional",
+    jornada: ["Comprou tênis caro → pesquisa como cuidar", "Lê o guia completo", "Percebe risco de estragar na lavagem doméstica", "CTA → /tenis para limpeza profissional"],
+    iscas: ["'Guia de materiais: lona, couro, nobuck, mesh'", "Calculadora de custo: 'Vale lavar ou comprar novo?'", "Sorteio mensal: 'Limpeza grátis de 1 par'"],
+    canais: [
+      { canal: "SEO Google", formato: "Artigo informacional (já publicado)", icon: "🔍" },
+      { canal: "Instagram", formato: "Carrossel 'Antes e depois de 5 tênis famosos'", icon: "📱" },
+      { canal: "TikTok", formato: "Dueto com vídeo de limpeza caseira errada", icon: "🎵" },
+      { canal: "YouTube", formato: "Tutorial 'Como NÃO lavar seu Nike'", icon: "▶️" },
+      { canal: "Pinterest", formato: "Pins com fotos de tênis limpos por material", icon: "📌" },
+    ],
+    proxPassos: ["Criar carrossel Instagram com antes/depois", "Parceria com sneaker shops locais", "Campanha 'Tênis para formatura' em novembro"],
+  },
+  "uniformes-corporativos-higienizacao": {
+    objetivo: "Capturar leads B2B de alto valor — empresas com demanda recorrente de uniformes",
+    jornada: ["RH pesquisa solução para uniformes corporativos", "Lê o guia de gestão de enxoval", "Reconhece que terceirizar é mais eficiente", "CTA → /uniformes para falar com comercial"],
+    iscas: ["Proposta comercial: 'Orçamento para empresa em 24h'", "Case study: 'Como reduzimos custo de uniformes em 30%'", "Template gratuito: 'Planilha de controle de enxoval corporativo'"],
+    canais: [
+      { canal: "SEO Google", formato: "Artigo B2B (já publicado)", icon: "🔍" },
+      { canal: "LinkedIn", formato: "Artigo 'Como gestores de RH estão terceirizando enxoval'", icon: "💼" },
+      { canal: "LinkedIn Ads", formato: "Anúncio segmentado para RH e gestão", icon: "💰" },
+      { canal: "Email outreach", formato: "Prospecção ativa para empresas locais", icon: "📧" },
+    ],
+    proxPassos: ["Criar LinkedIn Company Page A7", "Publicar case study de cliente B2B", "Iniciar prospecção ativa em SJC"],
+  },
+  "lavanderia-sao-jose-dos-campos": {
+    objetivo: "Capturar demanda local transacional — pessoa em SJC procurando lavanderia",
+    jornada: ["Pesquisa 'lavanderia em SJC' ou 'lavanderia com coleta'", "Encontra artigo + LP cidade", "Compara com opções locais", "Agenda pelo WhatsApp"],
+    iscas: ["Mapa interativo de cobertura por bairro em SJC", "Oferta geo-localizada: '20% OFF para moradores do [bairro]'", "Parceria com condomínios de SJC"],
+    canais: [
+      { canal: "SEO Local Google", formato: "Artigo + Google Business Profile", icon: "🔍" },
+      { canal: "Google Maps", formato: "Perfil A7 otimizado + fotos + avaliações", icon: "🗺️" },
+      { canal: "Facebook Ads", formato: "Segmentação por bairro em SJC", icon: "📘" },
+      { canal: "Grupos Facebook SJC", formato: "Posts orgânicos com dica + CTA", icon: "👥" },
+      { canal: "Nextdoor / Grupos WhatsApp", formato: "Indicações por moradores", icon: "🏘️" },
+    ],
+    proxPassos: ["Otimizar Google Business Profile com fotos reais", "Campanha de avaliações Google (solicitar para clientes SJC)", "Facebook Ads geo-segmentado por bairro"],
+  },
+};
+
+const DEFAULT_STRATEGY = {
+  objetivo: "Educar o leitor sobre o tema e converter para o serviço relacionado via LP de destino",
+  jornada: ["Pesquisa informacional no Google", "Consome o conteúdo completo", "Reconhece o problema ou necessidade", "CTA direciona para LP ou WhatsApp"],
+  iscas: ["Oferta de primeira coleta com desconto", "Conteúdo complementar: checklist ou guia", "Prova social: depoimento de cliente com mesmo problema"],
+  canais: [
+    { canal: "SEO Google", formato: "Artigo de blog (publicado)", icon: "🔍" },
+    { canal: "Instagram", formato: "Carrossel com os principais pontos do artigo", icon: "📱" },
+    { canal: "WhatsApp", formato: "Compartilhamento orgânico via clientes", icon: "💬" },
+  ],
+  proxPassos: ["Criar conteúdo visual derivado do artigo", "Adicionar CTA contextual no meio do artigo", "Monitorar posição Google e otimizar H1/meta"],
+};
+
+function ArticleDrawer({ artigo, onClose }: { artigo: typeof ARTIGOS[0]; onClose: () => void }) {
+  const strategy = ARTICLE_STRATEGY[artigo.slug] ?? DEFAULT_STRATEGY;
+  const funilSteps = [
+    { stage: "Topo", label: "Conscientização", active: artigo.funil === "Topo" },
+    { stage: "Meio", label: "Consideração", active: artigo.funil === "Meio" },
+    { stage: "Fundo", label: "Decisão", active: artigo.funil === "Fundo" },
+  ];
+
+  return (
+    <div className="mt-px border-t border-white/[0.08] bg-white/[0.03] animate-in fade-in slide-in-from-top-2 duration-200">
+      <div className="p-5 space-y-5">
+        {/* Header strip */}
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Estratégia do artigo</p>
+            <p className="text-white font-semibold text-sm leading-tight">{artigo.titulo}</p>
+          </div>
+          <button onClick={onClose} className="text-gray-600 hover:text-gray-400 flex-shrink-0 mt-0.5">
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {/* Objetivo */}
+          <div className="bg-white/[0.04] rounded-lg p-4">
+            <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wider mb-2">🎯 Objetivo</p>
+            <p className="text-sm text-gray-300 leading-relaxed">{strategy.objetivo}</p>
+          </div>
+
+          {/* Funil visual */}
+          <div className="bg-white/[0.04] rounded-lg p-4">
+            <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wider mb-3">🔻 Posição no funil</p>
+            <div className="flex items-stretch gap-1 h-16">
+              {funilSteps.map((step, i) => (
+                <div key={step.stage} className={`flex-1 flex flex-col items-center justify-center text-center rounded transition-all ${step.active
+                  ? step.stage === "Topo" ? "bg-blue-500 text-white"
+                    : step.stage === "Meio" ? "bg-amber-500 text-white"
+                    : "bg-emerald-500 text-white"
+                  : "bg-white/[0.04] text-gray-600"}`}
+                  style={{ clipPath: i < 2 ? "polygon(0 0, 95% 0, 100% 50%, 95% 100%, 0 100%)" : undefined }}
+                >
+                  <span className={`text-[9px] font-bold uppercase tracking-wider ${step.active ? "text-white" : "text-gray-600"}`}>{step.stage}</span>
+                  <span className={`text-[8px] ${step.active ? "text-white/80" : "text-gray-700"}`}>{step.label}</span>
+                </div>
+              ))}
+            </div>
+            <div className="mt-3 space-y-1">
+              {strategy.jornada.map((step, i) => (
+                <div key={i} className="flex items-start gap-2 text-xs">
+                  <span className="text-gray-600 flex-shrink-0">{i + 1}.</span>
+                  <span className="text-gray-400 leading-tight">{step}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* LP destino */}
+          <div className="bg-white/[0.04] rounded-lg p-4">
+            <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wider mb-3">🔗 LP de destino</p>
+            <div className="space-y-2">
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] font-mono bg-white/[0.06] text-gray-400 px-2 py-0.5 rounded">{artigo.lpId}</span>
+                <span className="text-blue-400 text-xs font-mono">{artigo.lpUrl}</span>
+              </div>
+              <p className="text-xs text-gray-500 italic">CTA: &ldquo;{artigo.cta}&rdquo;</p>
+              <div className="flex gap-2 mt-3">
+                <Link href={`/blog/${artigo.slug}`} target="_blank"
+                  className="text-[10px] font-bold text-blue-400 bg-blue-500/10 px-3 py-1.5 rounded hover:bg-blue-500/20 transition-colors">
+                  Ver artigo ↗
+                </Link>
+                <Link href={artigo.lpUrl} target="_blank"
+                  className="text-[10px] font-bold text-violet-400 bg-violet-500/10 px-3 py-1.5 rounded hover:bg-violet-500/20 transition-colors">
+                  Ver LP ↗
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-4">
+          {/* Iscas */}
+          <div className="bg-white/[0.04] rounded-lg p-4">
+            <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wider mb-3">🪝 Ideias de iscas</p>
+            <ul className="space-y-2">
+              {strategy.iscas.map((isca, i) => (
+                <li key={i} className="flex items-start gap-2 text-xs text-gray-400">
+                  <span className="text-emerald-400 flex-shrink-0 mt-0.5">→</span>
+                  <span>{isca}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Canais */}
+          <div className="bg-white/[0.04] rounded-lg p-4">
+            <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wider mb-3">📡 Canais de aquisição</p>
+            <div className="space-y-2">
+              {strategy.canais.map((c, i) => (
+                <div key={i} className="flex items-start gap-2">
+                  <span className="text-base leading-none flex-shrink-0 mt-0.5">{c.icon}</span>
+                  <div>
+                    <span className="text-xs font-semibold text-gray-300">{c.canal}</span>
+                    <span className="text-[11px] text-gray-600 ml-1.5">{c.formato}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Próximos passos */}
+        <div className="bg-white/[0.04] rounded-lg p-4">
+          <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wider mb-3">⚡ Próximos passos</p>
+          <div className="flex flex-wrap gap-2">
+            {strategy.proxPassos.map((passo, i) => (
+              <span key={i} className="text-[11px] bg-white/[0.05] border border-white/[0.08] text-gray-400 px-3 py-1.5 rounded-full">
+                {passo}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function ArtigosSection() {
   const [clusterFilter, setClusterFilter] = useState("Todos");
   const [funilFilter, setFunilFilter] = useState("Todos");
+  const [expandedSlug, setExpandedSlug] = useState<string | null>(null);
 
   const clusters = ["Todos", ...Array.from(new Set(ARTIGOS.map((a) => a.cluster)))];
 
@@ -383,62 +597,55 @@ function ArtigosSection() {
         </div>
       </div>
 
-      {/* Table */}
+      <p className="text-[11px] text-gray-600">Clique em um artigo para ver a estratégia completa, iscas e canais de aquisição.</p>
+
+      {/* Article list with expandable drawer */}
       <div className="bg-white/[0.02] border border-white/[0.07] rounded-xl overflow-hidden">
-        <table className="w-full text-sm">
-          <thead>
-            <tr className="border-b border-white/[0.06] text-[11px] text-gray-500 uppercase tracking-wider">
-              <th className="text-left px-4 py-3">Artigo</th>
-              <th className="text-left px-4 py-3 hidden md:table-cell">Cluster</th>
-              <th className="text-center px-4 py-3">Funil</th>
-              <th className="text-left px-4 py-3 hidden lg:table-cell">LP Destino</th>
-              <th className="text-left px-4 py-3 hidden xl:table-cell">CTA</th>
-              <th className="text-center px-4 py-3">Links</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filtered.map((artigo) => (
-              <tr key={artigo.slug} className="border-b border-white/[0.04] hover:bg-white/[0.03] transition-colors">
-                <td className="px-4 py-3">
-                  <p className="text-sm text-gray-200 leading-tight">{artigo.titulo}</p>
-                </td>
-                <td className="px-4 py-3 hidden md:table-cell">
-                  <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${CLUSTER_TAG_COLORS[artigo.cluster] ?? "bg-gray-700 text-gray-400"}`}>
-                    {artigo.cluster}
-                  </span>
-                </td>
-                <td className="px-4 py-3 text-center">
-                  <span className={`text-xs px-2 py-0.5 rounded-full font-semibold ${FUNIL_COLORS[artigo.funil]}`}>
-                    {artigo.funil}
-                  </span>
-                </td>
-                <td className="px-4 py-3 hidden lg:table-cell">
-                  <div className="flex items-center gap-1.5">
-                    <span className="text-xs font-mono text-gray-600">{artigo.lpId}</span>
-                    <span className="text-xs text-blue-400 font-medium">{artigo.lpUrl}</span>
-                  </div>
-                </td>
-                <td className="px-4 py-3 hidden xl:table-cell">
-                  <p className="text-xs text-gray-500 italic">{artigo.cta}</p>
-                </td>
-                <td className="px-4 py-3 text-center">
-                  <div className="flex items-center justify-center gap-2">
-                    <Link href={`/blog/${artigo.slug}`} target="_blank"
-                      className="text-xs text-blue-400 hover:text-blue-300 bg-blue-500/10 px-2 py-0.5 rounded transition-colors">
-                      Artigo →
-                    </Link>
-                    <Link href={artigo.lpUrl} target="_blank"
-                      className="text-xs text-violet-400 hover:text-violet-300 bg-violet-500/10 px-2 py-0.5 rounded transition-colors">
-                      LP →
-                    </Link>
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        {filtered.map((artigo, idx) => (
+          <div key={artigo.slug}>
+            {/* Row */}
+            <button
+              onClick={() => setExpandedSlug(expandedSlug === artigo.slug ? null : artigo.slug)}
+              className={`w-full text-left border-b border-white/[0.04] transition-colors ${expandedSlug === artigo.slug ? "bg-white/[0.06]" : "hover:bg-white/[0.03]"}`}
+            >
+              <div className="flex items-center gap-3 px-4 py-3">
+                {/* Expand icon */}
+                <svg
+                  className={`w-3 h-3 text-gray-600 flex-shrink-0 transition-transform ${expandedSlug === artigo.slug ? "rotate-90 text-blue-400" : ""}`}
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+
+                {/* Número */}
+                <span className="text-[10px] font-mono text-gray-700 flex-shrink-0 w-5">{String(idx + 1).padStart(2, "0")}</span>
+
+                {/* Título */}
+                <p className="text-sm text-gray-200 leading-tight flex-1 text-left">{artigo.titulo}</p>
+
+                {/* Cluster */}
+                <span className={`text-[10px] px-2 py-0.5 rounded-full font-medium hidden md:block flex-shrink-0 ${CLUSTER_TAG_COLORS[artigo.cluster] ?? "bg-gray-700 text-gray-400"}`}>
+                  {artigo.cluster}
+                </span>
+
+                {/* Funil */}
+                <span className={`text-[10px] px-2 py-0.5 rounded-full font-semibold flex-shrink-0 ${FUNIL_COLORS[artigo.funil]}`}>
+                  {artigo.funil}
+                </span>
+
+                {/* LP */}
+                <span className="text-[10px] font-mono text-gray-600 hidden lg:block flex-shrink-0">{artigo.lpId}</span>
+              </div>
+            </button>
+
+            {/* Drawer */}
+            {expandedSlug === artigo.slug && (
+              <ArticleDrawer artigo={artigo} onClose={() => setExpandedSlug(null)} />
+            )}
+          </div>
+        ))}
         <div className="px-4 py-3 border-t border-white/[0.04]">
-          <p className="text-xs text-gray-600">{filtered.length} artigos · {filtered.filter((a) => a.funil === "Fundo").length} fundo de funil (conversão direta)</p>
+          <p className="text-xs text-gray-600">{filtered.length} artigos · {filtered.filter((a) => a.funil === "Fundo").length} fundo de funil · clique para expandir estratégia</p>
         </div>
       </div>
 
