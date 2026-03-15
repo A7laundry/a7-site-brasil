@@ -102,6 +102,15 @@ export const CITIES: City[] = [
     demanda: "media",
   },
   {
+    slug: "campos-do-jordao",
+    nome: "Campos do Jordão",
+    estado: "SP",
+    regiao: "Serra da Mantiqueira",
+    populacao: "52 mil",
+    bairros: ["Capivari", "Abernéssia", "Jaguaribe", "Vila Capivari"],
+    demanda: "media",
+  },
+  {
     slug: "tremembe",
     nome: "Tremembé",
     estado: "SP",
