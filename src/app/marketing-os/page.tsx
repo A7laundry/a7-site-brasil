@@ -59,13 +59,11 @@ const ARTICLES: {
   { slug: "tirar-mancha-vinho-tinto", title: "Como tirar mancha de vinho tinto", cluster: "Manchas", funnel: "Awareness", intent: "Informacional", lp: "/remocao-manchas", monetization: "Remoção de manchas", gap: "Como tirar mancha de café da roupa" },
   { slug: "tirar-manchas-dificeis", title: "Como tirar manchas difíceis", cluster: "Manchas", funnel: "Consideration", intent: "Transacional", lp: "/remocao-manchas", monetization: "Remoção de manchas", gap: "Quando a mancha não sai em casa" },
   { slug: "uniformes-corporativos-higienizacao", title: "Higienização de uniformes corporativos", cluster: "B2B", funnel: "Consideration", intent: "Comercial", lp: "/uniformes", monetization: "Contrato B2B uniformes", gap: "Gestão de estoque de uniformes" },
-  // EPIC-01 — Fundo de funil
   { slug: "quanto-custa-lavanderia", title: "Quanto custa uma lavanderia? Guia de preços 2025", cluster: "Local", funnel: "Decisão", intent: "Transacional", lp: "/precos", monetization: "Todos os serviços", gap: "Calculadora de orçamento interativa" },
   { slug: "lavanderia-coleta-domicilio-sjc", title: "Lavanderia com coleta em domicílio em SJC", cluster: "Local", funnel: "Decisão", intent: "Navegacional", lp: "/sao-jose-dos-campos", monetization: "Todos os serviços", gap: "Coleta express em outros bairros" },
   { slug: "plano-mensal-lavanderia-vale", title: "Plano mensal de lavanderia: vale a pena?", cluster: "Organização", funnel: "Retenção", intent: "Transacional", lp: "/plano-mensal", monetization: "Plano mensal recorrente", gap: "Comparativo planos família vs. casal" },
   { slug: "como-escolher-lavanderia", title: "Como escolher uma lavanderia: 7 critérios", cluster: "Local", funnel: "Decisão", intent: "Transacional", lp: "/como-funciona", monetization: "Todos os serviços", gap: "Checklist imprimível para escolha" },
   { slug: "lavanderia-vs-lavar-em-casa", title: "Lavanderia ou lavar em casa? Comparativo", cluster: "Organização", funnel: "Consideration", intent: "Transacional", lp: "/lavanderia-ou-lavar-em-casa", monetization: "Todos os serviços", gap: "Calculadora de custo real" },
-  // EPIC-01 — B2B
   { slug: "lavanderia-para-airbnb", title: "Lavanderia para Airbnb: como funciona", cluster: "B2B", funnel: "Consideration", intent: "Comercial", lp: "/airbnb", monetization: "Contrato Airbnb/temporada", gap: "Modelo de contrato para múltiplos imóveis" },
   { slug: "terceirizar-lavanderia-empresa", title: "Terceirizar lavanderia: quando vale a pena", cluster: "B2B", funnel: "Decisão", intent: "Comercial", lp: "/empresarial", monetization: "Contrato B2B corporativo", gap: "Calculadora de ROI interativa" },
   { slug: "lavanderia-para-academias-spas", title: "Lavanderia para academias e spas", cluster: "B2B", funnel: "Consideration", intent: "Comercial", lp: "/empresarial", monetization: "Contrato B2B academia/spa", gap: "SLA garantido para alto volume" },
@@ -83,7 +81,7 @@ const CLUSTERS_MOS: {
   insights: string[];
 }[] = [
   {
-    id: "saude", nome: "Saúde & Higiene", cor: "blue", tw: "bg-blue-100 text-blue-700 border-blue-200", badge: "bg-blue-600",
+    id: "saude", nome: "Saúde & Higiene", cor: "blue", tw: "bg-blue-500/15 text-blue-400 border-blue-500/25", badge: "bg-blue-500",
     pilar: "Guia completo de higiene doméstica: o que você não vê pode te adoecer",
     lp: "/higienizacao-edredom", gap: 4,
     proximos: ["Com que frequência lavar edredom (guia por estação)", "Ácaros no sofá: sinais e solução", "Lavanderia para bebês recém-nascidos", "Higienização pós-COVID: protocolo completo"],
@@ -98,7 +96,7 @@ const CLUSTERS_MOS: {
     insights: ["Buscas por 'higienização de edredom' triplicam no inverno — criar conteúdo sazonal até maio", "Pais de crianças alérgicas são o segmento de maior conversão deste cluster", "Video mostrando extração de ácaros tem alto potencial viral no TikTok"],
   },
   {
-    id: "manchas", nome: "Manchas", cor: "orange", tw: "bg-orange-100 text-orange-700 border-orange-200", badge: "bg-orange-500",
+    id: "manchas", nome: "Manchas", cor: "orange", tw: "bg-orange-500/15 text-orange-400 border-orange-500/25", badge: "bg-orange-500",
     pilar: "Guia definitivo de remoção de manchas: 30 tipos e como resolver cada um",
     lp: "/remocao-manchas", gap: 7,
     proximos: ["Como tirar mancha de café da roupa", "Como tirar mancha de suor do colarinho", "Como tirar mancha de ferrugem", "Como tirar mancha de graxa", "Manchas que só profissional remove"],
@@ -113,7 +111,7 @@ const CLUSTERS_MOS: {
     insights: ["Conteúdo de manchas tem altíssima taxa de save no Instagram — ótimo para alcance orgânico", "Criar 'guia de manchas PDF' como lead magnet — alta conversão para lista WhatsApp", "Mancha de vinho é a mais buscada — priorizar série de manchas por ocasião"],
   },
   {
-    id: "tenis", nome: "Tênis", cor: "purple", tw: "bg-purple-100 text-purple-700 border-purple-200", badge: "bg-purple-600",
+    id: "tenis", nome: "Tênis", cor: "purple", tw: "bg-purple-500/15 text-purple-400 border-purple-500/25", badge: "bg-purple-500",
     pilar: "Como cuidar de tênis: guia completo por material (couro, camurça, mesh)",
     lp: "/tenis", gap: 5,
     proximos: ["Como limpar tênis branco em casa", "Como lavar tênis de couro sem estragar", "Quanto custa limpar tênis em lavanderia", "Tênis de camurça: cuidados especiais", "Lavar tênis na máquina: risco ou mito?"],
@@ -128,7 +126,7 @@ const CLUSTERS_MOS: {
     insights: ["Tênis é o serviço com maior potencial de viralização — antes/depois são muito compartilhados", "Clientes jovens (18–30) são o público dominante — tom descontraído nas redes", "Parceria com lojas de tênis premium de SJC para indicação mútua"],
   },
   {
-    id: "roupas", nome: "Roupas Especiais", cor: "indigo", tw: "bg-indigo-100 text-indigo-700 border-indigo-200", badge: "bg-indigo-600",
+    id: "roupas", nome: "Roupas Especiais", cor: "indigo", tw: "bg-indigo-500/15 text-indigo-400 border-indigo-500/25", badge: "bg-indigo-500",
     pilar: "Guia completo de cuidados com roupas especiais: seda, cashmere, lã e couro",
     lp: "/roupas-delicadas", gap: 3,
     proximos: ["Como cuidar de seda: guia prático", "Lavanderia para roupas de grife: vale a pena?", "Guia de etiquetas de lavagem (símbolos explicados)"],
@@ -143,7 +141,7 @@ const CLUSTERS_MOS: {
     insights: ["Executivos e mães são os maiores convertedores deste cluster", "Conteúdo de 'símbolos da etiqueta' tem altíssima taxa de save — leve viral", "Oferecer avaliação gratuita de peça delicada como isca na primeira coleta"],
   },
   {
-    id: "tapetes", nome: "Tapetes & Casa", cor: "teal", tw: "bg-teal-100 text-teal-700 border-teal-200", badge: "bg-teal-600",
+    id: "tapetes", nome: "Tapetes & Casa", cor: "teal", tw: "bg-teal-500/15 text-teal-400 border-teal-500/25", badge: "bg-teal-500",
     pilar: "Como higienizar sua casa: guia de tapetes, sofás e cortinas",
     lp: "/sofas", gap: 6,
     proximos: ["Com que frequência higienizar sofá", "Higienização de tapete persa: cuidados especiais", "Lavagem de cortinas sem tirar do trilho", "Higienização de colchão", "Antes e depois: higienização de sofá (cases)"],
@@ -158,7 +156,7 @@ const CLUSTERS_MOS: {
     insights: ["Vídeo de extratora em sofá é o conteúdo de maior engajamento do setor — produzir urgente", "Sofá e tapete têm ticket mais alto — priorizar conversão direta no feed", "Sazonalidade: pré-festas (novembro) e pré-verão são picos de demanda"],
   },
   {
-    id: "sustentavel", nome: "Sustentabilidade", cor: "green", tw: "bg-green-100 text-green-700 border-green-200", badge: "bg-green-600",
+    id: "sustentavel", nome: "Sustentabilidade", cor: "green", tw: "bg-emerald-500/15 text-emerald-400 border-emerald-500/25", badge: "bg-emerald-500",
     pilar: "Guia de consumo consciente de moda: como cuidar e durar mais com menos",
     lp: "/sustentavel", gap: 3,
     proximos: ["Moda circular: como a lavanderia se encaixa", "Fast fashion vs. slow fashion: impacto ambiental", "Como estender a vida útil das roupas"],
@@ -173,7 +171,7 @@ const CLUSTERS_MOS: {
     insights: ["Público millennials/Gen Z tem alta afinidade — linguagem autêntica e dados concretos", "Selos e certificações de sustentabilidade aumentam conversão neste cluster em ~30%", "Parceria com marcas de moda sustentável de SJC para cross-content"],
   },
   {
-    id: "organizacao", nome: "Organização", cor: "pink", tw: "bg-pink-100 text-pink-700 border-pink-200", badge: "bg-pink-600",
+    id: "organizacao", nome: "Organização", cor: "pink", tw: "bg-pink-500/15 text-pink-400 border-pink-500/25", badge: "bg-pink-500",
     pilar: "Método de organização de roupas: guarda-roupa funcional em 7 passos",
     lp: "/plano-mensal", gap: 4,
     proximos: ["Rotina de lavagem semanal para famílias", "Como montar uma rotina de lavanderia em casa", "Checklists de temporada: guardar e lavar", "Minimalismo e roupas: o papel da lavanderia"],
@@ -188,7 +186,7 @@ const CLUSTERS_MOS: {
     insights: ["Conteúdo de rotina e organização tem altíssimo engajamento com mães e donas de casa", "Checklist imprimível de organização é o lead magnet mais fácil de produzir — alta conversão", "Colaboração com influenciadoras de organização doméstica de SJC"],
   },
   {
-    id: "b2b", nome: "B2B", cor: "amber", tw: "bg-amber-100 text-amber-700 border-amber-200", badge: "bg-amber-500",
+    id: "b2b", nome: "B2B", cor: "amber", tw: "bg-amber-500/15 text-amber-400 border-amber-500/25", badge: "bg-amber-500",
     pilar: "Guia de terceirização de lavanderia para empresas: ROI, SLA e como escolher",
     lp: "/empresarial", gap: 5,
     proximos: ["Quanto custa terceirizar lavanderia para restaurante", "SLA de lavanderia hospitalar e clínicas", "Lavanderia para academias: toalhas e uniformes", "ROI de terceirizar lavanderia em condomínios", "Como escolher lavanderia corporativa"],
@@ -203,7 +201,7 @@ const CLUSTERS_MOS: {
     insights: ["LinkedIn é o canal prioritário para B2B — postar 2x/semana com foco em ROI e casos reais", "Calculadora de ROI interativa no site pode multiplicar conversão B2B por 3x", "Restaurantes abrem às quintas/sextas — melhor dia para prospecção ativa no WhatsApp"],
   },
   {
-    id: "local", nome: "Local", cor: "cyan", tw: "bg-cyan-100 text-cyan-700 border-cyan-200", badge: "bg-cyan-600",
+    id: "local", nome: "Local", cor: "cyan", tw: "bg-cyan-500/15 text-cyan-400 border-cyan-500/25", badge: "bg-cyan-500",
     pilar: "Melhores lavanderias do Vale do Paraíba: comparativo completo 2025",
     lp: "/vale-do-paraiba", gap: 6,
     proximos: ["Lavanderia com coleta em Taubaté", "Lavanderia em Jacareí: guia completo", "Higienização de edredom em SJC: preço e prazo", "Limpeza de sofá em Taubaté", "Lavanderia delivery em Lorena e Guaratinguetá", "Melhor lavanderia de SJC (comparativo de preços)"],
@@ -222,12 +220,12 @@ const CLUSTERS_MOS: {
 // ─── FUNNEL STAGES ────────────────────────────────────────────────────────────
 
 const FUNNEL_STAGES_DATA = [
-  { stage: "Awareness" as FunnelStage, icon: "👁️", cor: "sky", tw: "bg-sky-50 border-sky-200", badge: "bg-sky-500", badgeText: "text-sky-700", descricao: "Atrai quem tem o problema mas não conhece a solução", cta: "Blog SEO → captura WhatsApp", kpi: "Impressões, cliques, tempo na página", width: "w-full" },
-  { stage: "Consideration" as FunnelStage, icon: "🤔", cor: "violet", tw: "bg-violet-50 border-violet-200", badge: "bg-violet-500", badgeText: "text-violet-700", descricao: "Converte quem está pesquisando a solução profissional", cta: "Comparativo + prova social → WhatsApp", kpi: "CTR para LP, lead WhatsApp", width: "w-10/12" },
-  { stage: "Decisão" as FunnelStage, icon: "⚖️", cor: "amber", tw: "bg-amber-50 border-amber-200", badge: "bg-amber-500", badgeText: "text-amber-700", descricao: "Fecha quem já quer contratar e está comparando", cta: "LP com preço + social proof + CTA direto", kpi: "Agendamentos WhatsApp, leads qualificados", width: "w-8/12" },
-  { stage: "Booking" as FunnelStage, icon: "📅", cor: "green", tw: "bg-green-50 border-green-200", badge: "bg-green-500", badgeText: "text-green-700", descricao: "Converte o contato em pedido confirmado", cta: "Formulário de coleta / WhatsApp deep link", kpi: "Taxa conversão LP→pedido (meta 3–8%)", width: "w-6/12" },
-  { stage: "Retenção" as FunnelStage, icon: "🔄", cor: "teal", tw: "bg-teal-50 border-teal-200", badge: "bg-teal-500", badgeText: "text-teal-700", descricao: "Transforma pedido avulso em cliente recorrente", cta: "Oferta plano mensal após 1ª coleta", kpi: "Taxa de recompra, assinantes plano mensal", width: "w-4/12" },
-  { stage: "Referral" as FunnelStage, icon: "🎁", cor: "rose", tw: "bg-rose-50 border-rose-200", badge: "bg-rose-500", badgeText: "text-rose-700", descricao: "Transforma clientes em promotores ativos", cta: "R$20 OFF por indicação confirmada", kpi: "NPS > 85, avaliações Google, indicações/mês", width: "w-3/12" },
+  { stage: "Awareness" as FunnelStage, icon: "👁", cor: "sky", descricao: "Atrai quem tem o problema mas não conhece a solução", cta: "Blog SEO → captura WhatsApp", kpi: "Impressões, cliques, tempo na página", hex: "#0ea5e9" },
+  { stage: "Consideration" as FunnelStage, icon: "🤔", cor: "violet", descricao: "Converte quem está pesquisando a solução profissional", cta: "Comparativo + prova social → WhatsApp", kpi: "CTR para LP, lead WhatsApp", hex: "#8b5cf6" },
+  { stage: "Decisão" as FunnelStage, icon: "⚖", cor: "amber", descricao: "Fecha quem já quer contratar e está comparando", cta: "LP com preço + social proof + CTA direto", kpi: "Agendamentos WhatsApp, leads qualificados", hex: "#f59e0b" },
+  { stage: "Booking" as FunnelStage, icon: "📅", cor: "emerald", descricao: "Converte o contato em pedido confirmado", cta: "Formulário de coleta / WhatsApp deep link", kpi: "Taxa conversão LP→pedido (meta 3–8%)", hex: "#22c55e" },
+  { stage: "Retenção" as FunnelStage, icon: "🔄", cor: "teal", descricao: "Transforma pedido avulso em cliente recorrente", cta: "Oferta plano mensal após 1ª coleta", kpi: "Taxa de recompra, assinantes plano mensal", hex: "#14b8a6" },
+  { stage: "Referral" as FunnelStage, icon: "🎁", cor: "rose", descricao: "Transforma clientes em promotores ativos", cta: "R$20 OFF por indicação confirmada", kpi: "NPS > 85, avaliações Google, indicações/mês", hex: "#f43f5e" },
 ];
 
 // ─── 30-DAY CALENDAR ─────────────────────────────────────────────────────────
@@ -251,43 +249,60 @@ const CALENDAR_30: { day: number; date: string; titulo: string; cluster: Cluster
   { day: 29, date: "18/04", titulo: "Rotina de lavagem semanal para famílias", cluster: "Organização", funnel: "Awareness", lp: "/para-maes" },
 ];
 
-// ─── CLICKUP LINK HELPER ──────────────────────────────────────────────────────
+// ─── HELPERS ──────────────────────────────────────────────────────────────────
 
 function getClickUpLink(titulo: string): string {
   return `https://app.clickup.com/t/new?name=${encodeURIComponent(`[Blog] ${titulo}`)}&tags=content,seo,blog`;
 }
 
-// ─── COLORS ───────────────────────────────────────────────────────────────────
+// ─── DARK DESIGN SYSTEM ───────────────────────────────────────────────────────
 
-const CLUSTER_COLORS: Record<string, string> = {
-  "Saúde & Higiene": "bg-blue-100 text-blue-700", "Manchas": "bg-orange-100 text-orange-700",
-  "Tênis": "bg-purple-100 text-purple-700", "Roupas Especiais": "bg-indigo-100 text-indigo-700",
-  "Tapetes & Casa": "bg-teal-100 text-teal-700", "Sustentabilidade": "bg-green-100 text-green-700",
-  "Organização": "bg-pink-100 text-pink-700", "B2B": "bg-amber-100 text-amber-700",
-  "Local": "bg-cyan-100 text-cyan-700",
+const CLUSTER_BADGE: Record<string, string> = {
+  "Saúde & Higiene": "bg-blue-500/15 text-blue-400 border border-blue-500/25",
+  "Manchas": "bg-orange-500/15 text-orange-400 border border-orange-500/25",
+  "Tênis": "bg-purple-500/15 text-purple-400 border border-purple-500/25",
+  "Roupas Especiais": "bg-indigo-500/15 text-indigo-400 border border-indigo-500/25",
+  "Tapetes & Casa": "bg-teal-500/15 text-teal-400 border border-teal-500/25",
+  "Sustentabilidade": "bg-emerald-500/15 text-emerald-400 border border-emerald-500/25",
+  "Organização": "bg-pink-500/15 text-pink-400 border border-pink-500/25",
+  "B2B": "bg-amber-500/15 text-amber-400 border border-amber-500/25",
+  "Local": "bg-cyan-500/15 text-cyan-400 border border-cyan-500/25",
 };
-const FUNNEL_COLORS: Record<string, string> = {
-  "Awareness": "bg-sky-100 text-sky-700", "Consideration": "bg-violet-100 text-violet-700",
-  "Decisão": "bg-amber-100 text-amber-700", "Booking": "bg-green-100 text-green-700",
-  "Retenção": "bg-teal-100 text-teal-700", "Referral": "bg-rose-100 text-rose-700",
+
+const CLUSTER_BAR_COLOR: Record<string, string> = {
+  "Saúde & Higiene": "#3b82f6", "Manchas": "#f97316", "Tênis": "#a855f7",
+  "Roupas Especiais": "#6366f1", "Tapetes & Casa": "#14b8a6",
+  "Sustentabilidade": "#22c55e", "Organização": "#ec4899",
+  "B2B": "#f59e0b", "Local": "#06b6d4",
 };
-const SOCIAL_COLORS: Record<string, string> = {
-  "Instagram": "bg-pink-500", "TikTok": "bg-black", "LinkedIn": "bg-blue-700",
-  "Pinterest": "bg-red-600", "YouTube": "bg-red-500", "Google Business": "bg-blue-500",
+
+const FUNNEL_BADGE: Record<string, string> = {
+  "Awareness": "bg-sky-500/15 text-sky-400",
+  "Consideration": "bg-violet-500/15 text-violet-400",
+  "Decisão": "bg-amber-500/15 text-amber-400",
+  "Booking": "bg-emerald-500/15 text-emerald-400",
+  "Retenção": "bg-teal-500/15 text-teal-400",
+  "Referral": "bg-rose-500/15 text-rose-400",
+};
+
+const SOCIAL_BADGE: Record<string, string> = {
+  "Instagram": "bg-pink-500", "TikTok": "bg-zinc-900 border border-zinc-700",
+  "LinkedIn": "bg-blue-700", "Pinterest": "bg-red-600",
+  "YouTube": "bg-red-500", "Google Business": "bg-blue-500",
   "WhatsApp": "bg-green-600", "YouTube Shorts": "bg-red-500",
 };
 
 const SECTIONS = [
-  { id: "overview", label: "Overview", icon: "📊" },
-  { id: "inventory", label: "Inventário", icon: "📚" },
-  { id: "clusters", label: "Clusters SEO", icon: "🗂️" },
-  { id: "funil", label: "Funil Visual", icon: "🔻" },
-  { id: "calendario", label: "Calendário 30d", icon: "📅" },
-  { id: "local", label: "SEO Local", icon: "📍" },
-  { id: "classifier", label: "Classificador", icon: "🤖" },
+  { id: "overview", label: "Dashboard", icon: "⚡", desc: "Command Center" },
+  { id: "inventory", label: "Content Engine", icon: "✦", desc: "40 artigos" },
+  { id: "clusters", label: "SEO Clusters", icon: "◈", desc: "9 clusters" },
+  { id: "funil", label: "Funil Visual", icon: "▼", desc: "6 etapas" },
+  { id: "calendario", label: "Calendário", icon: "◷", desc: "30 dias" },
+  { id: "local", label: "Local SEO", icon: "◉", desc: "10 cidades" },
+  { id: "classifier", label: "IA Classifier", icon: "◎", desc: "Auto tag" },
 ];
 
-// ─── CLUSTER KEYWORDS (for classifier) ───────────────────────────────────────
+// ─── CLASSIFIER LOGIC ─────────────────────────────────────────────────────────
 
 const CLUSTER_KEYWORDS: Record<ClusterKey, string[]> = {
   "Saúde & Higiene": ["ácaro", "alergia", "fungos", "bactéria", "higieniz", "edredom", "saúde", "rinite"],
@@ -321,8 +336,6 @@ function classifyArticle(title: string) {
   return { cluster, funnel, lp: cd?.lp ?? "/", monetizacao: cd?.monetizacao ?? "", sugestoes: cd?.proximos.slice(0, 4) ?? [], social: cd?.social.slice(0, 2) ?? [] };
 }
 
-// ─── FUNNEL COMPLETENESS ──────────────────────────────────────────────────────
-
 function getFunnelCompleteness(lp: string): { stages: FunnelStage[]; complete: boolean } {
   const arts = ARTICLES.filter(a => a.lp === lp);
   const stages = Array.from(new Set(arts.map(a => a.funnel)));
@@ -344,103 +357,92 @@ export default function MarketingOS() {
   const totalArticles = ARTICLES.length;
   const totalGaps = CLUSTERS_MOS.reduce((s, c) => s + c.gap, 0);
 
-  const filteredArticles = useMemo(() => ARTICLES.filter(a => {
-    return (clusterFilter === "Todos" || a.cluster === clusterFilter) &&
-           (funnelFilter === "Todos" || a.funnel === funnelFilter);
-  }), [clusterFilter, funnelFilter]);
+  const filteredArticles = useMemo(() => ARTICLES.filter(a =>
+    (clusterFilter === "Todos" || a.cluster === clusterFilter) &&
+    (funnelFilter === "Todos" || a.funnel === funnelFilter)
+  ), [clusterFilter, funnelFilter]);
 
   return (
-    <div className="min-h-screen bg-[#050810] text-white font-sans">
+    <div className="min-h-screen bg-[#09090b] text-zinc-100 font-sans flex">
 
-      {/* ── SLIDE-OVER CLUSTER DETAIL ── */}
+      {/* ── SLIDE-OVER CLUSTER DETAIL ────────────────────────────────────────── */}
       {selectedCluster && (
         <div className="fixed inset-0 z-50 flex">
-          <div className="flex-1 bg-black/60 backdrop-blur-sm" onClick={() => setSelectedCluster(null)} />
-          <div className="w-full max-w-xl bg-[#0a0f1e] border-l border-white/10 overflow-y-auto flex flex-col">
-            <div className="sticky top-0 bg-[#0a0f1e] border-b border-white/10 px-6 py-4 flex items-center justify-between z-10">
+          <div className="flex-1 bg-black/70 backdrop-blur-sm" onClick={() => setSelectedCluster(null)} />
+          <div className="w-full max-w-xl bg-[#0e0e13] border-l border-[#1e1e28] overflow-y-auto flex flex-col">
+            <div className="sticky top-0 bg-[#0e0e13]/95 backdrop-blur border-b border-[#1e1e28] px-6 py-4 flex items-center justify-between z-10">
               <div className="flex items-center gap-3">
-                <span className={`text-xs font-black px-3 py-1 rounded-full border ${selectedCluster.tw}`}>{selectedCluster.nome}</span>
-                <span className="text-xs text-white/40">{ARTICLES.filter(a => a.cluster === selectedCluster.nome).length} artigos · <span className="text-orange-400">+{selectedCluster.gap} gaps</span></span>
+                <span className={`text-xs font-bold px-3 py-1 rounded-lg border ${selectedCluster.tw}`}>{selectedCluster.nome}</span>
+                <span className="text-xs text-zinc-600">{ARTICLES.filter(a => a.cluster === selectedCluster.nome).length} artigos · <span className="text-amber-400">+{selectedCluster.gap} gaps</span></span>
               </div>
-              <button onClick={() => setSelectedCluster(null)} className="text-white/40 hover:text-white text-xl leading-none">×</button>
+              <button onClick={() => setSelectedCluster(null)} className="text-zinc-600 hover:text-zinc-300 text-xl leading-none w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white/5 transition-all">×</button>
             </div>
             <div className="p-6 space-y-6 flex-1">
-
-              {/* Pillar page */}
               <div>
-                <p className="text-[10px] text-[#46C1F1]/60 uppercase tracking-widest mb-2">Pillar Page</p>
-                <div className="bg-[#46C1F1]/10 border border-[#46C1F1]/20 rounded-xl p-4">
-                  <p className="text-sm font-semibold text-white leading-relaxed">{selectedCluster.pilar}</p>
-                  <Link href={selectedCluster.lp} className="text-xs text-[#46C1F1] mt-2 block hover:underline font-mono">{selectedCluster.lp} →</Link>
+                <p className="text-[10px] text-cyan-500/60 uppercase tracking-widest mb-2 font-bold">Pillar Page</p>
+                <div className="bg-cyan-500/5 border border-cyan-500/15 rounded-xl p-4">
+                  <p className="text-sm font-semibold text-zinc-200 leading-relaxed">{selectedCluster.pilar}</p>
+                  <Link href={selectedCluster.lp} className="text-xs text-cyan-400 mt-2 block hover:underline font-mono">{selectedCluster.lp} →</Link>
                 </div>
               </div>
-
-              {/* Published articles */}
               <div>
-                <p className="text-[10px] text-white/40 uppercase tracking-widest mb-2">Artigos publicados</p>
+                <p className="text-[10px] text-zinc-600 uppercase tracking-widest mb-2 font-bold">Artigos publicados</p>
                 <div className="space-y-1.5">
                   {ARTICLES.filter(a => a.cluster === selectedCluster.nome).map(a => (
                     <Link key={a.slug} href={`/blog/${a.slug}`}
-                      className="flex items-center gap-3 p-2.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/5 hover:border-[#46C1F1]/30 transition-all group">
-                      <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full shrink-0 ${FUNNEL_COLORS[a.funnel]}`}>{a.funnel}</span>
-                      <span className="text-xs text-white/70 group-hover:text-white transition-colors">{a.title}</span>
-                      <span className="ml-auto text-[#46C1F1] opacity-0 group-hover:opacity-100 text-xs">→</span>
+                      className="flex items-center gap-3 p-2.5 rounded-lg bg-white/[0.03] hover:bg-white/[0.07] border border-[#1e1e28] hover:border-cyan-500/20 transition-all group">
+                      <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded shrink-0 ${FUNNEL_BADGE[a.funnel]}`}>{a.funnel}</span>
+                      <span className="text-xs text-zinc-400 group-hover:text-zinc-200 transition-colors flex-1">{a.title}</span>
+                      <span className="text-cyan-500 opacity-0 group-hover:opacity-100 text-xs">→</span>
                     </Link>
                   ))}
                 </div>
               </div>
-
-              {/* Gaps */}
               <div>
-                <p className="text-[10px] text-orange-400/60 uppercase tracking-widest mb-2">Gaps — conteúdo em falta</p>
+                <p className="text-[10px] text-amber-500/60 uppercase tracking-widest mb-2 font-bold">Gaps — conteúdo em falta</p>
                 <div className="space-y-2">
                   {selectedCluster.proximos.map(p => (
-                    <div key={p} className="flex items-start gap-2 p-2.5 rounded-lg bg-orange-500/5 border border-orange-500/20">
-                      <span className="text-orange-400 text-xs mt-0.5 shrink-0">+</span>
-                      <span className="text-xs text-orange-300/80 flex-1">{p}</span>
+                    <div key={p} className="flex items-start gap-2 p-2.5 rounded-lg bg-amber-500/5 border border-amber-500/15">
+                      <span className="text-amber-400 text-xs mt-0.5 shrink-0">+</span>
+                      <span className="text-xs text-zinc-400 flex-1">{p}</span>
                       <a href={getClickUpLink(p)} target="_blank" rel="noopener noreferrer"
-                        className="text-[10px] bg-[#46C1F1]/20 text-[#46C1F1] px-2 py-0.5 rounded hover:bg-[#46C1F1]/30 transition-colors shrink-0 font-bold">
+                        className="text-[10px] bg-cyan-500/10 text-cyan-400 px-2 py-0.5 rounded hover:bg-cyan-500/20 transition-colors shrink-0 font-bold border border-cyan-500/20">
                         + ClickUp
                       </a>
                     </div>
                   ))}
                 </div>
               </div>
-
-              {/* Social media */}
               <div>
-                <p className="text-[10px] text-pink-400/60 uppercase tracking-widest mb-2">Social Media — ângulos de conteúdo</p>
+                <p className="text-[10px] text-pink-500/60 uppercase tracking-widest mb-2 font-bold">Social Media</p>
                 <div className="space-y-2">
                   {selectedCluster.social.map((s, i) => (
-                    <div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-white/5 border border-white/10">
-                      <span className={`text-[10px] font-black px-2 py-0.5 rounded text-white shrink-0 ${SOCIAL_COLORS[s.plataforma] ?? "bg-gray-600"}`}>{s.plataforma}</span>
+                    <div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-white/[0.03] border border-[#1e1e28]">
+                      <span className={`text-[10px] font-black px-2 py-0.5 rounded text-white shrink-0 ${SOCIAL_BADGE[s.plataforma] ?? "bg-zinc-700"}`}>{s.plataforma}</span>
                       <div>
-                        <span className="text-[10px] text-white/40 block mb-0.5">{s.formato}</span>
-                        <span className="text-xs text-white/70">{s.angulo}</span>
+                        <span className="text-[10px] text-zinc-600 block mb-0.5">{s.formato}</span>
+                        <span className="text-xs text-zinc-400">{s.angulo}</span>
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
-
-              {/* Insights */}
               <div>
-                <p className="text-[10px] text-yellow-400/60 uppercase tracking-widest mb-2">Insights estratégicos</p>
+                <p className="text-[10px] text-amber-400/60 uppercase tracking-widest mb-2 font-bold">Insights estratégicos</p>
                 <div className="space-y-2">
                   {selectedCluster.insights.map((ins, i) => (
-                    <div key={i} className="flex items-start gap-2 p-3 rounded-lg bg-yellow-500/5 border border-yellow-500/20">
-                      <span className="text-yellow-400 text-xs mt-0.5 shrink-0">💡</span>
-                      <p className="text-xs text-yellow-300/80">{ins}</p>
+                    <div key={i} className="flex items-start gap-2 p-3 rounded-lg bg-amber-500/5 border border-amber-500/15">
+                      <span className="text-amber-400 text-xs mt-0.5 shrink-0">💡</span>
+                      <p className="text-xs text-zinc-400">{ins}</p>
                     </div>
                   ))}
                 </div>
               </div>
-
-              {/* Monetization */}
               <div>
-                <p className="text-[10px] text-green-400/60 uppercase tracking-widest mb-2">Monetização</p>
-                <div className="p-3 rounded-lg bg-green-500/10 border border-green-500/20">
-                  <p className="text-xs text-green-300">{selectedCluster.monetizacao}</p>
+                <p className="text-[10px] text-emerald-500/60 uppercase tracking-widest mb-2 font-bold">Monetização</p>
+                <div className="p-3 rounded-lg bg-emerald-500/5 border border-emerald-500/15">
+                  <p className="text-xs text-emerald-400">{selectedCluster.monetizacao}</p>
+                  <p className="text-[10px] text-zinc-600 mt-1">{selectedCluster.local}</p>
                 </div>
               </div>
             </div>
@@ -448,322 +450,507 @@ export default function MarketingOS() {
         </div>
       )}
 
-      {/* Header */}
-      <header className="border-b border-white/10 px-6 py-4 flex items-center justify-between sticky top-0 z-40 bg-[#050810]/95 backdrop-blur">
-        <div className="flex items-center gap-4">
-          <Link href="/growth-engine" className="text-white/40 hover:text-white text-sm transition-colors">← Growth Engine</Link>
-          <span className="text-white/20">|</span>
+      {/* ── SIDEBAR ──────────────────────────────────────────────────────────── */}
+      <aside className="w-56 shrink-0 sticky top-0 h-screen flex flex-col bg-[#0c0c10] border-r border-[#1a1a22] overflow-hidden">
+        {/* Logo */}
+        <div className="px-5 pt-6 pb-5 border-b border-[#1a1a22]">
+          <img src="/logo-dark.png" alt="A7 Lavanderia" className="h-7 w-auto mb-4 opacity-90" />
           <div className="flex items-center gap-2">
-            <span className="text-xl">🧠</span>
+            <span className="text-[9px] font-black tracking-[0.25em] text-indigo-400 uppercase">Marketing OS</span>
+            <span className="text-[9px] bg-indigo-500/15 text-indigo-400 border border-indigo-500/25 px-1.5 py-0.5 rounded font-mono">v2</span>
+          </div>
+          <p className="text-[9px] text-zinc-700 mt-0.5 tracking-wider">Growth Command Center</p>
+        </div>
+
+        {/* Nav */}
+        <nav className="p-3 space-y-0.5 flex-1 overflow-y-auto">
+          {SECTIONS.map(s => (
+            <button key={s.id} onClick={() => setActiveSection(s.id)}
+              className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left transition-all border ${
+                activeSection === s.id
+                  ? "bg-indigo-500/10 border-indigo-500/20 shadow-sm"
+                  : "border-transparent hover:bg-white/[0.035] hover:border-white/5"
+              }`}>
+              <span className="text-sm w-5 text-center leading-none">{s.icon}</span>
+              <div className="min-w-0 flex-1">
+                <p className={`text-sm font-medium leading-none ${activeSection === s.id ? "text-zinc-100" : "text-zinc-500"}`}>{s.label}</p>
+                <p className={`text-[10px] mt-0.5 ${activeSection === s.id ? "text-indigo-400" : "text-zinc-700"}`}>{s.desc}</p>
+              </div>
+              {activeSection === s.id && <div className="h-1.5 w-1.5 rounded-full bg-indigo-400 shrink-0" />}
+            </button>
+          ))}
+        </nav>
+
+        {/* Footer */}
+        <div className="p-4 border-t border-[#1a1a22]">
+          <Link href="/growth-engine" className="flex items-center gap-2 text-zinc-700 hover:text-zinc-400 text-xs transition-colors mb-2">
+            <span>←</span> Growth Engine
+          </Link>
+          <p className="text-[9px] text-zinc-800 font-mono">A7 Lavanderia · {new Date().getFullYear()}</p>
+        </div>
+      </aside>
+
+      {/* ── MAIN ─────────────────────────────────────────────────────────────── */}
+      <div className="flex-1 min-w-0 flex flex-col">
+
+        {/* Top bar */}
+        <header className="sticky top-0 z-40 border-b border-[#1a1a22] bg-[#09090b]/95 backdrop-blur-xl">
+          <div className="px-8 py-4 flex items-center justify-between">
             <div>
-              <h1 className="text-sm font-black tracking-widest text-white uppercase">Marketing OS</h1>
-              <p className="text-[10px] text-[#46C1F1]/70 tracking-widest uppercase">A7 Lavanderia · Sistema Operacional de Marketing</p>
+              <p className="text-[10px] text-zinc-700 font-mono uppercase tracking-wider">A7 Lavanderia · Vale do Paraíba</p>
+              <h1 className="text-sm font-bold text-zinc-200 mt-0.5">{SECTIONS.find(s => s.id === activeSection)?.label}</h1>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="flex items-center gap-1.5 text-[11px] bg-emerald-500/8 text-emerald-400 border border-emerald-500/20 px-3 py-1.5 rounded-full font-mono">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" style={{ boxShadow: "0 0 6px #22c55e" }} />
+                LIVE · {totalArticles} artigos · {totalGaps} gaps
+              </span>
             </div>
           </div>
-        </div>
-        <span className="text-xs bg-green-500/20 text-green-400 border border-green-500/30 px-3 py-1 rounded-full font-mono">
-          {totalArticles} artigos · 9 clusters · {totalGaps} gaps
-        </span>
-      </header>
+        </header>
 
-      <div className="flex">
-        {/* Sidebar */}
-        <aside className="w-52 shrink-0 border-r border-white/10 min-h-[calc(100vh-57px)] sticky top-[57px] self-start">
-          <nav className="p-3 space-y-1">
-            {SECTIONS.map(s => (
-              <button key={s.id} onClick={() => setActiveSection(s.id)}
-                className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-left transition-all ${activeSection === s.id ? "bg-[#46C1F1]/20 text-[#46C1F1] font-semibold" : "text-white/50 hover:text-white hover:bg-white/5"}`}>
-                <span className="text-base">{s.icon}</span>{s.label}
-              </button>
-            ))}
-          </nav>
-        </aside>
+        {/* Content */}
+        <main className="flex-1 p-8 max-w-5xl w-full mx-auto">
 
-        {/* Main */}
-        <main className="flex-1 p-8 max-w-5xl">
-
-          {/* ── OVERVIEW ── */}
+          {/* ════════════════════════════════════════════════════════════════ */}
+          {/* DASHBOARD (OVERVIEW)                                           */}
+          {/* ════════════════════════════════════════════════════════════════ */}
           {activeSection === "overview" && (
             <div className="space-y-8">
+
+              {/* Hero */}
               <div>
-                <h2 className="text-2xl font-black mb-1">Marketing Operating System</h2>
-                <p className="text-white/50 text-sm">Clique em qualquer cluster para ver o plano completo, artigos, gaps, social media e insights.</p>
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-[10px] font-black tracking-[0.2em] text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 px-3 py-1 rounded-full uppercase">Marketing Operating System</span>
+                </div>
+                <h2 className="text-4xl font-black text-white tracking-tight leading-none">Growth Command Center</h2>
+                <p className="text-zinc-500 text-sm mt-2">Intelligence dashboard para domínio de SEO, conteúdo e geração de clientes no Vale do Paraíba.</p>
               </div>
 
+              {/* 4 Stat cards */}
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                 {[
-                  { label: "Artigos publicados", val: `${totalArticles}`, sub: "em 9 clusters", cor: "text-[#46C1F1]" },
-                  { label: "Gaps identificados", val: `${totalGaps}`, sub: "artigos em falta", cor: "text-orange-400" },
-                  { label: "LPs ativas", val: "30", sub: "todas publicadas", cor: "text-green-400" },
-                  { label: "Cidades mapeadas", val: "10", sub: "Vale do Paraíba", cor: "text-purple-400" },
+                  { label: "Content Engine", val: `${totalArticles}`, sub: "artigos publicados", desc: "9 clusters SEO", bg: "bg-indigo-500/8", border: "border-indigo-500/20", text: "text-indigo-400", glow: "rgba(99,102,241,0.15)", action: () => setActiveSection("inventory") },
+                  { label: "SEO Opportunity", val: `${totalGaps}`, sub: "gaps identificados", desc: "artigos em falta", bg: "bg-amber-500/8", border: "border-amber-500/20", text: "text-amber-400", glow: "rgba(245,158,11,0.15)", action: () => setActiveSection("clusters") },
+                  { label: "Landing Pages", val: "30", sub: "LPs ativas", desc: "todas publicadas", bg: "bg-emerald-500/8", border: "border-emerald-500/20", text: "text-emerald-400", glow: "rgba(34,197,94,0.15)", action: () => setActiveSection("inventory") },
+                  { label: "Local Expansion", val: "10", sub: "cidades mapeadas", desc: "Vale do Paraíba", bg: "bg-cyan-500/8", border: "border-cyan-500/20", text: "text-cyan-400", glow: "rgba(6,182,212,0.15)", action: () => setActiveSection("local") },
                 ].map(k => (
-                  <div key={k.label} className="bg-white/5 border border-white/10 rounded-xl p-5">
-                    <p className={`text-3xl font-black ${k.cor}`}>{k.val}</p>
-                    <p className="text-white text-sm font-semibold mt-1">{k.label}</p>
-                    <p className="text-white/40 text-xs mt-0.5">{k.sub}</p>
-                  </div>
+                  <button key={k.label} onClick={k.action}
+                    className={`${k.bg} border ${k.border} rounded-2xl p-5 text-left hover:scale-[1.02] transition-all cursor-pointer group`}
+                    style={{ boxShadow: `0 0 24px ${k.glow}` }}>
+                    <p className={`text-[10px] font-black tracking-widest uppercase ${k.text} mb-4`}>{k.label}</p>
+                    <p className="text-5xl font-black text-white font-mono leading-none">{k.val}</p>
+                    <p className="text-sm text-zinc-300 font-semibold mt-2">{k.sub}</p>
+                    <p className="text-xs text-zinc-600 mt-0.5">{k.desc}</p>
+                    <p className={`text-xs font-semibold mt-3 ${k.text} opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1`}>
+                      Ver detalhes <span>→</span>
+                    </p>
+                  </button>
                 ))}
               </div>
 
-              {/* Cluster bars — CLICKABLE */}
-              <div className="bg-white/5 border border-white/10 rounded-xl p-6">
-                <div className="flex items-center justify-between mb-5">
-                  <h3 className="font-black">Cobertura por Cluster</h3>
-                  <span className="text-xs text-white/30">Clique para ver plano completo →</span>
+              {/* SEO Topic Domination */}
+              <div className="bg-[#111115] border border-[#1a1a22] rounded-2xl p-6">
+                <div className="flex items-center justify-between mb-6">
+                  <div>
+                    <p className="text-[10px] font-black tracking-[0.2em] text-zinc-600 uppercase mb-1">Cobertura de conteúdo</p>
+                    <h3 className="text-lg font-black text-zinc-100">SEO Topic Domination</h3>
+                  </div>
+                  <span className="text-[10px] text-zinc-700 font-mono bg-white/[0.03] border border-[#1a1a22] px-3 py-1.5 rounded-lg">
+                    {ARTICLES.length} / {CLUSTERS_MOS.reduce((s, c) => s + ARTICLES.filter(a => a.cluster === c.nome).length + c.gap, 0)} publicados
+                  </span>
                 </div>
-                <div className="space-y-3">
+                <div className="space-y-2">
                   {CLUSTERS_MOS.map(c => {
                     const arts = ARTICLES.filter(a => a.cluster === c.nome).length;
                     const total = arts + c.gap;
                     const pct = Math.round((arts / total) * 100);
                     return (
                       <button key={c.id} onClick={() => setSelectedCluster(c)}
-                        className="w-full flex items-center gap-4 p-2 rounded-lg hover:bg-white/5 transition-all group cursor-pointer text-left">
-                        <span className={`text-xs font-bold px-2 py-0.5 rounded-full border ${c.tw} w-36 shrink-0 text-center group-hover:ring-1 group-hover:ring-white/20 transition-all`}>{c.nome}</span>
-                        <div className="flex-1 bg-white/10 rounded-full h-2 overflow-hidden">
-                          <div className={`h-2 rounded-full ${c.badge} transition-all group-hover:brightness-110`} style={{ width: `${pct}%` }} />
+                        className="w-full flex items-center gap-4 p-3 rounded-xl hover:bg-white/[0.04] border border-transparent hover:border-[#242430] transition-all group cursor-pointer text-left">
+                        <span className={`text-xs font-bold px-2.5 py-1 rounded-lg border ${CLUSTERS_MOS.find(x => x.id === c.id)?.tw} w-36 shrink-0 text-center`}>{c.nome}</span>
+                        <div className="flex-1 bg-[#1c1c24] rounded-full h-1.5 overflow-hidden">
+                          <div className="h-full rounded-full transition-all group-hover:brightness-125" style={{ width: `${pct}%`, backgroundColor: CLUSTER_BAR_COLOR[c.nome] }} />
                         </div>
-                        <span className="text-xs text-white/50 w-20 text-right">{arts}/{total}</span>
-                        <span className="text-xs text-orange-400 w-14 text-right">+{c.gap} gaps</span>
-                        <span className="text-white/20 group-hover:text-[#46C1F1] transition-colors text-xs">→</span>
+                        <span className="text-xs text-zinc-500 font-mono w-10 text-right">{pct}%</span>
+                        <span className="text-xs text-zinc-700 w-14 text-right font-mono">{arts}/{total}</span>
+                        <span className="text-xs text-amber-500 w-14 text-right">+{c.gap} gaps</span>
+                        <span className="text-zinc-700 group-hover:text-indigo-400 transition-colors text-xs shrink-0">→</span>
                       </button>
                     );
                   })}
                 </div>
               </div>
 
-              {/* Funil distribution */}
-              <div className="bg-white/5 border border-white/10 rounded-xl p-6">
-                <h3 className="font-black mb-4">Distribuição no Funil</h3>
-                <div className="grid grid-cols-3 lg:grid-cols-6 gap-3">
-                  {FUNNEL_STAGES_DATA.map(f => {
-                    const count = ARTICLES.filter(a => a.funnel === f.stage).length;
+              {/* Content Opportunities */}
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <p className="text-[10px] font-black tracking-[0.2em] text-zinc-600 uppercase mb-1">Próximas ações</p>
+                    <h3 className="text-lg font-black text-zinc-100">Content Opportunities</h3>
+                  </div>
+                  <span className="text-xs text-zinc-700">{totalGaps} artigos em falta</span>
+                </div>
+                <div className="grid md:grid-cols-2 gap-4">
+                  {[
+                    { cluster: "B2B" as ClusterKey, prio: "CRÍTICO", prioBg: "bg-red-500/15 text-red-400 border-red-500/25", cardBorder: "border-red-500/20", cardBg: "bg-red-500/5", btnBorder: "border-red-500/25 hover:bg-red-500/10 text-red-400" },
+                    { cluster: "Tapetes & Casa" as ClusterKey, prio: "ALTO", prioBg: "bg-amber-500/15 text-amber-400 border-amber-500/25", cardBorder: "border-amber-500/20", cardBg: "bg-amber-500/5", btnBorder: "border-amber-500/25 hover:bg-amber-500/10 text-amber-400" },
+                    { cluster: "Tênis" as ClusterKey, prio: "ALTO", prioBg: "bg-amber-500/15 text-amber-400 border-amber-500/25", cardBorder: "border-amber-500/20", cardBg: "bg-amber-500/5", btnBorder: "border-amber-500/25 hover:bg-amber-500/10 text-amber-400" },
+                    { cluster: "Local" as ClusterKey, prio: "ALTO", prioBg: "bg-amber-500/15 text-amber-400 border-amber-500/25", cardBorder: "border-amber-500/20", cardBg: "bg-amber-500/5", btnBorder: "border-amber-500/25 hover:bg-amber-500/10 text-amber-400" },
+                  ].map(g => {
+                    const cd = CLUSTERS_MOS.find(c => c.nome === g.cluster)!;
+                    const arts = ARTICLES.filter(a => a.cluster === g.cluster).length;
                     return (
-                      <button key={f.stage} onClick={() => { setActiveSection("inventory"); setFunnelFilter(f.stage); }}
-                        className={`rounded-xl p-4 border text-center hover:scale-105 transition-all cursor-pointer ${f.tw}`}>
-                        <div className={`w-8 h-8 rounded-full ${f.badge} mx-auto mb-2 flex items-center justify-center text-white font-black text-sm`}>{count}</div>
-                        <p className={`text-xs font-bold ${f.badgeText}`}>{f.stage}</p>
-                      </button>
+                      <div key={g.cluster} className={`rounded-2xl border ${g.cardBorder} ${g.cardBg} p-5`}>
+                        <div className="flex items-center justify-between mb-3">
+                          <span className={`text-[10px] font-black px-2 py-0.5 rounded-full border ${g.prioBg}`}>{g.prio}</span>
+                          <span className="text-xs text-zinc-700 font-mono">{arts} publs.</span>
+                        </div>
+                        <h4 className="text-xl font-black text-white mb-1">{g.cluster}</h4>
+                        <p className="text-xs text-zinc-500 mb-4">{cd.gap} artigos faltando · {cd.monetizacao.split("—")[0]?.trim()}</p>
+                        <div className="flex gap-2">
+                          <button onClick={() => setSelectedCluster(cd)}
+                            className={`flex-1 border ${g.btnBorder} rounded-xl px-3 py-2 text-xs font-bold transition-all`}>
+                            Ver Plano Completo →
+                          </button>
+                          <a href={getClickUpLink(`Cluster ${g.cluster} — Content Plan`)} target="_blank" rel="noopener noreferrer"
+                            className="border border-[#2a2a35] text-zinc-600 hover:text-zinc-300 hover:border-[#3a3a45] rounded-xl px-3 py-2 text-xs font-bold transition-all whitespace-nowrap">
+                            + ClickUp
+                          </a>
+                        </div>
+                      </div>
                     );
                   })}
                 </div>
-                <p className="text-xs text-white/30 mt-4">💡 Clique em qualquer etapa para filtrar o inventário</p>
               </div>
 
-              {/* Top gaps */}
-              <div className="bg-white/5 border border-white/10 rounded-xl p-6">
-                <h3 className="font-black mb-4">🔥 Gaps Críticos</h3>
+              {/* Traffic Funnel + Performance */}
+              <div className="grid lg:grid-cols-2 gap-4">
+
+                {/* Traffic Funnel */}
+                <div className="bg-[#111115] border border-[#1a1a22] rounded-2xl p-6">
+                  <p className="text-[10px] font-black tracking-[0.2em] text-zinc-600 uppercase mb-1">Conversão</p>
+                  <h3 className="text-base font-black text-zinc-100 mb-5">Traffic Funnel</h3>
+                  <div className="flex flex-col items-center gap-1.5">
+                    {FUNNEL_STAGES_DATA.map((f, i) => {
+                      const count = ARTICLES.filter(a => a.funnel === f.stage).length;
+                      const widthPcts = [100, 83, 66, 52, 38, 28];
+                      return (
+                        <button key={f.stage}
+                          onClick={() => { setActiveSection("inventory"); setFunnelFilter(f.stage); }}
+                          className="rounded-xl px-4 py-2.5 flex items-center justify-between hover:brightness-110 transition-all cursor-pointer"
+                          style={{
+                            width: `${widthPcts[i]}%`,
+                            background: `${f.hex}12`,
+                            border: `1px solid ${f.hex}30`,
+                          }}>
+                          <span className="text-xs font-bold text-zinc-300">{f.stage}</span>
+                          <span className="text-xs font-mono" style={{ color: f.hex }}>{count}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                  <p className="text-[10px] text-zinc-700 text-center mt-3">Clique para filtrar inventário</p>
+                </div>
+
+                {/* Performance Snapshot */}
+                <div className="bg-[#111115] border border-[#1a1a22] rounded-2xl p-6">
+                  <p className="text-[10px] font-black tracking-[0.2em] text-zinc-600 uppercase mb-1">Métricas</p>
+                  <h3 className="text-base font-black text-zinc-100 mb-5">Performance Snapshot</h3>
+                  <div className="space-y-2.5">
+                    {[
+                      { label: "Organic Traffic Est.", val: "~1.2k", sub: "visitas/mês estimadas", color: "#6366f1" },
+                      { label: "Keywords Indexadas", val: "40", sub: "artigos SEO ativos", color: "#22d3ee" },
+                      { label: "Páginas Publicadas", val: "70", sub: "artigos + LPs", color: "#22c55e" },
+                      { label: "Visibilidade Local", val: "5/10", sub: "cidades com LP ativa", color: "#f59e0b" },
+                      { label: "Clusters Cobertos", val: "9/9", sub: "100% mapeados", color: "#a855f7" },
+                    ].map(m => (
+                      <div key={m.label} className="flex items-center justify-between p-3 rounded-xl bg-white/[0.025] border border-[#1a1a22]">
+                        <div>
+                          <p className="text-xs text-zinc-400 font-medium">{m.label}</p>
+                          <p className="text-[10px] text-zinc-700">{m.sub}</p>
+                        </div>
+                        <span className="text-xl font-black font-mono" style={{ color: m.color }}>{m.val}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Local SEO Map + AI Insights */}
+              <div className="grid lg:grid-cols-2 gap-4">
+
+                {/* Local Map */}
+                <div className="bg-[#111115] border border-[#1a1a22] rounded-2xl p-6">
+                  <div className="flex items-center justify-between mb-5">
+                    <div>
+                      <p className="text-[10px] font-black tracking-[0.2em] text-zinc-600 uppercase mb-1">Geografia</p>
+                      <h3 className="text-base font-black text-zinc-100">Local SEO Map</h3>
+                    </div>
+                    <button onClick={() => setActiveSection("local")} className="text-xs text-indigo-400 hover:underline">Ver todas →</button>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2">
+                    {[
+                      { nome: "São José dos Campos", pop: "730k", status: "active" },
+                      { nome: "Taubaté", pop: "330k", status: "active" },
+                      { nome: "Jacareí", pop: "240k", status: "active" },
+                      { nome: "Vale do Paraíba", pop: "Hub", status: "active" },
+                      { nome: "Lorena / Guara.", pop: "190k", status: "active" },
+                      { nome: "Caçapava", pop: "100k", status: "planned" },
+                      { nome: "Pindamonhangaba", pop: "170k", status: "planned" },
+                      { nome: "Campos do Jordão", pop: "52k", status: "planned" },
+                    ].map(city => (
+                      <div key={city.nome}
+                        className={`flex items-center gap-2 p-2.5 rounded-xl border ${city.status === "active" ? "bg-emerald-500/5 border-emerald-500/15" : "bg-[#0e0e12] border-[#1a1a22]"}`}>
+                        <span className={`h-2 w-2 rounded-full shrink-0 ${city.status === "active" ? "bg-emerald-500" : "bg-zinc-800"}`}
+                          style={city.status === "active" ? { boxShadow: "0 0 6px #22c55e" } : {}} />
+                        <div className="min-w-0">
+                          <p className={`text-xs font-semibold truncate ${city.status === "active" ? "text-zinc-200" : "text-zinc-700"}`}>{city.nome}</p>
+                          <p className="text-[9px] text-zinc-700">{city.pop}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* AI Growth Insights */}
+                <div className="bg-[#111115] border border-[#1a1a22] rounded-2xl p-6">
+                  <div className="flex items-center gap-2.5 mb-5">
+                    <span className="text-[9px] font-black tracking-widest uppercase text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 px-2 py-1 rounded-lg">AI</span>
+                    <div>
+                      <p className="text-[10px] font-black tracking-[0.2em] text-zinc-600 uppercase mb-0">Inteligência</p>
+                      <h3 className="text-base font-black text-zinc-100">Growth Insights</h3>
+                    </div>
+                  </div>
+                  <div className="space-y-2.5">
+                    {CLUSTERS_MOS.flatMap(c => c.insights).slice(0, 5).map((ins, i) => (
+                      <div key={i} className="flex items-start gap-3 p-3 rounded-xl bg-white/[0.025] border border-[#1a1a22] hover:border-amber-500/20 hover:bg-amber-500/3 transition-all">
+                        <span className="text-amber-400 text-xs mt-0.5 shrink-0">💡</span>
+                        <p className="text-xs text-zinc-500 leading-relaxed">{ins}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Gap críticos */}
+              <div className="bg-[#111115] border border-[#1a1a22] rounded-2xl p-6">
+                <div className="flex items-center gap-2 mb-5">
+                  <span className="h-2 w-2 rounded-full bg-red-500 shrink-0" style={{ boxShadow: "0 0 6px #ef4444" }} />
+                  <h3 className="text-base font-black text-zinc-100">Gaps Críticos — Ação Imediata</h3>
+                </div>
                 <div className="grid md:grid-cols-2 gap-3">
                   {[
-                    { gap: "Cluster B2B — maior ticket (R$500–R$5k/mês), ainda 5 gaps abertos", prio: "CRÍTICO", cluster: "B2B" as ClusterKey },
-                    { gap: "Tênis — alto engajamento nas redes, só 1 artigo publicado + 5 gaps", prio: "ALTO", cluster: "Tênis" as ClusterKey },
-                    { gap: "Tapetes & Casa — sofá/tapete são ticket alto, 6 gaps sem cobertura", prio: "ALTO", cluster: "Tapetes & Casa" as ClusterKey },
-                    { gap: "Local — SEO local converte 5x mais, 6 cidades sem artigo específico", prio: "ALTO", cluster: "Local" as ClusterKey },
+                    { gap: "Cluster B2B tem maior ROI (R$500–R$5k/mês) com 5 gaps abertos — alta prioridade", prio: "CRÍTICO", cluster: "B2B" as ClusterKey },
+                    { gap: "Tênis — alto engajamento viral nas redes, só 1 artigo publicado + 5 gaps pendentes", prio: "ALTO", cluster: "Tênis" as ClusterKey },
+                    { gap: "Tapetes & Casa — sofá e tapete têm ticket alto, 6 cidades sem artigo específico", prio: "ALTO", cluster: "Tapetes & Casa" as ClusterKey },
+                    { gap: "Local SEO converte 5x mais — 6 cidades do Vale do Paraíba sem cobertura de artigo", prio: "ALTO", cluster: "Local" as ClusterKey },
                   ].map(g => {
                     const cd = CLUSTERS_MOS.find(c => c.nome === g.cluster);
                     return (
                       <button key={g.gap} onClick={() => cd && setSelectedCluster(cd)}
-                        className="flex gap-3 p-3 bg-white/5 rounded-lg border border-white/10 text-left hover:border-[#46C1F1]/30 hover:bg-white/8 transition-all group cursor-pointer">
-                        <span className={`text-[10px] font-black px-2 py-0.5 rounded self-start mt-0.5 shrink-0 ${g.prio === "CRÍTICO" ? "bg-red-500/20 text-red-400" : "bg-orange-500/20 text-orange-400"}`}>{g.prio}</span>
-                        <p className="text-sm text-white/70 group-hover:text-white transition-colors">{g.gap}</p>
-                        <span className="ml-auto text-white/20 group-hover:text-[#46C1F1] text-xs shrink-0 self-start mt-0.5">→</span>
+                        className="flex gap-3 p-4 bg-white/[0.025] rounded-xl border border-[#1a1a22] text-left hover:border-[#2a2a35] hover:bg-white/[0.04] transition-all group cursor-pointer">
+                        <span className={`text-[10px] font-black px-2 py-0.5 rounded self-start mt-0.5 shrink-0 ${g.prio === "CRÍTICO" ? "bg-red-500/15 text-red-400 border border-red-500/25" : "bg-amber-500/15 text-amber-400 border border-amber-500/25"}`}>{g.prio}</span>
+                        <p className="text-xs text-zinc-500 group-hover:text-zinc-300 transition-colors flex-1 leading-relaxed">{g.gap}</p>
+                        <span className="text-zinc-700 group-hover:text-indigo-400 transition-colors text-xs shrink-0 self-start mt-0.5">→</span>
                       </button>
                     );
                   })}
                 </div>
               </div>
+
             </div>
           )}
 
-          {/* ── INVENTORY ── */}
+          {/* ════════════════════════════════════════════════════════════════ */}
+          {/* CONTENT ENGINE (INVENTORY)                                     */}
+          {/* ════════════════════════════════════════════════════════════════ */}
           {activeSection === "inventory" && (
             <div className="space-y-6">
               <div>
-                <h2 className="text-2xl font-black mb-1">Inventário de Conteúdo</h2>
-                <p className="text-white/50 text-sm">{totalArticles} artigos classificados. <span className="text-green-400">●</span> LP ativa · <span className="text-orange-400">○</span> funil incompleto</p>
+                <p className="text-[10px] font-black tracking-[0.2em] text-zinc-600 uppercase mb-1">Inventário completo</p>
+                <h2 className="text-2xl font-black text-zinc-100">Content Engine</h2>
+                <p className="text-zinc-600 text-sm mt-1">{totalArticles} artigos · <span className="text-emerald-400">●</span> LP ativa · <span className="text-amber-400">⚠</span> funil incompleto</p>
               </div>
 
               {/* Filters */}
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-5">
                 <div>
-                  <p className="text-xs text-white/40 mb-1">Cluster</p>
+                  <p className="text-[10px] text-zinc-700 uppercase tracking-wider mb-2 font-bold">Cluster</p>
                   <div className="flex flex-wrap gap-1.5">
-                    {["Todos", ...Object.keys(CLUSTER_COLORS)].map(c => (
+                    {["Todos", ...Object.keys(CLUSTER_BADGE)].map(c => (
                       <button key={c} onClick={() => setClusterFilter(c)}
-                        className={`text-xs px-3 py-1 rounded-full border transition-all ${clusterFilter === c ? "bg-[#46C1F1] text-black border-[#46C1F1] font-bold" : "border-white/20 text-white/50 hover:border-white/40"}`}>{c}</button>
+                        className={`text-xs px-3 py-1.5 rounded-lg border transition-all ${clusterFilter === c ? "bg-indigo-500 text-white border-indigo-500 font-bold" : "border-[#1a1a22] text-zinc-600 hover:border-[#2a2a35] hover:text-zinc-300"}`}>{c}</button>
                     ))}
                   </div>
                 </div>
                 <div>
-                  <p className="text-xs text-white/40 mb-1">Funil</p>
+                  <p className="text-[10px] text-zinc-700 uppercase tracking-wider mb-2 font-bold">Funil</p>
                   <div className="flex flex-wrap gap-1.5">
-                    {["Todos", ...Object.keys(FUNNEL_COLORS)].map(f => (
+                    {["Todos", ...Object.keys(FUNNEL_BADGE)].map(f => (
                       <button key={f} onClick={() => setFunnelFilter(f)}
-                        className={`text-xs px-3 py-1 rounded-full border transition-all ${funnelFilter === f ? "bg-[#46C1F1] text-black border-[#46C1F1] font-bold" : "border-white/20 text-white/50 hover:border-white/40"}`}>{f}</button>
+                        className={`text-xs px-3 py-1.5 rounded-lg border transition-all ${funnelFilter === f ? "bg-indigo-500 text-white border-indigo-500 font-bold" : "border-[#1a1a22] text-zinc-600 hover:border-[#2a2a35] hover:text-zinc-300"}`}>{f}</button>
                     ))}
                   </div>
                 </div>
               </div>
 
-              <p className="text-xs text-white/30">{filteredArticles.length} artigos exibidos</p>
+              <p className="text-xs text-zinc-700 font-mono">{filteredArticles.length} artigos exibidos</p>
 
-              <div className="overflow-x-auto">
-                <table className="w-full text-sm">
-                  <thead>
-                    <tr className="border-b border-white/10 text-white/40 text-xs">
-                      <th className="text-left py-2 pr-3 font-medium">Artigo</th>
-                      <th className="text-left py-2 pr-3 font-medium">Cluster</th>
-                      <th className="text-left py-2 pr-3 font-medium">Funil</th>
-                      <th className="text-left py-2 pr-3 font-medium">LP</th>
-                      <th className="text-center py-2 pr-3 font-medium">LP ativa</th>
-                      <th className="text-center py-2 pr-3 font-medium">Funil OK</th>
-                      <th className="text-left py-2 font-medium">Gap → próximo</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {filteredArticles.map(a => {
-                      const lpAtiva = LP_ACTIVE[a.lp] ?? false;
-                      const fc = getFunnelCompleteness(a.lp);
-                      return (
-                        <tr key={a.slug} className="border-b border-white/5 hover:bg-white/3 transition-colors">
-                          <td className="py-3 pr-3">
-                            <Link href={`/blog/${a.slug}`} className="text-white hover:text-[#46C1F1] transition-colors font-medium text-xs leading-tight block max-w-[180px]">
-                              {a.title} <span className="text-[#46C1F1]/50">↗</span>
-                            </Link>
-                          </td>
-                          <td className="py-3 pr-3">
-                            <button onClick={() => { const cd = CLUSTERS_MOS.find(c => c.nome === a.cluster); if (cd) setSelectedCluster(cd); }}
-                              className={`text-[10px] font-bold px-2 py-0.5 rounded-full hover:ring-1 hover:ring-white/30 transition-all cursor-pointer ${CLUSTER_COLORS[a.cluster]}`}>
-                              {a.cluster}
-                            </button>
-                          </td>
-                          <td className="py-3 pr-3">
-                            <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${FUNNEL_COLORS[a.funnel]}`}>{a.funnel}</span>
-                          </td>
-                          <td className="py-3 pr-3">
-                            <Link href={a.lp} className="text-[#46C1F1] text-xs hover:underline font-mono">{a.lp}</Link>
-                          </td>
-                          <td className="py-3 pr-3 text-center">
-                            {lpAtiva
-                              ? <span className="text-green-400 text-sm" title="LP ativa">●</span>
-                              : <span className="text-red-400 text-sm" title="LP inativa">○</span>}
-                          </td>
-                          <td className="py-3 pr-3 text-center">
-                            {fc.complete
-                              ? <span className="text-green-400 text-xs font-bold">✓</span>
-                              : <span className="text-orange-400 text-xs font-bold" title={`Tem: ${fc.stages.join(", ")}`}>⚠</span>}
-                          </td>
-                          <td className="py-3">
-                            <a href={getClickUpLink(a.gap)} target="_blank" rel="noopener noreferrer"
-                              className="text-[10px] text-orange-300/70 hover:text-orange-300 italic hover:underline transition-colors">
-                              {a.gap} ↗
-                            </a>
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
+              <div className="bg-[#111115] border border-[#1a1a22] rounded-2xl overflow-hidden">
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="border-b border-[#1a1a22]">
+                        {["Artigo", "Cluster", "Funil", "LP", "LP ativa", "Funil OK", "Próximo artigo"].map(h => (
+                          <th key={h} className="text-left px-4 py-3 text-[10px] font-black uppercase tracking-wider text-zinc-700">{h}</th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {filteredArticles.map(a => {
+                        const lpAtiva = LP_ACTIVE[a.lp] ?? false;
+                        const fc = getFunnelCompleteness(a.lp);
+                        return (
+                          <tr key={a.slug} className="border-b border-[#1a1a22] hover:bg-white/[0.025] transition-colors">
+                            <td className="px-4 py-3">
+                              <Link href={`/blog/${a.slug}`} className="text-zinc-300 hover:text-cyan-400 transition-colors font-medium text-xs leading-tight block max-w-[180px]">
+                                {a.title} <span className="text-cyan-500/40">↗</span>
+                              </Link>
+                            </td>
+                            <td className="px-4 py-3">
+                              <button onClick={() => { const cd = CLUSTERS_MOS.find(c => c.nome === a.cluster); if (cd) setSelectedCluster(cd); }}
+                                className={`text-[10px] font-bold px-2 py-1 rounded-lg border hover:brightness-110 transition-all cursor-pointer ${CLUSTER_BADGE[a.cluster]}`}>
+                                {a.cluster}
+                              </button>
+                            </td>
+                            <td className="px-4 py-3">
+                              <span className={`text-[10px] font-bold px-2 py-1 rounded-lg ${FUNNEL_BADGE[a.funnel]}`}>{a.funnel}</span>
+                            </td>
+                            <td className="px-4 py-3">
+                              <Link href={a.lp} className="text-cyan-400 text-xs hover:underline font-mono">{a.lp}</Link>
+                            </td>
+                            <td className="px-4 py-3 text-center">
+                              {lpAtiva
+                                ? <span className="text-emerald-400 text-sm" style={{ textShadow: "0 0 6px #22c55e" }}>●</span>
+                                : <span className="text-zinc-700 text-sm">○</span>}
+                            </td>
+                            <td className="px-4 py-3 text-center">
+                              {fc.complete
+                                ? <span className="text-emerald-400 text-xs font-black">✓</span>
+                                : <span className="text-amber-400 text-xs font-black" title={`Tem: ${fc.stages.join(", ")}`}>⚠</span>}
+                            </td>
+                            <td className="px-4 py-3">
+                              <a href={getClickUpLink(a.gap)} target="_blank" rel="noopener noreferrer"
+                                className="text-[10px] text-zinc-600 hover:text-amber-400 italic hover:underline transition-colors">
+                                {a.gap} ↗
+                              </a>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           )}
 
-          {/* ── CLUSTERS ── */}
+          {/* ════════════════════════════════════════════════════════════════ */}
+          {/* SEO CLUSTERS                                                    */}
+          {/* ════════════════════════════════════════════════════════════════ */}
           {activeSection === "clusters" && (
-            <div className="space-y-5">
+            <div className="space-y-4">
               <div>
-                <h2 className="text-2xl font-black mb-1">Arquitetura de Clusters SEO</h2>
-                <p className="text-white/50 text-sm">Clique no card para expandir — pillar page, artigos, gaps, social media e insights.</p>
+                <p className="text-[10px] font-black tracking-[0.2em] text-zinc-600 uppercase mb-1">Arquitetura de conteúdo</p>
+                <h2 className="text-2xl font-black text-zinc-100">SEO Clusters</h2>
+                <p className="text-zinc-600 text-sm mt-1">Clique para expandir — pillar, artigos, gaps, social e insights.</p>
               </div>
               {CLUSTERS_MOS.map(c => {
                 const arts = ARTICLES.filter(a => a.cluster === c.nome);
                 const isExpanded = expandedCluster === c.id;
+                const pct = Math.round((arts.length / (arts.length + c.gap)) * 100);
                 return (
-                  <div key={c.id} className="bg-white/5 border border-white/10 rounded-xl overflow-hidden">
+                  <div key={c.id} className="bg-[#111115] border border-[#1a1a22] rounded-2xl overflow-hidden hover:border-[#222230] transition-colors">
                     <button onClick={() => setExpandedCluster(isExpanded ? null : c.id)}
-                      className="w-full flex items-center justify-between p-5 text-left hover:bg-white/3 transition-all">
-                      <div className="flex items-center gap-4">
-                        <span className={`text-xs font-black px-3 py-1 rounded-full border ${c.tw}`}>{c.nome}</span>
-                        <span className="text-xs text-white/40">{arts.length} artigos</span>
-                        <span className="text-xs text-orange-400">+{c.gap} gaps</span>
-                        <Link href={c.lp} onClick={e => e.stopPropagation()} className="text-xs text-[#46C1F1] hover:underline font-mono">{c.lp}</Link>
+                      className="w-full flex items-center justify-between p-5 text-left hover:bg-white/[0.025] transition-all">
+                      <div className="flex items-center gap-4 flex-1 min-w-0">
+                        <span className={`text-xs font-bold px-2.5 py-1 rounded-lg border ${c.tw} shrink-0`}>{c.nome}</span>
+                        <div className="flex-1 max-w-32 bg-[#1c1c24] rounded-full h-1 overflow-hidden">
+                          <div className="h-full rounded-full" style={{ width: `${pct}%`, backgroundColor: CLUSTER_BAR_COLOR[c.nome] }} />
+                        </div>
+                        <span className="text-xs text-zinc-600 font-mono shrink-0">{arts.length} arts</span>
+                        <span className="text-xs text-amber-500 shrink-0">+{c.gap} gaps</span>
+                        <Link href={c.lp} onClick={e => e.stopPropagation()} className="text-xs text-cyan-400 hover:underline font-mono truncate max-w-28">{c.lp}</Link>
                       </div>
-                      <span className={`text-white/30 transition-transform text-lg ${isExpanded ? "rotate-45" : ""}`}>+</span>
+                      <span className={`text-zinc-600 transition-transform duration-200 text-lg ml-4 shrink-0 ${isExpanded ? "rotate-45" : ""}`}>+</span>
                     </button>
 
                     {isExpanded && (
-                      <div className="border-t border-white/10 p-5 space-y-5">
-                        <div className="grid md:grid-cols-2 gap-5">
-                          {/* Pillar */}
+                      <div className="border-t border-[#1a1a22] p-5 space-y-5">
+                        <div className="grid md:grid-cols-2 gap-4">
                           <div>
-                            <p className="text-[10px] text-[#46C1F1]/60 uppercase tracking-widest mb-2">Pillar Page</p>
-                            <div className="bg-[#46C1F1]/10 border border-[#46C1F1]/20 rounded-xl p-4">
-                              <p className="text-sm font-semibold leading-relaxed">{c.pilar}</p>
+                            <p className="text-[10px] text-cyan-500/60 uppercase tracking-widest mb-2 font-bold">Pillar Page</p>
+                            <div className="bg-cyan-500/5 border border-cyan-500/15 rounded-xl p-4">
+                              <p className="text-sm font-semibold text-zinc-200 leading-relaxed">{c.pilar}</p>
                             </div>
                           </div>
-                          {/* Monetization */}
                           <div>
-                            <p className="text-[10px] text-green-400/60 uppercase tracking-widest mb-2">Monetização</p>
-                            <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-4">
-                              <p className="text-sm text-green-300">{c.monetizacao}</p>
-                              <p className="text-xs text-green-400/50 mt-2">{c.local}</p>
+                            <p className="text-[10px] text-emerald-500/60 uppercase tracking-widest mb-2 font-bold">Monetização</p>
+                            <div className="bg-emerald-500/5 border border-emerald-500/15 rounded-xl p-4">
+                              <p className="text-sm text-emerald-400">{c.monetizacao}</p>
+                              <p className="text-xs text-zinc-700 mt-2">{c.local}</p>
                             </div>
                           </div>
                         </div>
-
-                        {/* Articles */}
                         <div>
-                          <p className="text-[10px] text-white/40 uppercase tracking-widest mb-2">Artigos publicados ({arts.length})</p>
+                          <p className="text-[10px] text-zinc-600 uppercase tracking-widest mb-2 font-bold">Artigos publicados ({arts.length})</p>
                           <div className="flex flex-wrap gap-2">
                             {arts.map(a => (
                               <Link key={a.slug} href={`/blog/${a.slug}`}
-                                className={`text-xs px-3 py-1.5 rounded-full border hover:brightness-110 transition-all ${FUNNEL_COLORS[a.funnel]} border-transparent`}>
+                                className={`text-xs px-3 py-1.5 rounded-lg border hover:brightness-110 transition-all ${FUNNEL_BADGE[a.funnel]} border-transparent`}>
                                 {a.title}
                               </Link>
                             ))}
                           </div>
                         </div>
-
-                        {/* Gaps */}
                         <div>
-                          <p className="text-[10px] text-orange-400/60 uppercase tracking-widest mb-2">Gaps — criar agora ({c.proximos.length})</p>
+                          <p className="text-[10px] text-amber-500/60 uppercase tracking-widest mb-2 font-bold">Gaps — criar agora ({c.proximos.length})</p>
                           <div className="grid md:grid-cols-2 gap-2">
                             {c.proximos.map(p => (
-                              <div key={p} className="flex items-center gap-2 p-2.5 rounded-lg bg-orange-500/5 border border-orange-500/20">
-                                <span className="text-orange-400 text-xs shrink-0">+</span>
-                                <span className="text-xs text-orange-300/80 flex-1">{p}</span>
+                              <div key={p} className="flex items-center gap-2 p-2.5 rounded-xl bg-amber-500/5 border border-amber-500/15">
+                                <span className="text-amber-400 text-xs shrink-0">+</span>
+                                <span className="text-xs text-zinc-400 flex-1">{p}</span>
                                 <a href={getClickUpLink(p)} target="_blank" rel="noopener noreferrer"
-                                  className="text-[10px] bg-[#46C1F1]/20 text-[#46C1F1] px-2 py-0.5 rounded hover:bg-[#46C1F1]/30 font-bold shrink-0 transition-colors">
+                                  className="text-[10px] bg-cyan-500/10 text-cyan-400 px-2 py-0.5 rounded border border-cyan-500/20 hover:bg-cyan-500/20 font-bold shrink-0 transition-colors">
                                   ClickUp
                                 </a>
                               </div>
                             ))}
                           </div>
                         </div>
-
-                        {/* Social + Insights */}
-                        <div className="grid md:grid-cols-2 gap-5">
+                        <div className="grid md:grid-cols-2 gap-4">
                           <div>
-                            <p className="text-[10px] text-pink-400/60 uppercase tracking-widest mb-2">Social Media</p>
+                            <p className="text-[10px] text-pink-500/60 uppercase tracking-widest mb-2 font-bold">Social Media</p>
                             <div className="space-y-2">
                               {c.social.map((s, i) => (
-                                <div key={i} className="flex items-start gap-2 p-2.5 rounded-lg bg-white/5 border border-white/10">
-                                  <span className={`text-[10px] font-black px-2 py-0.5 rounded text-white shrink-0 ${SOCIAL_COLORS[s.plataforma] ?? "bg-gray-600"}`}>{s.plataforma}</span>
+                                <div key={i} className="flex items-start gap-2 p-2.5 rounded-xl bg-white/[0.03] border border-[#1a1a22]">
+                                  <span className={`text-[9px] font-black px-2 py-0.5 rounded text-white shrink-0 ${SOCIAL_BADGE[s.plataforma] ?? "bg-zinc-700"}`}>{s.plataforma}</span>
                                   <div>
-                                    <span className="text-[10px] text-white/30 block">{s.formato}</span>
-                                    <span className="text-xs text-white/60">{s.angulo}</span>
+                                    <span className="text-[10px] text-zinc-700 block">{s.formato}</span>
+                                    <span className="text-xs text-zinc-500">{s.angulo}</span>
                                   </div>
                                 </div>
                               ))}
                             </div>
                           </div>
                           <div>
-                            <p className="text-[10px] text-yellow-400/60 uppercase tracking-widest mb-2">Insights</p>
+                            <p className="text-[10px] text-amber-400/60 uppercase tracking-widest mb-2 font-bold">Insights</p>
                             <div className="space-y-2">
                               {c.insights.map((ins, i) => (
-                                <div key={i} className="flex items-start gap-2 p-2.5 rounded-lg bg-yellow-500/5 border border-yellow-500/20">
-                                  <span className="text-yellow-400 text-xs shrink-0">💡</span>
-                                  <p className="text-xs text-yellow-300/80">{ins}</p>
+                                <div key={i} className="flex items-start gap-2 p-2.5 rounded-xl bg-amber-500/5 border border-amber-500/15">
+                                  <span className="text-amber-400 text-xs shrink-0">💡</span>
+                                  <p className="text-xs text-zinc-500">{ins}</p>
                                 </div>
                               ))}
                             </div>
@@ -777,163 +964,121 @@ export default function MarketingOS() {
             </div>
           )}
 
-          {/* ── FUNIL VISUAL ── */}
+          {/* ════════════════════════════════════════════════════════════════ */}
+          {/* FUNIL VISUAL                                                    */}
+          {/* ════════════════════════════════════════════════════════════════ */}
           {activeSection === "funil" && (
-            <div className="space-y-6">
+            <div className="space-y-5">
               <div>
-                <h2 className="text-2xl font-black mb-1">Funil Visual Completo</h2>
-                <p className="text-white/50 text-sm">Do primeiro clique ao cliente recorrente — com conteúdo, social e conversão mapeados.</p>
+                <p className="text-[10px] font-black tracking-[0.2em] text-zinc-600 uppercase mb-1">Conversão completa</p>
+                <h2 className="text-2xl font-black text-zinc-100">Funil Visual</h2>
+                <p className="text-zinc-600 text-sm mt-1">Do primeiro clique ao cliente recorrente — conteúdo, social e conversão mapeados.</p>
               </div>
-
-              <div className="space-y-3">
-                {FUNNEL_STAGES_DATA.map((f, i) => {
-                  const arts = ARTICLES.filter(a => a.funnel === f.stage);
-                  return (
-                    <div key={f.stage} className={`rounded-2xl border p-5 ${f.tw}`}>
-                      {/* Stage header */}
-                      <div className="flex items-center gap-4 mb-4">
-                        <div className={`w-10 h-10 rounded-full ${f.badge} flex items-center justify-center text-white font-black text-lg shrink-0`}>
-                          {f.icon}
-                        </div>
-                        <div className="flex-1">
-                          <div className="flex items-center gap-3">
-                            <h3 className={`font-black text-lg ${f.badgeText}`}>{f.stage}</h3>
-                            <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${f.badge} text-white`}>{arts.length} artigos</span>
-                          </div>
-                          <p className="text-xs text-gray-500 mt-0.5">{f.descricao}</p>
-                        </div>
-                        {/* Funnel width visual */}
-                        <div className="hidden lg:flex items-center gap-2">
-                          <div className={`${f.width} h-2 ${f.badge} rounded-full opacity-60`} style={{ minWidth: "24px", maxWidth: "120px" }} />
-                        </div>
+              {FUNNEL_STAGES_DATA.map((f, i) => {
+                const arts = ARTICLES.filter(a => a.funnel === f.stage);
+                const funnelWidths = ["w-full", "w-11/12", "w-9/12", "w-7/12", "w-5/12", "w-3/12"];
+                return (
+                  <div key={f.stage}
+                    className={`rounded-2xl border p-5 ${funnelWidths[i]} mx-auto transition-all`}
+                    style={{ background: `${f.hex}08`, borderColor: `${f.hex}25` }}>
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="w-10 h-10 rounded-xl flex items-center justify-center text-xl shrink-0"
+                        style={{ background: `${f.hex}20`, border: `1px solid ${f.hex}40` }}>
+                        {f.icon}
                       </div>
-
-                      <div className="grid lg:grid-cols-3 gap-4">
-                        {/* Articles */}
-                        <div>
-                          <p className="text-[10px] text-gray-400 uppercase tracking-widest mb-2">Conteúdo mapeado</p>
-                          {arts.length > 0 ? (
-                            <div className="space-y-1">
-                              {arts.map(a => (
-                                <Link key={a.slug} href={`/blog/${a.slug}`}
-                                  className="flex items-center gap-2 p-2 rounded-lg bg-white/40 hover:bg-white/60 transition-colors group">
-                                  <span className="text-xs text-gray-700 group-hover:text-gray-900 transition-colors flex-1 leading-tight">{a.title}</span>
-                                  <span className="text-gray-400 group-hover:text-gray-700 text-xs">↗</span>
-                                </Link>
-                              ))}
-                            </div>
-                          ) : (
-                            <div className="p-3 rounded-lg bg-red-50 border border-red-200">
-                              <p className="text-xs text-red-500 font-semibold">⚠ Sem conteúdo nesta etapa</p>
-                              <p className="text-xs text-red-400 mt-1">Gap crítico — criar conteúdo urgente</p>
-                            </div>
-                          )}
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3">
+                          <h3 className="font-black text-lg text-zinc-100">{f.stage}</h3>
+                          <span className="text-xs font-bold px-2 py-0.5 rounded-full text-white" style={{ background: `${f.hex}50` }}>{arts.length} artigos</span>
                         </div>
-
-                        {/* CTA + KPI */}
-                        <div>
-                          <p className="text-[10px] text-gray-400 uppercase tracking-widest mb-2">CTA estratégico</p>
-                          <div className="p-3 rounded-lg bg-white/40 mb-3">
-                            <p className="text-xs text-gray-700">{f.cta}</p>
+                        <p className="text-xs text-zinc-600 mt-0.5">{f.descricao}</p>
+                      </div>
+                    </div>
+                    <div className="grid lg:grid-cols-3 gap-4">
+                      <div>
+                        <p className="text-[10px] text-zinc-700 uppercase tracking-widest mb-2 font-bold">Conteúdo mapeado</p>
+                        {arts.length > 0 ? (
+                          <div className="space-y-1">
+                            {arts.map(a => (
+                              <Link key={a.slug} href={`/blog/${a.slug}`}
+                                className="flex items-center gap-2 p-2 rounded-lg bg-white/[0.04] hover:bg-white/[0.07] border border-[#1a1a22] hover:border-[#2a2a35] transition-all group">
+                                <span className="text-xs text-zinc-400 group-hover:text-zinc-200 transition-colors flex-1 leading-tight text-[11px]">{a.title}</span>
+                                <span className="text-zinc-700 group-hover:text-cyan-400 text-xs">↗</span>
+                              </Link>
+                            ))}
                           </div>
-                          <p className="text-[10px] text-gray-400 uppercase tracking-widest mb-1">KPI</p>
-                          <p className="text-xs text-gray-600">{f.kpi}</p>
+                        ) : (
+                          <div className="p-3 rounded-xl bg-red-500/5 border border-red-500/20">
+                            <p className="text-xs text-red-400 font-bold">⚠ Sem conteúdo</p>
+                            <p className="text-xs text-zinc-600 mt-1">Gap crítico — criar urgente</p>
+                          </div>
+                        )}
+                      </div>
+                      <div>
+                        <p className="text-[10px] text-zinc-700 uppercase tracking-widest mb-2 font-bold">CTA estratégico</p>
+                        <div className="p-3 rounded-xl bg-white/[0.04] border border-[#1a1a22] mb-3">
+                          <p className="text-xs text-zinc-400">{f.cta}</p>
                         </div>
-
-                        {/* Social creative template */}
-                        <div>
-                          <p className="text-[10px] text-gray-400 uppercase tracking-widest mb-2">Social — arte sugerida</p>
-                          {i === 0 && (
-                            <div className="space-y-1.5">
-                              {[
-                                { plat: "Instagram", art: "Carrossel educativo — problema + solução" },
-                                { plat: "TikTok", art: "Tutorial rápido — hook com o problema" },
-                                { plat: "Pinterest", art: "Infográfico — guia visual" },
-                              ].map(s => <div key={s.plat} className="flex gap-2 items-start p-2 rounded bg-white/30 text-xs">
-                                <span className={`text-[9px] font-black px-1.5 py-0.5 rounded text-white shrink-0 ${SOCIAL_COLORS[s.plat]}`}>{s.plat}</span>
-                                <span className="text-gray-600">{s.art}</span>
-                              </div>)}
+                        <p className="text-[10px] text-zinc-700 uppercase tracking-widest mb-1 font-bold">KPI</p>
+                        <p className="text-xs text-zinc-600">{f.kpi}</p>
+                      </div>
+                      <div>
+                        <p className="text-[10px] text-zinc-700 uppercase tracking-widest mb-2 font-bold">Social — arte sugerida</p>
+                        <div className="space-y-1.5">
+                          {[
+                            [{ plat: "Instagram", art: "Carrossel educativo — problema + solução" }, { plat: "TikTok", art: "Tutorial rápido — hook com o problema" }],
+                            [{ plat: "Instagram", art: "Reels — antes/depois do serviço" }, { plat: "LinkedIn", art: "Post comparativo — custo vs. benefício" }],
+                            [{ plat: "Instagram", art: "Stories com localização SJC + CTA link" }, { plat: "Google Business", art: "Post com preço + botão WhatsApp" }],
+                            [{ plat: "WhatsApp", art: "Deep link pré-preenchido + formulário coleta" }],
+                            [{ plat: "WhatsApp", art: "Sequência pós-coleta com oferta plano mensal D+1" }],
+                            [{ plat: "WhatsApp", art: "Indicação — R$20 OFF para amigo" }, { plat: "Instagram", art: "Story com depoimento de cliente real" }],
+                          ][i].map(s => (
+                            <div key={s.plat} className="flex gap-2 items-start p-2 rounded-lg bg-white/[0.025] border border-[#1a1a22] text-xs">
+                              <span className={`text-[9px] font-black px-1.5 py-0.5 rounded text-white shrink-0 ${SOCIAL_BADGE[s.plat] ?? "bg-zinc-700"}`}>{s.plat}</span>
+                              <span className="text-zinc-500">{s.art}</span>
                             </div>
-                          )}
-                          {i === 1 && (
-                            <div className="space-y-1.5">
-                              {[
-                                { plat: "Instagram", art: "Reels — antes/depois do serviço" },
-                                { plat: "LinkedIn", art: "Post comparativo — custo vs. benefício" },
-                              ].map(s => <div key={s.plat} className="flex gap-2 items-start p-2 rounded bg-white/30 text-xs">
-                                <span className={`text-[9px] font-black px-1.5 py-0.5 rounded text-white shrink-0 ${SOCIAL_COLORS[s.plat]}`}>{s.plat}</span>
-                                <span className="text-gray-600">{s.art}</span>
-                              </div>)}
-                            </div>
-                          )}
-                          {i === 2 && (
-                            <div className="space-y-1.5">
-                              {[
-                                { plat: "Instagram", art: "Stories com localização SJC + CTA link" },
-                                { plat: "Google Business", art: "Post com preço + botão WhatsApp" },
-                              ].map(s => <div key={s.plat} className="flex gap-2 items-start p-2 rounded bg-white/30 text-xs">
-                                <span className={`text-[9px] font-black px-1.5 py-0.5 rounded text-white shrink-0 ${SOCIAL_COLORS[s.plat]}`}>{s.plat}</span>
-                                <span className="text-gray-600">{s.art}</span>
-                              </div>)}
-                            </div>
-                          )}
-                          {i === 3 && (
-                            <div className="p-2 rounded bg-white/30 text-xs text-gray-600">Landing pages com formulário de coleta. WhatsApp deep link pré-preenchido.</div>
-                          )}
-                          {i === 4 && (
-                            <div className="p-2 rounded bg-white/30 text-xs text-gray-600">WhatsApp: sequência pós-coleta com oferta plano mensal D+1.</div>
-                          )}
-                          {i === 5 && (
-                            <div className="space-y-1.5">
-                              {[
-                                { plat: "WhatsApp", art: "Mensagem de indicação — R$20 OFF para amigo" },
-                                { plat: "Instagram", art: "Story com depoimento de cliente real" },
-                              ].map(s => <div key={s.plat} className="flex gap-2 items-start p-2 rounded bg-white/30 text-xs">
-                                <span className={`text-[9px] font-black px-1.5 py-0.5 rounded text-white shrink-0 ${SOCIAL_COLORS[s.plat]}`}>{s.plat}</span>
-                                <span className="text-gray-600">{s.art}</span>
-                              </div>)}
-                            </div>
-                          )}
+                          ))}
                         </div>
                       </div>
                     </div>
-                  );
-                })}
-              </div>
+                  </div>
+                );
+              })}
             </div>
           )}
 
-          {/* ── CALENDÁRIO 30 DIAS ── */}
+          {/* ════════════════════════════════════════════════════════════════ */}
+          {/* CALENDÁRIO 30 DIAS                                              */}
+          {/* ════════════════════════════════════════════════════════════════ */}
           {activeSection === "calendario" && (
             <div className="space-y-6">
               <div>
-                <h2 className="text-2xl font-black mb-1">Calendário de Conteúdo — 30 dias</h2>
-                <p className="text-white/50 text-sm">Próximos artigos agendados. Clique em <strong className="text-[#46C1F1]">ClickUp</strong> para criar a task automaticamente.</p>
+                <p className="text-[10px] font-black tracking-[0.2em] text-zinc-600 uppercase mb-1">Planejamento editorial</p>
+                <h2 className="text-2xl font-black text-zinc-100">Calendário 30 Dias</h2>
+                <p className="text-zinc-600 text-sm mt-1">Próximos artigos. Clique em <strong className="text-cyan-400">+ ClickUp</strong> para criar a task automaticamente.</p>
               </div>
-
-              {/* Weeks */}
               {[0, 1, 2, 3].map(week => {
                 const weekItems = CALENDAR_30.filter(item => item.day > week * 7 && item.day <= (week + 1) * 7);
                 const weekStart = new Date(startDate); weekStart.setDate(startDate.getDate() + week * 7);
                 const weekLabel = `Semana ${week + 1} — ${weekStart.toLocaleDateString("pt-BR", { day: "2-digit", month: "short" })}`;
                 return (
-                  <div key={week} className="bg-white/5 border border-white/10 rounded-xl overflow-hidden">
-                    <div className="px-5 py-3 border-b border-white/10 flex items-center justify-between">
-                      <h3 className="font-bold text-sm text-white/70">{weekLabel}</h3>
-                      <span className="text-xs text-white/30">{weekItems.length} artigos</span>
+                  <div key={week} className="bg-[#111115] border border-[#1a1a22] rounded-2xl overflow-hidden">
+                    <div className="px-5 py-3 border-b border-[#1a1a22] flex items-center justify-between">
+                      <h3 className="font-bold text-sm text-zinc-400">{weekLabel}</h3>
+                      <span className="text-xs text-zinc-700 font-mono">{weekItems.length} artigos</span>
                     </div>
-                    <div className="divide-y divide-white/5">
+                    <div className="divide-y divide-[#1a1a22]">
                       {weekItems.length === 0 ? (
-                        <p className="px-5 py-4 text-xs text-white/30 italic">Sem artigos agendados nesta semana.</p>
+                        <p className="px-5 py-4 text-xs text-zinc-700 italic">Sem artigos agendados nesta semana.</p>
                       ) : weekItems.map(item => (
-                        <div key={item.day} className="flex items-center gap-4 px-5 py-3 hover:bg-white/3 transition-colors">
-                          <span className="text-xs font-mono text-white/30 w-12 shrink-0">{item.date}</span>
-                          <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full shrink-0 ${CLUSTER_COLORS[item.cluster]}`}>{item.cluster}</span>
-                          <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full shrink-0 ${FUNNEL_COLORS[item.funnel]}`}>{item.funnel}</span>
-                          <span className="text-sm text-white/80 flex-1">{item.titulo}</span>
-                          <Link href={item.lp} className="text-xs text-[#46C1F1] hover:underline font-mono shrink-0">{item.lp}</Link>
+                        <div key={item.day} className="flex items-center gap-4 px-5 py-3 hover:bg-white/[0.025] transition-colors">
+                          <span className="text-xs font-mono text-zinc-700 w-12 shrink-0">{item.date}</span>
+                          <span className={`text-[10px] font-bold px-2 py-0.5 rounded-lg shrink-0 ${CLUSTER_BADGE[item.cluster]}`}>{item.cluster}</span>
+                          <span className={`text-[10px] font-bold px-2 py-0.5 rounded-lg shrink-0 ${FUNNEL_BADGE[item.funnel]}`}>{item.funnel}</span>
+                          <span className="text-sm text-zinc-300 flex-1 min-w-0 truncate">{item.titulo}</span>
+                          <Link href={item.lp} className="text-xs text-cyan-400 hover:underline font-mono shrink-0">{item.lp}</Link>
                           <a href={getClickUpLink(item.titulo)} target="_blank" rel="noopener noreferrer"
-                            className="text-[10px] bg-[#46C1F1]/20 text-[#46C1F1] border border-[#46C1F1]/30 px-3 py-1 rounded-lg hover:bg-[#46C1F1]/30 font-bold shrink-0 transition-colors whitespace-nowrap">
+                            className="text-[10px] bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 px-3 py-1.5 rounded-lg hover:bg-cyan-500/20 font-bold shrink-0 transition-colors whitespace-nowrap">
                             + ClickUp
                           </a>
                         </div>
@@ -942,18 +1087,17 @@ export default function MarketingOS() {
                   </div>
                 );
               })}
-
-              <div className="bg-white/5 border border-white/10 rounded-xl p-5">
-                <p className="text-xs text-white/40 mb-3">📌 Cadência recomendada</p>
-                <div className="grid grid-cols-3 gap-4 text-sm">
+              <div className="bg-[#111115] border border-[#1a1a22] rounded-2xl p-5">
+                <p className="text-[10px] text-zinc-700 uppercase tracking-wider mb-4 font-bold">Cadência recomendada</p>
+                <div className="grid grid-cols-3 gap-4">
                   {[
-                    { freq: "2× por semana", tipo: "Artigo SEO (Awareness/Consideration)", cor: "text-[#46C1F1]" },
-                    { freq: "1× por semana", tipo: "Post Social (Reels/Carrossel)", cor: "text-pink-400" },
-                    { freq: "1× por mês", tipo: "Conteúdo B2B (LinkedIn/Email)", cor: "text-amber-400" },
+                    { freq: "2×/semana", tipo: "Artigo SEO (Awareness/Consideration)", color: "#6366f1" },
+                    { freq: "1×/semana", tipo: "Post Social (Reels/Carrossel)", color: "#ec4899" },
+                    { freq: "1×/mês", tipo: "Conteúdo B2B (LinkedIn/Email)", color: "#f59e0b" },
                   ].map(c => (
-                    <div key={c.freq} className="bg-white/5 rounded-xl p-4 border border-white/10">
-                      <p className={`text-lg font-black ${c.cor}`}>{c.freq}</p>
-                      <p className="text-xs text-white/50 mt-1">{c.tipo}</p>
+                    <div key={c.freq} className="bg-white/[0.025] rounded-xl p-4 border border-[#1a1a22]">
+                      <p className="text-2xl font-black" style={{ color: c.color }}>{c.freq}</p>
+                      <p className="text-xs text-zinc-600 mt-1">{c.tipo}</p>
                     </div>
                   ))}
                 </div>
@@ -961,106 +1105,143 @@ export default function MarketingOS() {
             </div>
           )}
 
-          {/* ── LOCAL SEO ── */}
+          {/* ════════════════════════════════════════════════════════════════ */}
+          {/* LOCAL SEO                                                       */}
+          {/* ════════════════════════════════════════════════════════════════ */}
           {activeSection === "local" && (
-            <div className="space-y-6">
+            <div className="space-y-5">
               <div>
-                <h2 className="text-2xl font-black mb-1">SEO Local</h2>
-                <p className="text-white/50 text-sm">10 cidades do Vale do Paraíba — estratégia de expansão geográfica.</p>
+                <p className="text-[10px] font-black tracking-[0.2em] text-zinc-600 uppercase mb-1">Expansão geográfica</p>
+                <h2 className="text-2xl font-black text-zinc-100">Local SEO</h2>
+                <p className="text-zinc-600 text-sm mt-1">10 cidades do Vale do Paraíba — SEO local converte 5× mais que nacional.</p>
               </div>
-              {[
-                { cidade: "São José dos Campos", status: "LP + 4 artigos", prioridade: "P0", pop: "730k", lp: "/sao-jose-dos-campos", cor: "text-green-400" },
-                { cidade: "Vale do Paraíba (Hub)", status: "LP publicada", prioridade: "P0", pop: "2M+", lp: "/vale-do-paraiba", cor: "text-green-400" },
-                { cidade: "Taubaté", status: "LP publicada", prioridade: "P0", pop: "330k", lp: "/taubate", cor: "text-[#46C1F1]" },
-                { cidade: "Jacareí", status: "LP publicada", prioridade: "P1", pop: "240k", lp: "/jacarei", cor: "text-[#46C1F1]" },
-                { cidade: "Lorena / Guaratinguetá", status: "LP publicada", prioridade: "P1", pop: "190k", lp: "/lorena-guaratingueta", cor: "text-[#46C1F1]" },
-                { cidade: "Caçapava", status: "Planejar", prioridade: "P2", pop: "100k", lp: "", cor: "text-white/30" },
-                { cidade: "Pindamonhangaba", status: "Planejar", prioridade: "P2", pop: "170k", lp: "", cor: "text-white/30" },
-                { cidade: "Tremembé", status: "Planejar", prioridade: "P3", pop: "50k", lp: "", cor: "text-white/30" },
-                { cidade: "Aparecida", status: "Planejar", prioridade: "P3", pop: "38k", lp: "", cor: "text-white/30" },
-                { cidade: "Campos do Jordão", status: "Planejar", prioridade: "P3", pop: "52k", lp: "", cor: "text-white/30" },
-              ].map(c => (
-                <div key={c.cidade} className="flex items-center gap-4 p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/8 transition-colors">
-                  <span className={`text-[10px] font-black px-2 py-0.5 rounded-full ${c.prioridade === "P0" ? "bg-red-500/20 text-red-400" : c.prioridade === "P1" ? "bg-orange-500/20 text-orange-400" : c.prioridade === "P2" ? "bg-yellow-500/20 text-yellow-400" : "bg-white/10 text-white/30"}`}>{c.prioridade}</span>
-                  <span className="font-semibold text-sm w-52 shrink-0">{c.cidade}</span>
-                  <span className="text-xs text-white/30 w-12 shrink-0">{c.pop}</span>
-                  <span className={`text-xs flex-1 ${c.cor}`}>{c.status}</span>
-                  {c.lp ? <Link href={c.lp} className="text-xs text-[#46C1F1] hover:underline font-mono">{c.lp}</Link> : (
-                    <a href={getClickUpLink(`LP Cidade: ${c.cidade}`)} target="_blank" rel="noopener noreferrer"
-                      className="text-[10px] bg-[#46C1F1]/20 text-[#46C1F1] px-2 py-0.5 rounded hover:bg-[#46C1F1]/30 font-bold transition-colors">+ ClickUp</a>
-                  )}
-                </div>
-              ))}
+              <div className="space-y-2.5">
+                {[
+                  { cidade: "São José dos Campos", status: "LP + 4 artigos", prioridade: "P0", pop: "730k", lp: "/sao-jose-dos-campos", pct: 90 },
+                  { cidade: "Vale do Paraíba (Hub)", status: "LP publicada", prioridade: "P0", pop: "2M+", lp: "/vale-do-paraiba", pct: 70 },
+                  { cidade: "Taubaté", status: "LP publicada", prioridade: "P0", pop: "330k", lp: "/taubate", pct: 60 },
+                  { cidade: "Jacareí", status: "LP publicada", prioridade: "P1", pop: "240k", lp: "/jacarei", pct: 50 },
+                  { cidade: "Lorena / Guaratinguetá", status: "LP publicada", prioridade: "P1", pop: "190k", lp: "/lorena-guaratingueta", pct: 45 },
+                  { cidade: "Caçapava", status: "Planejar", prioridade: "P2", pop: "100k", lp: "", pct: 10 },
+                  { cidade: "Pindamonhangaba", status: "Planejar", prioridade: "P2", pop: "170k", lp: "", pct: 10 },
+                  { cidade: "Tremembé", status: "Planejar", prioridade: "P3", pop: "50k", lp: "", pct: 0 },
+                  { cidade: "Aparecida", status: "Planejar", prioridade: "P3", pop: "38k", lp: "", pct: 0 },
+                  { cidade: "Campos do Jordão", status: "Planejar", prioridade: "P3", pop: "52k", lp: "", pct: 0 },
+                ].map(c => {
+                  const prioBg = c.prioridade === "P0" ? "bg-red-500/15 text-red-400 border-red-500/25"
+                    : c.prioridade === "P1" ? "bg-amber-500/15 text-amber-400 border-amber-500/25"
+                    : c.prioridade === "P2" ? "bg-zinc-500/15 text-zinc-500 border-zinc-500/25"
+                    : "bg-zinc-800/30 text-zinc-700 border-zinc-700/25";
+                  const active = c.pct > 20;
+                  return (
+                    <div key={c.cidade} className={`flex items-center gap-4 p-4 rounded-2xl border transition-all ${active ? "bg-[#111115] border-[#1a1a22] hover:border-[#242430]" : "bg-[#0c0c10] border-[#14141a]"}`}>
+                      <span className={`text-[10px] font-black px-2 py-0.5 rounded-lg border shrink-0 ${prioBg}`}>{c.prioridade}</span>
+                      <div className="w-48 shrink-0">
+                        <p className={`font-semibold text-sm ${active ? "text-zinc-200" : "text-zinc-600"}`}>{c.cidade}</p>
+                        <p className="text-[10px] text-zinc-700">{c.pop} hab.</p>
+                      </div>
+                      <div className="flex-1 bg-[#1c1c24] rounded-full h-1 overflow-hidden">
+                        <div className="h-full bg-cyan-500 rounded-full" style={{ width: `${c.pct}%` }} />
+                      </div>
+                      <span className={`text-xs w-28 text-right ${active ? "text-zinc-400" : "text-zinc-700"}`}>{c.status}</span>
+                      {c.lp ? (
+                        <Link href={c.lp} className="text-xs text-cyan-400 hover:underline font-mono w-40 text-right shrink-0">{c.lp}</Link>
+                      ) : (
+                        <a href={getClickUpLink(`LP Cidade: ${c.cidade}`)} target="_blank" rel="noopener noreferrer"
+                          className="text-[10px] bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 px-2 py-1 rounded-lg hover:bg-cyan-500/20 font-bold transition-colors w-40 text-center shrink-0">
+                          + ClickUp
+                        </a>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           )}
 
-          {/* ── CLASSIFIER ── */}
+          {/* ════════════════════════════════════════════════════════════════ */}
+          {/* IA CLASSIFIER                                                   */}
+          {/* ════════════════════════════════════════════════════════════════ */}
           {activeSection === "classifier" && (
             <div className="space-y-6">
               <div>
-                <h2 className="text-2xl font-black mb-1">Classificador Automático</h2>
-                <p className="text-white/50 text-sm">Cole o título de qualquer novo artigo — o sistema classifica, conecta à LP e gera task no ClickUp.</p>
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-[9px] font-black tracking-widest uppercase text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 px-2 py-1 rounded-lg">AI</span>
+                  <p className="text-[10px] font-black tracking-[0.2em] text-zinc-600 uppercase">Classificação automática</p>
+                </div>
+                <h2 className="text-2xl font-black text-zinc-100">Classificador IA</h2>
+                <p className="text-zinc-600 text-sm mt-1">Cole o título de qualquer artigo — o sistema classifica, conecta à LP e gera task no ClickUp.</p>
               </div>
-              <div className="bg-white/5 border border-white/10 rounded-xl p-6">
+
+              <div className="bg-[#111115] border border-[#1a1a22] rounded-2xl p-6">
                 <div className="flex gap-3">
                   <input type="text" value={classifierInput} onChange={e => setClassifierInput(e.target.value)}
                     onKeyDown={e => e.key === "Enter" && classifierInput.trim() && setClassifierResult(classifyArticle(classifierInput))}
                     placeholder="Ex: Como tirar mancha de café da roupa..."
-                    className="flex-1 bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-[#46C1F1]/50" />
+                    className="flex-1 bg-white/[0.04] border border-[#2a2a35] rounded-xl px-4 py-3 text-sm text-zinc-200 placeholder-zinc-700 focus:outline-none focus:border-indigo-500/50 transition-colors" />
                   <button onClick={() => classifierInput.trim() && setClassifierResult(classifyArticle(classifierInput))}
-                    className="bg-[#46C1F1] text-black font-black px-6 py-3 rounded-xl hover:bg-[#46C1F1]/80 transition-colors text-sm">Classificar</button>
+                    className="bg-indigo-500 text-white font-black px-6 py-3 rounded-xl hover:bg-indigo-400 transition-colors text-sm">
+                    Classificar
+                  </button>
                 </div>
 
                 {classifierResult && (
                   <div className="mt-6 space-y-4">
                     <div className="grid md:grid-cols-2 gap-4">
-                      <div className="bg-white/5 rounded-xl p-4 border border-white/10 space-y-3">
-                        <p className="text-xs text-white/40 uppercase tracking-widest">Análise</p>
+                      <div className="bg-white/[0.03] rounded-xl p-4 border border-[#1a1a22] space-y-3">
+                        <p className="text-[10px] text-zinc-700 uppercase tracking-widest font-bold">Análise</p>
                         <div className="flex justify-between items-center">
-                          <span className="text-xs text-white/50">Cluster:</span>
+                          <span className="text-xs text-zinc-600">Cluster:</span>
                           <button onClick={() => { const cd = CLUSTERS_MOS.find(c => c.nome === classifierResult.cluster); if (cd) setSelectedCluster(cd); }}
-                            className={`text-xs font-bold px-2 py-0.5 rounded-full hover:ring-1 hover:ring-white/30 transition-all ${CLUSTER_COLORS[classifierResult.cluster]}`}>
+                            className={`text-xs font-bold px-2 py-1 rounded-lg border hover:brightness-110 transition-all ${CLUSTER_BADGE[classifierResult.cluster]}`}>
                             {classifierResult.cluster} →
                           </button>
                         </div>
                         <div className="flex justify-between items-center">
-                          <span className="text-xs text-white/50">Funil:</span>
-                          <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${FUNNEL_COLORS[classifierResult.funnel]}`}>{classifierResult.funnel}</span>
+                          <span className="text-xs text-zinc-600">Funil:</span>
+                          <span className={`text-xs font-bold px-2 py-1 rounded-lg ${FUNNEL_BADGE[classifierResult.funnel]}`}>{classifierResult.funnel}</span>
                         </div>
                         <div className="flex justify-between items-center">
-                          <span className="text-xs text-white/50">LP alvo:</span>
-                          <Link href={classifierResult.lp} className="text-xs text-[#46C1F1] hover:underline font-mono">{classifierResult.lp}</Link>
+                          <span className="text-xs text-zinc-600">LP sugerida:</span>
+                          <Link href={classifierResult.lp} className="text-xs text-cyan-400 hover:underline font-mono">{classifierResult.lp}</Link>
                         </div>
-                        <div>
-                          <span className="text-xs text-white/50 block mb-1">Monetização:</span>
-                          <p className="text-xs text-green-400">{classifierResult.monetizacao}</p>
+                        <div className="pt-2">
+                          <p className="text-[10px] text-zinc-700 mb-1.5">Monetização:</p>
+                          <p className="text-xs text-zinc-500">{classifierResult.monetizacao}</p>
                         </div>
                         <a href={getClickUpLink(classifierInput)} target="_blank" rel="noopener noreferrer"
-                          className="block w-full text-center text-sm bg-[#46C1F1]/20 text-[#46C1F1] border border-[#46C1F1]/30 px-4 py-2.5 rounded-xl hover:bg-[#46C1F1]/30 font-bold transition-colors mt-2">
-                          + Criar task no ClickUp
+                          className="block text-center bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 px-4 py-2 rounded-xl hover:bg-cyan-500/20 font-bold text-xs transition-colors">
+                          + Criar no ClickUp
                         </a>
                       </div>
-                      <div className="bg-white/5 rounded-xl p-4 border border-white/10">
-                        <p className="text-xs text-white/40 uppercase tracking-widest mb-3">Conteúdo relacionado</p>
-                        <ul className="space-y-2 mb-4">
-                          {classifierResult.sugestoes.map(s => (
-                            <li key={s} className="flex gap-2 text-xs">
-                              <span className="text-orange-400 shrink-0">→</span>
-                              <span className="text-orange-300/80 flex-1">{s}</span>
-                              <a href={getClickUpLink(s)} target="_blank" rel="noopener noreferrer"
-                                className="text-[10px] text-[#46C1F1]/60 hover:text-[#46C1F1] shrink-0 transition-colors">+ CU</a>
-                            </li>
-                          ))}
-                        </ul>
-                        <p className="text-xs text-white/40 uppercase tracking-widest mb-2">Social media</p>
-                        {classifierResult.social.map((s, i) => (
-                          <div key={i} className="flex gap-2 items-start p-2 rounded bg-white/5 border border-white/10 mb-1.5">
-                            <span className={`text-[9px] font-black px-1.5 py-0.5 rounded text-white shrink-0 ${SOCIAL_COLORS[s.plataforma] ?? "bg-gray-600"}`}>{s.plataforma}</span>
-                            <span className="text-xs text-white/60">{s.angulo}</span>
-                          </div>
+                      <div className="bg-white/[0.03] rounded-xl p-4 border border-[#1a1a22] space-y-3">
+                        <p className="text-[10px] text-zinc-700 uppercase tracking-widest font-bold">Artigos sugeridos</p>
+                        {classifierResult.sugestoes.map(s => (
+                          <a key={s} href={getClickUpLink(s)} target="_blank" rel="noopener noreferrer"
+                            className="flex items-center gap-2 p-2.5 rounded-xl bg-amber-500/5 border border-amber-500/15 hover:bg-amber-500/10 transition-colors group">
+                            <span className="text-amber-400 text-xs shrink-0">+</span>
+                            <span className="text-xs text-zinc-500 flex-1">{s}</span>
+                            <span className="text-[10px] text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity font-bold">ClickUp →</span>
+                          </a>
                         ))}
                       </div>
                     </div>
+                    {classifierResult.social.length > 0 && (
+                      <div>
+                        <p className="text-[10px] text-zinc-700 uppercase tracking-widest mb-2 font-bold">Social media sugerido</p>
+                        <div className="flex gap-3">
+                          {classifierResult.social.map((s, i) => (
+                            <div key={i} className="flex items-start gap-2 p-3 rounded-xl bg-white/[0.03] border border-[#1a1a22] flex-1">
+                              <span className={`text-[9px] font-black px-2 py-0.5 rounded text-white shrink-0 ${SOCIAL_BADGE[s.plataforma] ?? "bg-zinc-700"}`}>{s.plataforma}</span>
+                              <div>
+                                <p className="text-[10px] text-zinc-700">{s.formato}</p>
+                                <p className="text-xs text-zinc-500 mt-0.5">{s.angulo}</p>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
