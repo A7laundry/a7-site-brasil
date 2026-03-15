@@ -503,6 +503,7 @@ export default function MarketingOS() {
   const [classifierInput, setClassifierInput] = useState("");
   const [activeOnboardingModule, setActiveOnboardingModule] = useState<number | null>(0);
   const [classifierResult, setClassifierResult] = useState<ReturnType<typeof classifyArticle> | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const totalArticles = ARTICLES.length;
   const totalGaps = CLUSTERS_MOS.reduce((s, c) => s + c.gap, 0);
@@ -519,15 +520,15 @@ export default function MarketingOS() {
       {selectedCluster && (
         <div className="fixed inset-0 z-50 flex">
           <div className="flex-1 bg-black/70 backdrop-blur-sm" onClick={() => setSelectedCluster(null)} />
-          <div className="w-full max-w-xl bg-[#0e0e13] border-l border-[#1e1e28] overflow-y-auto flex flex-col">
-            <div className="sticky top-0 bg-[#0e0e13]/95 backdrop-blur border-b border-[#1e1e28] px-6 py-4 flex items-center justify-between z-10">
+          <div className="w-full md:max-w-xl bg-[#0e0e13] border-l border-[#1e1e28] overflow-y-auto flex flex-col">
+            <div className="sticky top-0 bg-[#0e0e13]/95 backdrop-blur border-b border-[#1e1e28] px-4 py-4 flex items-center justify-between z-10">
               <div className="flex items-center gap-3">
                 <span className={`text-xs font-bold px-3 py-1 rounded-lg border ${selectedCluster.tw}`}>{selectedCluster.nome}</span>
                 <span className="text-xs text-zinc-600">{ARTICLES.filter(a => a.cluster === selectedCluster.nome).length} artigos · <span className="text-amber-400">+{selectedCluster.gap} gaps</span></span>
               </div>
               <button onClick={() => setSelectedCluster(null)} className="text-zinc-600 hover:text-zinc-300 text-xl leading-none w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white/5 transition-all">×</button>
             </div>
-            <div className="p-6 space-y-6 flex-1">
+            <div className="p-4 md:p-6 space-y-6 flex-1">
               <div>
                 <p className="text-[10px] text-cyan-500/60 uppercase tracking-widest mb-2 font-bold">Pillar Page</p>
                 <div className="bg-cyan-500/5 border border-cyan-500/15 rounded-xl p-4">
@@ -600,8 +601,49 @@ export default function MarketingOS() {
         </div>
       )}
 
-      {/* ── SIDEBAR ──────────────────────────────────────────────────────────── */}
-      <aside className="w-56 shrink-0 sticky top-0 h-screen flex flex-col bg-[#0c0c10] border-r border-[#1a1a22] overflow-hidden">
+      {/* ── MOBILE DRAWER ────────────────────────────────────────────────────── */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-50 flex md:hidden">
+          <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={() => setMobileMenuOpen(false)} />
+          <div className="relative w-72 max-w-[85vw] bg-[#0c0c10] border-r border-[#1a1a22] flex flex-col h-full overflow-hidden z-10">
+            <div className="px-5 pt-6 pb-5 border-b border-[#1a1a22] flex items-center justify-between">
+              <div>
+                <img src="/logo-light.png" alt="A7 Lavanderia" className="h-7 w-auto mb-3" />
+                <div className="flex items-center gap-2">
+                  <span className="text-[9px] font-black tracking-[0.25em] text-indigo-400 uppercase">Marketing OS</span>
+                  <span className="text-[9px] bg-indigo-500/15 text-indigo-400 border border-indigo-500/25 px-1.5 py-0.5 rounded font-mono">v2</span>
+                </div>
+              </div>
+              <button onClick={() => setMobileMenuOpen(false)} className="text-zinc-500 hover:text-zinc-200 w-9 h-9 flex items-center justify-center rounded-xl hover:bg-white/5 transition-all text-xl">×</button>
+            </div>
+            <nav className="p-3 space-y-0.5 flex-1 overflow-y-auto">
+              {SECTIONS.map(s => (
+                <button key={s.id} onClick={() => { setActiveSection(s.id); setMobileMenuOpen(false); }}
+                  className={`w-full flex items-center gap-3 px-3 py-3 rounded-xl text-left transition-all border ${
+                    activeSection === s.id
+                      ? "bg-indigo-500/10 border-indigo-500/20"
+                      : "border-transparent hover:bg-white/[0.035]"
+                  }`}>
+                  <span className="text-base w-6 text-center leading-none">{s.icon}</span>
+                  <div className="min-w-0 flex-1">
+                    <p className={`text-sm font-medium leading-none ${activeSection === s.id ? "text-zinc-100" : "text-zinc-400"}`}>{s.label}</p>
+                    <p className={`text-[10px] mt-0.5 ${activeSection === s.id ? "text-indigo-400" : "text-zinc-600"}`}>{s.desc}</p>
+                  </div>
+                  {activeSection === s.id && <div className="h-1.5 w-1.5 rounded-full bg-indigo-400 shrink-0" />}
+                </button>
+              ))}
+            </nav>
+            <div className="p-4 border-t border-[#1a1a22]">
+              <Link href="/growth-engine" className="flex items-center gap-2 text-zinc-600 hover:text-zinc-400 text-xs transition-colors">
+                <span>←</span> Growth Engine
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── SIDEBAR (desktop only) ───────────────────────────────────────────── */}
+      <aside className="hidden md:flex w-56 shrink-0 sticky top-0 h-screen flex-col bg-[#0c0c10] border-r border-[#1a1a22] overflow-hidden">
         {/* Logo */}
         <div className="px-5 pt-6 pb-5 border-b border-[#1a1a22]">
           <img src="/logo-light.png" alt="A7 Lavanderia" className="h-7 w-auto mb-4" />
@@ -645,22 +687,34 @@ export default function MarketingOS() {
 
         {/* Top bar */}
         <header className="sticky top-0 z-40 border-b border-[#1a1a22] bg-[#09090b]/95 backdrop-blur-xl">
-          <div className="px-8 py-4 flex items-center justify-between">
-            <div>
-              <p className="text-[10px] text-zinc-700 font-mono uppercase tracking-wider">A7 Lavanderia · Vale do Paraíba</p>
-              <h1 className="text-sm font-bold text-zinc-200 mt-0.5">{SECTIONS.find(s => s.id === activeSection)?.label}</h1>
+          <div className="px-4 md:px-8 py-3 md:py-4 flex items-center justify-between gap-3">
+            <div className="flex items-center gap-3 min-w-0">
+              {/* Hamburger — mobile only */}
+              <button
+                onClick={() => setMobileMenuOpen(true)}
+                className="md:hidden w-9 h-9 flex items-center justify-center rounded-xl border border-[#1a1a22] text-zinc-500 hover:text-zinc-200 hover:bg-white/5 transition-all shrink-0"
+                aria-label="Menu"
+              >
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                </svg>
+              </button>
+              <div className="min-w-0">
+                <p className="text-[10px] text-zinc-700 font-mono uppercase tracking-wider hidden sm:block">A7 Lavanderia · Vale do Paraíba</p>
+                <h1 className="text-sm font-bold text-zinc-200 leading-tight">{SECTIONS.find(s => s.id === activeSection)?.label}</h1>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <span className="flex items-center gap-1.5 text-[11px] bg-emerald-500/8 text-emerald-400 border border-emerald-500/20 px-3 py-1.5 rounded-full font-mono">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" style={{ boxShadow: "0 0 6px #22c55e" }} />
-                LIVE · {totalArticles} artigos · {totalGaps} gaps
+            <div className="flex items-center gap-2 shrink-0">
+              <span className="flex items-center gap-1.5 text-[10px] md:text-[11px] bg-emerald-500/8 text-emerald-400 border border-emerald-500/20 px-2 md:px-3 py-1.5 rounded-full font-mono">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shrink-0" style={{ boxShadow: "0 0 6px #22c55e" }} />
+                <span className="hidden sm:inline">LIVE · </span>{totalArticles} artigos<span className="hidden sm:inline"> · {totalGaps} gaps</span>
               </span>
             </div>
           </div>
         </header>
 
         {/* Content */}
-        <main className="flex-1 p-8 max-w-5xl w-full mx-auto">
+        <main className="flex-1 p-4 md:p-8 max-w-5xl w-full mx-auto pb-24 md:pb-8">
 
           {/* ════════════════════════════════════════════════════════════════ */}
           {/* DASHBOARD (OVERVIEW)                                           */}
@@ -673,7 +727,7 @@ export default function MarketingOS() {
                 <div className="flex items-center gap-2 mb-3">
                   <span className="text-[10px] font-black tracking-[0.2em] text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 px-3 py-1 rounded-full uppercase">Marketing Operating System</span>
                 </div>
-                <h2 className="text-4xl font-black text-white tracking-tight leading-none">Growth Command Center</h2>
+                <h2 className="text-2xl md:text-4xl font-black text-white tracking-tight leading-none">Growth Command Center</h2>
                 <p className="text-zinc-500 text-sm mt-2">Intelligence dashboard para domínio de SEO, conteúdo e geração de clientes no Vale do Paraíba.</p>
               </div>
 
@@ -705,7 +759,7 @@ export default function MarketingOS() {
                 const offset = circ * (1 - SCORE_TOTAL / 100);
                 return (
                   <button onClick={() => setActiveSection("score")}
-                    className="w-full bg-[#111115] border border-[#1a1a22] hover:border-indigo-500/30 rounded-2xl p-5 flex items-center gap-6 transition-all group text-left"
+                    className="w-full bg-[#111115] border border-[#1a1a22] hover:border-indigo-500/30 rounded-2xl p-4 md:p-5 flex items-center gap-4 md:gap-6 transition-all group text-left"
                     style={{ boxShadow: `0 0 40px rgba(99,102,241,0.06)` }}>
                     {/* Circular gauge */}
                     <div className="relative shrink-0 w-20 h-20 flex items-center justify-center">
@@ -1323,7 +1377,7 @@ export default function MarketingOS() {
               <div className="bg-[#111115] border border-[#1a1a22] rounded-2xl p-6">
                 <p className="text-[10px] font-black tracking-[0.2em] text-zinc-600 uppercase mb-4">06 · Photography — Nunca mostramos a lavagem</p>
                 <p className="text-zinc-600 text-xs mb-4">Mostramos o que a pessoa faz com o tempo que a A7 devolveu.</p>
-                <div className="grid grid-cols-3 md:grid-cols-6 gap-2 mb-4">
+                <div className="grid grid-cols-3 gap-2 mb-4">
                   {[
                     { src: "https://images.unsplash.com/photo-1543342384-1f1350e27861?w=400&q=80", label: "FAMÍLIA" },
                     { src: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&q=80", label: "EXECUTIVO" },
@@ -1339,7 +1393,7 @@ export default function MarketingOS() {
                     </div>
                   ))}
                 </div>
-                <div className="grid grid-cols-4 gap-2">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                   {[
                     { title: "LUZ",    rule: "Natural · difusa · quente" },
                     { title: "PALETA", rule: "Neutros · branco · linho" },
@@ -1823,7 +1877,7 @@ export default function MarketingOS() {
               })}
               <div className="bg-[#111115] border border-[#1a1a22] rounded-2xl p-5">
                 <p className="text-[10px] text-zinc-700 uppercase tracking-wider mb-4 font-bold">Cadência recomendada</p>
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   {[
                     { freq: "2×/semana", tipo: "Artigo SEO (Awareness/Consideration)", color: "#6366f1" },
                     { freq: "1×/semana", tipo: "Post Social (Reels/Carrossel)", color: "#ec4899" },
@@ -1983,6 +2037,46 @@ export default function MarketingOS() {
           )}
 
         </main>
+
+        {/* ── BOTTOM TAB BAR (mobile only) ─────────────────────────────────── */}
+        <nav className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#0c0c10]/98 backdrop-blur-xl border-t border-[#1a1a22] flex items-center justify-around px-1 pb-safe">
+          {[
+            { id: "overview",   icon: "⚡", label: "Dashboard" },
+            { id: "score",      icon: "◎", label: "Score" },
+            { id: "inventory",  icon: "✦", label: "Conteúdo" },
+            { id: "clusters",   icon: "◈", label: "Clusters" },
+            { id: "calendario", icon: "◷", label: "Calendário" },
+          ].map(s => (
+            <button
+              key={s.id}
+              onClick={() => setActiveSection(s.id)}
+              className={`flex flex-col items-center gap-0.5 py-2.5 px-3 rounded-xl transition-all min-w-0 flex-1 ${
+                activeSection === s.id ? "text-indigo-400" : "text-zinc-600"
+              }`}
+            >
+              <span className="text-base leading-none">{s.icon}</span>
+              <span className={`text-[9px] font-bold tracking-wide leading-none mt-0.5 ${activeSection === s.id ? "text-indigo-400" : "text-zinc-600"}`}>
+                {s.label}
+              </span>
+              {activeSection === s.id && (
+                <span className="absolute bottom-1 h-0.5 w-5 rounded-full bg-indigo-400" style={{ position: "static", display: "block", width: "20px", height: "2px", borderRadius: "9999px", backgroundColor: "#818cf8", marginTop: "2px" }} />
+              )}
+            </button>
+          ))}
+          {/* More button */}
+          <button
+            onClick={() => setMobileMenuOpen(true)}
+            className={`flex flex-col items-center gap-0.5 py-2.5 px-3 rounded-xl transition-all min-w-0 flex-1 ${
+              !["overview","score","inventory","clusters","calendario"].includes(activeSection) ? "text-indigo-400" : "text-zinc-600"
+            }`}
+          >
+            <span className="text-base leading-none">⋯</span>
+            <span className={`text-[9px] font-bold tracking-wide leading-none mt-0.5 ${
+              !["overview","score","inventory","clusters","calendario"].includes(activeSection) ? "text-indigo-400" : "text-zinc-600"
+            }`}>Mais</span>
+          </button>
+        </nav>
+
       </div>
     </div>
   );
