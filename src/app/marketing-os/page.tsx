@@ -295,6 +295,7 @@ const SOCIAL_BADGE: Record<string, string> = {
 const SECTIONS = [
   { id: "overview", label: "Dashboard", icon: "⚡", desc: "Command Center" },
   { id: "score", label: "Score", icon: "◎", desc: "Plan tracker" },
+  { id: "onboarding", label: "Onboarding", icon: "◐", desc: "Guia operacional" },
   { id: "inventory", label: "Content Engine", icon: "✦", desc: "40 artigos" },
   { id: "clusters", label: "SEO Clusters", icon: "◈", desc: "9 clusters" },
   { id: "funil", label: "Funil Visual", icon: "▼", desc: "6 etapas" },
@@ -322,6 +323,124 @@ const SCORE_GRADE = SCORE_TOTAL >= 90 ? { label: "Líder", color: "#6366f1" }
   : SCORE_TOTAL >= 60 ? { label: "Crescendo", color: "#22d3ee" }
   : SCORE_TOTAL >= 40 ? { label: "Construindo", color: "#f59e0b" }
   : { label: "Iniciante", color: "#ef4444" };
+
+// ─── ONBOARDING MODULES ───────────────────────────────────────────────────────
+
+const ONBOARDING_MODULES = [
+  {
+    icon: "⚡", color: "#6366f1",
+    title: "Ecossistema Digital A7",
+    desc: "Stack, URLs de produção e visão geral da arquitetura",
+    items: [
+      { type: "url",  label: "Produção",     value: "https://a7lavanderia.vercel.app" },
+      { type: "url",  label: "Marketing OS", value: "https://a7lavanderia.vercel.app/marketing-os" },
+      { type: "info", label: "Stack",        value: "Next.js 14 App Router · TypeScript · Tailwind CSS · Framer Motion" },
+      { type: "info", label: "Deploy",       value: "Vercel — auto-deploy ao push para branch `main` (~2 min)" },
+      { type: "info", label: "Repositório",  value: "GitHub: A7laundry/a7-site-brasil" },
+    ],
+    note: "Todo push para `main` dispara o build na Vercel automaticamente. Não precisa de ação manual.",
+  },
+  {
+    icon: "📁", color: "#22d3ee",
+    title: "Estrutura do Projeto",
+    desc: "Onde fica cada coisa no repositório",
+    items: [
+      { type: "code", label: "src/app/",               value: "Rotas e páginas (App Router). Cada pasta = uma URL pública." },
+      { type: "code", label: "src/components/",         value: "Componentes React. HomeRedesign.tsx = homepage completa." },
+      { type: "code", label: "src/content/blog/",       value: "Artigos em .mdx — um arquivo por artigo. Slug = nome do arquivo." },
+      { type: "code", label: "src/lib/constants.ts",    value: "Fonte de verdade: empresa, serviços, depoimentos, FAQ, WhatsApp links." },
+      { type: "code", label: "src/lib/schemas.ts",      value: "JSON-LD schemas SEO (LocalBusiness, FAQ, Organization, Breadcrumb)." },
+      { type: "code", label: "public/",                 value: "Assets estáticos: logos, imagens, robots.txt, sitemap.xml." },
+    ],
+    note: "Nunca edite arquivos dentro de `.next/` — são gerados automaticamente pelo build.",
+  },
+  {
+    icon: "✍️", color: "#a855f7",
+    title: "Publicar um Artigo de Blog",
+    desc: "Passo a passo para criar e publicar conteúdo SEO",
+    items: [
+      { type: "step", label: "1. Criar arquivo", value: "Crie `src/content/blog/[slug-do-artigo].mdx` (slug em kebab-case, sem acentos)" },
+      { type: "step", label: "2. Frontmatter",   value: "Preencha: title, excerpt, category, image (Unsplash URL), publishedAt (YYYY-MM-DD), author, readingTime, seoTitle, seoDescription, tags" },
+      { type: "step", label: "3. Conteúdo",      value: "Escreva em Markdown. Use ## para H2, **negrito**, listas. Mínimo 400 palavras." },
+      { type: "step", label: "4. Marketing OS",  value: "Adicione o artigo ao array ARTICLES em `/marketing-os/page.tsx` com slug, cluster, funnel, lp e monetizacao" },
+      { type: "step", label: "5. Deploy",        value: "git add src/content/blog/[slug].mdx && git commit -m 'feat: artigo [título]' && git push" },
+    ],
+    note: "O artigo aparece automaticamente em /blog/[slug] após o deploy. Confira o SEO antes: seoTitle máx 60 chars, seoDescription máx 160 chars.",
+  },
+  {
+    icon: "🏪", color: "#22c55e",
+    title: "Criar / Editar Landing Page",
+    desc: "Como criar uma nova LP ou editar uma existente",
+    items: [
+      { type: "step", label: "1. Copiar modelo",   value: "Duplique `/src/app/tapetes/page.tsx` como base — tem o padrão completo de LP com schema, hero, benefícios e CTAs." },
+      { type: "step", label: "2. Editar conteúdo", value: "Ajuste título, descrição, imagem hero, benefícios, FAQ e WhatsApp link. Dados da empresa ficam em `constants.ts`." },
+      { type: "step", label: "3. Registrar no OS", value: "Adicione a rota ao LP_ACTIVE em `marketing-os/page.tsx` e ao CITY_LPS em `HomeRedesign.tsx` se for LP de cidade." },
+      { type: "step", label: "4. SEO checklist",   value: "seoTitle único com keyword, seoDescription com CTA, H1 com keyword, URL limpa, schema JSON-LD, links internos." },
+      { type: "step", label: "5. Deploy",          value: "git add src/app/[slug]/ && git commit -m 'feat: LP [nome]' && git push" },
+    ],
+    note: "LPs locais (ex: /taubate) têm peso SEO alto — priorize as cidades que ainda estão sem cobertura no Local SEO Map.",
+  },
+  {
+    icon: "🔧", color: "#f59e0b",
+    title: "Workflow de Deploy",
+    desc: "Do desenvolvimento ao ar em produção",
+    items: [
+      { type: "cmd", label: "Servidor local",   value: "npm run dev — abre em http://localhost:3000" },
+      { type: "cmd", label: "Validar build",    value: "npm run build — rode sempre antes de commitar para capturar erros TypeScript" },
+      { type: "cmd", label: "Checar linting",   value: "npm run lint — garante padrão de código" },
+      { type: "cmd", label: "Commitar",         value: "git add [arquivos] && git commit -m 'feat: descrição clara'" },
+      { type: "cmd", label: "Deploy",           value: "git push origin main — Vercel faz o deploy automaticamente em ~2 min" },
+      { type: "cmd", label: "Verificar",        value: "Acesse a7lavanderia.vercel.app e confira a mudança em produção" },
+    ],
+    note: "Use Conventional Commits: feat: (novo), fix: (bug), refactor: (melhoria), docs: (texto). Isso facilita o histórico do projeto.",
+  },
+  {
+    icon: "📊", color: "#ef4444",
+    title: "Usando o Marketing OS",
+    desc: "Guia rápido de cada seção do dashboard",
+    items: [
+      { type: "info", label: "Dashboard",       value: "Visão geral: Score, clusters, oportunidades, funil e insights. Ponto de partida diário." },
+      { type: "info", label: "Score",           value: "Mede o progresso do plano em 5 categorias (0–100). Mostra o que está puxando o score para baixo." },
+      { type: "info", label: "Content Engine",  value: "Inventário completo de 40 artigos com filtro por cluster e funil. Identifica gaps de cobertura." },
+      { type: "info", label: "SEO Clusters",    value: "9 clusters temáticos. Clique em qualquer cluster para ver artigos, gaps e ideias de social media." },
+      { type: "info", label: "Funil Visual",    value: "Distribuição de artigos por etapa do funil (Awareness → Referral). Identifica etapas subrecobertas." },
+      { type: "info", label: "Calendário",      value: "Planejamento de conteúdo dos próximos 30 dias. Clique em cada dia para abrir task no ClickUp." },
+      { type: "info", label: "Local SEO",       value: "Grid das 13 cidades do Vale. Verde = LP ativa, cinza = sem cobertura (oportunidade prioritária)." },
+      { type: "info", label: "IA Classifier",   value: "Cole um título de artigo para classificar automaticamente cluster, funil, LP e sugestões de conteúdo." },
+    ],
+    note: "O Marketing OS é atualizado manualmente por enquanto. Sempre que publicar novo artigo, adicione ao ARTICLES no código.",
+  },
+  {
+    icon: "📍", color: "#06b6d4",
+    title: "SEO Checklist por Página",
+    desc: "O que verificar antes de publicar qualquer página",
+    items: [
+      { type: "check", label: "seoTitle",          value: "Único, com keyword principal, máximo 60 caracteres" },
+      { type: "check", label: "seoDescription",    value: "Com CTA (ex: 'Saiba mais', 'Solicite orçamento'), máximo 160 caracteres" },
+      { type: "check", label: "H1",                value: "Contém a keyword principal — único por página" },
+      { type: "check", label: "URL",               value: "Limpa, sem acentos, em kebab-case, com keyword" },
+      { type: "check", label: "Imagem hero",       value: "Alt text descritivo com keyword, mínimo 1200px largura" },
+      { type: "check", label: "Links internos",    value: "Ao menos 1 link para LP relacionada + 1 link para artigo do mesmo cluster" },
+      { type: "check", label: "Schema JSON-LD",    value: "LPs de cidade: LocalBusiness. FAQ presente: FAQPage. Homepage já tem todos." },
+      { type: "check", label: "CTA WhatsApp",      value: "Toda página deve ter ao menos 1 CTA para WhatsApp usando getWhatsAppLink()" },
+    ],
+    note: "Para LPs de cidade, inclua o nome da cidade no H1, seoTitle, seoDescription e na URL. Isso multiplica a visibilidade local.",
+  },
+  {
+    icon: "🗓️", color: "#34d399",
+    title: "Operação Semanal & Mensal",
+    desc: "Rotina de manutenção e crescimento do site",
+    items: [
+      { type: "week", label: "Segunda",    value: "Publicar 1 artigo de gap crítico (prioridade: B2B → Local → Manchas → Tapetes)" },
+      { type: "week", label: "Quarta",     value: "Checar Google Search Console (quando configurado) — impressões, cliques, posições" },
+      { type: "week", label: "Sexta",      value: "Atualizar ARTICLES no Marketing OS se novos artigos foram publicados" },
+      { type: "month", label: "Mês 1",    value: "Criar LPs para Caçapava, Pindamonhangaba e Campos do Jordão → +9 pts no Score" },
+      { type: "month", label: "Mês 2",    value: "Publicar 10 artigos de gaps B2B e Local → fechar maior gap de score" },
+      { type: "month", label: "Mês 3",    value: "Revisão geral: top 5 páginas por conversão, atualização de depoimentos e stats" },
+    ],
+    note: "Meta de score: sair de 55 → 70 pts em 60 dias. Isso exige: 10 novos artigos + 3 LPs de cidade + fechar 8 gaps de B2B.",
+  },
+];
 
 const SCORE_MILESTONES = [
   { pts: 60, title: "Crescendo", desc: "Publicar 10 artigos de gaps críticos (B2B + Manchas)", done: SCORE_TOTAL >= 60 },
@@ -381,6 +500,7 @@ export default function MarketingOS() {
   const [selectedCluster, setSelectedCluster] = useState<typeof CLUSTERS_MOS[0] | null>(null);
   const [expandedCluster, setExpandedCluster] = useState<string | null>(null);
   const [classifierInput, setClassifierInput] = useState("");
+  const [activeOnboardingModule, setActiveOnboardingModule] = useState<number | null>(0);
   const [classifierResult, setClassifierResult] = useState<ReturnType<typeof classifyArticle> | null>(null);
 
   const totalArticles = ARTICLES.length;
@@ -1011,6 +1131,133 @@ export default function MarketingOS() {
               </div>
             );
           })()}
+
+          {/* ════════════════════════════════════════════════════════════════ */}
+          {/* ONBOARDING                                                     */}
+          {/* ════════════════════════════════════════════════════════════════ */}
+          {activeSection === "onboarding" && (
+            <div className="space-y-8">
+
+              {/* Header */}
+              <div>
+                <p className="text-[10px] font-black tracking-[0.2em] text-indigo-400 uppercase mb-2">Guia Operacional</p>
+                <h2 className="text-4xl font-black text-white tracking-tight leading-none">Onboarding do Site</h2>
+                <p className="text-zinc-500 text-sm mt-2">Tudo que você precisa para operar, publicar e escalar o site A7 Lavanderia.</p>
+              </div>
+
+              {/* Progress */}
+              <div className="flex items-center gap-3 flex-wrap">
+                {ONBOARDING_MODULES.map((m, i) => (
+                  <button key={i} onClick={() => setActiveOnboardingModule(activeOnboardingModule === i ? null : i)}
+                    className={`flex items-center gap-2 px-3 py-2 rounded-xl border text-xs font-semibold transition-all ${
+                      activeOnboardingModule === i
+                        ? "text-white border-transparent"
+                        : "text-zinc-600 border-[#1a1a22] hover:border-zinc-700 hover:text-zinc-400"
+                    }`}
+                    style={activeOnboardingModule === i ? { backgroundColor: `${m.color}20`, borderColor: `${m.color}40`, color: m.color } : {}}>
+                    <span>{m.icon}</span>
+                    <span>{m.title.split(" ").slice(0, 2).join(" ")}</span>
+                  </button>
+                ))}
+              </div>
+
+              {/* Modules */}
+              <div className="space-y-3">
+                {ONBOARDING_MODULES.map((m, i) => {
+                  const isOpen = activeOnboardingModule === i;
+                  return (
+                    <div key={i} className={`rounded-2xl border transition-all overflow-hidden ${isOpen ? "border-[#2a2a38]" : "border-[#1a1a22]"}`}
+                      style={isOpen ? { boxShadow: `0 0 30px ${m.color}08` } : {}}>
+
+                      {/* Module header */}
+                      <button onClick={() => setActiveOnboardingModule(isOpen ? null : i)}
+                        className="w-full flex items-center gap-4 p-5 text-left hover:bg-white/[0.02] transition-all group">
+                        <div className="shrink-0 w-10 h-10 rounded-xl flex items-center justify-center text-lg"
+                          style={{ backgroundColor: `${m.color}15`, border: `1px solid ${m.color}25` }}>
+                          {m.icon}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2 mb-0.5">
+                            <p className="text-sm font-black text-zinc-100">{m.title}</p>
+                            <span className="text-[9px] font-black text-zinc-700 font-mono">0{i + 1}</span>
+                          </div>
+                          <p className="text-xs text-zinc-600">{m.desc}</p>
+                        </div>
+                        <span className={`text-zinc-700 group-hover:text-zinc-400 transition-all text-sm ${isOpen ? "rotate-90" : ""}`}>›</span>
+                      </button>
+
+                      {/* Module content */}
+                      {isOpen && (
+                        <div className="px-5 pb-5 space-y-4 border-t border-[#1a1a22]">
+                          <div className="pt-4 space-y-2">
+                            {m.items.map((item, j) => (
+                              <div key={j} className={`flex items-start gap-3 p-3 rounded-xl ${
+                                item.type === "check" ? "bg-emerald-500/5 border border-emerald-500/15" :
+                                item.type === "cmd"   ? "bg-zinc-900 border border-[#2a2a38]" :
+                                item.type === "step"  ? "bg-white/[0.025] border border-[#1e1e28]" :
+                                item.type === "week" || item.type === "month" ? "bg-white/[0.02] border border-[#1a1a22]" :
+                                "bg-white/[0.02] border border-[#1a1a22]"
+                              }`}>
+                                {/* Icon by type */}
+                                <span className="shrink-0 mt-0.5 text-xs font-black w-4">
+                                  {item.type === "check" ? <span className="text-emerald-400">✓</span>
+                                   : item.type === "cmd"  ? <span className="text-amber-400">$</span>
+                                   : item.type === "step" ? <span className="font-mono" style={{ color: m.color }}>{j + 1}</span>
+                                   : item.type === "url"  ? <span className="text-blue-400">↗</span>
+                                   : item.type === "code" ? <span className="text-zinc-600">/</span>
+                                   : item.type === "week" ? <span className="text-cyan-400">◷</span>
+                                   : <span className="text-indigo-400">◈</span>}
+                                </span>
+                                <div className="flex-1 min-w-0">
+                                  <p className="text-[10px] font-black uppercase tracking-wider mb-0.5" style={{ color: m.color + "cc" }}>{item.label}</p>
+                                  {item.type === "cmd" || item.type === "code" ? (
+                                    <code className="text-xs text-zinc-300 font-mono break-all">{item.value}</code>
+                                  ) : item.type === "url" ? (
+                                    <a href={item.value.startsWith("http") ? item.value : `https://${item.value}`}
+                                      target="_blank" rel="noopener noreferrer"
+                                      className="text-xs text-blue-400 hover:underline font-mono break-all">{item.value}</a>
+                                  ) : (
+                                    <p className="text-xs text-zinc-400 leading-relaxed">{item.value}</p>
+                                  )}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                          {/* Note */}
+                          <div className="flex items-start gap-2.5 p-3.5 rounded-xl bg-amber-500/5 border border-amber-500/15">
+                            <span className="text-amber-400 text-sm shrink-0">💡</span>
+                            <p className="text-xs text-zinc-500 leading-relaxed">{m.note}</p>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Quick reference footer */}
+              <div className="bg-[#111115] border border-[#1a1a22] rounded-2xl p-6">
+                <p className="text-[10px] font-black tracking-[0.2em] text-zinc-600 uppercase mb-4">Referência Rápida — Comandos Essenciais</p>
+                <div className="grid md:grid-cols-2 gap-2">
+                  {[
+                    { cmd: "npm run dev",             desc: "Servidor local (localhost:3000)" },
+                    { cmd: "npm run build",            desc: "Validar antes de commitar" },
+                    { cmd: "git push origin main",     desc: "Deploy para produção (Vercel)" },
+                    { cmd: "git log --oneline -5",     desc: "Ver últimos commits" },
+                    { cmd: "git status",               desc: "Arquivos modificados" },
+                    { cmd: "git add [arquivo]",        desc: "Stagear arquivo específico" },
+                  ].map(r => (
+                    <div key={r.cmd} className="flex items-center gap-3 p-3 rounded-xl bg-zinc-900 border border-[#2a2a38]">
+                      <span className="text-amber-400 text-xs font-black shrink-0">$</span>
+                      <code className="text-xs text-zinc-300 font-mono flex-1">{r.cmd}</code>
+                      <span className="text-[10px] text-zinc-700 shrink-0">{r.desc}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+            </div>
+          )}
 
           {/* ════════════════════════════════════════════════════════════════ */}
           {/* CONTENT ENGINE (INVENTORY)                                     */}
