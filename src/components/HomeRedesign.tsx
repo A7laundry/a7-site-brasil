@@ -135,17 +135,17 @@ export default function HomeRedesign() {
       <section id="inicio" className="relative min-h-screen bg-ink-900 overflow-hidden">
 
         {/* Background image (desktop right panel) */}
-        <div className="absolute inset-0 lg:left-[55%] overflow-hidden">
+        <div className="absolute inset-0 lg:left-[50%] overflow-hidden">
           <Image
-            src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=1200&q=90&auto=format&fit=crop"
-            alt="Roupas impecáveis A7 Lavanderia"
+            src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1400&q=90&auto=format&fit=crop"
+            alt="Roupas limpas e impecáveis — A7 Lavanderia"
             fill priority
-            className="object-cover object-center"
-            sizes="(max-width: 1024px) 100vw, 45vw"
+            className="object-cover object-top"
+            sizes="(max-width: 1024px) 100vw, 50vw"
           />
-          {/* Dark gradient overlay — covers full on mobile, fades on desktop */}
-          <div className="absolute inset-0 bg-gradient-to-r from-ink-900 via-ink-900/95 to-ink-900/30 lg:from-ink-900 lg:via-ink-900/80 lg:to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink-900/90 via-transparent to-transparent lg:hidden" />
+          {/* Overlay — mais leve para a imagem aparecer com clareza */}
+          <div className="absolute inset-0 bg-gradient-to-r from-ink-900 via-ink-900/85 to-ink-900/15 lg:from-ink-900 lg:via-ink-900/60 lg:to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink-900/80 via-transparent to-transparent lg:hidden" />
         </div>
 
         {/* Content */}
@@ -367,6 +367,38 @@ export default function HomeRedesign() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════════ */}
+      {/* 4.5 VISUAL INTERLUDE — processo em imagem                        */}
+      {/* ═══════════════════════════════════════════════════════════════════ */}
+      <div className="relative h-[360px] sm:h-[480px] overflow-hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?w=1920&q=90&auto=format&fit=crop"
+          alt="A7 Lavanderia — processo profissional de lavagem"
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+        {/* Overlay com texto de impacto */}
+        <div className="absolute inset-0 bg-gradient-to-r from-ink-900/90 via-ink-900/60 to-ink-900/20" />
+        <div className="relative z-10 h-full flex flex-col justify-center px-6 sm:px-16 lg:px-24 max-w-3xl">
+          <Reveal>
+            <p className="text-[11px] font-black tracking-[0.2em] text-electric-400 uppercase mb-4">Padrão profissional</p>
+            <h2 className="text-3xl sm:text-5xl font-black text-white leading-[1.05] tracking-tight mb-5">
+              Cada peça tratada<br />
+              <span className="text-electric-400">como se fosse a nossa.</span>
+            </h2>
+            <p className="text-white/60 text-base sm:text-lg max-w-md leading-relaxed mb-8">
+              Produtos premium, processo controlado, resultado garantido. Ou devolvemos o dinheiro.
+            </p>
+            <a href={waLink} target="_blank" rel="noopener noreferrer"
+              className="w-fit inline-flex items-center gap-3 bg-white text-ink-900 font-bold text-sm px-7 py-3.5 hover:bg-electric-50 transition-colors duration-200 tracking-wide">
+              <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
+              Agendar agora
+            </a>
+          </Reveal>
+        </div>
+      </div>
+
+      {/* ═══════════════════════════════════════════════════════════════════ */}
       {/* 5. SERVICES                                                       */}
       {/* ═══════════════════════════════════════════════════════════════════ */}
       <section id="servicos" className="py-24 sm:py-32 bg-white">
@@ -392,15 +424,15 @@ export default function HomeRedesign() {
                 <a href={service.landingUrl || waLink} target="_blank" rel="noopener noreferrer"
                   className="group block overflow-hidden border border-ink-100 hover:border-electric-200 hover:shadow-xl hover:shadow-electric-50/50 transition-all duration-300">
                   {/* Image */}
-                  <div className="relative h-52 overflow-hidden bg-ink-100">
+                  <div className="relative h-64 overflow-hidden bg-ink-100">
                     <Image
                       src={service.image}
                       alt={service.title}
                       fill
-                      className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                      className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-ink-900/60 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-ink-900/40 via-transparent to-transparent" />
                   </div>
                   {/* Text */}
                   <div className="p-5">
@@ -477,8 +509,19 @@ export default function HomeRedesign() {
       {/* ═══════════════════════════════════════════════════════════════════ */}
       {/* 7. AUTHORITY NUMBERS                                              */}
       {/* ═══════════════════════════════════════════════════════════════════ */}
-      <section className="py-24 sm:py-32 bg-ink-900">
-        <div className="max-w-6xl mx-auto px-6 sm:px-12">
+      <section className="py-24 sm:py-32 bg-ink-900 relative overflow-hidden">
+        {/* Imagem de fundo contextual */}
+        <div className="absolute inset-0 opacity-10">
+          <Image
+            src="https://images.unsplash.com/photo-1545173168-9f1947eebb7f?w=1920&q=80&auto=format&fit=crop"
+            alt=""
+            fill
+            className="object-cover object-center"
+            sizes="100vw"
+            aria-hidden="true"
+          />
+        </div>
+        <div className="max-w-6xl mx-auto px-6 sm:px-12 relative z-10">
           <Reveal>
             <p className="text-[11px] font-black tracking-[0.2em] text-electric-400 uppercase text-center mb-14">
               Números que falam por si
