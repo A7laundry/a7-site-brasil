@@ -294,12 +294,41 @@ const SOCIAL_BADGE: Record<string, string> = {
 
 const SECTIONS = [
   { id: "overview", label: "Dashboard", icon: "⚡", desc: "Command Center" },
+  { id: "score", label: "Score", icon: "◎", desc: "Plan tracker" },
   { id: "inventory", label: "Content Engine", icon: "✦", desc: "40 artigos" },
   { id: "clusters", label: "SEO Clusters", icon: "◈", desc: "9 clusters" },
   { id: "funil", label: "Funil Visual", icon: "▼", desc: "6 etapas" },
   { id: "calendario", label: "Calendário", icon: "◷", desc: "30 dias" },
   { id: "local", label: "Local SEO", icon: "◉", desc: "10 cidades" },
   { id: "classifier", label: "IA Classifier", icon: "◎", desc: "Auto tag" },
+];
+
+// ─── SCORE BREAKDOWN ──────────────────────────────────────────────────────────
+
+const SCORE_BREAKDOWN = [
+  { id: "content",  icon: "✦", label: "Conteúdo Publicado", desc: "artigos SEO no ar",           pts: 30, current: 40, target: 70,  hex: "#6366f1", tw: "indigo" },
+  { id: "lps",      icon: "◉", label: "Landing Pages",      desc: "LPs ativas e otimizadas",     pts: 20, current: 30, target: 35,  hex: "#22c55e", tw: "emerald" },
+  { id: "clusters", icon: "◈", label: "Clusters SEO",        desc: "clusters com ≥3 artigos",     pts: 15, current: 9,  target: 9,   hex: "#a855f7", tw: "purple" },
+  { id: "local",    icon: "◉", label: "SEO Local",           desc: "cidades com LP dedicada",     pts: 15, current: 5,  target: 13,  hex: "#f59e0b", tw: "amber" },
+  { id: "gaps",     icon: "▼", label: "Gaps Fechados",       desc: "lacunas de conteúdo resolvidas", pts: 20, current: 0, target: 47, hex: "#ef4444", tw: "red" },
+];
+
+const SCORE_TOTAL = Math.round(
+  SCORE_BREAKDOWN.reduce((acc, s) => acc + (s.current / s.target) * s.pts, 0)
+);
+
+const SCORE_GRADE = SCORE_TOTAL >= 90 ? { label: "Líder", color: "#6366f1" }
+  : SCORE_TOTAL >= 75 ? { label: "Dominando", color: "#22c55e" }
+  : SCORE_TOTAL >= 60 ? { label: "Crescendo", color: "#22d3ee" }
+  : SCORE_TOTAL >= 40 ? { label: "Construindo", color: "#f59e0b" }
+  : { label: "Iniciante", color: "#ef4444" };
+
+const SCORE_MILESTONES = [
+  { pts: 60, title: "Crescendo", desc: "Publicar 10 artigos de gaps críticos (B2B + Manchas)", done: SCORE_TOTAL >= 60 },
+  { pts: 70, title: "Tração SEO", desc: "Criar LPs para Caçapava, Pindamonhangaba e Campos do Jordão", done: SCORE_TOTAL >= 70 },
+  { pts: 80, title: "Dominando", desc: "Fechar 50% dos gaps — 23 novos artigos publicados", done: SCORE_TOTAL >= 80 },
+  { pts: 90, title: "Líder Regional", desc: "100% dos gaps fechados + todas as cidades do Vale mapeadas", done: SCORE_TOTAL >= 90 },
+  { pts: 100, title: "Autoridade Total", desc: "Pilar pages completas + expansão para novos clusters", done: SCORE_TOTAL >= 100 },
 ];
 
 // ─── CLASSIFIER LOGIC ─────────────────────────────────────────────────────────
@@ -454,7 +483,7 @@ export default function MarketingOS() {
       <aside className="w-56 shrink-0 sticky top-0 h-screen flex flex-col bg-[#0c0c10] border-r border-[#1a1a22] overflow-hidden">
         {/* Logo */}
         <div className="px-5 pt-6 pb-5 border-b border-[#1a1a22]">
-          <img src="/logo-dark.png" alt="A7 Lavanderia" className="h-7 w-auto mb-4 opacity-90" />
+          <img src="/logo-light.png" alt="A7 Lavanderia" className="h-7 w-auto mb-4" />
           <div className="flex items-center gap-2">
             <span className="text-[9px] font-black tracking-[0.25em] text-indigo-400 uppercase">Marketing OS</span>
             <span className="text-[9px] bg-indigo-500/15 text-indigo-400 border border-indigo-500/25 px-1.5 py-0.5 rounded font-mono">v2</span>
@@ -548,6 +577,58 @@ export default function MarketingOS() {
                   </button>
                 ))}
               </div>
+
+              {/* Marketing Score Banner */}
+              {(() => {
+                const r = 36; const circ = 2 * Math.PI * r;
+                const offset = circ * (1 - SCORE_TOTAL / 100);
+                return (
+                  <button onClick={() => setActiveSection("score")}
+                    className="w-full bg-[#111115] border border-[#1a1a22] hover:border-indigo-500/30 rounded-2xl p-5 flex items-center gap-6 transition-all group text-left"
+                    style={{ boxShadow: `0 0 40px rgba(99,102,241,0.06)` }}>
+                    {/* Circular gauge */}
+                    <div className="relative shrink-0 w-20 h-20 flex items-center justify-center">
+                      <svg width="80" height="80" className="-rotate-90 absolute inset-0">
+                        <circle cx="40" cy="40" r={r} fill="none" stroke="#1a1a22" strokeWidth="7" />
+                        <circle cx="40" cy="40" r={r} fill="none" strokeWidth="7" strokeLinecap="round"
+                          strokeDasharray={circ} strokeDashoffset={offset}
+                          style={{ stroke: SCORE_GRADE.color, transition: "stroke-dashoffset 1.2s ease" }} />
+                      </svg>
+                      <span className="relative text-xl font-black text-white font-mono leading-none">{SCORE_TOTAL}</span>
+                    </div>
+                    {/* Info */}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 mb-1">
+                        <p className="text-[10px] font-black tracking-[0.2em] text-zinc-600 uppercase">Marketing Score</p>
+                        <span className="text-[10px] font-black px-2 py-0.5 rounded-full border"
+                          style={{ color: SCORE_GRADE.color, borderColor: `${SCORE_GRADE.color}30`, backgroundColor: `${SCORE_GRADE.color}10` }}>
+                          {SCORE_GRADE.label}
+                        </span>
+                      </div>
+                      <div className="w-full bg-[#1c1c24] rounded-full h-1.5 overflow-hidden mt-2 mb-2">
+                        <div className="h-full rounded-full transition-all" style={{ width: `${SCORE_TOTAL}%`, backgroundColor: SCORE_GRADE.color }} />
+                      </div>
+                      <p className="text-xs text-zinc-600">{SCORE_TOTAL}/100 pts · próximo milestone: {SCORE_MILESTONES.find(m => !m.done)?.pts ?? 100} pts</p>
+                    </div>
+                    {/* Category pills */}
+                    <div className="hidden lg:flex flex-col gap-1.5 shrink-0">
+                      {SCORE_BREAKDOWN.map(s => {
+                        const pts = Math.round((s.current / s.target) * s.pts);
+                        return (
+                          <div key={s.id} className="flex items-center gap-2">
+                            <div className="w-20 bg-[#1c1c24] rounded-full h-1 overflow-hidden">
+                              <div className="h-full rounded-full" style={{ width: `${(s.current / s.target) * 100}%`, backgroundColor: s.hex }} />
+                            </div>
+                            <span className="text-[10px] text-zinc-600 font-mono w-10 text-right">{pts}/{s.pts}</span>
+                            <span className="text-[10px] text-zinc-700 w-32 truncate">{s.label}</span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                    <span className="text-zinc-700 group-hover:text-indigo-400 transition-colors text-sm shrink-0">→</span>
+                  </button>
+                );
+              })()}
 
               {/* SEO Topic Domination */}
               <div className="bg-[#111115] border border-[#1a1a22] rounded-2xl p-6">
@@ -761,6 +842,175 @@ export default function MarketingOS() {
 
             </div>
           )}
+
+          {/* ════════════════════════════════════════════════════════════════ */}
+          {/* SCORE                                                          */}
+          {/* ════════════════════════════════════════════════════════════════ */}
+          {activeSection === "score" && (() => {
+            const r = 72; const circ = 2 * Math.PI * r;
+            const offset = circ * (1 - SCORE_TOTAL / 100);
+            const nextMilestone = SCORE_MILESTONES.find(m => !m.done);
+            return (
+              <div className="space-y-8">
+
+                {/* Header */}
+                <div>
+                  <p className="text-[10px] font-black tracking-[0.2em] text-indigo-400 uppercase mb-2">Controle do Plano</p>
+                  <h2 className="text-4xl font-black text-white tracking-tight leading-none">Marketing Score</h2>
+                  <p className="text-zinc-500 text-sm mt-2">Score calculado em tempo real com base no progresso do plano de marketing A7.</p>
+                </div>
+
+                {/* Hero Score */}
+                <div className="bg-[#111115] border border-[#1a1a22] rounded-2xl p-8 flex flex-col lg:flex-row items-center gap-10">
+                  {/* Big gauge */}
+                  <div className="relative shrink-0 w-48 h-48 flex items-center justify-center">
+                    <svg width="192" height="192" className="-rotate-90 absolute inset-0">
+                      <circle cx="96" cy="96" r={r} fill="none" stroke="#1a1a22" strokeWidth="12" />
+                      <circle cx="96" cy="96" r={r} fill="none" strokeWidth="12" strokeLinecap="round"
+                        strokeDasharray={circ} strokeDashoffset={offset}
+                        style={{ stroke: SCORE_GRADE.color }} />
+                    </svg>
+                    <div className="relative text-center">
+                      <p className="text-5xl font-black text-white font-mono leading-none">{SCORE_TOTAL}</p>
+                      <p className="text-xs text-zinc-600 mt-1">de 100</p>
+                    </div>
+                  </div>
+                  {/* Score info */}
+                  <div className="flex-1 min-w-0 text-center lg:text-left">
+                    <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 rounded-full border"
+                      style={{ color: SCORE_GRADE.color, borderColor: `${SCORE_GRADE.color}40`, backgroundColor: `${SCORE_GRADE.color}10` }}>
+                      <span className="h-2 w-2 rounded-full shrink-0" style={{ backgroundColor: SCORE_GRADE.color, boxShadow: `0 0 8px ${SCORE_GRADE.color}` }} />
+                      <span className="text-sm font-black tracking-wide uppercase">{SCORE_GRADE.label}</span>
+                    </div>
+                    <p className="text-zinc-400 text-sm leading-relaxed mb-6 max-w-md">
+                      Seu plano de marketing está {SCORE_TOTAL >= 60 ? "evoluindo bem" : "em construção"}. {nextMilestone ? `Próximo milestone em ${nextMilestone.pts} pts: ${nextMilestone.title}.` : "Autoridade máxima atingida."}
+                    </p>
+                    {/* Scale */}
+                    <div className="flex items-center gap-1 max-w-sm mx-auto lg:mx-0">
+                      {[
+                        { pts: 40, label: "Iniciante", color: "#ef4444" },
+                        { pts: 60, label: "Construindo", color: "#f59e0b" },
+                        { pts: 75, label: "Crescendo", color: "#22d3ee" },
+                        { pts: 90, label: "Dominando", color: "#22c55e" },
+                        { pts: 100, label: "Líder", color: "#6366f1" },
+                      ].map((level, i) => (
+                        <div key={i} className="flex-1 text-center">
+                          <div className="h-1.5 rounded-full mb-1" style={{ backgroundColor: SCORE_TOTAL >= (i === 0 ? 0 : [0,40,60,75,90][i]) ? level.color : "#1c1c24" }} />
+                          <p className="text-[8px] text-zinc-700 truncate">{level.label}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Category Breakdown */}
+                <div className="bg-[#111115] border border-[#1a1a22] rounded-2xl p-6">
+                  <p className="text-[10px] font-black tracking-[0.2em] text-zinc-600 uppercase mb-5">Breakdown por categoria</p>
+                  <div className="space-y-4">
+                    {SCORE_BREAKDOWN.map(s => {
+                      const pct = Math.round((s.current / s.target) * 100);
+                      const pts = Math.round((s.current / s.target) * s.pts);
+                      return (
+                        <div key={s.id}>
+                          <div className="flex items-center justify-between mb-2">
+                            <div className="flex items-center gap-2">
+                              <span className="text-xs font-mono" style={{ color: s.hex }}>{s.icon}</span>
+                              <span className="text-sm font-semibold text-zinc-200">{s.label}</span>
+                              <span className="text-xs text-zinc-600">{s.desc}</span>
+                            </div>
+                            <div className="flex items-center gap-3">
+                              <span className="text-xs text-zinc-600 font-mono">{s.current}/{s.target}</span>
+                              <span className="text-xs font-black font-mono" style={{ color: s.hex }}>{pts}</span>
+                              <span className="text-xs text-zinc-700">/ {s.pts} pts</span>
+                            </div>
+                          </div>
+                          <div className="w-full bg-[#1c1c24] rounded-full h-2 overflow-hidden">
+                            <div className="h-full rounded-full transition-all" style={{ width: `${pct}%`, backgroundColor: s.hex }} />
+                          </div>
+                          {pct < 100 && (
+                            <p className="text-[10px] text-zinc-700 mt-1">
+                              +{s.target - s.current} {s.desc.split(" ")[0]} para {s.pts} pts máximos
+                            </p>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <div className="mt-6 pt-4 border-t border-[#1a1a22] flex items-center justify-between">
+                    <span className="text-xs text-zinc-600">Score total</span>
+                    <span className="text-2xl font-black font-mono text-white">{SCORE_TOTAL} <span className="text-zinc-600 text-sm">/ 100</span></span>
+                  </div>
+                </div>
+
+                {/* Milestones */}
+                <div className="bg-[#111115] border border-[#1a1a22] rounded-2xl p-6">
+                  <p className="text-[10px] font-black tracking-[0.2em] text-zinc-600 uppercase mb-5">Roadmap de evolução</p>
+                  <div className="space-y-3">
+                    {SCORE_MILESTONES.map((m, i) => (
+                      <div key={i} className={`flex items-start gap-4 p-4 rounded-xl border transition-all ${
+                        m.done
+                          ? "bg-emerald-500/5 border-emerald-500/20"
+                          : i === SCORE_MILESTONES.findIndex(x => !x.done)
+                          ? "bg-indigo-500/8 border-indigo-500/25"
+                          : "bg-white/[0.02] border-[#1a1a22]"
+                      }`}>
+                        <div className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-xs font-black ${
+                          m.done ? "bg-emerald-500/20 text-emerald-400" : "bg-white/5 text-zinc-600"
+                        }`}>
+                          {m.done ? "✓" : m.pts}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2 mb-0.5">
+                            <p className={`text-sm font-black ${m.done ? "text-emerald-400" : i === SCORE_MILESTONES.findIndex(x => !x.done) ? "text-white" : "text-zinc-600"}`}>
+                              {m.title}
+                            </p>
+                            <span className="text-[10px] text-zinc-700 font-mono">{m.pts} pts</span>
+                            {i === SCORE_MILESTONES.findIndex(x => !x.done) && (
+                              <span className="text-[9px] font-black text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 px-2 py-0.5 rounded-full uppercase tracking-wider">Próximo</span>
+                            )}
+                          </div>
+                          <p className="text-xs text-zinc-600 leading-relaxed">{m.desc}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* What's dragging the score down */}
+                <div className="bg-[#111115] border border-red-500/20 rounded-2xl p-6">
+                  <div className="flex items-center gap-2 mb-5">
+                    <span className="h-2 w-2 rounded-full bg-red-500" style={{ boxShadow: "0 0 6px #ef4444" }} />
+                    <h3 className="text-base font-black text-zinc-100">O que está puxando o score para baixo</h3>
+                  </div>
+                  <div className="space-y-3">
+                    {SCORE_BREAKDOWN.filter(s => (s.current / s.target) < 1).sort((a, b) => {
+                      const gapA = (1 - a.current / a.target) * a.pts;
+                      const gapB = (1 - b.current / b.target) * b.pts;
+                      return gapB - gapA;
+                    }).map(s => {
+                      const gap = Math.round((1 - s.current / s.target) * s.pts);
+                      return (
+                        <div key={s.id} className="flex items-center justify-between p-3 rounded-xl bg-white/[0.025] border border-[#1a1a22]">
+                          <div className="flex items-center gap-3">
+                            <span className="text-sm font-mono" style={{ color: s.hex }}>{s.icon}</span>
+                            <div>
+                              <p className="text-sm font-semibold text-zinc-300">{s.label}</p>
+                              <p className="text-xs text-zinc-600">{s.current}/{s.target} {s.desc}</p>
+                            </div>
+                          </div>
+                          <div className="text-right">
+                            <p className="text-lg font-black font-mono text-red-400">-{gap}</p>
+                            <p className="text-[10px] text-zinc-700">pts perdidos</p>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+
+              </div>
+            );
+          })()}
 
           {/* ════════════════════════════════════════════════════════════════ */}
           {/* CONTENT ENGINE (INVENTORY)                                     */}
