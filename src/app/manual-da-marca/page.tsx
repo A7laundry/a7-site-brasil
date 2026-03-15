@@ -306,19 +306,22 @@ export default function ManualDaMarcaPage() {
           <Label n="05" text="Typography" />
         </div>
         {/* Oversized specimen */}
-        <div className="overflow-hidden">
+        <div className="w-full overflow-hidden" style={{ maxWidth: "100vw" }}>
           <Reveal>
-            <p className="text-[18vw] font-black leading-none tracking-tighter text-white whitespace-nowrap px-6 opacity-90">
+            <p className="font-black leading-none tracking-tighter text-white px-6 opacity-90"
+              style={{ fontSize: "clamp(3rem, 15vw, 11rem)", whiteSpace: "nowrap" }}>
               A7 LAVANDERIA
             </p>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="text-[8vw] font-black leading-none tracking-tighter text-[#46C1F1] whitespace-nowrap px-6">
+            <p className="font-black leading-none tracking-tighter text-[#46C1F1] px-6"
+              style={{ fontSize: "clamp(1.5rem, 7vw, 5rem)", whiteSpace: "nowrap" }}>
               Seu tempo de volta.
             </p>
           </Reveal>
           <Reveal delay={0.2}>
-            <p className="text-[4vw] font-bold leading-tight text-white/40 whitespace-nowrap px-6">
+            <p className="font-bold leading-tight text-white/40 px-6"
+              style={{ fontSize: "clamp(0.9rem, 3vw, 2.5rem)", whiteSpace: "nowrap" }}>
               Coleta grátis · Entrega em 48h · Padrão profissional
             </p>
           </Reveal>
@@ -499,77 +502,56 @@ export default function ManualDaMarcaPage() {
           </Reveal>
 
           <div className="grid md:grid-cols-2 gap-6 mb-6">
-            {/* VAN MOCKUP */}
+            {/* VAN — FOTO REALISTA */}
             <Reveal>
-              <div className="bg-white/[0.03] border border-white/[0.06] rounded-3xl p-8">
-                <p className="text-[#46C1F1] font-black text-xs uppercase tracking-widest mb-6">Veículo de Entrega</p>
-                {/* CSS Van */}
-                <div className="relative mx-auto" style={{ width: "100%", maxWidth: "400px" }}>
-                  <div className="relative bg-[#0C5982] rounded-xl overflow-hidden" style={{ height: "180px" }}>
-                    {/* Van body top */}
-                    <div className="absolute top-0 left-0 right-0 h-[60%] bg-[#0C5982]" />
-                    {/* Windshield */}
-                    <div className="absolute top-3 left-4 w-20 h-12 bg-[#46C1F1]/20 rounded-lg" />
-                    {/* Side window */}
-                    <div className="absolute top-3 left-28 w-32 h-12 bg-[#46C1F1]/15 rounded-lg" />
-                    {/* Logo on side */}
-                    <div className="absolute top-1/2 right-8 -translate-y-1/2">
-                      <img src="/logo-light.png" alt="A7" className="h-8 w-auto" />
-                    </div>
-                    {/* Tagline */}
-                    <div className="absolute bottom-16 left-4 right-4 text-center">
-                      <p className="text-[#46C1F1] text-xs font-black uppercase tracking-widest">Seu tempo de volta.</p>
-                    </div>
-                    {/* Van base / bumper */}
-                    <div className="absolute bottom-0 left-0 right-0 h-[30%] bg-[#050810]" />
-                    {/* Wheels */}
-                    <div className="absolute bottom-1 left-8 w-10 h-10 rounded-full bg-[#1a1a1a] border-2 border-[#46C1F1]/40" />
-                    <div className="absolute bottom-1 right-8 w-10 h-10 rounded-full bg-[#1a1a1a] border-2 border-[#46C1F1]/40" />
+              <div className="bg-white/[0.03] border border-white/[0.06] rounded-3xl overflow-hidden">
+                <p className="text-[#46C1F1] font-black text-xs uppercase tracking-widest px-8 pt-8 pb-5">Veículo de Entrega — Envelopamento</p>
+                <div className="relative overflow-hidden" style={{ height: "260px" }}>
+                  <img
+                    src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=900&q=90&auto=format&fit=crop"
+                    alt="Veículo A7 Lavanderia envelopado"
+                    className="w-full h-full object-cover"
+                  />
+                  {/* Brand overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#0C5982]/85 via-[#0C5982]/50 to-transparent" />
+                  <div className="absolute inset-0 flex flex-col justify-center pl-10">
+                    <img src="/logo-light.png" alt="A7" className="h-12 w-auto mb-3" />
+                    <p className="text-[#46C1F1] text-sm font-black uppercase tracking-widest">Seu tempo de volta.</p>
+                    <p className="text-white/40 text-xs mt-1">a7lavanderia.com.br</p>
                   </div>
                 </div>
-                <div className="mt-4 text-white/40 text-xs">Envelopamento total · Fundo Navy · Logo lateral branca · Tagline na traseira</div>
+                <div className="px-8 py-4 text-white/40 text-xs border-t border-white/[0.06]">
+                  Envelopamento total · Fundo Navy · Logo lateral branca · Tagline na traseira
+                </div>
               </div>
             </Reveal>
 
-            {/* UNIFORM MOCKUP */}
+            {/* UNIFORM — FOTO REALISTA */}
             <Reveal delay={0.1}>
-              <div className="bg-white/[0.03] border border-white/[0.06] rounded-3xl p-8">
-                <p className="text-[#46C1F1] font-black text-xs uppercase tracking-widest mb-6">Uniforme</p>
-                <div className="flex items-center justify-center gap-8">
-                  {/* Shirt CSS */}
-                  <div className="relative flex-shrink-0">
-                    <svg viewBox="0 0 120 130" width="120" className="drop-shadow-xl">
-                      {/* Shirt body */}
-                      <path d="M10 40 L0 20 L35 10 L40 30 L80 30 L85 10 L120 20 L110 40 L95 35 L95 120 L25 120 L25 35 Z" fill="#0C5982" />
-                      {/* Collar */}
-                      <path d="M40 30 Q60 45 80 30 L70 10 Q60 25 50 10 Z" fill="#074060" />
-                      {/* Sleeves */}
-                      <path d="M25 35 L0 20 L10 40 Z" fill="#0a4a72" />
-                      <path d="M95 35 L120 20 L110 40 Z" fill="#0a4a72" />
-                    </svg>
-                    {/* Logo on shirt */}
-                    <div className="absolute top-[45px] left-[28px] w-16">
-                      <img src="/logo-light.png" alt="" className="w-full" />
-                    </div>
-                  </div>
-                  {/* Cap CSS */}
-                  <div className="relative flex-shrink-0">
-                    <svg viewBox="0 0 100 80" width="100">
-                      {/* Cap dome */}
-                      <ellipse cx="50" cy="45" rx="45" ry="30" fill="#0C5982" />
-                      <rect x="5" y="43" width="90" height="10" rx="2" fill="#074060" />
-                      {/* Brim */}
-                      <ellipse cx="28" cy="54" rx="28" ry="6" fill="#050810" />
-                      {/* Logo on cap */}
-                    </svg>
-                    <div className="absolute top-[18px] left-[30px] w-10">
-                      <img src="/logo-light.png" alt="" className="w-full" />
+              <div className="bg-white/[0.03] border border-white/[0.06] rounded-3xl overflow-hidden">
+                <p className="text-[#46C1F1] font-black text-xs uppercase tracking-widest px-8 pt-8 pb-5">Uniforme — Bordado Peitoral</p>
+                <div className="relative overflow-hidden" style={{ height: "260px" }}>
+                  <img
+                    src="https://images.unsplash.com/photo-1621274403997-ea29f1d30be6?w=900&q=90&auto=format&fit=crop"
+                    alt="Uniforme A7 Lavanderia com bordado"
+                    className="w-full h-full object-cover object-top"
+                  />
+                  {/* Brand overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#050810]/90 via-[#050810]/20 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 px-8 pb-6">
+                    <div className="flex items-center gap-3">
+                      <div className="bg-[#0C5982] rounded-lg px-3 py-2 flex items-center gap-2 border border-[#46C1F1]/30">
+                        <img src="/logo-light.png" alt="A7" className="h-5 w-auto" />
+                        <span className="text-[#46C1F1] text-[9px] font-black uppercase tracking-widest">Bordado peitoral</span>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div className="mt-4 text-white/40 text-xs">Calça preta · Polo navy · Bordado peitoral · Crachá magnético</div>
+                <div className="px-8 py-4 text-white/40 text-xs border-t border-white/[0.06]">
+                  Polo Navy · Bordado peitoral esquerdo · Crachá magnético · Calça preta</div>
               </div>
             </Reveal>
+
           </div>
 
           <div className="grid md:grid-cols-3 gap-4">
