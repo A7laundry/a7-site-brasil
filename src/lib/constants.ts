@@ -11,8 +11,8 @@ export const COMPANY = {
   cnpj: "[PLACEHOLDER: XX.XXX.XXX/0001-XX]",
   foundingYear: "[PLACEHOLDER: ano de fundação]",
   address: {
-    street: "[PLACEHOLDER: Rua Principal, 123]",
-    neighborhood: "[PLACEHOLDER: Centro]",
+    street: "Av. Benedito Bento, 717",
+    neighborhood: "Jd. Morumbi",
     city: "São José dos Campos",
     state: "SP",
     zip: "[PLACEHOLDER: 12200-000]",

@@ -15,8 +15,10 @@ const localBusinessSchema = {
   image: "https://a7lavanderia.com.br/og-image.jpg",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "Av. Benedito Bento, 717",
     addressLocality: "São José dos Campos",
     addressRegion: "SP",
+    postalCode: "12230-100",
     addressCountry: "BR",
   },
   geo: {
