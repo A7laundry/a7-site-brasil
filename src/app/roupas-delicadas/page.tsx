@@ -167,8 +167,9 @@ export default function RoupasDelicadas() {
       <ServiceSchema name="Lavagem de Roupas Delicadas" description="Lavagem especializada para seda, cashmere, lã, linho e peças de grife. Zero danos garantidos, produtos específicos por tecido." slug="roupas-delicadas" />
       <header className="fixed top-0 w-full z-50 bg-indigo-950/90 backdrop-blur-md border-b border-indigo-900/40">
         <div className="max-w-6xl mx-auto px-5 h-14 flex items-center justify-between">
-          <a href="/" className="font-black text-lg tracking-tight text-white">
-            A7 <span className="text-indigo-400">Lavanderia</span>
+          <a href="/">
+            
+            <img src="/logo-light.png" alt="A7 Lavanderia" className="h-8 w-auto" />
           </a>
           <a
             href={waLink}
