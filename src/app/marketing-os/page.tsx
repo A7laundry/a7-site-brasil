@@ -295,6 +295,7 @@ const SOCIAL_BADGE: Record<string, string> = {
 const SECTIONS = [
   { id: "overview", label: "Dashboard", icon: "⚡", desc: "Command Center" },
   { id: "score", label: "Score", icon: "◎", desc: "Plan tracker" },
+  { id: "marca", label: "Marca", icon: "◐", desc: "Brand OS" },
   { id: "onboarding", label: "Onboarding", icon: "◐", desc: "Guia operacional" },
   { id: "inventory", label: "Content Engine", icon: "✦", desc: "40 artigos" },
   { id: "clusters", label: "SEO Clusters", icon: "◈", desc: "9 clusters" },
@@ -1131,6 +1132,242 @@ export default function MarketingOS() {
               </div>
             );
           })()}
+
+          {/* ════════════════════════════════════════════════════════════════ */}
+          {/* MARCA — BRAND OS                                              */}
+          {/* ════════════════════════════════════════════════════════════════ */}
+          {activeSection === "marca" && (
+            <div className="space-y-8">
+
+              {/* Header */}
+              <div className="flex items-start justify-between gap-6">
+                <div>
+                  <p className="text-[10px] font-black tracking-[0.2em] text-[#46C1F1]/60 uppercase mb-2">Brand OS v2.0</p>
+                  <h2 className="text-4xl font-black text-white tracking-tight leading-none">Manual da Marca</h2>
+                  <p className="text-zinc-500 text-sm mt-2">Identidade visual, campanhas, linguagem e aplicações da A7 Lavanderia.</p>
+                </div>
+                <a href="/manual-da-marca" target="_blank" rel="noopener noreferrer"
+                  className="shrink-0 flex items-center gap-2 bg-[#0C5982] hover:bg-[#1A7AB5] text-white font-black text-sm px-5 py-3 rounded-xl transition-colors whitespace-nowrap">
+                  Abrir Manual Completo →
+                </a>
+              </div>
+
+              {/* Manifesto */}
+              <div className="relative overflow-hidden rounded-2xl bg-[#050810] border border-[#0C5982]/40 p-8"
+                style={{ boxShadow: "0 0 40px rgba(70,193,241,0.06)" }}>
+                <div className="absolute top-0 right-0 w-64 h-full opacity-5"
+                  style={{ background: "radial-gradient(circle at right, #46C1F1, transparent 70%)" }} />
+                <p className="text-[10px] font-black tracking-[0.4em] text-[#46C1F1] uppercase mb-4">Manifesto · O produto real</p>
+                <p className="text-3xl sm:text-4xl font-black text-white leading-tight tracking-tighter mb-4">
+                  Não vendemos limpeza.<br />
+                  <span className="text-[#46C1F1]">Vendemos domingos.</span>
+                </p>
+                <p className="text-zinc-500 text-sm max-w-lg leading-relaxed">
+                  Uma família perde entre 400–500h/ano com lavagem. A A7 existe para que você nunca perca uma hora com o que importa menos.
+                </p>
+                <p className="text-[#46C1F1] font-bold text-sm mt-3">A7. Porque seu tempo vale mais.</p>
+              </div>
+
+              {/* Color System + Logo */}
+              <div className="grid lg:grid-cols-2 gap-4">
+
+                {/* Colors */}
+                <div className="bg-[#111115] border border-[#1a1a22] rounded-2xl p-6">
+                  <p className="text-[10px] font-black tracking-[0.2em] text-zinc-600 uppercase mb-4">03 · Color System</p>
+                  <div className="space-y-2">
+                    {[
+                      { name: "A7 Navy",  hex: "#0C5982", textColor: "text-white",       role: "Cor Primária · Logotipo · Headers · CTAs" },
+                      { name: "A7 Cyan",  hex: "#46C1F1", textColor: "text-[#0C5982]",   role: "Acento · Destaques · Links · Energia" },
+                      { name: "A7 Black", hex: "#050810", textColor: "text-white/60",     role: "Fundo · Profundidade · Premium" },
+                      { name: "A7 White", hex: "#F8FAFC", textColor: "text-[#050810]/60", role: "Contraste · Respiro · Limpeza" },
+                    ].map(c => (
+                      <div key={c.name} className="flex items-center gap-4 p-3 rounded-xl border border-white/5 overflow-hidden relative"
+                        style={{ backgroundColor: c.hex }}>
+                        <p className={`font-black text-sm ${c.textColor} w-20 shrink-0`}>{c.name}</p>
+                        <code className={`font-mono text-xs ${c.textColor} opacity-60`}>{c.hex}</code>
+                        <p className={`text-xs ${c.textColor} opacity-40 text-right flex-1 truncate`}>{c.role}</p>
+                      </div>
+                    ))}
+                  </div>
+                  {/* Gradient */}
+                  <div className="mt-3 rounded-xl h-8 overflow-hidden" style={{ background: "linear-gradient(90deg, #050810 0%, #0C5982 40%, #46C1F1 70%, #E0F4FF 100%)" }} />
+                  <p className="text-[9px] text-zinc-700 uppercase tracking-widest mt-2 text-center font-bold">Gradiente Institucional</p>
+                </div>
+
+                {/* Logos */}
+                <div className="bg-[#111115] border border-[#1a1a22] rounded-2xl p-6">
+                  <p className="text-[10px] font-black tracking-[0.2em] text-zinc-600 uppercase mb-4">04 · Logo System</p>
+                  <div className="grid grid-cols-2 gap-2">
+                    {[
+                      { bg: "#0C5982", src: "/logo-light.png", label: "Negativa", sub: "Fundos escuros" },
+                      { bg: "#ffffff", src: "/logo-dark.png",  label: "Positiva", sub: "Fundos claros" },
+                      { bg: "#ffffff", src: "/logo-vertical.png", label: "Vertical", sub: "Fachadas, físico" },
+                      { bg: "#080B14", src: "/logo-symbol.png",   label: "Símbolo", sub: "Avatar, favicon" },
+                    ].map(v => (
+                      <div key={v.label} className="rounded-xl overflow-hidden border border-white/5">
+                        <div className="h-16 flex items-center justify-center p-4" style={{ backgroundColor: v.bg }}>
+                          <img src={v.src} alt={v.label} className="max-h-8 max-w-full object-contain" />
+                        </div>
+                        <div className="bg-white/[0.03] px-3 py-2">
+                          <p className="text-white text-xs font-black">{v.label}</p>
+                          <p className="text-zinc-600 text-[10px]">{v.sub}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-3 p-3 rounded-xl bg-white/[0.02] border border-white/5 text-xs text-zinc-600">
+                    <span className="text-[#46C1F1] font-black">Zona de respiro:</span> altura da letra A em todos os lados. Mínimo digital 50px.
+                  </div>
+                </div>
+              </div>
+
+              {/* Typography + Brand Energy */}
+              <div className="grid lg:grid-cols-2 gap-4">
+
+                {/* Typography */}
+                <div className="bg-[#0C5982]/15 border border-[#0C5982]/30 rounded-2xl p-6">
+                  <p className="text-[10px] font-black tracking-[0.2em] text-[#46C1F1]/60 uppercase mb-4">05 · Typography</p>
+                  <div className="space-y-2">
+                    {[
+                      { size: "Display",  spec: "Black · 64–96px · -0.04em",  sample: "A7." },
+                      { size: "Headline", spec: "ExtraBold · 32–56px · -0.02em", sample: "Limpo." },
+                      { size: "Body",     spec: "Regular · 16–18px · 1.6",    sample: "Entregamos hoje." },
+                      { size: "Label",    spec: "Bold · 10–12px · +0.1em",    sample: "AGENDAR" },
+                    ].map(t => (
+                      <div key={t.size} className="flex items-center gap-4 p-3 rounded-xl bg-white/5">
+                        <p className="text-[#46C1F1] text-[10px] font-black w-16 shrink-0">{t.size}</p>
+                        <code className="text-zinc-600 text-[10px] font-mono flex-1">{t.spec}</code>
+                        <p className="text-white font-black">{t.sample}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Brand Energy */}
+                <div className="bg-[#111115] border border-[#1a1a22] rounded-2xl p-6">
+                  <p className="text-[10px] font-black tracking-[0.2em] text-zinc-600 uppercase mb-4">11 · Brand Energy</p>
+                  <p className="text-zinc-500 text-xs mb-4">Se a A7 fosse uma pessoa:</p>
+                  <div className="space-y-2">
+                    {[
+                      { trait: "BOLD",    desc: "Fala o que pensa. Direto ao ponto." },
+                      { trait: "SHARP",   desc: "Nunca erra o prazo. Executa com precisão." },
+                      { trait: "HUMAN",   desc: "Lembra o seu nome. Se importa de verdade." },
+                      { trait: "FREE",    desc: "Não te prende. Te liberta de tarefas sem sentido." },
+                      { trait: "GROWING", desc: "Sempre em movimento. Nunca satisfeita com o suficiente." },
+                    ].map(t => (
+                      <div key={t.trait} className="flex items-center gap-3">
+                        <span className="text-[#46C1F1] font-black text-xs w-16 shrink-0">{t.trait}</span>
+                        <div className="flex-1 h-px bg-white/5" />
+                        <span className="text-zinc-600 text-xs text-right max-w-[180px]">{t.desc}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Brand Language */}
+              <div className="bg-[#111115] border border-[#1a1a22] rounded-2xl p-6">
+                <p className="text-[10px] font-black tracking-[0.2em] text-zinc-600 uppercase mb-4">12 · Brand Language — Taglines</p>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+                  {[
+                    "Seu tempo de volta.", "Não vendemos limpeza. Vendemos domingos.",
+                    "Enquanto você vive, a A7 trabalha.", "Pare de lavar. Comece a viver.",
+                    "Tempo é o novo luxo. Guarde o seu.", "A lavanderia que pensa como você.",
+                    "Cada peça tratada como se fosse nossa.", "Não é lavanderia. É liberdade.",
+                    "De 0 a impecável em 48h.", "Limpo. Livre. A7.", "Viva mais. Lave menos.",
+                    "Domingo livre.", "O padrão hotel em casa.", "48h e pronto.", "Sunday is not for washing clothes.",
+                  ].map(t => (
+                    <div key={t} className="p-3 rounded-xl bg-white/[0.025] border border-[#1a1a22] hover:border-[#46C1F1]/20 transition-colors">
+                      <p className="text-zinc-300 text-xs font-semibold leading-relaxed">{t}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* 10 Campaigns */}
+              <div className="bg-[#111115] border border-[#1a1a22] rounded-2xl p-6">
+                <div className="flex items-center justify-between mb-5">
+                  <p className="text-[10px] font-black tracking-[0.2em] text-zinc-600 uppercase">10 · Campaigns — Prontas para ativar</p>
+                  <span className="text-xs text-zinc-700 font-mono">10 campanhas</span>
+                </div>
+                <div className="grid md:grid-cols-2 gap-2">
+                  {[
+                    { n:"01", name:"Compre seu Domingo de Volta",   line:"Sunday is not for washing clothes.", tag:"HERO",         bg:"#0C5982", accent:"#46C1F1" },
+                    { n:"02", name:"Calcule o que Você Perde",       line:"500 horas. Todo ano. Desperdiçadas.", tag:"AWARENESS",    bg:"#0d0d17", accent:"#46C1F1" },
+                    { n:"03", name:"Sua Roupa Tem Memória",          line:"O terno da entrevista. O vestido do aniversário.", tag:"EMOTIONAL",   bg:"#0d0d12", accent:"#46C1F1" },
+                    { n:"04", name:"O Padrão Hotel em Casa",         line:"Você não mora em hotel. Mas pode ter a mesma roupa.", tag:"PREMIUM",     bg:"#0C5982", accent:"#ffffff" },
+                    { n:"05", name:"Avaliação 5★ Começa na Cama",   line:"Seu hóspede não comenta. Mas avalia.", tag:"AIRBNB",      bg:"#074060", accent:"#46C1F1" },
+                    { n:"06", name:"Roupa Limpa não é o Produto",    line:"O produto é o seu fim de semana livre.", tag:"BRAND FILM",  bg:"#0b0b15", accent:"#46C1F1" },
+                    { n:"07", name:"A Primeira Coleta É Nossa",      line:"Experimente. Uma vez que você vê, não volta atrás.", tag:"TRIAL",       bg:"#0C5982", accent:"#46C1F1" },
+                    { n:"08", name:"Uniforme que Vende",             line:"Sua equipe é o primeiro produto que o cliente vê.", tag:"B2B",         bg:"#0d0d15", accent:"#46C1F1" },
+                    { n:"09", name:"Plano Família: Paz em Casa",     line:"Menos uma batalha na sua semana.", tag:"SUBSCRIPTION", bg:"#074060", accent:"#46C1F1" },
+                    { n:"10", name:"A A7 Chegou na Sua Cidade",      line:"[Cidade]. Seu domingo nunca mais vai ser o mesmo.", tag:"GEO EXPANSION", bg:"#0C5982", accent:"#46C1F1" },
+                  ].map(c => (
+                    <div key={c.n} className="relative overflow-hidden rounded-xl p-4 flex items-start gap-3 border"
+                      style={{ backgroundColor: c.bg, borderColor: c.accent + "20" }}>
+                      <span className="font-black text-white/15 text-2xl leading-none shrink-0">{c.n}</span>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 mb-1">
+                          <p className="text-white font-black text-sm">{c.name}</p>
+                          <span className="text-[9px] font-black px-2 py-0.5 rounded-full shrink-0"
+                            style={{ backgroundColor: c.accent + "20", color: c.accent }}>{c.tag}</span>
+                        </div>
+                        <p className="text-white/40 text-xs italic leading-snug">&ldquo;{c.line}&rdquo;</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Photography Direction */}
+              <div className="bg-[#111115] border border-[#1a1a22] rounded-2xl p-6">
+                <p className="text-[10px] font-black tracking-[0.2em] text-zinc-600 uppercase mb-4">06 · Photography — Nunca mostramos a lavagem</p>
+                <p className="text-zinc-600 text-xs mb-4">Mostramos o que a pessoa faz com o tempo que a A7 devolveu.</p>
+                <div className="grid grid-cols-3 md:grid-cols-6 gap-2 mb-4">
+                  {[
+                    { src: "https://images.unsplash.com/photo-1543342384-1f1350e27861?w=400&q=80", label: "FAMÍLIA" },
+                    { src: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&q=80", label: "EXECUTIVO" },
+                    { src: "https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=400&q=80", label: "LAR MODERNO" },
+                    { src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80", label: "PADRÃO HOTEL" },
+                    { src: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&q=80", label: "CLOSET" },
+                    { src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80", label: "PROFISSIONAL" },
+                  ].map(p => (
+                    <div key={p.label} className="relative overflow-hidden rounded-xl aspect-square">
+                      <img src={p.src} alt={p.label} className="w-full h-full object-cover" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#050810]/80 to-transparent" />
+                      <p className="absolute bottom-1.5 left-0 right-0 text-center text-[8px] font-black text-[#46C1F1] uppercase tracking-wider">{p.label}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="grid grid-cols-4 gap-2">
+                  {[
+                    { title: "LUZ",    rule: "Natural · difusa · quente" },
+                    { title: "PALETA", rule: "Neutros · branco · linho" },
+                    { title: "EMOÇÃO", rule: "Calma · leveza · liberdade" },
+                    { title: "EVITAR", rule: "Máquinas sujas · estúdio frio" },
+                  ].map(r => (
+                    <div key={r.title} className="p-3 rounded-xl bg-white/[0.02] border border-[#1a1a22]">
+                      <p className="text-[#46C1F1] font-black text-[10px] uppercase tracking-wider mb-1">{r.title}</p>
+                      <p className="text-zinc-600 text-xs">{r.rule}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* CTA */}
+              <div className="flex items-center justify-between p-5 bg-[#0C5982]/15 border border-[#0C5982]/30 rounded-2xl">
+                <div>
+                  <p className="text-white font-black text-sm">Manual completo com Store Experience, Social Media e Physical Applications</p>
+                  <p className="text-zinc-600 text-xs mt-0.5">12 seções · mockups CSS · A7 Brand OS v2.0</p>
+                </div>
+                <a href="/manual-da-marca" target="_blank" rel="noopener noreferrer"
+                  className="shrink-0 flex items-center gap-2 bg-[#0C5982] hover:bg-[#1A7AB5] text-white font-black text-sm px-6 py-3 rounded-xl transition-colors">
+                  Abrir Manual →
+                </a>
+              </div>
+
+            </div>
+          )}
 
           {/* ════════════════════════════════════════════════════════════════ */}
           {/* ONBOARDING                                                     */}
