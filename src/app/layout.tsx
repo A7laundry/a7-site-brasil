@@ -140,8 +140,9 @@ export const metadata: Metadata = {
     // google: "google-site-verification-id",
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
   },
 };
 

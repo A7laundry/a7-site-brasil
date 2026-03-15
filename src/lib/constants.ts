@@ -6,7 +6,7 @@ export const COMPANY = {
   phone: "(12) 97412-8390",
   whatsapp: "5512974128390",
   whatsappDisplay: "(12) 97412-8390",
-  email: "[PLACEHOLDER: email@a7lavanderia.com.br]",
+  email: "comercial@a7lavanderia.com.br",
   website: "https://a7lavanderia.com.br",
   cnpj: "[PLACEHOLDER: XX.XXX.XXX/0001-XX]",
   foundingYear: "[PLACEHOLDER: ano de fundação]",

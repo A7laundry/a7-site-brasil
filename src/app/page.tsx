@@ -16,9 +16,6 @@ import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import PromoBanner from "@/components/marketing/PromoBanner";
-import CouponPopup from "@/components/marketing/CouponPopup";
-import GroupSignupPopup from "@/components/marketing/GroupSignupPopup";
-import SocialProofToast from "@/components/marketing/SocialProofToast";
 import {
   generateLocalBusinessSchema,
   generateFAQSchema,
@@ -60,7 +57,6 @@ export default function Home() {
         }}
       />
 
-      <PromoBanner />
       <Header />
       <main>
         <Hero />
@@ -78,11 +74,9 @@ export default function Home() {
         <FAQ />
         <CTA />
       </main>
+      <PromoBanner />
       <Footer />
       <WhatsAppFloat />
-      <CouponPopup />
-      <GroupSignupPopup />
-      <SocialProofToast />
     </>
   );
 }
