@@ -21,6 +21,11 @@ const LP_ACTIVE: Record<string, boolean> = {
   "/taubate": true, "/jacarei": true, "/lorena-guaratingueta": true,
   "/vale-do-paraiba": true, "/precos": true, "/como-funciona": true,
   "/lavanderia-ou-lavar-em-casa": true,
+  "/lavanderia-de-terno": true, "/lavanderia-express": true,
+  "/lavanderia/cacapava": true, "/lavanderia/pindamonhangaba": true,
+  "/lavanderia/guaratingueta": true, "/lavanderia/campos-do-jordao": true,
+  "/lavanderia/lorena": true, "/lavanderia/cruzeiro": true,
+  "/lavanderia/aparecida": true, "/lavanderia/potim": true,
 };
 
 // ─── ARTICLES DATABASE ────────────────────────────────────────────────────────
@@ -69,6 +74,27 @@ const ARTICLES: {
   { slug: "lavanderia-para-academias-spas", title: "Lavanderia para academias e spas", cluster: "B2B", funnel: "Consideration", intent: "Comercial", lp: "/empresarial", monetization: "Contrato B2B academia/spa", gap: "SLA garantido para alto volume" },
   { slug: "gestao-uniforme-corporativo", title: "Gestão de uniformes corporativos", cluster: "B2B", funnel: "Consideration", intent: "Comercial", lp: "/uniformes", monetization: "Contrato B2B uniforme", gap: "Software de controle de estoque" },
   { slug: "lavanderia-para-condominios", title: "Lavanderia para condomínios", cluster: "B2B", funnel: "Consideration", intent: "Comercial", lp: "/condominios", monetization: "Contrato B2B condomínio", gap: "Proposta para assembleia de condomínio" },
+  // ── EPIC-02 · B2B Cluster ─────────────────────────────────────────────────
+  { slug: "lavanderia-para-clinicas-consultorios", title: "Lavanderia para clínicas e consultórios", cluster: "B2B", funnel: "Consideration", intent: "Comercial", lp: "/empresarial", monetization: "Contrato B2B saúde", gap: "Protocolo ANVISA para lavagem de jalecos" },
+  { slug: "lavanderia-para-coworking-escritorios", title: "Lavanderia para coworking e escritórios", cluster: "B2B", funnel: "Consideration", intent: "Comercial", lp: "/empresarial", monetization: "Contrato B2B escritório", gap: "Gestão de uniforme para recepção" },
+  { slug: "quanto-custa-terceirizar-lavanderia-empresa", title: "Quanto custa terceirizar lavanderia para empresa", cluster: "B2B", funnel: "Decisão", intent: "Comercial", lp: "/empresarial", monetization: "Contrato B2B corporativo", gap: "Calculadora de custo interno vs. terceirizado" },
+  { slug: "lavanderia-para-pousadas-pequenos-hoteis", title: "Lavanderia para pousadas e pequenos hotéis", cluster: "B2B", funnel: "Consideration", intent: "Comercial", lp: "/hotelaria", monetization: "Contrato B2B hotelaria", gap: "SLA de enxoval para pousadas sazonais" },
+  { slug: "contrato-lavanderia-corporativa-o-que-exigir", title: "Contrato de lavanderia corporativa: o que exigir", cluster: "B2B", funnel: "Decisão", intent: "Comercial", lp: "/empresarial", monetization: "Contrato B2B corporativo", gap: "Minuta de contrato para download" },
+  { slug: "lavanderia-para-saloes-beleza-estetica", title: "Lavanderia para salões de beleza e estética", cluster: "B2B", funnel: "Consideration", intent: "Comercial", lp: "/empresarial", monetization: "Contrato B2B beleza", gap: "Processo para toalhas com tintura" },
+  { slug: "lavanderia-industria-uniformes-epi", title: "Lavanderia para indústria: uniformes e EPIs", cluster: "B2B", funnel: "Consideration", intent: "Comercial", lp: "/uniformes", monetization: "Contrato B2B indústria", gap: "Laudo de higienização para auditoria NR-6" },
+  // ── EPIC-02 · Cidades / Local SEO ─────────────────────────────────────────
+  { slug: "lavanderia-cacapava", title: "Lavanderia em Caçapava: coleta e entrega", cluster: "Local", funnel: "Decisão", intent: "Navegacional", lp: "/lavanderia/cacapava", monetization: "Todos os serviços", gap: "LP dedicada /lavanderia/cacapava (ativa)" },
+  { slug: "lavanderia-pindamonhangaba", title: "Lavanderia em Pindamonhangaba: coleta e entrega", cluster: "Local", funnel: "Decisão", intent: "Navegacional", lp: "/lavanderia/pindamonhangaba", monetization: "Todos os serviços", gap: "LP dedicada /lavanderia/pindamonhangaba (ativa)" },
+  { slug: "lavanderia-guaratingueta", title: "Lavanderia em Guaratinguetá: coleta e entrega", cluster: "Local", funnel: "Decisão", intent: "Navegacional", lp: "/lavanderia/guaratingueta", monetization: "Todos os serviços", gap: "LP dedicada /lavanderia/guaratingueta (ativa)" },
+  { slug: "lavanderia-campos-do-jordao", title: "Lavanderia em Campos do Jordão: pousadas e residências", cluster: "Local", funnel: "Decisão", intent: "Navegacional", lp: "/lavanderia/campos-do-jordao", monetization: "Todos os serviços", gap: "LP dedicada /lavanderia/campos-do-jordao (ativa)" },
+  { slug: "lavanderia-lorena", title: "Lavanderia em Lorena: coleta e entrega", cluster: "Local", funnel: "Decisão", intent: "Navegacional", lp: "/lavanderia/lorena", monetization: "Todos os serviços", gap: "LP dedicada /lavanderia/lorena (ativa)" },
+  { slug: "lavanderia-cruzeiro", title: "Lavanderia em Cruzeiro: coleta e entrega", cluster: "Local", funnel: "Decisão", intent: "Navegacional", lp: "/lavanderia/cruzeiro", monetization: "Todos os serviços", gap: "LP dedicada /lavanderia/cruzeiro (ativa)" },
+  { slug: "lavanderia-aparecida", title: "Lavanderia em Aparecida: coleta e pousadas", cluster: "Local", funnel: "Decisão", intent: "Navegacional", lp: "/lavanderia/aparecida", monetization: "Todos os serviços", gap: "LP dedicada /lavanderia/aparecida (ativa)" },
+  { slug: "lavanderia-potim", title: "Lavanderia em Potim: coleta e entrega", cluster: "Local", funnel: "Decisão", intent: "Navegacional", lp: "/lavanderia/potim", monetization: "Todos os serviços", gap: "LP dedicada /lavanderia/potim (ativa)" },
+  // ── EPIC-02 · Tênis + Tapetes + Edredom ───────────────────────────────────
+  { slug: "lavanderia-de-tenis-como-funciona", title: "Lavanderia de tênis: como funciona e quanto custa", cluster: "Tênis", funnel: "Consideration", intent: "Transacional", lp: "/tenis", monetization: "Limpeza de tênis", gap: "Preço de lavagem de tênis por material" },
+  { slug: "lavar-tapete-lavanderia-ou-em-casa", title: "Lavar tapete: lavanderia ou em casa?", cluster: "Tapetes & Casa", funnel: "Consideration", intent: "Transacional", lp: "/tapetes", monetization: "Limpeza de tapetes", gap: "Frequência de lavagem por tipo de tapete" },
+  { slug: "lavanderia-edredom-cobertor-colcha", title: "Lavar edredom, cobertor e colcha na lavanderia", cluster: "Saúde & Higiene", funnel: "Consideration", intent: "Transacional", lp: "/higienizacao-edredom", monetization: "Higienização de edredons", gap: "Guia por tipo de enchimento (pluma, fibra, látex)" },
 ];
 
 // ─── CLUSTERS DATA ────────────────────────────────────────────────────────────
@@ -308,11 +334,11 @@ const SECTIONS = [
 // ─── SCORE BREAKDOWN ──────────────────────────────────────────────────────────
 
 const SCORE_BREAKDOWN = [
-  { id: "content",  icon: "✦", label: "Conteúdo Publicado", desc: "artigos SEO no ar",           pts: 30, current: 40, target: 70,  hex: "#6366f1", tw: "indigo" },
-  { id: "lps",      icon: "◉", label: "Landing Pages",      desc: "LPs ativas e otimizadas",     pts: 20, current: 30, target: 35,  hex: "#22c55e", tw: "emerald" },
+  { id: "content",  icon: "✦", label: "Conteúdo Publicado", desc: "artigos SEO no ar",           pts: 30, current: 58, target: 70,  hex: "#6366f1", tw: "indigo" },
+  { id: "lps",      icon: "◉", label: "Landing Pages",      desc: "LPs ativas e otimizadas",     pts: 20, current: 40, target: 40,  hex: "#22c55e", tw: "emerald" },
   { id: "clusters", icon: "◈", label: "Clusters SEO",        desc: "clusters com ≥3 artigos",     pts: 15, current: 9,  target: 9,   hex: "#a855f7", tw: "purple" },
-  { id: "local",    icon: "◉", label: "SEO Local",           desc: "cidades com LP dedicada",     pts: 15, current: 5,  target: 13,  hex: "#f59e0b", tw: "amber" },
-  { id: "gaps",     icon: "▼", label: "Gaps Fechados",       desc: "lacunas de conteúdo resolvidas", pts: 20, current: 0, target: 47, hex: "#ef4444", tw: "red" },
+  { id: "local",    icon: "◉", label: "SEO Local",           desc: "cidades com LP dedicada",     pts: 15, current: 13, target: 13,  hex: "#f59e0b", tw: "amber" },
+  { id: "gaps",     icon: "▼", label: "Gaps Fechados",       desc: "lacunas de conteúdo resolvidas", pts: 20, current: 18, target: 47, hex: "#ef4444", tw: "red" },
 ];
 
 const SCORE_TOTAL = Math.round(
@@ -736,8 +762,8 @@ export default function MarketingOS() {
                 {[
                   { label: "Content Engine", val: `${totalArticles}`, sub: "artigos publicados", desc: "9 clusters SEO", bg: "bg-indigo-500/8", border: "border-indigo-500/20", text: "text-indigo-400", glow: "rgba(99,102,241,0.15)", action: () => setActiveSection("inventory") },
                   { label: "SEO Opportunity", val: `${totalGaps}`, sub: "gaps identificados", desc: "artigos em falta", bg: "bg-amber-500/8", border: "border-amber-500/20", text: "text-amber-400", glow: "rgba(245,158,11,0.15)", action: () => setActiveSection("clusters") },
-                  { label: "Landing Pages", val: "30", sub: "LPs ativas", desc: "todas publicadas", bg: "bg-emerald-500/8", border: "border-emerald-500/20", text: "text-emerald-400", glow: "rgba(34,197,94,0.15)", action: () => setActiveSection("inventory") },
-                  { label: "Local Expansion", val: "10", sub: "cidades mapeadas", desc: "Vale do Paraíba", bg: "bg-cyan-500/8", border: "border-cyan-500/20", text: "text-cyan-400", glow: "rgba(6,182,212,0.15)", action: () => setActiveSection("local") },
+                  { label: "Landing Pages", val: "40", sub: "LPs ativas", desc: "todas publicadas", bg: "bg-emerald-500/8", border: "border-emerald-500/20", text: "text-emerald-400", glow: "rgba(34,197,94,0.15)", action: () => setActiveSection("inventory") },
+                  { label: "Local Expansion", val: "21", sub: "cidades mapeadas", desc: "Vale do Paraíba", bg: "bg-cyan-500/8", border: "border-cyan-500/20", text: "text-cyan-400", glow: "rgba(6,182,212,0.15)", action: () => setActiveSection("local") },
                 ].map(k => (
                   <button key={k.label} onClick={k.action}
                     className={`${k.bg} border ${k.border} rounded-2xl p-5 text-left hover:scale-[1.02] transition-all cursor-pointer group`}
