@@ -101,6 +101,12 @@ const ARTICLES: {
   { slug: "lavanderia-de-tenis-como-funciona", title: "Lavanderia de tênis: como funciona e quanto custa", cluster: "Tênis", funnel: "Consideration", intent: "Transacional", lp: "/tenis", monetization: "Limpeza de tênis", gap: "Preço de lavagem de tênis por material" },
   { slug: "lavar-tapete-lavanderia-ou-em-casa", title: "Lavar tapete: lavanderia ou em casa?", cluster: "Tapetes & Casa", funnel: "Consideration", intent: "Transacional", lp: "/tapetes", monetization: "Limpeza de tapetes", gap: "Frequência de lavagem por tipo de tapete" },
   { slug: "lavanderia-edredom-cobertor-colcha", title: "Lavar edredom, cobertor e colcha na lavanderia", cluster: "Saúde & Higiene", funnel: "Consideration", intent: "Transacional", lp: "/higienizacao-edredom", monetization: "Higienização de edredons", gap: "Guia por tipo de enchimento (pluma, fibra, látex)" },
+  // ── EPIC-02 · Gap Articles (batch 2) ──────────────────────────────────────
+  { slug: "com-que-frequencia-lavar-edredom", title: "Com que frequência lavar edredom? Guia por estação e perfil", cluster: "Saúde & Higiene", funnel: "Awareness", intent: "Informacional", lp: "/higienizacao-edredom", monetization: "Higienização de edredons", gap: "Frequência por perfil: alérgicos, animais, bebês" },
+  { slug: "como-tirar-mancha-de-cafe-da-roupa", title: "Como tirar mancha de café da roupa: passo a passo por tipo de café", cluster: "Manchas", funnel: "Awareness", intent: "Informacional", lp: "/remocao-manchas", monetization: "Remoção de manchas", gap: "Café puro vs. café com leite: tratamentos distintos" },
+  { slug: "acaros-no-sofa-sinais-e-solucao", title: "Ácaros no sofá: sinais, riscos e como eliminar de vez", cluster: "Saúde & Higiene", funnel: "Awareness", intent: "Informacional", lp: "/sofas", monetization: "Higienização de sofás", gap: "Guia de identificação e frequência recomendada" },
+  { slug: "quanto-custa-higienizar-sofa-profissional", title: "Quanto custa higienizar sofá profissional em SJC e região", cluster: "Tapetes & Casa", funnel: "Decisão", intent: "Transacional", lp: "/sofas", monetization: "Higienização de sofás", gap: "Tabela de preços por tipo e tamanho de sofá" },
+  { slug: "preco-lavagem-tenis-sao-jose-dos-campos", title: "Preço de lavagem de tênis em São José dos Campos: tabela 2025", cluster: "Tênis", funnel: "Decisão", intent: "Transacional", lp: "/tenis", monetization: "Limpeza de tênis", gap: "Tabela de preços por material + descontos progressivos" },
 ];
 
 // ─── CLUSTERS DATA ────────────────────────────────────────────────────────────
@@ -340,11 +346,11 @@ const SECTIONS = [
 // ─── SCORE BREAKDOWN ──────────────────────────────────────────────────────────
 
 const SCORE_BREAKDOWN = [
-  { id: "content",  icon: "✦", label: "Conteúdo Publicado", desc: "artigos SEO no ar",           pts: 30, current: 63, target: 70,  hex: "#6366f1", tw: "indigo" },
+  { id: "content",  icon: "✦", label: "Conteúdo Publicado", desc: "artigos SEO no ar",           pts: 30, current: 68, target: 70,  hex: "#6366f1", tw: "indigo" },
   { id: "lps",      icon: "◉", label: "Landing Pages",      desc: "LPs ativas e otimizadas",     pts: 20, current: 40, target: 40,  hex: "#22c55e", tw: "emerald" },
   { id: "clusters", icon: "◈", label: "Clusters SEO",        desc: "clusters com ≥3 artigos",     pts: 15, current: 9,  target: 9,   hex: "#a855f7", tw: "purple" },
   { id: "local",    icon: "◉", label: "SEO Local",           desc: "cidades com LP dedicada",     pts: 15, current: 13, target: 13,  hex: "#f59e0b", tw: "amber" },
-  { id: "gaps",     icon: "▼", label: "Gaps Fechados",       desc: "lacunas de conteúdo resolvidas", pts: 20, current: 23, target: 47, hex: "#ef4444", tw: "red" },
+  { id: "gaps",     icon: "▼", label: "Gaps Fechados",       desc: "lacunas de conteúdo resolvidas", pts: 20, current: 28, target: 47, hex: "#ef4444", tw: "red" },
 ];
 
 const SCORE_TOTAL = Math.round(
