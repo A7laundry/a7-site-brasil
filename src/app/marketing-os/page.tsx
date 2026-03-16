@@ -91,6 +91,12 @@ const ARTICLES: {
   { slug: "lavanderia-cruzeiro", title: "Lavanderia em Cruzeiro: coleta e entrega", cluster: "Local", funnel: "Decisão", intent: "Navegacional", lp: "/lavanderia/cruzeiro", monetization: "Todos os serviços", gap: "LP dedicada /lavanderia/cruzeiro (ativa)" },
   { slug: "lavanderia-aparecida", title: "Lavanderia em Aparecida: coleta e pousadas", cluster: "Local", funnel: "Decisão", intent: "Navegacional", lp: "/lavanderia/aparecida", monetization: "Todos os serviços", gap: "LP dedicada /lavanderia/aparecida (ativa)" },
   { slug: "lavanderia-potim", title: "Lavanderia em Potim: coleta e entrega", cluster: "Local", funnel: "Decisão", intent: "Navegacional", lp: "/lavanderia/potim", monetization: "Todos os serviços", gap: "LP dedicada /lavanderia/potim (ativa)" },
+  // ── EPIC-02 · Manchas Cluster ─────────────────────────────────────────────
+  { slug: "como-tirar-mancha-de-oleo-roupa", title: "Como tirar mancha de óleo de roupa", cluster: "Manchas", funnel: "Awareness", intent: "Informacional", lp: "/remocao-manchas", monetization: "Remoção de manchas", gap: "Óleo de motor vs. óleo de cozinha: tratamentos diferentes" },
+  { slug: "como-tirar-mancha-de-vinho-roupa", title: "Como tirar mancha de vinho da roupa", cluster: "Manchas", funnel: "Awareness", intent: "Informacional", lp: "/remocao-manchas", monetization: "Remoção de manchas", gap: "Mancha de vinho em tecidos delicados: guia específico" },
+  { slug: "como-tirar-mancha-de-mofo-roupa", title: "Como tirar mancha de mofo de roupa", cluster: "Manchas", funnel: "Awareness", intent: "Informacional", lp: "/remocao-manchas", monetization: "Remoção de manchas", gap: "Mofo em roupas de inverno guardadas: prevenção" },
+  { slug: "como-tirar-mancha-amarela-roupa-branca", title: "Como tirar mancha amarela de roupa branca", cluster: "Manchas", funnel: "Consideration", intent: "Transacional", lp: "/remocao-manchas", monetization: "Remoção de manchas", gap: "Recuperar camisa branca com manchas antigas de suor" },
+  { slug: "lavanderia-especializada-manchas-dificeis", title: "Lavanderia especializada em manchas difíceis", cluster: "Manchas", funnel: "Decisão", intent: "Transacional", lp: "/remocao-manchas", monetization: "Remoção de manchas profissional", gap: "Calculadora: vale tentar em casa ou ir direto à lavanderia?" },
   // ── EPIC-02 · Tênis + Tapetes + Edredom ───────────────────────────────────
   { slug: "lavanderia-de-tenis-como-funciona", title: "Lavanderia de tênis: como funciona e quanto custa", cluster: "Tênis", funnel: "Consideration", intent: "Transacional", lp: "/tenis", monetization: "Limpeza de tênis", gap: "Preço de lavagem de tênis por material" },
   { slug: "lavar-tapete-lavanderia-ou-em-casa", title: "Lavar tapete: lavanderia ou em casa?", cluster: "Tapetes & Casa", funnel: "Consideration", intent: "Transacional", lp: "/tapetes", monetization: "Limpeza de tapetes", gap: "Frequência de lavagem por tipo de tapete" },
@@ -334,11 +340,11 @@ const SECTIONS = [
 // ─── SCORE BREAKDOWN ──────────────────────────────────────────────────────────
 
 const SCORE_BREAKDOWN = [
-  { id: "content",  icon: "✦", label: "Conteúdo Publicado", desc: "artigos SEO no ar",           pts: 30, current: 58, target: 70,  hex: "#6366f1", tw: "indigo" },
+  { id: "content",  icon: "✦", label: "Conteúdo Publicado", desc: "artigos SEO no ar",           pts: 30, current: 63, target: 70,  hex: "#6366f1", tw: "indigo" },
   { id: "lps",      icon: "◉", label: "Landing Pages",      desc: "LPs ativas e otimizadas",     pts: 20, current: 40, target: 40,  hex: "#22c55e", tw: "emerald" },
   { id: "clusters", icon: "◈", label: "Clusters SEO",        desc: "clusters com ≥3 artigos",     pts: 15, current: 9,  target: 9,   hex: "#a855f7", tw: "purple" },
   { id: "local",    icon: "◉", label: "SEO Local",           desc: "cidades com LP dedicada",     pts: 15, current: 13, target: 13,  hex: "#f59e0b", tw: "amber" },
-  { id: "gaps",     icon: "▼", label: "Gaps Fechados",       desc: "lacunas de conteúdo resolvidas", pts: 20, current: 18, target: 47, hex: "#ef4444", tw: "red" },
+  { id: "gaps",     icon: "▼", label: "Gaps Fechados",       desc: "lacunas de conteúdo resolvidas", pts: 20, current: 23, target: 47, hex: "#ef4444", tw: "red" },
 ];
 
 const SCORE_TOTAL = Math.round(
