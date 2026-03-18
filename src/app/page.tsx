@@ -1,4 +1,4 @@
-import HomeRedesign from "@/components/HomeRedesign";
+import HomeV2 from "@/components/HomeV2";
 import {
   generateLocalBusinessSchema,
   generateFAQSchema,
@@ -40,7 +40,7 @@ export default function Home() {
         }}
       />
 
-      <HomeRedesign />
+      <HomeV2 />
     </>
   );
 }
