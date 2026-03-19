@@ -9,9 +9,9 @@ const WA_PATH =
   "M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z";
 
 const STATS = [
-  { value: "Coleta em Jacareí", label: "zona sul e norte" },
+  { value: "2 unidades", label: "físicas em Jacareí" },
   { value: "Entrega em 48h", label: "prazo garantido" },
-  { value: "Zona sul + norte", label: "cobertura total" },
+  { value: "Toda a cidade", label: "cobertura completa" },
   { value: "Desde 2019", label: "no Vale do Paraíba" },
 ];
 
@@ -127,18 +127,18 @@ const PROXIMITY_BENEFITS = [
 
 const TESTIMONIALS = [
   {
-    name: "Fernanda Couto",
-    city: "Jacareí — Centro",
-    text: "Morava em SJC antes e usava a A7 sempre. Quando me mudei para Jacareí, fiquei com medo de perder o serviço. Para minha surpresa, eles atendem Jacareí com o mesmo prazo e qualidade. Nunca parei de usar.",
+    name: "Daniela Martins",
+    city: "Jacareí — Vila Branca",
+    text: "Tenho peças de seda e linho que tinha medo de mandar lavar. A A7 cuidou de tudo com uma atenção incrível. Voltaram perfeitas, sem encolher, sem desbotamento. Recomendo demais.",
   },
   {
-    name: "Gilberto Ramos",
-    city: "Jacareí — Jardim Califórnia",
-    text: "Uso para minha família inteira. Coleta toda semana no bairro, entrega em 48h, roupas impecáveis. Nunca tive problema nenhum em mais de 1 ano de cliente.",
+    name: "Eduardo Lima",
+    city: "Jacareí — Jardim Esper",
+    text: "Limpei dois edredons e um tapete persa que é da família há anos. O tapete voltou com as cores vivas como nunca. Atendimento rápido, coleta no dia seguinte ao agendamento.",
   },
   {
     name: "Simone Araujo",
-    city: "Jacareí — Nova Jacareí",
+    city: "Jacareí — Centro",
     text: "Terceirizei a lavanderia de casa para a A7 e ganhei meu fim de semana de volta. Edredons, roupas do dia a dia, tudo junto. Qualidade que não encontrava antes em Jacareí.",
   },
 ];
@@ -290,7 +290,50 @@ export default function JacareiPage() {
         </div>
       </section>
 
-      <section className="py-24 bg-slate-900">
+      <section className="py-16 bg-slate-900">
+        <div className="max-w-5xl mx-auto px-5">
+          <span className="text-xs font-bold text-blue-400 uppercase tracking-widest block mb-4">Nossas unidades</span>
+          <h2 className="text-white font-black text-3xl md:text-4xl tracking-tight mb-8">2 endereços físicos em Jacareí</h2>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {[
+              {
+                bairro: "Vila Branca",
+                endereco: "Av. Almeida Junior, 112",
+                cep: "CEP 12301-572",
+                horario: "Seg–Sex 09h–18h · Sáb 09h–13h",
+                phone: "(12) 3958-5006",
+                wa: "551239585006",
+              },
+              {
+                bairro: "Jardim Esper",
+                endereco: "Av. Siqueira Campos, s/n",
+                cep: "CEP 12307-000",
+                horario: "Seg–Sex 09h–18h · Sáb 08h–13h",
+                phone: "(12) 97412-8390",
+                wa: "5512974128390",
+              },
+            ].map((u) => (
+              <div key={u.bairro} className="bg-slate-800 border border-slate-700 hover:border-blue-500 transition-colors p-6 rounded-lg">
+                <h3 className="text-white font-bold text-lg mb-1">A7 Lavanderia — {u.bairro}</h3>
+                <p className="text-slate-400 text-sm mb-0.5">{u.endereco}</p>
+                <p className="text-slate-500 text-xs mb-1">{u.cep} · Jacareí, SP</p>
+                <p className="text-blue-300 text-xs mb-4">🕐 {u.horario}</p>
+                <a
+                  href={`https://wa.me/${u.wa}?text=${encodeURIComponent("Olá! Gostaria de agendar uma coleta em Jacareí. 🧺")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white text-sm font-semibold px-4 py-2 rounded transition-colors"
+                >
+                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg>
+                  {u.phone}
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-slate-950">
         <div className="max-w-5xl mx-auto px-5">
           <div className="mb-14">
             <span className="text-xs font-bold text-blue-400 uppercase tracking-widest block mb-4">
