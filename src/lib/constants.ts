@@ -72,6 +72,18 @@ export const COMPANY = {
       hours: "Aberto 24 horas",
     },
     {
+      name: "A7 Lavanderia — São Paulo (Delivery)",
+      street: null,
+      neighborhood: null,
+      city: "São Paulo",
+      state: "SP",
+      zip: null,
+      phone: "(12) 97412-8390",
+      phoneRaw: "5512974128390",
+      hours: "Delivery 24h",
+      virtual: true,
+    },
+    {
       name: "A7 Lavanderia — Jardim Esper",
       street: "Av. Siqueira Campos, s/n",
       neighborhood: "Jardim Esper",
