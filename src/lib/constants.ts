@@ -117,6 +117,17 @@ export const COMPANY = {
       virtual: true,
     },
     {
+      name: "A7 Lavanderia — Vila Branca",
+      street: "Av. Almeida Junior, 112",
+      neighborhood: "Vila Branca",
+      city: "Jacareí",
+      state: "SP",
+      zip: "12301-572",
+      phone: "(12) 3958-5006",
+      phoneRaw: "551239585006",
+      hours: "Seg–Sex 09h–18h · Sáb 09h–13h",
+    },
+    {
       name: "A7 Lavanderia — Jardim Esper",
       street: "Av. Siqueira Campos, s/n",
       neighborhood: "Jardim Esper",
