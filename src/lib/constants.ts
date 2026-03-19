@@ -25,10 +25,10 @@ export const COMPANY = {
     display: "Seg–Sex 08h–18h · Sáb 08h–13h",
   },
   socialMedia: {
-    instagram: "[PLACEHOLDER: https://instagram.com/a7lavanderia]",
-    facebook: "[PLACEHOLDER: https://facebook.com/a7lavanderia]",
-    tiktok: "[PLACEHOLDER: https://tiktok.com/@a7lavanderia]",
-    youtube: "[PLACEHOLDER: https://youtube.com/@a7lavanderia]",
+    instagram: "https://instagram.com/a7lavanderia",
+    facebook: "https://facebook.com/lavanderiaa7",
+    tiktok: null,
+    youtube: null,
   },
   stats: {
     attendances: "50.000",

@@ -40,7 +40,10 @@ const localBusinessSchema = {
       closes: "13:00",
     },
   ],
-  sameAs: [],
+  sameAs: [
+    "https://instagram.com/a7lavanderia",
+    "https://facebook.com/lavanderiaa7",
+  ],
   serviceArea: {
     "@type": "GeoCircle",
     geoMidpoint: {
