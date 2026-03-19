@@ -50,6 +50,17 @@ export const COMPANY = {
       hours: "Seg–Sex 08h–18h · Sáb 08h–13h",
     },
     {
+      name: "A7 Lavanderia — Urbanova",
+      street: "Av. Shishima Hifumi, 2.200",
+      neighborhood: "Urbanova II",
+      city: "São José dos Campos",
+      state: "SP",
+      zip: "12244-000",
+      phone: "(12) 3346-6490",
+      phoneRaw: "551233466490",
+      hours: "Seg–Sex 08h–18h · Sáb 08h–13h",
+    },
+    {
       name: "A7 Lavanderia — Jardim Morumbi",
       street: "Av. Benedito Bento, 717",
       neighborhood: "Jd. Morumbi",
