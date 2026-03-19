@@ -61,6 +61,17 @@ export const COMPANY = {
       hours: "Seg–Sex 08h–18h · Sáb 08h–13h",
     },
     {
+      name: "A7 Lavanderia — Jardim São Dimas",
+      street: "Av. Nove de Julho, 242",
+      neighborhood: "Jardim São Dimas",
+      city: "São José dos Campos",
+      state: "SP",
+      zip: "12243-000",
+      phone: "(12) 98844-0266",
+      phoneRaw: "5512988440266",
+      hours: "Seg–Sex 09h–18h · Sáb 09h–13h",
+    },
+    {
       name: "A7 Lavanderia — Jardim Morumbi",
       street: "Av. Benedito Bento, 717",
       neighborhood: "Jd. Morumbi",
