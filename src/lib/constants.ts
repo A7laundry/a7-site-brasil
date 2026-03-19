@@ -127,6 +127,18 @@ export const COMPANY = {
       hours: "Seg–Sex 08h–18h · Sáb 08h–13h",
     },
     {
+      name: "A7 Lavanderia — Mogi das Cruzes (Delivery)",
+      street: null,
+      neighborhood: null,
+      city: "Mogi das Cruzes",
+      state: "SP",
+      zip: null,
+      phone: "(12) 97412-8390",
+      phoneRaw: "5512974128390",
+      hours: "Delivery 24h",
+      virtual: true,
+    },
+    {
       name: "A7 Lavanderia — São Paulo (Delivery)",
       street: null,
       neighborhood: null,
