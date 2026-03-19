@@ -72,6 +72,17 @@ export const COMPANY = {
       hours: "Seg–Sex 09h–18h · Sáb 09h–13h",
     },
     {
+      name: "A7 Lavanderia — Cidade Morumbi",
+      street: "R. Gisele Martins, 441",
+      neighborhood: "Cidade Morumbi",
+      city: "São José dos Campos",
+      state: "SP",
+      zip: "12236-500",
+      phone: "(12) 3939-7543",
+      phoneRaw: "551239397543",
+      hours: "Aberto 24 horas",
+    },
+    {
       name: "A7 Lavanderia — Jardim Morumbi",
       street: "Av. Benedito Bento, 717",
       neighborhood: "Jd. Morumbi",
