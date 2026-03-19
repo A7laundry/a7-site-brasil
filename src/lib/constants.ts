@@ -258,6 +258,12 @@ export const WHATSAPP_MESSAGES = {
     "Olá! Sou de Taubaté e gostaria de agendar uma coleta. 📍",
   "jacarei":
     "Olá! Sou de Jacareí e quero agendar uma coleta. 📍",
+  "sao-paulo":
+    "Olá! Sou de São Paulo e gostaria de agendar uma coleta. 📍",
+  "mogi-das-cruzes":
+    "Olá! Sou de Mogi das Cruzes e gostaria de agendar uma coleta. 📍",
+  "manaus":
+    "Olá! Sou de Manaus e gostaria de agendar uma coleta. 📍",
   "lorena-guaratingueta":
     "Olá! Sou de Lorena/Guaratinguetá e quero agendar uma coleta. 📍",
 };

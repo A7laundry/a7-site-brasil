@@ -15,7 +15,14 @@ const STATS = [
   { value: "Desde 2019", label: "na região" },
 ];
 
+const UNIT = {
+  address: "Av. Haroldo Mattos, 817 — Esplanada",
+  phone: "(12) 98177-8142",
+  hours: "Seg–Sex 08h–18h · Sáb 08h–13h",
+};
+
 const NEIGHBORHOODS = [
+  { name: "Esplanada", detail: "Unidade física na Av. Haroldo Mattos, 817. Coleta e entrega no bairro e adjacências." },
   { name: "Centro", detail: "Toda a área central, incluindo Praça da República e arredores." },
   { name: "Jardim das Nações", detail: "Coleta e entrega nos principais condomínios do bairro." },
   { name: "Quarta Divisão", detail: "Atendimento completo incluindo áreas residenciais e comerciais." },
@@ -127,19 +134,19 @@ const WHY_A7 = [
 
 const TESTIMONIALS = [
   {
-    name: "Patrícia Monteiro",
+    name: "Renata Souza",
+    city: "Taubaté — Esplanada",
+    text: "Uso a A7 há mais de um ano e a qualidade é sempre impecável. Roupas chegam dobradas, cheirosas e no prazo combinado. Nunca tive um problema sequer. Muito satisfeita.",
+  },
+  {
+    name: "Jorge Henrique",
     city: "Taubaté — Centro",
-    text: "Antes eu usava uma lavanderia aqui no Centro de Taubaté. Trocas de prazo, roupas voltando com odor. Com a A7, agendei pelo WhatsApp, coletaram em casa e em 48h tudo estava de volta impecável.",
+    text: "Mandei uniformes da minha empresa e fiquei surpreso com a qualidade. Todas as peças voltaram sem manchas, com as cores preservadas. Fechei contrato mensal e não me arrependo.",
   },
   {
-    name: "Diego Alves",
-    city: "Taubaté — Jardim das Nações",
-    text: "Moro no Jardim das Nações e precisava de uma opção boa para minha roupa social. A A7 atende o bairro normalmente e a qualidade é a mesma das lavanderias premium de SJC. Recomendo.",
-  },
-  {
-    name: "Cássia Rodrigues",
-    city: "Taubaté — Areão",
-    text: "Uso o plano mensal há 4 meses. Coleta toda semana no mesmo dia, sem precisar lembrar de nada. Minhas roupas voltam muito bem cuidadas e passadas.",
+    name: "Lúcia Antunes",
+    city: "Taubaté — Esplanada",
+    text: "Tenho alergia a produtos químicos fortes e a A7 usa produtos suaves. Minha roupa chega limpa, perfumada sem exagero e minha pele não reage. Serviço de excelência em Taubaté.",
   },
 ];
 
@@ -158,7 +165,7 @@ const FAQ = [
   },
   {
     q: "Vocês têm loja física em Taubaté?",
-    a: "Nosso centro de operações fica em São José dos Campos. Mas você não precisa ir a lugar nenhum — a coleta e entrega acontecem na sua porta em Taubaté.",
+    a: "Sim. Nossa unidade fica na Av. Haroldo Mattos, 817 — Esplanada. Atendemos de segunda a sexta das 08h às 18h e sábados das 08h às 13h. Mas você não precisa ir até lá — oferecemos coleta e entrega a domicílio em toda a cidade.",
   },
   {
     q: "Como funciona para empresas em Taubaté?",
@@ -324,8 +331,18 @@ export default function TaubatePage() {
               Atendemos todos os bairros
             </h2>
             <p className="text-slate-400 text-base mt-4 max-w-xl">
-              Independente do bairro, a A7 atende toda Taubaté. Os principais bairros com rota regular:
+              Temos unidade física na Esplanada e atendemos toda Taubaté com coleta e entrega a domicílio.
             </p>
+            <div className="mt-5 inline-flex flex-wrap items-center gap-3 bg-blue-950 border border-blue-700/50 px-5 py-3 rounded">
+              <svg className="w-4 h-4 text-blue-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+              </svg>
+              <span className="text-sm text-blue-200 font-semibold">{UNIT.address}</span>
+              <span className="text-blue-400 text-xs hidden sm:block">·</span>
+              <span className="text-xs text-blue-300">{UNIT.phone}</span>
+              <span className="text-blue-400 text-xs hidden sm:block">·</span>
+              <span className="text-xs text-blue-300/70">{UNIT.hours}</span>
+            </div>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {NEIGHBORHOODS.map((n) => (
