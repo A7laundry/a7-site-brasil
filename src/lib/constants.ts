@@ -72,6 +72,17 @@ export const COMPANY = {
       hours: "Aberto 24 horas",
     },
     {
+      name: "A7 Lavanderia — Taubaté",
+      street: "Av. Haroldo Mattos, 817",
+      neighborhood: "Esplanada Independência",
+      city: "Taubaté",
+      state: "SP",
+      zip: "12040-670",
+      phone: "(12) 98177-8142",
+      phoneRaw: "5512981778142",
+      hours: "Seg–Sex 08h–18h · Sáb 08h–13h",
+    },
+    {
       name: "A7 Lavanderia — São Paulo (Delivery)",
       street: null,
       neighborhood: null,
