@@ -2,6 +2,7 @@
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { Star, ChevronDown, Menu, X, ArrowRight, Shield, Truck, Clock, Sparkles, Smartphone, Package, CheckCircle2 } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
+import { TESTIMONIALS as RAW_TESTIMONIALS } from "@/lib/constants";
 const logoDark = "/logo-dark.png";
 const logoLight = "/logo-light.png";
 
@@ -10,8 +11,8 @@ const COMPANY = {
   name: "A7 Lavanderia",
   tagline: "Lavanderia premium com coleta e entrega",
   whatsapp: "5512974128390",
-  stats: { attendances: "50.000", unitsBrazil: 14, googleRating: 4.9, satisfaction: "99,7" },
-  cities: ["São José dos Campos","Taubaté","Jacareí","Caçapava","Pindamonhangaba","Guaratinguetá","Lorena","Cruzeiro","Aparecida","Caraguatatuba","São Sebastião","Ubatuba","Campos do Jordão"],
+  stats: { attendances: "50.000", unitsBrazil: 12, googleRating: 4.9, satisfaction: "99,7" },
+  cities: ["São José dos Campos", "Jacareí", "Taubaté", "Manaus", "São Paulo", "Mogi das Cruzes"],
 };
 
 const WA_AGENDAR = `https://wa.me/5512974128390?text=${encodeURIComponent("Olá! Gostaria de agendar uma coleta gratuita. 🚀")}`;
@@ -46,13 +47,11 @@ const HOW_IT_WORKS = [
   { step: 4, title: "Devolvemos pronto para vestir", desc: "Suas roupas voltam limpas, passadas e embaladas na sua porta.", icon: Package },
 ];
 
-const TESTIMONIALS = [
-  { name: "Maria Silva", city: "São José dos Campos", rating: 5, text: "A A7 mudou minha rotina! Antes eu perdia todo fim de semana lavando roupa. Agora é só agendar pelo WhatsApp e pronto. Qualidade impecável!", avatar: "MS" },
-  { name: "Carlos Santos", city: "Taubaté", rating: 5, text: "Uso o plano Família há 8 meses. Minha esposa e eu ganhamos um tempo precioso juntos. As roupas voltam perfeitas, cheirosas e bem passadas.", avatar: "CS" },
-  { name: "Ana Oliveira", city: "Jacareí", rating: 5, text: "Mandei meus edredons que estavam guardados há meses. Voltaram como novos! Sem cheiro, sem ácaros, macios. Super recomendo.", avatar: "AO" },
-  { name: "Roberto Mendes", city: "São José dos Campos", rating: 5, text: "Como gerente de hotel, preciso de um parceiro confiável. A A7 nunca me deixou na mão. Pontualidade e qualidade sempre.", avatar: "RM" },
-  { name: "Juliana Costa", city: "Pindamonhangaba", rating: 5, text: "Meus tênis brancos estavam impossíveis. A A7 devolveu eles como se tivessem saído da caixa. Virei cliente fiel!", avatar: "JC" },
-];
+const TESTIMONIALS = RAW_TESTIMONIALS.map((t) => ({
+  ...t,
+  city: "neighborhood" in t && t.neighborhood ? `${t.neighborhood}, ${t.city}` : t.city,
+  avatar: t.name.split(" ").map((n: string) => n[0]).slice(0, 2).join(""),
+}));
 
 const TOP_ARTICLES = [
   { slug: "alergia-acaros-roupa-cama", title: "Alergia a Ácaros? Veja o que sua Roupa de Cama tem a Ver com Isso", excerpt: "Entenda por que lavar edredons de 3 em 3 meses pode mudar a qualidade do seu sono.", category: "SAÚDE", categoryColor: "bg-red-500", image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=85&fit=crop", url: "/blog/alergia-acaros-roupa-cama" },

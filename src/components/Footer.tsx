@@ -27,10 +27,10 @@ export default function Footer() {
                 { name: "Instagram", href: COMPANY.socialMedia.instagram },
                 { name: "Facebook", href: COMPANY.socialMedia.facebook },
                 { name: "TikTok", href: COMPANY.socialMedia.tiktok },
-              ].map((social) => (
+              ].filter((s) => s.href).map((social) => (
                 <a
                   key={social.name}
-                  href={social.href}
+                  href={social.href ?? "#"}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.name}

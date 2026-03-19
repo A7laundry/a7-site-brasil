@@ -87,7 +87,7 @@ export default function SocialProof() {
                 </div>
                 <div>
                   <p className="font-bold text-ink-900 text-sm">{t.name}</p>
-                  <p className="text-xs text-ink-300">{t.city}</p>
+                  <p className="text-xs text-ink-300">{"neighborhood" in t && t.neighborhood ? `${t.neighborhood}, ${t.city}` : t.city}</p>
                 </div>
               </div>
             </motion.div>
