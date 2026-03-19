@@ -342,6 +342,8 @@ export default function TaubatePage() {
               <span className="text-xs text-blue-300">{UNIT.phone}</span>
               <span className="text-blue-400 text-xs hidden sm:block">·</span>
               <span className="text-xs text-blue-300/70">{UNIT.hours}</span>
+              <span className="text-blue-400 text-xs hidden sm:block">·</span>
+              <a href="/taubate-esplanada" className="text-xs text-blue-400 hover:text-white font-medium transition-colors">Ver página →</a>
             </div>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">

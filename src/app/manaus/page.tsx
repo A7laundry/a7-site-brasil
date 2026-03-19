@@ -314,6 +314,7 @@ export default function ManausPage() {
                 horario: "Aberto 24 horas",
                 phone: "(92) 98115-4947",
                 wa: "559298115494",
+                slug: "/manaus-coroado",
               },
               {
                 bairro: "Zumbi dos Palmares",
@@ -322,9 +323,10 @@ export default function ManausPage() {
                 horario: "Aberto 24 horas",
                 phone: "(92) 98115-4947",
                 wa: "559298115494",
+                slug: "/manaus-zumbi",
               },
             ].map((u) => (
-              <div key={u.bairro} className="bg-slate-800 border border-slate-700 hover:border-blue-500 transition-colors p-6 rounded-lg">
+              <div key={u.bairro} className="bg-slate-800 border border-slate-700 hover:border-blue-500 transition-colors p-6 rounded-lg flex flex-col">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="w-2 h-2 rounded-full bg-green-400 inline-block" />
                   <span className="text-green-400 text-xs font-bold uppercase tracking-wider">{u.horario}</span>
@@ -332,15 +334,20 @@ export default function ManausPage() {
                 <h3 className="text-white font-bold text-lg mb-1">A7 Lavanderia — {u.bairro}</h3>
                 <p className="text-slate-400 text-sm mb-0.5">{u.endereco}</p>
                 <p className="text-slate-500 text-xs mb-4">{u.cep} · Manaus, AM</p>
-                <a
-                  href={`https://wa.me/${u.wa}?text=${encodeURIComponent("Olá! Gostaria de agendar uma coleta. 🧺")}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white text-sm font-semibold px-4 py-2 rounded transition-colors"
-                >
-                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d={WA_PATH} /></svg>
-                  {u.phone}
-                </a>
+                <div className="flex items-center gap-3 mt-auto">
+                  <a
+                    href={`https://wa.me/${u.wa}?text=${encodeURIComponent("Olá! Gostaria de agendar uma coleta. 🧺")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white text-sm font-semibold px-4 py-2 rounded transition-colors"
+                  >
+                    <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d={WA_PATH} /></svg>
+                    {u.phone}
+                  </a>
+                  <Link href={u.slug} className="text-blue-400 hover:text-white text-sm font-medium transition-colors">
+                    Ver página →
+                  </Link>
+                </div>
               </div>
             ))}
           </div>

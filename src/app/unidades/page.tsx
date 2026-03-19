@@ -8,6 +8,21 @@ import ServiceSchema from "@/components/ServiceSchema";
 const whatsappLink = getWhatsAppLink("default");
 
 const UNIDADES_FISICAS = COMPANY.units.filter((u) => !("virtual" in u && u.virtual));
+
+const UNIT_SLUGS: Record<string, string> = {
+  "Bosque dos Eucaliptos": "/sjc-bosque-dos-eucaliptos",
+  "Urbanova": "/sjc-urbanova",
+  "Urbanova II": "/sjc-urbanova",
+  "Jardim São Dimas": "/sjc-jardim-sao-dimas",
+  "Cidade Morumbi": "/sjc-cidade-morumbi",
+  "Jardim Morumbi": "/sjc-jardim-morumbi",
+  "Vila Branca": "/jacarei-vila-branca",
+  "Jardim Esper": "/jacarei-jardim-esper",
+  "Esplanada": "/taubate-esplanada",
+  "Esplanada Independência": "/taubate-esplanada",
+  "Coroado": "/manaus-coroado",
+  "Zumbi dos Palmares": "/manaus-zumbi",
+};
 const UNIDADES_DELIVERY = COMPANY.units.filter((u) => "virtual" in u && u.virtual);
 
 const CIDADES_ORDER = [
@@ -132,11 +147,21 @@ export default function UnidadesPage() {
                 {grouped[city].map((unit, idx) => (
                   <div
                     key={idx}
-                    className="border border-gray-200 rounded-2xl p-6 hover:border-blue-300 hover:shadow-md transition-all"
+                    className="border border-gray-200 rounded-2xl p-6 hover:border-blue-300 hover:shadow-md transition-all flex flex-col"
                   >
-                    <h3 className="font-semibold text-gray-900 mb-4 text-base">
-                      {unit.name}
-                    </h3>
+                    <div className="flex items-start justify-between gap-2 mb-4">
+                      <h3 className="font-semibold text-gray-900 text-base">
+                        {unit.name}
+                      </h3>
+                      {unit.neighborhood && UNIT_SLUGS[unit.neighborhood] && (
+                        <Link
+                          href={UNIT_SLUGS[unit.neighborhood!]}
+                          className="shrink-0 text-xs text-blue-600 hover:text-blue-800 font-medium transition-colors"
+                        >
+                          Ver página →
+                        </Link>
+                      )}
+                    </div>
 
                     <div className="space-y-2.5 text-sm text-gray-600">
                       {unit.street && (
