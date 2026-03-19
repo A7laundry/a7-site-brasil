@@ -26,7 +26,7 @@ export function getServiceSchema(
     provider: {
       "@type": "LocalBusiness",
       name: "A7 Lavanderia",
-      url: "https://a7lavanderia.com.br",
+      url: "https://a7lavanderia.com",
     },
     areaServed: {
       "@type": "City",

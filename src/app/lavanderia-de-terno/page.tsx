@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Lavanderia de Terno em São José dos Campos | A7 Lavanderia",
   description:
     "Limpeza profissional de ternos, blazers e tailleur. Coleta e entrega no Vale do Paraíba. Processo específico que preserva estrutura e caimento.",
-  alternates: { canonical: "https://a7lavanderia.com.br/lavanderia-de-terno" },
+  alternates: { canonical: "https://a7lavanderia.com/lavanderia-de-terno" },
   openGraph: {
     title: "Lavanderia de Terno | A7 Lavanderia",
     description:
@@ -87,7 +87,7 @@ export default function LavanderiaDeTermoPage() {
     <SeoPageTemplate
       title="Lavanderia de Terno — Processo Especializado"
       description="Terno higienizado com processo que preserva estrutura, entretela e forro. Coleta grátis."
-      canonical="https://a7lavanderia.com.br/lavanderia-de-terno"
+      canonical="https://a7lavanderia.com/lavanderia-de-terno"
       schema={[serviceSchema, faqSchema]}
       heroTag="Lavanderia de Terno"
       heroH1="Lavanderia de Terno com Coleta e Entrega Grátis"

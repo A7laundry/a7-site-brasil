@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description,
-    alternates: { canonical: `https://a7lavanderia.com.br/problema/${problem.slug}` },
+    alternates: { canonical: `https://a7lavanderia.com/problema/${problem.slug}` },
     openGraph: { title, description, type: "website", locale: "pt_BR" },
   };
 }
@@ -30,7 +30,7 @@ export default function ProblemPage({ params }: Props) {
   const problem = getProblemBySlug(params.tipo);
   if (!problem) notFound();
 
-  const baseUrl = "https://a7lavanderia.com.br";
+  const baseUrl = "https://a7lavanderia.com";
   const canonical = `${baseUrl}/problema/${problem.slug}`;
 
   const urgenciaLabel: Record<string, string> = {

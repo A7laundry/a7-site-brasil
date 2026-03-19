@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description,
-    alternates: { canonical: `https://a7lavanderia.com.br/lavagem/${service.slug}` },
+    alternates: { canonical: `https://a7lavanderia.com/lavagem/${service.slug}` },
     openGraph: { title, description, type: "website", locale: "pt_BR" },
   };
 }
@@ -30,7 +30,7 @@ export default function LavagemByService({ params }: Props) {
   const service = getServiceBySlug(params.servico);
   if (!service) notFound();
 
-  const baseUrl = "https://a7lavanderia.com.br";
+  const baseUrl = "https://a7lavanderia.com";
   const canonical = `${baseUrl}/lavagem/${service.slug}`;
   const nomeCap = service.nomeComposto.charAt(0).toUpperCase() + service.nomeComposto.slice(1);
 

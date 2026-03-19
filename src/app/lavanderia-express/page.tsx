@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Lavanderia Express 24h São José dos Campos | A7 Lavanderia",
   description:
     "Lavanderia express com entrega em 24h no Vale do Paraíba. Ideal para viagens, eventos e urgências. Coleta e entrega grátis. Agende pelo WhatsApp.",
-  alternates: { canonical: "https://a7lavanderia.com.br/lavanderia-express" },
+  alternates: { canonical: "https://a7lavanderia.com/lavanderia-express" },
   openGraph: {
     title: "Lavanderia Express 24h | A7 Lavanderia",
     description:
@@ -81,7 +81,7 @@ export default function LavanderiaExpressPage() {
     <SeoPageTemplate
       title="Lavanderia Express — Entrega em 24h"
       description="Roupas lavadas e entregues em 24 horas. Para viagens, eventos e urgências no Vale do Paraíba."
-      canonical="https://a7lavanderia.com.br/lavanderia-express"
+      canonical="https://a7lavanderia.com/lavanderia-express"
       schema={[serviceSchema, faqSchema]}
       heroTag="Lavanderia Express"
       heroH1="Lavanderia Express: Roupas Prontas em 24 Horas"

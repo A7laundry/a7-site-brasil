@@ -63,7 +63,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       publishedTime: post.publishedAt,
     },
     alternates: {
-      canonical: `https://a7lavanderia.com.br/blog/${post.slug}`,
+      canonical: `https://a7lavanderia.com/blog/${post.slug}`,
     },
   };
 }
@@ -93,7 +93,7 @@ export default function BlogArticlePage({ params }: Props) {
       name: "A7 Lavanderia",
       logo: {
         "@type": "ImageObject",
-        url: "https://a7lavanderia.com.br/logo.png",
+        url: "https://a7lavanderia.com/logo.png",
       },
     },
   };
@@ -106,19 +106,19 @@ export default function BlogArticlePage({ params }: Props) {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://a7lavanderia.com.br",
+        item: "https://a7lavanderia.com",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Blog",
-        item: "https://a7lavanderia.com.br/blog",
+        item: "https://a7lavanderia.com/blog",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: post.title,
-        item: `https://a7lavanderia.com.br/blog/${post.slug}`,
+        item: `https://a7lavanderia.com/blog/${post.slug}`,
       },
     ],
   };

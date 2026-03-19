@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     "Artigos com dicas profissionais sobre cuidados com roupas, higienização, sustentabilidade e muito mais. Conteúdo da A7 Lavanderia.",
   alternates: {
-    canonical: "https://a7lavanderia.com.br/blog",
+    canonical: "https://a7lavanderia.com/blog",
   },
 };
 

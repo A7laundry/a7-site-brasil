@@ -9,10 +9,10 @@ const localBusinessSchema = {
   name: "A7 Lavanderia",
   description:
     "Lavanderia premium com coleta e entrega no Vale do Paraíba. Roupas, tênis, edredons e tapetes higienizados com padrão internacional.",
-  url: "https://a7lavanderia.com.br",
+  url: "https://a7lavanderia.com",
   telephone: "+55-12-3917-4807",
   priceRange: "$$",
-  image: "https://a7lavanderia.com.br/og-image.jpg",
+  image: "https://a7lavanderia.com/og-image.jpg",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Av. Andrômeda, 3115",
@@ -65,7 +65,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://a7lavanderia.com.br"),
+  metadataBase: new URL("https://a7lavanderia.com"),
   title: {
     default:
       "A7 Lavanderia | Lavanderia Premium com Coleta e Entrega no Vale do Paraíba",
@@ -99,7 +99,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    url: "https://a7lavanderia.com.br",
+    url: "https://a7lavanderia.com",
     siteName: "A7 Lavanderia",
     title:
       "A7 Lavanderia | Lavanderia Premium com Coleta e Entrega no Vale do Paraíba",
@@ -133,7 +133,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://a7lavanderia.com.br",
+    canonical: "https://a7lavanderia.com",
   },
   verification: {
     // [PLACEHOLDER: adicionar IDs reais]

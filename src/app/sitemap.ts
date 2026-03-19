@@ -3,7 +3,7 @@ import { getAllPosts } from "@/lib/blog";
 import { CITIES, SERVICES, PROBLEMS } from "@/lib/seo-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://a7lavanderia.com.br";
+  const baseUrl = "https://a7lavanderia.com";
   const posts = getAllPosts();
   const topCities = CITIES.filter((c) => c.demanda === "alta");
 

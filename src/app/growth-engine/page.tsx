@@ -379,7 +379,7 @@ const ROADMAP = [
   { fase: 1, nome: "Mapa de Conteúdo", status: "Concluído", descricao: "30 artigos classificados por cluster, persona, intenção e funil", entregavel: "BLOCO 1 · mapa-estrategico-conteudo.md", cor: "green" },
   { fase: 2, nome: "Matriz de LPs", status: "Concluído", descricao: "30 landing pages mapeadas por tipo, persona, URL e estratégia", entregavel: "BLOCO 2 · matriz-landing-pages.md", cor: "green" },
   { fase: 3, nome: "Painel Operacional", status: "Concluído", descricao: "Dashboard central para gerenciar SEO, conteúdo e LPs", entregavel: "BLOCO 3 · /growth-engine", cor: "green" },
-  { fase: 4, nome: "Produção de LPs P0", status: "Concluído", descricao: "Todas as 30 LPs estratégicas implementadas + 6 variações do site + painel de departamentos", entregavel: "30 páginas publicadas em a7lavanderia.com.br", cor: "green" },
+  { fase: 4, nome: "Produção de LPs P0", status: "Concluído", descricao: "Todas as 30 LPs estratégicas implementadas + 6 variações do site + painel de departamentos", entregavel: "30 páginas publicadas em a7lavanderia.com", cor: "green" },
   { fase: 5, nome: "SEO e Clusters", status: "Próximo", descricao: "Interlinking, structured data, GEO otimization", entregavel: "Rankings + aparição em AI Search", cor: "blue" },
   { fase: 6, nome: "Programmatic SEO", status: "Futuro", descricao: "1000+ páginas geradas: /lavanderia-[cidade], /lavar-[tipo]", entregavel: "BLOCO 4 · SEO Engine automatizado", cor: "gray" },
   { fase: 7, nome: "Campanhas Pagas", status: "Futuro", descricao: "Google Ads + Meta Ads apontando para LPs específicas", entregavel: "Campanhas segmentadas por LP", cor: "gray" },
@@ -1542,7 +1542,7 @@ export default function GrowthEngineDashboard() {
                     </div>
                     <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3">
                       {lps.map((lp) => {
-                        const href = lp.status === "Publicado" ? `https://a7lavanderia.com.br${lp.url}` : lp.url;
+                        const href = lp.status === "Publicado" ? `https://a7lavanderia.com${lp.url}` : lp.url;
                         const isLive = lp.status === "Publicado";
                         return (
                           <a

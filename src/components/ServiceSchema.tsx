@@ -13,14 +13,14 @@ export default function ServiceSchema({ name, description, slug }: Props) {
     "provider": {
       "@type": "LocalBusiness",
       "name": "A7 Lavanderia",
-      "url": "https://a7lavanderia.com.br",
+      "url": "https://a7lavanderia.com",
       "telephone": "+55-12-97412-8390",
     },
     "areaServed": {
       "@type": "State",
       "name": "Vale do Paraíba, São Paulo, Brasil",
     },
-    "url": `https://a7lavanderia.com.br/${slug}`,
+    "url": `https://a7lavanderia.com/${slug}`,
   };
 
   return (

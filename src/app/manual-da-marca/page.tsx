@@ -517,7 +517,7 @@ export default function ManualDaMarcaPage() {
                   <div className="absolute inset-0 flex flex-col justify-center pl-10">
                     <img src="/logo-light.png" alt="A7" className="h-12 w-auto mb-3" />
                     <p className="text-[#46C1F1] text-sm font-black uppercase tracking-widest">Seu tempo de volta.</p>
-                    <p className="text-white/40 text-xs mt-1">a7lavanderia.com.br</p>
+                    <p className="text-white/40 text-xs mt-1">a7lavanderia.com</p>
                   </div>
                 </div>
                 <div className="px-8 py-4 text-white/40 text-xs border-t border-white/[0.06]">

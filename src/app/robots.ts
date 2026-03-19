@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://a7lavanderia.com.br/sitemap.xml",
+    sitemap: "https://a7lavanderia.com/sitemap.xml",
   };
 }

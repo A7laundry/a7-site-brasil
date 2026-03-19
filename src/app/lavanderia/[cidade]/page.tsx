@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description,
-    alternates: { canonical: `https://a7lavanderia.com.br/lavanderia/${city.slug}` },
+    alternates: { canonical: `https://a7lavanderia.com/lavanderia/${city.slug}` },
     openGraph: {
       title,
       description,
@@ -35,7 +35,7 @@ export default function LavanderiaByCity({ params }: Props) {
   const city = getCityBySlug(params.cidade);
   if (!city) notFound();
 
-  const baseUrl = "https://a7lavanderia.com.br";
+  const baseUrl = "https://a7lavanderia.com";
   const canonical = `${baseUrl}/lavanderia/${city.slug}`;
 
   const localBusinessSchema = {
