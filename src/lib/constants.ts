@@ -94,6 +94,17 @@ export const COMPANY = {
       hours: "Seg–Sex 08h–19h · Sáb 08h–15h",
     },
     {
+      name: "A7 Lavanderia — Zumbi dos Palmares",
+      street: "R. Luís Venzon, 32",
+      neighborhood: "Zumbi dos Palmares",
+      city: "Manaus",
+      state: "AM",
+      zip: "69084-125",
+      phone: "(92) 98115-4947",
+      phoneRaw: "559298115494",
+      hours: "Aberto 24 horas",
+    },
+    {
       name: "A7 Lavanderia — Coroado",
       street: "Av. Rodrigo Otávio, 20b",
       neighborhood: "Coroado",
