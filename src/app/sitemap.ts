@@ -120,6 +120,38 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     })),
 
+    // Páginas de cidade — delivery e novos mercados
+    ...[
+      "/manaus",
+      "/sao-paulo",
+      "/mogi-das-cruzes",
+      "/unidades",
+    ].map((slug) => ({
+      url: `${baseUrl}${slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.85,
+    })),
+
+    // Páginas individuais de unidade física (GEO local — alta prioridade)
+    ...[
+      "/sjc-bosque-dos-eucaliptos",
+      "/sjc-urbanova",
+      "/sjc-jardim-sao-dimas",
+      "/sjc-cidade-morumbi",
+      "/sjc-jardim-morumbi",
+      "/jacarei-vila-branca",
+      "/jacarei-jardim-esper",
+      "/taubate-esplanada",
+      "/manaus-coroado",
+      "/manaus-zumbi",
+    ].map((slug) => ({
+      url: `${baseUrl}${slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    })),
+
     // Variações do site
     ...["/version-c", "/version-d", "/version-e", "/version-f"].map(
       (slug) => ({
