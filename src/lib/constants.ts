@@ -3,7 +3,7 @@ export const COMPANY = {
   tagline: "Lavanderia premium com coleta e entrega",
   description:
     "Lavanderia premium com coleta e entrega no Vale do Paraíba. Roupas, tênis, edredons e tapetes higienizados com padrão internacional.",
-  phone: "(12) 97412-8390",
+  phone: "(12) 3917-4807",
   whatsapp: "5512974128390",
   whatsappDisplay: "(12) 97412-8390",
   email: "comercial@a7lavanderia.com.br",
@@ -11,12 +11,18 @@ export const COMPANY = {
   cnpj: "[PLACEHOLDER: XX.XXX.XXX/0001-XX]",
   foundingYear: "[PLACEHOLDER: ano de fundação]",
   address: {
-    street: "Av. Benedito Bento, 717",
-    neighborhood: "Jd. Morumbi",
+    street: "Av. Andrômeda, 3115",
+    neighborhood: "Bosque dos Eucaliptos",
     city: "São José dos Campos",
     state: "SP",
-    zip: "[PLACEHOLDER: 12200-000]",
+    zip: "12233-000",
     country: "BR",
+  },
+  hours: {
+    weekdays: "08:00–18:00",
+    saturday: "08:00–13:00",
+    sunday: "Fechado",
+    display: "Seg–Sex 08h–18h · Sáb 08h–13h",
   },
   socialMedia: {
     instagram: "[PLACEHOLDER: https://instagram.com/a7lavanderia]",

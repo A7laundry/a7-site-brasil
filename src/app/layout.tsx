@@ -10,21 +10,21 @@ const localBusinessSchema = {
   description:
     "Lavanderia premium com coleta e entrega no Vale do Paraíba. Roupas, tênis, edredons e tapetes higienizados com padrão internacional.",
   url: "https://a7lavanderia.com.br",
-  telephone: "+55-12-97412-8390",
+  telephone: "+55-12-3917-4807",
   priceRange: "$$",
   image: "https://a7lavanderia.com.br/og-image.jpg",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Av. Benedito Bento, 717",
+    streetAddress: "Av. Andrômeda, 3115",
     addressLocality: "São José dos Campos",
     addressRegion: "SP",
-    postalCode: "12230-100",
+    postalCode: "12233-000",
     addressCountry: "BR",
   },
   geo: {
     "@type": "GeoCoordinates",
-    latitude: -23.1896,
-    longitude: -45.8841,
+    latitude: -23.2256,
+    longitude: -45.9019,
   },
   openingHoursSpecification: [
     {
