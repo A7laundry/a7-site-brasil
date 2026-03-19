@@ -71,6 +71,17 @@ export const COMPANY = {
       phoneRaw: "559298115494",
       hours: "Aberto 24 horas",
     },
+    {
+      name: "A7 Lavanderia — Jardim Esper",
+      street: "Av. Siqueira Campos, s/n",
+      neighborhood: "Jardim Esper",
+      city: "Jacareí",
+      state: "SP",
+      zip: "12307-000",
+      phone: "(12) 97412-8390",
+      phoneRaw: "5512974128390",
+      hours: "Seg–Sex 09h–18h · Sáb 08h–13h",
+    },
   ],
   cities: [
     "São José dos Campos",
